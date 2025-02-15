@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:super_fitness_app/src/domain/entities/auth/forget_password/forget_password_response_entity.dart';
 
 part 'forget_password_response_model.g.dart';
 
@@ -20,6 +21,13 @@ class ForgetPasswordResponseModel {
 
   Map<String, dynamic> toJson() {
     return _$ForgetPasswordResponseModelToJson(this);
+  }
+
+  ForgetPasswordResponseEntity toDomain(){
+    return ForgetPasswordResponseEntity(
+      message: message,
+      info: info,
+    );
   }
 }
 

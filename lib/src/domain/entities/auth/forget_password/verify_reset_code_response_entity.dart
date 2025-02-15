@@ -1,4 +1,4 @@
-class ResetCodeResponseEntity {
-  final String? message;
-  ResetCodeResponseEntity({this.message});
+class VerifyResetCodeResponseEntity {
+  final String? status;
+  VerifyResetCodeResponseEntity({this.status});
 }

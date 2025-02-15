@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:super_fitness_app/src/domain/entities/auth/forget_password/reset_password_response_entity.dart';
 
 part 'reset_password_response_model.g.dart';
 
@@ -20,6 +21,12 @@ class ResetPasswordResponseModel {
 
   Map<String, dynamic> toJson() {
     return _$ResetPasswordResponseModelToJson(this);
+  }
+
+  ResetPasswordResponseEntity toDomain(){
+    return ResetPasswordResponseEntity(
+      message: message,
+    );
   }
 }
 

@@ -59,6 +59,7 @@ dependencies:
   cached_network_image:
   pretty_dio_logger: ^1.4.0
   flutter_localization: ^0.3.0
+  flutter_native_splash: ^2.4.4
 
   intl: any
 dev_dependencies:

@@ -1,0 +1,3 @@
+abstract class ForgetPasswordScreenStates{}
+
+class ForgetPasswordScreenInitialState extends ForgetPasswordScreenStates{}

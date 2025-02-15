@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../../../../domain/entities/auth/forget_password/reset_password_request_entity.dart';
+
 part 'reset_password_request_model.g.dart';
 
 @JsonSerializable()
@@ -20,6 +22,13 @@ class ResetPasswordRequestModel {
 
   Map<String, dynamic> toJson() {
     return _$ResetPasswordRequestModelToJson(this);
+  }
+
+  factory ResetPasswordRequestModel.fromDomain(ResetPasswordRequestEntity entity) {
+    return ResetPasswordRequestModel(
+      email: entity.email,
+      newPassword: entity.newPassword,
+    );
   }
 }
 

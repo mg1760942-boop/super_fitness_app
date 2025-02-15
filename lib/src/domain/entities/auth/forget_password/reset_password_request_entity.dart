@@ -1,6 +1,6 @@
-class ResetPasswordRequestModel{
+class ResetPasswordRequestEntity{
   final String email;
   final String newPassword;
 
-  ResetPasswordRequestModel({required this.email, required this.newPassword});
+  ResetPasswordRequestEntity({required this.email, required this.newPassword});
 }

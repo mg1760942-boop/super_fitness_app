@@ -27,6 +27,7 @@ import '../../src/data/data_source/online_data_source/auth/auth_online_data_sour
     as _i299;
 import '../../src/data/repositories_impl/auth_repository_impl.dart' as _i103;
 import '../../src/domain/repositories/auth/auth_repository.dart' as _i701;
+import '../../src/domain/use_cases/register_use_case.dart' as _i824;
 import '../helpers/shared_pref/shared_pref_moduel.dart' as _i802;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -55,8 +56,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i587.ApiServices>(() => _i587.ApiServices(gh<_i361.Dio>()));
     gh.factory<_i599.AuthOnlineDataSource>(
         () => _i299.AuthOnlineDataSourceImpl(gh<_i587.ApiServices>()));
-    gh.factory<_i701.AuthRepository>(
-        () => _i103.AuthRepositoryImpl(gh<_i599.AuthOnlineDataSource>()));
+    gh.factory<_i701.AuthRepository>(() => _i103.AuthRepositoryImpl(
+          gh<_i599.AuthOnlineDataSource>(),
+          gh<_i506.AuthOfflineDataSource>(),
+        ));
+    gh.factory<_i824.RegisterUseCase>(
+        () => _i824.RegisterUseCase(gh<_i701.AuthRepository>()));
     return this;
   }
 }

@@ -1,4 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:super_fitness_app/src/domain/entities/app_user_entity/app_user_entity.dart';
+
+import '../../../../domain/entities/app_user_entity/app_user_entity.dart';
 
 part 'register_response_model.g.dart';
 
@@ -24,6 +27,10 @@ class RegisterResponseModel {
   Map<String, dynamic> toJson() {
     return _$RegisterResponseModelToJson(this);
   }
+
+
+
+
 }
 
 @JsonSerializable()
@@ -72,8 +79,23 @@ class User {
     return _$UserFromJson(json);
   }
 
+
   Map<String, dynamic> toJson() {
     return _$UserToJson(this);
+  }
+  AppUserEntity toAppUserEntity(){
+    return AppUserEntity(
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      gender: gender,
+      height: height!.toDouble(),
+    activityLevel: activityLevel,
+      age:age,
+      goal: goal,
+      weight: weight,
+
+    );
   }
 }
 

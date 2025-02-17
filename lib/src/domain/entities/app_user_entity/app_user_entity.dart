@@ -3,9 +3,9 @@ class AppUserEntity {
   final String ? lastName;
   final String ?  email;
   final  String ? gender;
-  final double ?  height;
-  final double ? weight;
-  final double ? age;
+  final num ?  height;
+  final num ? weight;
+  final num ? age;
   final String ?  goal;
   final String ? activityLevel;
 

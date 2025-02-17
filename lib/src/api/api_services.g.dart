@@ -9,8 +9,12 @@ part of 'api_services.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
 class _ApiServices implements ApiServices {
-  _ApiServices(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'https://flower.elevateegy.com/api/v1/';
+  _ApiServices(
+    this._dio, {
+    this.baseUrl,
+    this.errorLogger,
+  }) {
+    baseUrl ??= 'https://fitness.elevateegy.com/api/v1/';
   }
 
   final Dio _dio;
@@ -32,7 +36,10 @@ class _ApiServices implements ApiServices {
     return requestOptions;
   }
 
-  String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
+  String _combineBaseUrls(
+    String dioBaseUrl,
+    String? baseUrl,
+  ) {
     if (baseUrl == null || baseUrl.trim().isEmpty) {
       return dioBaseUrl;
     }

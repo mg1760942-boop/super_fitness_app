@@ -17,7 +17,7 @@ class AuthRepositoryImpl implements AuthRepository{
   Future<ApiResult<AppUserEntity>> register({required RegisterRequestModel registerRequest}) async{
     return executeApi<AppUserEntity>(apiCall: ()async {
       var response =await _authOnlineDataSource.register(registerRequest);
-      var authOfflineDataSource=await _authOfflineDataSource.saveToken(token: response.$2);
+       await _authOfflineDataSource.saveToken(token: response.$2);
       return response.$1;
     },);
   }

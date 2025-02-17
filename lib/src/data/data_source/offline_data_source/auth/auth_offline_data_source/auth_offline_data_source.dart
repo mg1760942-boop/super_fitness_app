@@ -1,5 +1,5 @@
 abstract interface class AuthOfflineDataSource{
-  Future<void> saveToken({required String token});
+  Future<void> saveToken({ String ? token});
   Future<String?> getToken();
   Future<void> deleteToken();
 }

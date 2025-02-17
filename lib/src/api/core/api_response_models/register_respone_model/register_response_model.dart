@@ -27,6 +27,21 @@ class RegisterResponseModel {
   Map<String, dynamic> toJson() {
     return _$RegisterResponseModelToJson(this);
   }
+  AppUserEntity toAppUserEntity(){
+    return AppUserEntity(
+      firstName: user?.firstName ?? "",
+      lastName: user?. lastName ?? "",
+      email:  user?.email ?? "",
+      gender: user?. gender ?? "",
+      height:  user?.height ?? 0,
+      activityLevel: user?. activityLevel ?? "",
+      age: user?.age ?? 0,
+      goal:  user?.goal ?? "",
+      weight:  user?. weight ?? 0.0 ,
+
+    );
+  }
+
 
 
 
@@ -89,7 +104,7 @@ class User {
       lastName: lastName,
       email: email,
       gender: gender,
-      height: height!.toDouble(),
+      height: height,
     activityLevel: activityLevel,
       age:age,
       goal: goal,

@@ -12,8 +12,7 @@ class AuthOnlineDataSourceImpl  implements AuthOnlineDataSource{
   Future<(AppUserEntity,String)> register( RegisterRequestModel registerRequest) async{
     var response = await _apiServices.register(registerRequestModel: registerRequest);
     var token=response.token ?? "";
-    print("tojen :${token}");
-    return (response.user!.toAppUserEntity(), token);
+    return (response.toAppUserEntity(), token);
   }
 
 }

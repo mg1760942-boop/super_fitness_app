@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:super_fitness_app/src/api/core/api_response_models/register_respone_model/register_response_model.dart';
 import 'package:super_fitness_app/src/api/core/constants/api_base_url.dart';
+import 'package:super_fitness_app/src/api/core/constants/api_end_points.dart';
 
 import 'core/api_request_models/register_request_model/register_request_model.dart';
 
@@ -16,6 +17,7 @@ abstract interface class ApiServices {
   @factoryMethod
   factory ApiServices(Dio dio) = _ApiServices;
 
+  @POST(ApiEndPoints.register)
   Future<RegisterResponseModel>register({@Body() required RegisterRequestModel registerRequestModel});
 
 

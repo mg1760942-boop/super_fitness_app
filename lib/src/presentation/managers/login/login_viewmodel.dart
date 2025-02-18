@@ -12,9 +12,8 @@ class LoginViewmodel extends Cubit<LoginState> {
 
   /// Optional callback for form validation.
   /// If provided, this will be used instead of [formKey.currentState!.validate()].
-  bool Function()? formValidator;
 
-  LoginViewmodel(this.loginUsecase, {this.formValidator})
+  LoginViewmodel(this.loginUsecase, )
       : super(LoginInitial());
 
   TextEditingController emailController = TextEditingController();
@@ -23,19 +22,18 @@ class LoginViewmodel extends Cubit<LoginState> {
   bool validate = false;
 
   void validateFields() {
-    // First check if any field is empty.
-    if (emailController.text.isEmpty || passwordController.text.isEmpty) {
-      validate = false;
-    }
-    // If a custom validator is provided, use it.
-    else if (formValidator != null
-        ? !formValidator!()
-        : !formKey.currentState!.validate()) {
-      validate = false;
-    } else {
-      validate = true;
-    }
-    emit(ValidateFieldsState());
+    // // // First check if any field is empty.
+    // // if (emailController.text.isEmpty || passwordController.text.isEmpty) {
+    // //   validate = false;
+    // // }
+    // // // If a custom validator is provided, use it.
+    // // else if (!formKey.currentState!.validate()) {
+    // //   validate = false;
+    // // } else {
+    // //   validate = true;
+    //
+    //   emit(ValidateFieldsState());
+
   }
 
   Future<void> login() async {

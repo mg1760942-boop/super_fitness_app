@@ -13,6 +13,8 @@ final GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
 class SuperFitnessApp extends StatelessWidget {
   const SuperFitnessApp({super.key});
 
+
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -29,7 +31,7 @@ class SuperFitnessApp extends StatelessWidget {
               supportedLocales: L10n.all,
               debugShowCheckedModeBanner: false,
               navigatorKey: navKey,
-              initialRoute: PageRoutesName.login,
+              initialRoute: PageRoutesName.register,
               onGenerateRoute: AppRoutes.onGenerateRoute,
               themeMode: ThemeMode.dark,
               theme: AppTheme.defaultTheme,

@@ -20,8 +20,7 @@ class AuthOnlineDataSourceImpl implements AuthOnlineDataSource {
   @override
   Future<(AppUserEntity, String)> register(
       RegisterRequestModel registerRequest) async {
-    var response =
-        await apiServices.register(registerRequestModel: registerRequest);
+    var response = await apiServices.register(registerRequestModel: registerRequest);
     var token = response.token ?? "";
     return (response.toAppUserEntity(), token);
   }

@@ -240,6 +240,133 @@ class MockAuthOfflineDataSource extends _i1.Mock
       ) as _i8.Future<String>);
 }
 
+/// A class which mocks [AppUserEntity].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAppUserEntity extends _i1.Mock implements _i6.AppUserEntity {
+  MockAppUserEntity() {
+    _i1.throwOnMissingStub(this);
+  }
+}
+
+/// A class which mocks [RegisterRequestModel].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockRegisterRequestModel extends _i1.Mock
+    implements _i13.RegisterRequestModel {
+  MockRegisterRequestModel() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  set firstName(String? _firstName) => super.noSuchMethod(
+        Invocation.setter(
+          #firstName,
+          _firstName,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set lastName(String? _lastName) => super.noSuchMethod(
+        Invocation.setter(
+          #lastName,
+          _lastName,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set email(String? _email) => super.noSuchMethod(
+        Invocation.setter(
+          #email,
+          _email,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set password(String? _password) => super.noSuchMethod(
+        Invocation.setter(
+          #password,
+          _password,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set rePassword(String? _rePassword) => super.noSuchMethod(
+        Invocation.setter(
+          #rePassword,
+          _rePassword,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set gender(String? _gender) => super.noSuchMethod(
+        Invocation.setter(
+          #gender,
+          _gender,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set height(num? _height) => super.noSuchMethod(
+        Invocation.setter(
+          #height,
+          _height,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set weight(num? _weight) => super.noSuchMethod(
+        Invocation.setter(
+          #weight,
+          _weight,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set age(num? _age) => super.noSuchMethod(
+        Invocation.setter(
+          #age,
+          _age,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set goal(String? _goal) => super.noSuchMethod(
+        Invocation.setter(
+          #goal,
+          _goal,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set activityLevel(String? _activityLevel) => super.noSuchMethod(
+        Invocation.setter(
+          #activityLevel,
+          _activityLevel,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  Map<String, dynamic> toJson() => (super.noSuchMethod(
+        Invocation.method(
+          #toJson,
+          [],
+        ),
+        returnValue: <String, dynamic>{},
+      ) as Map<String, dynamic>);
+}
+
 /// A class which mocks [LoginResponse].
 ///
 /// See the documentation for Mockito's code generation for more information.

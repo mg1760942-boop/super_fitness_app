@@ -42,6 +42,8 @@ void main() {
     );
     when(registerResponseModel.toAppUserEntity()).thenReturn(appUserEntity);
     when(registerResponseModel.token).thenReturn(token);
+
+
     var actual = await authOnlineDataSource.register(registerRequestModel);
     expect(actual, (appUserEntity, token));
   });
@@ -53,6 +55,7 @@ void main() {
       final loginRequest = MockLoginRequest();
       final loginResponse = MockLoginResponse();
       const token = "token";
+
 
       when(apiService.login(loginRequest))
           .thenAnswer((_) async => loginResponse);
@@ -124,7 +127,6 @@ void main() {
       final loginRequest = MockLoginRequest();
       final loginResponse = MockLoginResponse();
       const token = "token";
-
       when(apiService.login(loginRequest))
           .thenAnswer((_) async => loginResponse);
       when(loginResponse.token).thenReturn(token);

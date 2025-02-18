@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/config/routes/page_route_name.dart';
 import 'package:super_fitness_app/src/presentation/pages/onboarding/onboarding_screen.dart';
+import 'package:super_fitness_app/src/presentation/pages/register/view/register_view.dart';
 
 import '../../src/presentation/pages/login/login_screen.dart';
 
@@ -17,6 +18,10 @@ class AppRoutes {
       case PageRoutesName.login:
         return _handelMaterialPageRoute(
             widget: const LoginScreen(), settings: settings);
+      case PageRoutesName.register:
+        return _handelMaterialPageRoute(
+            widget: const RegisterView(), settings: settings
+        )  ;
       default:
         return _handelMaterialPageRoute(
             widget: const Scaffold(), settings: settings);

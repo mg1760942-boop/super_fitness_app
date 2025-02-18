@@ -34,7 +34,6 @@ void main() {
 
   group("Auth Repository Impl - login", () {
     test("should return Success when login is successful", () async {
-      // Arrange
       final loginResponse = MockLoginResponse();
       when(authOnlineDataSource.login(any))
           .thenAnswer((_) async => loginResponse);
@@ -42,10 +41,8 @@ void main() {
       when(authOfflineDataSource.saveToken(token: anyNamed("token")))
           .thenAnswer((_) async => Success<void>());
 
-      // Act
       final result = await authRepositoryImpl.login(email, password);
 
-      // Assert
       expect(result, isA<Success<void>>());
       verify(authOnlineDataSource.login(any)).called(1);
       verify(authOfflineDataSource.saveToken(token: "token")).called(1);
@@ -54,14 +51,11 @@ void main() {
     test(
         "should return ApiError when authOnlineDataSource.login throws exception",
         () async {
-      // Arrange
       when(authOnlineDataSource.login(any))
           .thenThrow(Exception("Login failed"));
 
-      // Act
       final result = await authRepositoryImpl.login(email, password);
 
-      // Assert
       expect(result, isA<Failures<void>>());
       verify(authOnlineDataSource.login(any)).called(1);
       verifyNever(authOfflineDataSource.saveToken(token: anyNamed("token")));
@@ -70,7 +64,6 @@ void main() {
     test(
         "should return ApiError when authOfflineDataSource.saveToken throws exception",
         () async {
-      // Arrange
       final loginResponse = MockLoginResponse();
       when(authOnlineDataSource.login(any))
           .thenAnswer((_) async => loginResponse);
@@ -78,10 +71,8 @@ void main() {
       when(authOfflineDataSource.saveToken(token: anyNamed("token")))
           .thenThrow(Exception("Saving token failed"));
 
-      // Act
       final result = await authRepositoryImpl.login(email, password);
 
-      // Assert
       expect(result, isA<Failures<void>>());
       verify(authOnlineDataSource.login(any)).called(1);
       verify(authOfflineDataSource.saveToken(token: "token")).called(1);
@@ -89,7 +80,6 @@ void main() {
 
     test("should call authOnlineDataSource.login with correct LoginRequest",
         () async {
-      // Arrange
       final loginResponse = MockLoginResponse();
       when(authOnlineDataSource.login(any))
           .thenAnswer((_) async => loginResponse);
@@ -97,10 +87,8 @@ void main() {
       when(authOfflineDataSource.saveToken(token: anyNamed("token")))
           .thenAnswer((_) async => Success<void>());
 
-      // Act
       await authRepositoryImpl.login(email, password);
 
-      // Assert: capture the argument passed to login
       final captured = verify(authOnlineDataSource.login(captureAny)).captured;
       expect(captured.length, equals(1));
       final loginRequest = captured.first as LoginRequest;

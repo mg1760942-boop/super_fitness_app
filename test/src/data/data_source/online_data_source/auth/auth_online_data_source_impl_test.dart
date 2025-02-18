@@ -49,7 +49,6 @@ void main() {
   group('login', () {
     test('should return LoginResponse with a non-empty token when successful',
         () async {
-      // Arrange
       final loginRequest = MockLoginRequest();
       final loginResponse = MockLoginResponse();
       const token = "token";
@@ -58,10 +57,8 @@ void main() {
           .thenAnswer((_) async => loginResponse);
       when(loginResponse.token).thenReturn(token);
 
-      // Act
       final result = await authOnlineDataSource.login(loginRequest);
 
-      // Assert
       expect(result, equals(loginResponse));
       expect(result.token, equals(token));
       verify(apiService.login(loginRequest)).called(1);
@@ -70,7 +67,6 @@ void main() {
     test(
         'should return LoginResponse with a null token if loginResponse.token is null',
         () async {
-      // Arrange
       final loginRequest = MockLoginRequest();
       final loginResponse = MockLoginResponse();
 
@@ -78,10 +74,8 @@ void main() {
           .thenAnswer((_) async => loginResponse);
       when(loginResponse.token).thenReturn(null);
 
-      // Act
       final result = await authOnlineDataSource.login(loginRequest);
 
-      // Assert
       expect(result.token, isNull);
       verify(apiService.login(loginRequest)).called(1);
     });
@@ -89,7 +83,6 @@ void main() {
     test(
         'should return LoginResponse with an empty token if loginResponse.token is empty',
         () async {
-      // Arrange
       final loginRequest = MockLoginRequest();
       final loginResponse = MockLoginResponse();
 
@@ -97,21 +90,17 @@ void main() {
           .thenAnswer((_) async => loginResponse);
       when(loginResponse.token).thenReturn('');
 
-      // Act
       final result = await authOnlineDataSource.login(loginRequest);
 
-      // Assert
       expect(result.token, equals(''));
       verify(apiService.login(loginRequest)).called(1);
     });
 
     test('should throw an exception when apiServices.login fails', () async {
-      // Arrange
       final loginRequest = MockLoginRequest();
 
       when(apiService.login(loginRequest)).thenThrow(Exception("Login Failed"));
 
-      // Act & Assert
       expect(
         () async => await authOnlineDataSource.login(loginRequest),
         throwsException,
@@ -120,7 +109,6 @@ void main() {
     });
 
     test('should call apiServices.login exactly once per login call', () async {
-      // Arrange
       final loginRequest = MockLoginRequest();
       final loginResponse = MockLoginResponse();
       const token = "token";
@@ -129,11 +117,9 @@ void main() {
           .thenAnswer((_) async => loginResponse);
       when(loginResponse.token).thenReturn(token);
 
-      // Act: Make two separate login calls
       final result1 = await authOnlineDataSource.login(loginRequest);
       final result2 = await authOnlineDataSource.login(loginRequest);
 
-      // Assert
       expect(result1.token, equals(token));
       expect(result2.token, equals(token));
       verify(apiService.login(loginRequest)).called(2);

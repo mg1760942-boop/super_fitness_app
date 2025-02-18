@@ -9,27 +9,54 @@ class LoadingDialog {
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
-       return  Center(
-         child: Lottie.asset(
-           AppImages.loading,
-           width: 150.w,
-           height: 150.h,
-           fit: BoxFit.cover,
-         ),
-       );
+        return Dialog(
+          backgroundColor: const Color(0xFF242424),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.r),
+          ),
+          child: SizedBox(
+            width: 150.w,
+            height: 150.h,
+            child: Padding(
+              padding: EdgeInsets.all(20.r),
+              child: Center(
+                child: Lottie.asset(
+                  AppImages.loading,
+                  fit: BoxFit.contain, // Shows the entire animation
+                ),
+              ),
+            ),
+          ),
+        );
       },
     );
   }
+
   static void hide(BuildContext context) {
-    if(Navigator.canPop(context)){
+    if (Navigator.canPop(context)) {
       Navigator.pop(context);
     }
   }
 
-
   static Widget buildLoadingWidget(BuildContext context) {
     return Center(
-        child: Lottie.asset(
-            height: 200.h, width: 100.w, AppImages.loading));
+      child: Container(
+        width: 150.w,
+        height: 150.h,
+        decoration: BoxDecoration(
+          color: const Color(0xFF242424),
+          borderRadius: BorderRadius.circular(12.r),
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(20.r),
+          child: Center(
+            child: Lottie.asset(
+              AppImages.loading,
+              fit: BoxFit.contain, // Ensures the full animation is visible
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

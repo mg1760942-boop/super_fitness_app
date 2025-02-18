@@ -1,5 +1,4 @@
-class AppRegex{
-  AppRegex._();
+class AppRegExp {
   static bool isNameValid(String name) {
     return RegExp(r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$").hasMatch(name);
   }
@@ -9,7 +8,7 @@ class AppRegex{
   }
 
   static bool isPhoneNumberValid(String phoneNumber) {
-    return RegExp(r"^\+\d{1,15}$").hasMatch(phoneNumber);
+    return RegExp(r"^(?:[+0]9)?[0-9]{11}$").hasMatch(phoneNumber);
   }
 
   static bool isOTPValid(String otp) {

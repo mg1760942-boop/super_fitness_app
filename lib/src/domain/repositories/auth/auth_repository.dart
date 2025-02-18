@@ -6,8 +6,12 @@ import 'package:super_fitness_app/src/domain/entities/auth/forget_password/reset
 import 'package:super_fitness_app/src/domain/entities/auth/forget_password/verify_reset_code_request_entity.dart';
 import 'package:super_fitness_app/src/domain/entities/auth/forget_password/verify_reset_code_response_entity.dart';
 
-abstract interface class AuthRepository{
-  Future<ApiResult<ForgetPasswordResponseEntity>> forgetPassword(ForgetPasswordRequestEntity request);
-  Future<ApiResult<VerifyResetCodeResponseEntity>> verifyResetCode(VerifyResetCodeRequestEntity request);
-  Future<ApiResult<ResetPasswordResponseEntity>> resetPassword(ResetPasswordRequestEntity request);
+abstract interface class AuthRepository {
+  Future<ApiResult<ForgetPasswordResponseEntity>> forgetPassword(
+      ForgetPasswordRequestEntity request);
+  Future<ApiResult<VerifyResetCodeResponseEntity>> verifyResetCode(
+      VerifyResetCodeRequestEntity request);
+  Future<ApiResult<ResetPasswordResponseEntity>> resetPassword(
+      ResetPasswordRequestEntity request);
+  Future<ApiResult<void>> login(String email, String password);
 }

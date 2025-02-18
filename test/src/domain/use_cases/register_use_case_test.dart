@@ -10,17 +10,20 @@ import 'register_use_case_test.mocks.dart';
 
 @GenerateMocks([AuthRepository,AppUserEntity,RegisterRequestModel])
 void main() {
-
-
-  test('should return  Success<AppUserEntity> when call authRepository.register is Success ', ()async {
-    AuthRepository authRepository=MockAuthRepository();
-    AppUserEntity appUserEntity=MockAppUserEntity();
-    RegisterRequestModel registerRequestModel=MockRegisterRequestModel();
+  test(
+      'should return  Success<AppUserEntity> when call authRepository.register is Success ', () async {
+    AuthRepository authRepository = MockAuthRepository();
+    AppUserEntity appUserEntity = MockAppUserEntity();
+    RegisterRequestModel registerRequestModel = MockRegisterRequestModel();
     var successResult = Success<AppUserEntity>(data: appUserEntity);
     provideDummy<ApiResult<AppUserEntity>>(successResult);
-     when(authRepository.register(registerRequest: registerRequestModel)).thenAnswer((_) async => successResult);
-     var actual=await  authRepository.register(registerRequest: registerRequestModel);
-     expect(actual, successResult);
-
+    when(authRepository.register(registerRequest: registerRequestModel))
+        .thenAnswer((_) async =>
+    successResult);
+    var actual = await authRepository.register(
+        registerRequest: registerRequestModel);
+    expect(actual, successResult);
   });
 }
+
+

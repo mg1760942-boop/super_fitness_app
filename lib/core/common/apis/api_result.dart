@@ -1,3 +1,5 @@
+import 'package:super_fitness_app/src/domain/entities/app_user_entity/app_user_entity.dart';
+
 sealed class ApiResult<T>{
 
 }

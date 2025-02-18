@@ -2,39 +2,110 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/core/common/apis/api_result.dart';
-import 'package:super_fitness_app/src/api/core/api_request_models/register_request_model/register_request_model.dart';
+import 'package:super_fitness_app/src/data/api/core/api_request_models/login/login_request.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/login/login_response.dart';
 import 'package:super_fitness_app/src/data/data_source/offline_data_source/auth/auth_offline_data_source/auth_offline_data_source.dart';
 import 'package:super_fitness_app/src/data/data_source/online_data_source/auth/auth_online_data_source.dart';
-import 'package:super_fitness_app/src/data/repositories_impl/auth_repository_impl.dart';
-import 'package:super_fitness_app/src/domain/entities/app_user_entity/app_user_entity.dart';
+import 'package:super_fitness_app/src/data/repository/auth/auth_repository_impl.dart';
 
 import 'auth_repository_impl_test.mocks.dart';
 
-@GenerateMocks([AuthOnlineDataSource , AuthOfflineDataSource,AppUserEntity,RegisterRequestModel ])
+@GenerateMocks([
+  AuthOnlineDataSource,
+  AuthOfflineDataSource,
+  LoginResponse,
+])
 void main() {
-   var authOnlineDataSource=MockAuthOnlineDataSource();
-   var authOfflineDataSource=MockAuthOfflineDataSource();
-   var authRepositoryImpl=AuthRepositoryImpl(authOnlineDataSource, authOfflineDataSource);
-  group("Auth Repository Impl Tester ", () {
-      group("Test Method : register ", () {
-     test("should return appUserEntity when call  authOnlineDataSource.register and"
-         "  call authOfflineDataSource.saveToken is Success", ()async {
-        var appUserEntity=MockAppUserEntity();
-        var registerRequestModel=MockRegisterRequestModel();
-        var response=(appUserEntity,"token");
-        when(authOnlineDataSource.register(registerRequestModel)).thenAnswer((realInvocation) async=>response);
-        when(authOfflineDataSource.saveToken(token: "token")).thenAnswer((_) async => Success<void>());
-        var actual = await authRepositoryImpl.register(registerRequest: registerRequestModel);
-         expect(actual, isA<Success<AppUserEntity>>());
-     });
-      },);
-     test("should return ApiError when call  authOnlineDataSource.register and call authOfflineDataSource.saveToken is Error ", () async{
-       var registerRequestModel=MockRegisterRequestModel();
-       when(authOnlineDataSource.register(registerRequestModel)).thenThrow(Exception());
-       when(authOfflineDataSource.saveToken(token: "token")).thenAnswer((_) async => Success<void>());
-       var actual = await authRepositoryImpl.register(registerRequest: registerRequestModel);
-       expect(actual, isA<Failures<AppUserEntity>>());
-     },);
+  late MockAuthOnlineDataSource authOnlineDataSource;
+  late MockAuthOfflineDataSource authOfflineDataSource;
+  late AuthRepositoryImpl authRepositoryImpl;
 
-  },);
+  const email = "test@example.com";
+  const password = "password";
+
+  setUp(() {
+    authOnlineDataSource = MockAuthOnlineDataSource();
+    authOfflineDataSource = MockAuthOfflineDataSource();
+    authRepositoryImpl = AuthRepositoryImpl(
+      authOnlineDataSource,
+      authOfflineDataSource,
+    );
+  });
+
+  group("Auth Repository Impl - login", () {
+    test("should return Success when login is successful", () async {
+      // Arrange
+      final loginResponse = MockLoginResponse();
+      when(authOnlineDataSource.login(any))
+          .thenAnswer((_) async => loginResponse);
+      when(loginResponse.token).thenReturn("token");
+      when(authOfflineDataSource.saveToken(token: anyNamed("token")))
+          .thenAnswer((_) async => Success<void>());
+
+      // Act
+      final result = await authRepositoryImpl.login(email, password);
+
+      // Assert
+      expect(result, isA<Success<void>>());
+      verify(authOnlineDataSource.login(any)).called(1);
+      verify(authOfflineDataSource.saveToken(token: "token")).called(1);
+    });
+
+    test(
+        "should return ApiError when authOnlineDataSource.login throws exception",
+        () async {
+      // Arrange
+      when(authOnlineDataSource.login(any))
+          .thenThrow(Exception("Login failed"));
+
+      // Act
+      final result = await authRepositoryImpl.login(email, password);
+
+      // Assert
+      expect(result, isA<Failures<void>>());
+      verify(authOnlineDataSource.login(any)).called(1);
+      verifyNever(authOfflineDataSource.saveToken(token: anyNamed("token")));
+    });
+
+    test(
+        "should return ApiError when authOfflineDataSource.saveToken throws exception",
+        () async {
+      // Arrange
+      final loginResponse = MockLoginResponse();
+      when(authOnlineDataSource.login(any))
+          .thenAnswer((_) async => loginResponse);
+      when(loginResponse.token).thenReturn("token");
+      when(authOfflineDataSource.saveToken(token: anyNamed("token")))
+          .thenThrow(Exception("Saving token failed"));
+
+      // Act
+      final result = await authRepositoryImpl.login(email, password);
+
+      // Assert
+      expect(result, isA<Failures<void>>());
+      verify(authOnlineDataSource.login(any)).called(1);
+      verify(authOfflineDataSource.saveToken(token: "token")).called(1);
+    });
+
+    test("should call authOnlineDataSource.login with correct LoginRequest",
+        () async {
+      // Arrange
+      final loginResponse = MockLoginResponse();
+      when(authOnlineDataSource.login(any))
+          .thenAnswer((_) async => loginResponse);
+      when(loginResponse.token).thenReturn("token");
+      when(authOfflineDataSource.saveToken(token: anyNamed("token")))
+          .thenAnswer((_) async => Success<void>());
+
+      // Act
+      await authRepositoryImpl.login(email, password);
+
+      // Assert: capture the argument passed to login
+      final captured = verify(authOnlineDataSource.login(captureAny)).captured;
+      expect(captured.length, equals(1));
+      final loginRequest = captured.first as LoginRequest;
+      expect(loginRequest.email, equals(email));
+      expect(loginRequest.password, equals(password));
+    });
+  });
 }

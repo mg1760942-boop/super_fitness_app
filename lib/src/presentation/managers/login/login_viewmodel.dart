@@ -9,16 +9,28 @@ part 'login_state.dart';
 @injectable
 class LoginViewmodel extends Cubit<LoginState> {
   LoginUsecase loginUsecase;
-  LoginViewmodel(this.loginUsecase) : super(LoginInitial());
+
+  /// Optional callback for form validation.
+  /// If provided, this will be used instead of [formKey.currentState!.validate()].
+  bool Function()? formValidator;
+
+  LoginViewmodel(this.loginUsecase, {this.formValidator})
+      : super(LoginInitial());
+
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   var formKey = GlobalKey<FormState>();
   bool validate = false;
 
   void validateFields() {
+    // First check if any field is empty.
     if (emailController.text.isEmpty || passwordController.text.isEmpty) {
       validate = false;
-    } else if (!formKey.currentState!.validate()) {
+    }
+    // If a custom validator is provided, use it.
+    else if (formValidator != null
+        ? !formValidator!()
+        : !formKey.currentState!.validate()) {
       validate = false;
     } else {
       validate = true;

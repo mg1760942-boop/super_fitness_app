@@ -1,8 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:super_fitness_app/src/domain/entities/app_user_entity/app_user_entity.dart';
 
-import '../../../../domain/entities/app_user_entity/app_user_entity.dart';
-
 part 'register_response_model.g.dart';
 
 @JsonSerializable()
@@ -14,7 +12,7 @@ class RegisterResponseModel {
   @JsonKey(name: "token")
   final String? token;
 
-  RegisterResponseModel ({
+  RegisterResponseModel({
     this.message,
     this.user,
     this.token,
@@ -27,25 +25,20 @@ class RegisterResponseModel {
   Map<String, dynamic> toJson() {
     return _$RegisterResponseModelToJson(this);
   }
-  AppUserEntity toAppUserEntity(){
+
+  AppUserEntity toAppUserEntity() {
     return AppUserEntity(
       firstName: user?.firstName ?? "",
-      lastName: user?. lastName ?? "",
-      email:  user?.email ?? "",
-      gender: user?. gender ?? "",
-      height:  user?.height ?? 0,
-      activityLevel: user?. activityLevel ?? "",
+      lastName: user?.lastName ?? "",
+      email: user?.email ?? "",
+      gender: user?.gender ?? "",
+      height: user?.height ?? 0,
+      activityLevel: user?.activityLevel ?? "",
       age: user?.age ?? 0,
-      goal:  user?.goal ?? "",
-      weight:  user?. weight ?? 0.0 ,
-
+      goal: user?.goal ?? "",
+      weight: user?.weight ?? 0.0,
     );
   }
-
-
-
-
-
 }
 
 @JsonSerializable()
@@ -75,7 +68,7 @@ class User {
   @JsonKey(name: "createdAt")
   final String? createdAt;
 
-  User ({
+  User({
     this.firstName,
     this.lastName,
     this.email,
@@ -94,24 +87,21 @@ class User {
     return _$UserFromJson(json);
   }
 
-
   Map<String, dynamic> toJson() {
     return _$UserToJson(this);
   }
-  AppUserEntity toAppUserEntity(){
+
+  AppUserEntity toAppUserEntity() {
     return AppUserEntity(
       firstName: firstName,
       lastName: lastName,
       email: email,
       gender: gender,
       height: height,
-    activityLevel: activityLevel,
-      age:age,
+      activityLevel: activityLevel,
+      age: age,
       goal: goal,
       weight: weight,
-
     );
   }
 }
-
-

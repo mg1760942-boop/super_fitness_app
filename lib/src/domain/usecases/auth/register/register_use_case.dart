@@ -1,9 +1,9 @@
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/src/domain/repositories/auth/auth_repository.dart';
 
-import '../../../core/common/apis/api_result.dart';
-import '../../api/core/api_request_models/register_request_model/register_request_model.dart';
-import '../entities/app_user_entity/app_user_entity.dart';
+import '../../../../../core/common/apis/api_result.dart';
+import '../../../../data/api/core/api_request_models/register/register_request_model.dart';
+import '../../../entities/app_user_entity/app_user_entity.dart';
 
 @injectable
 class RegisterUseCase {

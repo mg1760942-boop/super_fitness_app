@@ -4,4 +4,5 @@ class ApiEndPoints {
   static const String verifyReset = "auth/verifyResetCode";
   static const String resetPassword = "auth/resetPassword";
   static const String login = "auth/signin";
+  static const String register = 'auth/signup';
 }

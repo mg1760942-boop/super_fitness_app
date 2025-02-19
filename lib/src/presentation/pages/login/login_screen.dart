@@ -102,8 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   verticalSpace(8),
                   BluredContainer(
                       radius: BorderRadius.all(Radius.circular(50)),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Form(

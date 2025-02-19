@@ -65,6 +65,7 @@ dependencies:
   intl: any
   vertical_weight_slider: ^2.6.0
   scrollable_positioned_list: ^0.3.8
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

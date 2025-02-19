@@ -13,8 +13,6 @@ final GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
 class SuperFitnessApp extends StatelessWidget {
   const SuperFitnessApp({super.key});
 
-
-
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

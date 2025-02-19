@@ -21,8 +21,7 @@ class AppRoutes {
             widget: const LoginScreen(), settings: settings);
       case PageRoutesName.register:
         return _handelMaterialPageRoute(
-            widget: const RegisterView(), settings: settings
-        )  ;
+            widget: const RegisterView(), settings: settings);
       case PageRoutesName.registerBase:
         return _handelMaterialPageRoute(
             widget: BaseRegisterScreen(), settings: settings);

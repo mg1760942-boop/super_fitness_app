@@ -6,7 +6,7 @@ sealed class ApiResult<T>{
 
 class Success<T> extends ApiResult<T>{
   T? data;
-  Success(ForgetPasswordResponseEntity forgetPasswordResponseEntity, {this.data});
+  Success({this.data});
 }
 
 class Failures<T> extends ApiResult<T>{

@@ -23,8 +23,8 @@ void main() {
         "When call forgetPassword should call _authRepository with correct parameters",
         () {
       when(authRepo.forgetPassword(ForgetPasswordRequestEntity(email: email)))
-          .thenAnswer(
-              (_) => Future.value(Success(ForgetPasswordResponseEntity())));
+          .thenAnswer((_) =>
+              Future.value(Success(data: ForgetPasswordResponseEntity())));
       verify(
           authRepo.forgetPassword(ForgetPasswordRequestEntity(email: email)));
     });

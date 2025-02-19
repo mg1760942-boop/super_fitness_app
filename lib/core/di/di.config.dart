@@ -1,4 +1,3 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -18,6 +17,10 @@ import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../src/data/api/api_services.dart' as _i318;
 import '../../src/data/api/network_factory.dart' as _i801;
+import '../../src/data/data_source/offline_data_source/auth/auth_offline_data_source/auth_offline_data_source.dart'
+    as _i506;
+import '../../src/data/data_source/offline_data_source/auth/auth_offline_data_source/auth_offline_data_source_impl.dart'
+    as _i122;
 import '../../src/data/data_source/online_data_source/auth/auth_online_data_source.dart'
     as _i599;
 import '../../src/data/data_source/online_data_source/auth/auth_online_data_source_impl.dart'
@@ -62,8 +65,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i318.ApiServices>(() => _i318.ApiServices(gh<_i361.Dio>()));
     gh.factory<_i599.AuthOnlineDataSource>(
         () => _i299.AuthOnlineDataSourceImpl(gh<_i318.ApiServices>()));
-    gh.factory<_i701.AuthRepository>(
-        () => _i478.AuthRepositoryImpl(gh<_i599.AuthOnlineDataSource>()));
     gh.factory<_i673.ForgetPasswordUseCase>(
         () => _i673.ForgetPasswordUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i340.ForgetPasswordScreenViewModel>(

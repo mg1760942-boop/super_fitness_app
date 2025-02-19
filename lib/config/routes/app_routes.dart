@@ -4,6 +4,7 @@ import 'package:super_fitness_app/src/presentation/pages/onboarding/onboarding_s
 import 'package:super_fitness_app/src/presentation/pages/register/view/register_view.dart';
 
 import '../../src/presentation/pages/login/login_screen.dart';
+import '../../src/presentation/pages/register/base_register_screen.dart';
 
 class AppRoutes {
   AppRoutes._();
@@ -22,6 +23,9 @@ class AppRoutes {
         return _handelMaterialPageRoute(
             widget: const RegisterView(), settings: settings
         )  ;
+      case PageRoutesName.registerBase:
+        return _handelMaterialPageRoute(
+            widget: BaseRegisterScreen(), settings: settings);
       default:
         return _handelMaterialPageRoute(
             widget: const Scaffold(), settings: settings);

@@ -39,6 +39,8 @@ import '../../src/presentation/managers/forget_password/forget_password_screen_v
 import '../../src/presentation/managers/forget_password/validation_manager.dart'
     as _i92;
 import '../../src/presentation/managers/login/login_viewmodel.dart' as _i475;
+import '../../src/presentation/managers/register/register_viewmodel.dart'
+    as _i278;
 import '../helpers/shared_pref/shared_pref_moduel.dart' as _i802;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -58,6 +60,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => sharedPrefModule.sharedPreferences,
       preResolve: true,
     );
+    gh.factory<_i278.RegisterViewmodel>(() => _i278.RegisterViewmodel());
     gh.singleton<_i753.ForgetPasswordScreenControllerManger>(
         () => _i753.ForgetPasswordScreenControllerManger());
     gh.singleton<_i92.ForgetPasswordScreenValidatorManager>(

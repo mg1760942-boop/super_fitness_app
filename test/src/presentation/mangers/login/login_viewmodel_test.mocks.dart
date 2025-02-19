@@ -399,4 +399,5 @@ class MockFormState extends _i1.Mock implements _i3.FormState {
 /// A class which mocks [GlobalKey].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGlobalKey extends _i1.Mock implements _i5.GlobalKey<_i3.FormState> {}
+class MockGlobalKey<T extends _i5.State<_i5.StatefulWidget>> extends _i1.Mock
+    implements _i5.GlobalKey<T> {}

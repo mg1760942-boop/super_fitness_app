@@ -3,6 +3,9 @@ class Assets {
   Assets._();
 
   static const String animationsLoading = 'assets/animations/loading.json';
+  static const String assetsAnimationsLoading =
+      'assets/animations/loading.json';
+  static const String iconsBackIcon = 'assets/icons/back_icon.svg';
   static const String iconsEye = 'assets/icons/eye.svg';
   static const String iconsLock = 'assets/icons/lock.svg';
   static const String iconsMail = 'assets/icons/mail.svg';

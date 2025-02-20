@@ -2,6 +2,10 @@
 class Assets {
   Assets._();
 
+  static const String animationsLoading = 'assets/animations/loading.json';
+  static const String iconsEye = 'assets/icons/eye.svg';
+  static const String iconsLock = 'assets/icons/lock.svg';
+  static const String iconsMail = 'assets/icons/mail.svg';
   static const String imagesAndroidTwelveSplash =
       'assets/images/android_twelve_splash.png';
   static const String imagesAppIcon = 'assets/images/app_icon.png';

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
@@ -20,19 +21,55 @@ class ConfirmOtpView extends StatefulWidget {
 }
 
 class _ConfirmOtpViewState extends State<ConfirmOtpView> {
-  final List<TextEditingController> _controllers = List.generate(6, (_)=>TextEditingController());
-  final List<FocusNode> _focusNodes = List.generate(6, (_)=>FocusNode());
+  final List<TextEditingController> _controllers =
+      List.generate(6, (_) => TextEditingController());
+  final List<FocusNode> _focusNodes = List.generate(6, (_) => FocusNode());
   String? otpCode;
+  int _seconds =  10 * 60;
+  Timer? _timer;
+  String formatTime(int seconds) {
+    int minutes = seconds ~/ 60;
+    int remainingSeconds = seconds % 60;
+    return '$minutes:${remainingSeconds.toString().padLeft(2, '0')}';
+  }
+  void startTimer() {
+    _timer?.cancel();
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (_seconds > 0) {
+        setState(() {
+          _seconds--;
+        });
+      } else {
+        _timer?.cancel();
+      }
+    });
+  }
   @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    for(var controller in _controllers){
+    for (var controller in _controllers) {
       controller.dispose();
     }
-    for(var focusNode in _focusNodes) {
+    for (var focusNode in _focusNodes) {
       focusNode.dispose();
     }
+    _timer?.cancel();
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    startTimer();
+  }
+  _clearOtp(){
+    for (var controller in _controllers) {
+      controller.clear();
+    }
+    for(var focusNode in _focusNodes) {
+      focusNode.unfocus();
+    }
+
   }
   @override
   Widget build(BuildContext context) {
@@ -71,8 +108,12 @@ class _ConfirmOtpViewState extends State<ConfirmOtpView> {
                     textStyle: AppTextStyles.font14w800,
                     text: context.localization.confirm,
                     onPressed: () {
-                      if(otpCode == null || otpCode!.length < 6){return;}
-                      _viewModel.doAction(VerifyResetCodeAction(otpCode: otpCode!));
+                      if (otpCode == null || otpCode!.length < 6) {
+                        return;
+                      }else {
+                        _viewModel
+                            .doAction(VerifyResetCodeAction(otpCode: otpCode!));
+                      }
                     },
                     color: AppColors.mainColor,
                     radius: 20),
@@ -83,14 +124,19 @@ class _ConfirmOtpViewState extends State<ConfirmOtpView> {
                 ),
                 verticalSpace(4),
                 InkWell(
-                  onTap: (){
+                  onTap: () {
+                     _clearOtp();
                     _viewModel.doAction(OtpResendAction());
+                    setState(() {
+                      _seconds = 60;
+                      startTimer();
+                    });
                   },
-                  child: Text(
-                    context.localization.resendCode,
-                    style: AppTextStyles.font16w700
-                        .copyWith(color: AppColors.mainColor),
-                  ),
+                  child:Text(
+                    _seconds != 0?formatTime(_seconds) : context.localization.resendCode,
+                    style: AppTextStyles.font16w700.copyWith(
+                        color:AppColors.mainColor),
+                  )
                 )
               ],
             ),
@@ -106,32 +152,43 @@ class _ConfirmOtpViewState extends State<ConfirmOtpView> {
       child: TextField(
         controller: _controllers[index],
         focusNode: _focusNodes[index],
-        onChanged: (value){
-          if(value.isNotEmpty){
-            if(index < 5){
-              FocusScope.of(context).requestFocus(_focusNodes[index + 1]);
-            }else{
-              final otp = _controllers.map((controller) => controller.text).join();
-              if(index == 5){
+        onChanged: (value) {
+          if (value.isNotEmpty) {
+            if (index < 5) {
+              setState(() {
+                FocusScope.of(context).requestFocus(_focusNodes[index + 1]);
+              });
+            } else {
+              final otp =
+                  _controllers.map((controller) => controller.text).join();
+              if (index == 5) {
                 otpCode = otp;
               }
             }
-          }else if (value.isEmpty && index > 0) {
-            FocusScope.of(context).requestFocus(_focusNodes[index - 1]);
+          } else if (value.isEmpty && index > 0) {
+            _controllers[index].text = "";
+            setState(() {
+              FocusScope.of(context).requestFocus(_focusNodes[index - 1]);
+            });
           }
         },
         textAlign: TextAlign.center,
         style: AppTextStyles.font20w500,
         keyboardType: TextInputType.number,
         maxLength: 1,
-        decoration:  InputDecoration(
+        decoration: InputDecoration(
           counterText: "", // Removes the default counter
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: AppColors.mainColor, width: 2),
+            borderSide: BorderSide(
+                color: _controllers[index].text.isNotEmpty
+                    ? AppColors.mainColor
+                    : AppColors.kWhiteBase,
+                width: 2),
           ),
           focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: AppColors.mainColor, width: 2),
-          ),
+              borderSide: BorderSide(
+                  color: AppColors.mainColor,
+                  width: 2)),
         ),
       ),
     );

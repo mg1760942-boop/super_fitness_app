@@ -66,11 +66,14 @@ class ForgetPasswordScreenViewModel extends Cubit<ForgetPasswordScreenStates> {
     }
   }
 
-  _verifyResetCode() async {
+  _verifyResetCode(String? otpCode) async {
+    if(otpCode == null || otpCode.isEmpty || otpCode.length < 6){
+      return;
+    }
     emit(ForgetPasswordScreenLoadingState());
     var result = await _forgetPasswordUseCase.verifyResetCode(
         VerifyResetCodeRequestEntity(
-            resetCode: _getController(ForgetPasswordScreenFields.code).text));
+            resetCode: otpCode));
     switch (result) {
       case Success<VerifyResetCodeResponseEntity>():
         emit(ForgetPasswordScreenSuccessState(message: "Code verified successfully",view: ForgetPasswordScreenViews.resetPasswordView));
@@ -109,7 +112,7 @@ class ForgetPasswordScreenViewModel extends Cubit<ForgetPasswordScreenStates> {
         _forgetPassword();
         break;
       case VerifyResetCodeAction():
-        _verifyResetCode();
+        _verifyResetCode(action.otpCode);
         break;
       case ResetPasswordAction():
         _resetPassword();

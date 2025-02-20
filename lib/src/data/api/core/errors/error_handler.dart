@@ -75,6 +75,8 @@ class ErrorHandler {
         return ErrorHandler(errorMessage:response.data?["error"]?? locale.notFount,code: 404);
       case StatuesCodes.internalServerError:
         return ErrorHandler(errorMessage: locale.internalServerError);
+      case StatuesCodes.badRequest:
+        return ErrorHandler(errorMessage:response.data?["error"]?? locale.notFount,code: 400);
       default:
         return ErrorHandler(errorMessage: locale.unknown);
     }

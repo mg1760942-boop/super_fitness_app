@@ -14,7 +14,8 @@ class CustomTextFormField extends StatefulWidget {
     this.showPassword,
     this.onChanged,
     this.custfocusNode,
-    this.prefixIcon, // optional prefix icon parameter
+    this.prefixIcon,
+    this.suffixIcon// optional prefix icon parameter
   });
 
   final String? labelText;
@@ -26,6 +27,7 @@ class CustomTextFormField extends StatefulWidget {
   void Function()? showPassword;
   void Function(String)? onChanged;
   final FocusNode? custfocusNode;
+  final String? suffixIcon;
   final String? prefixIcon; // user-provided prefix icon
 
   @override
@@ -140,27 +142,27 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           height: 1.40,
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.0),
+          borderRadius: BorderRadius.circular(20.0),
           borderSide: const BorderSide(
             color: Color(0xFFD9D9D9),
             width: 1.0,
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.0),
+          borderRadius: BorderRadius.circular(20.0),
           borderSide: const BorderSide(
             color: Color(0xFFD9D9D9),
             width: 1.0,
           ),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.0),
+          borderRadius: BorderRadius.circular(20.0),
           borderSide: const BorderSide(
             color: Colors.red,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.0),
+          borderRadius: BorderRadius.circular(20.0),
           borderSide: const BorderSide(
             color: Colors.red,
           ),

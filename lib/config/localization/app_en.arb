@@ -23,5 +23,9 @@
   "enterOtp" : "Enter Your OTP Check Your Email",
   "confirm": "Confirm",
   "resendCode": "Resend Code?",
-  "didntreciveCode": "Didn't Receive Verification Code?"
+  "didntreciveCode": "Didn't Receive Verification Code?",
+  "confirmedPassword": "Confirm Password",
+  "createNewPassword": "Create New Password",
+  "makeSureItis8Characters": "Make Sure It Is 8 Characters Or More",
+  "done": "Done"
 }

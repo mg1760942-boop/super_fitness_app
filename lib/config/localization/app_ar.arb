@@ -23,5 +23,9 @@
   "enterOtp": "أدخل رمز التحقق الخاص بك تحقق من بريدك الإلكتروني",
   "confirm": "تأكيد",
   "resendCode": "إعادة إرسال الرمز؟",
-  "didntreciveCode": "لم تتلقى رمز التحقق؟"
+  "didntreciveCode": "لم تتلقى رمز التحقق؟",
+  "confirmedPassword": "تأكيد كلمة المرور",
+  "createNewPassword": "إنشاء كلمة مرور جديدة",
+  "makeSureItis8Characters": "تأكد من أنها 8 أحرف أو أكثر",
+  "done": "تم"
 }

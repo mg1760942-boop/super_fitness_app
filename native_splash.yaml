@@ -1,0 +1,15 @@
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+  color: "#242424"
+  image: assets/images/bellow_twelve_splash.png
+#  branding: assets/images/logo_short.png
+  android_12:
+    color: "#242424"
+    image: assets/images/android_twelve_splash.png
+#    branding: assets/images/logo_short.png
+    android_gravity: center
+
+  android_gravity: center
+  ios_content_mode: center

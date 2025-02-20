@@ -1,0 +1,14 @@
+import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/forget_password_request_model.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/forget_password_response_model.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/reset_password_response_model.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/verify_reset_code_response_model.dart';
+
+import '../../../api/core/api_request_models/forget_password/reset_password_request_model.dart';
+import '../../../api/core/api_request_models/forget_password/verify_reset_code_request_model.dart';
+
+abstract interface class AuthOnlineDataSource{
+  Future<ForgetPasswordResponseModel> forgetPassword(ForgetPasswordRequestModel forgetPasswordRequestModel);
+  Future<VerifyResetCodeResponseModel> verifyResetCode(VerifyResetCodeRequestModel verifyResetCodeRequestModel);
+  Future<ResetPasswordResponseModel> resetPassword(ResetPasswordRequestModel resetPasswordRequestModel);
+
+}

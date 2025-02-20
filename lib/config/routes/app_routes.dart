@@ -27,7 +27,8 @@ class AppRoutes {
         return _handelMaterialPageRoute(
             widget: BaseRegisterScreen(), settings: settings);
       case PageRoutesName.forgetPassword:
-        return _handelMaterialPageRoute(widget: ForgetPasswordScreen(), settings: settings);
+        return _handelMaterialPageRoute(
+            widget: ForgetPasswordScreen(), settings: settings);
       default:
         return _handelMaterialPageRoute(
             widget: const Scaffold(), settings: settings);

@@ -9,12 +9,23 @@
   "register": "تسجيل",
   "dontHaveAnAccountRegister": "ليس لديك حساب؟ ",
   "or": "أو",
-
   "unknown": "هناك خطأ غير معروف.",
   "connectionError": "خطأ في الاتصال. يرجى التحقق من اتصال الإنترنت الخاص بك.",
   "badCertificate": "تم اكتشاف شهادة غير صالحة.",
   "unauthorized": "تم رفض الوصول غير المصرح به. يرجى تسجيل الدخول.",
   "conflict": "حدث تضارب. يرجى المحاولة مرة أخرى.",
   "notFount": "المورد غير موجود.",
-  "internalServerError": "خطأ في الخادم الداخلي. يرجى المحاولة مرة أخرى في وقت لاحق."
+  "internalServerError": "خطأ في الخادم الداخلي. يرجى المحاولة مرة أخرى في وقت لاحق.",
+  "enterYourEmail": "أدخل بريدك الإلكتروني",
+  "forgetPassword": "نسيت كلمة المرور",
+  "sentOtp": "تم إرسال رمز التحقق",
+  "otpCode": "رمز التحقق",
+  "enterOtp": "أدخل رمز التحقق الخاص بك تحقق من بريدك الإلكتروني",
+  "confirm": "تأكيد",
+  "resendCode": "إعادة إرسال الرمز؟",
+  "didntreciveCode": "لم تتلقى رمز التحقق؟",
+  "confirmedPassword": "تأكيد كلمة المرور",
+  "createNewPassword": "إنشاء كلمة مرور جديدة",
+  "makeSureItis8Characters": "تأكد من أنها 8 أحرف أو أكثر",
+  "done": "تم"
 }

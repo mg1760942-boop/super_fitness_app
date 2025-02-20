@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/src/data/api/api_services.dart';
 import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/forget_password_request_model.dart';
@@ -25,6 +27,7 @@ class AuthOnlineDataSourceImpl implements AuthOnlineDataSource {
     return (response.toAppUserEntity(), token);
   }
 
+  @override
   Future<ForgetPasswordResponseModel> forgetPassword(
       ForgetPasswordRequestModel forgetPasswordRequestModel) async {
     return await apiServices.forgetPassword(forgetPasswordRequestModel);

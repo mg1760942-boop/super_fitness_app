@@ -23,17 +23,19 @@ part 'api_services.g.dart';
 abstract interface class ApiServices {
   @factoryMethod
   factory ApiServices(Dio dio) = _ApiServices;
+
   @POST(ApiEndPoints.forgetPassword)
   Future<ForgetPasswordResponseModel> forgetPassword(
-      ForgetPasswordRequestModel forgetPasswordRequestModel);
+      @Body() ForgetPasswordRequestModel forgetPasswordRequestModel);
 
   @POST(ApiEndPoints.verifyReset)
   Future<VerifyResetCodeResponseModel> verifyResetCode(
-      VerifyResetCodeRequestModel verifyResetCodeRequestModel);
+      @Body() VerifyResetCodeRequestModel verifyResetCodeRequestModel);
 
   @PUT(ApiEndPoints.resetPassword)
   Future<ResetPasswordResponseModel> resetPassword(
-      ResetPasswordRequestModel resetPasswordRequestModel);
+      @Body() ResetPasswordRequestModel resetPasswordRequestModel);
+
   @POST(ApiEndPoints.login)
   Future<LoginResponse> login(@Body() LoginRequest loginRequest);
 

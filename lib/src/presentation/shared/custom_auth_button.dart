@@ -9,6 +9,7 @@ class CustomAuthButton extends StatelessWidget {
     this.textColor = Colors.white,
     this.validate = true,
     required this.radius,
+    this.textStyle
   });
 
   final String? text;
@@ -17,7 +18,7 @@ class CustomAuthButton extends StatelessWidget {
   final Color? textColor;
   final bool validate;
   final double radius;
-
+ final TextStyle? textStyle;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -35,7 +36,7 @@ class CustomAuthButton extends StatelessWidget {
         child: Text(
           text ?? '',
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style:textStyle ?? TextStyle(
             color: Colors.white,
             fontSize: 14,
             fontFamily: 'Baloo Thambi 2',

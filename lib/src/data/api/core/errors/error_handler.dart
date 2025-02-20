@@ -72,9 +72,11 @@ class ErrorHandler {
             errorMessage: response.data?["error"] ?? locale.conflict,
             code: 409);
       case StatuesCodes.notFount: // Fixed typo here
-        return ErrorHandler(errorMessage: locale.notFount);
+        return ErrorHandler(errorMessage:response.data?["error"]?? locale.notFount,code: 404);
       case StatuesCodes.internalServerError:
         return ErrorHandler(errorMessage: locale.internalServerError);
+      case StatuesCodes.badRequest:
+        return ErrorHandler(errorMessage:response.data?["error"]?? locale.notFount,code: 400);
       default:
         return ErrorHandler(errorMessage: locale.unknown);
     }

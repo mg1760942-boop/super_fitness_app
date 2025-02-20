@@ -2,8 +2,11 @@ import 'package:super_fitness_app/src/presentation/managers/forget_password/forg
 
 sealed class ForgetPasswordScreenActions {}
 
-class ForgetPasswordAction extends ForgetPasswordScreenActions {}
-class VerifyResetCodeAction extends ForgetPasswordScreenActions {}
+class VerifyEmailAction extends ForgetPasswordScreenActions {}
+class VerifyResetCodeAction extends ForgetPasswordScreenActions {
+  final String otpCode;
+  VerifyResetCodeAction({required this.otpCode});
+}
 class ResetPasswordAction extends ForgetPasswordScreenActions {}
 class GetFieldControllerAction extends ForgetPasswordScreenActions{
   ForgetPasswordScreenFields field;
@@ -13,3 +16,4 @@ class GetFieldValidatorAction extends ForgetPasswordScreenActions{
   ForgetPasswordScreenFields field;
   GetFieldValidatorAction({required this.field});
 }
+class OtpResendAction extends ForgetPasswordScreenActions{}

@@ -15,5 +15,17 @@
   "unauthorized": "Unauthorized access. Please log in.",
   "conflict": "A conflict occurred. Please try again.",
   "notFount": "Resource not found.",
-  "internalServerError": "Internal server error. Please try again later."
+  "internalServerError": "Internal server error. Please try again later.",
+  "enterYourEmail" : "Enter your email",
+  "forgetPassword" : "Forget Password",
+  "sentOtp" : "Sent OTP",
+  "otpCode" : "OTP Code",
+  "enterOtp" : "Enter Your OTP Check Your Email",
+  "confirm": "Confirm",
+  "resendCode": "Resend Code?",
+  "didntreciveCode": "Didn't Receive Verification Code?",
+  "confirmedPassword": "Confirm Password",
+  "createNewPassword": "Create New Password",
+  "makeSureItis8Characters": "Make Sure It Is 8 Characters Or More",
+  "done": "Done"
 }

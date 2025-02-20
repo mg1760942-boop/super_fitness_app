@@ -129,7 +129,7 @@ class _ConfirmOtpViewState extends State<ConfirmOtpView> {
                 ),
                 verticalSpace(4),
                 InkWell(
-                    onTap: () {
+                    onTap: _seconds != 0 ? null :  () {
                       _clearOtp();
                       _viewModel.doAction(OtpResendAction());
                       setState(() {

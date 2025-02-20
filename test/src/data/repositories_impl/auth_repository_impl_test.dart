@@ -3,10 +3,13 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/core/common/apis/api_result.dart';
 import 'package:super_fitness_app/src/data/api/core/api_request_models/login/login_request.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/forget_password_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/login/login_response.dart';
 import 'package:super_fitness_app/src/data/data_source/offline_data_source/auth/auth_offline_data_source/auth_offline_data_source.dart';
 import 'package:super_fitness_app/src/data/data_source/online_data_source/auth/auth_online_data_source.dart';
 import 'package:super_fitness_app/src/data/repository/auth/auth_repository_impl.dart';
+import 'package:super_fitness_app/src/domain/entities/auth/forget_password/forget_password_request_entity.dart';
+import 'package:super_fitness_app/src/domain/entities/auth/forget_password/forget_password_response_entity.dart';
 
 import 'auth_repository_impl_test.mocks.dart';
 
@@ -96,4 +99,35 @@ void main() {
       expect(loginRequest.password, equals(password));
     });
   });
+  group("forgetPassword function", () {
+    const email = "fakeemail@fake.com";
+    final request = ForgetPasswordRequestEntity(email: email);
+    final mockResponse = ForgetPasswordResponseEntity();
+    final onlineDataResponse = ForgetPasswordResponseModel();
+    final successResult = Success<ForgetPasswordResponseEntity>(data: mockResponse);
+    final failureResult = Failures<ForgetPasswordResponseEntity>(exception: Exception("API Error"));
+
+    test("should return Success when API call is successful", () async {
+      provideDummy<ApiResult<ForgetPasswordResponseEntity>>(successResult);
+      when(authOnlineDataSource.forgetPassword(any))
+          .thenAnswer((_) async => onlineDataResponse);
+
+      final result = await authRepositoryImpl.forgetPassword(request);
+
+      expect(result, isA<Success<ForgetPasswordResponseEntity>>());
+      verify(authOnlineDataSource.forgetPassword(any)).called(1);
+    });
+
+    test("should return Failure when API call fails", () async {
+      provideDummy<ApiResult<ForgetPasswordResponseEntity>>(failureResult);
+      when(authOnlineDataSource.forgetPassword(any))
+          .thenThrow(Exception("API Error"));
+
+      final result = await authRepositoryImpl.forgetPassword(request);
+
+      expect(result, isA<Failures<ForgetPasswordResponseEntity>>());
+      verify(authOnlineDataSource.forgetPassword(any)).called(1);
+    });
+  });
+
 }

@@ -25,13 +25,15 @@ class _ConfirmOtpViewState extends State<ConfirmOtpView> {
       List.generate(6, (_) => TextEditingController());
   final List<FocusNode> _focusNodes = List.generate(6, (_) => FocusNode());
   String? otpCode;
-  int _seconds =  10 * 60;
+  int _seconds = 10 * 60;
   Timer? _timer;
+
   String formatTime(int seconds) {
     int minutes = seconds ~/ 60;
     int remainingSeconds = seconds % 60;
     return '$minutes:${remainingSeconds.toString().padLeft(2, '0')}';
   }
+
   void startTimer() {
     _timer?.cancel();
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
@@ -44,6 +46,7 @@ class _ConfirmOtpViewState extends State<ConfirmOtpView> {
       }
     });
   }
+
   @override
   void dispose() {
     // TODO: implement dispose
@@ -56,21 +59,23 @@ class _ConfirmOtpViewState extends State<ConfirmOtpView> {
     }
     _timer?.cancel();
   }
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     startTimer();
   }
-  _clearOtp(){
+
+  _clearOtp() {
     for (var controller in _controllers) {
       controller.clear();
     }
-    for(var focusNode in _focusNodes) {
+    for (var focusNode in _focusNodes) {
       focusNode.unfocus();
     }
-
   }
+
   @override
   Widget build(BuildContext context) {
     final _viewModel = context.read<ForgetPasswordScreenViewModel>();
@@ -110,7 +115,7 @@ class _ConfirmOtpViewState extends State<ConfirmOtpView> {
                     onPressed: () {
                       if (otpCode == null || otpCode!.length < 6) {
                         return;
-                      }else {
+                      } else {
                         _viewModel
                             .doAction(VerifyResetCodeAction(otpCode: otpCode!));
                       }
@@ -124,20 +129,24 @@ class _ConfirmOtpViewState extends State<ConfirmOtpView> {
                 ),
                 verticalSpace(4),
                 InkWell(
-                  onTap: () {
-                     _clearOtp();
-                    _viewModel.doAction(OtpResendAction());
-                    setState(() {
-                      _seconds = 60;
-                      startTimer();
-                    });
-                  },
-                  child:Text(
-                    _seconds != 0?formatTime(_seconds) : context.localization.resendCode,
-                    style: AppTextStyles.font16w700.copyWith(
-                        color:AppColors.mainColor),
-                  )
-                )
+                    onTap: () {
+                      _clearOtp();
+                      _viewModel.doAction(OtpResendAction());
+                      setState(() {
+                        _seconds = 60;
+                        startTimer();
+                      });
+                    },
+                    child: Text(
+                      _seconds != 0
+                          ? formatTime(_seconds)
+                          : context.localization.resendCode,
+                      style: AppTextStyles.font16w700.copyWith(
+                          color: AppColors.mainColor,
+                          decoration: _seconds != 0
+                              ? TextDecoration.none
+                              : TextDecoration.underline),
+                    ))
               ],
             ),
           ),
@@ -186,9 +195,7 @@ class _ConfirmOtpViewState extends State<ConfirmOtpView> {
                 width: 2),
           ),
           focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                  color: AppColors.mainColor,
-                  width: 2)),
+              borderSide: BorderSide(color: AppColors.mainColor, width: 2)),
         ),
       ),
     );

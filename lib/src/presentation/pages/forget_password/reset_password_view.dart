@@ -75,7 +75,9 @@ class ResetPasswordView extends StatelessWidget {
                   CustomAuthButton(
                       textStyle: AppTextStyles.font14w800,
                       text: context.localization.done,
-                      onPressed: () {},
+                      onPressed: () {
+                        _viewModle.doAction(ResetPasswordAction());
+                      },
                       color: AppColors.mainColor,
                       radius: 20)
                 ],

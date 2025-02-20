@@ -82,6 +82,10 @@ class ForgetPasswordScreenViewModel extends Cubit<ForgetPasswordScreenStates> {
   }
 
   _resetPassword() async {
+    if(_getValidator(ForgetPasswordScreenFields.newPassword) != null || _getValidator(ForgetPasswordScreenFields.confirmNewPassword)!= null){
+      emit(ForgetPasswordScreenErrorState(Exception("Invalid password")));
+      return;
+    }
     emit(ForgetPasswordScreenLoadingState());
     String email = _getController(ForgetPasswordScreenFields.email).text;
     String newPassword = _getController(ForgetPasswordScreenFields.newPassword).text;

@@ -4,12 +4,15 @@ import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/core/common/apis/api_result.dart';
 import 'package:super_fitness_app/src/data/api/core/api_request_models/login/login_request.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/forget_password_response_model.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/verify_reset_code_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/login/login_response.dart';
 import 'package:super_fitness_app/src/data/data_source/offline_data_source/auth/auth_offline_data_source/auth_offline_data_source.dart';
 import 'package:super_fitness_app/src/data/data_source/online_data_source/auth/auth_online_data_source.dart';
 import 'package:super_fitness_app/src/data/repository/auth/auth_repository_impl.dart';
 import 'package:super_fitness_app/src/domain/entities/auth/forget_password/forget_password_request_entity.dart';
 import 'package:super_fitness_app/src/domain/entities/auth/forget_password/forget_password_response_entity.dart';
+import 'package:super_fitness_app/src/domain/entities/auth/forget_password/verify_reset_code_request_entity.dart';
+import 'package:super_fitness_app/src/domain/entities/auth/forget_password/verify_reset_code_response_entity.dart';
 
 import 'auth_repository_impl_test.mocks.dart';
 
@@ -127,6 +130,56 @@ void main() {
 
       expect(result, isA<Failures<ForgetPasswordResponseEntity>>());
       verify(authOnlineDataSource.forgetPassword(any)).called(1);
+    });
+    test("should return Failure when API call fails because of empty email", () async {
+      provideDummy<ApiResult<ForgetPasswordResponseEntity>>(failureResult);
+      when(authOnlineDataSource.forgetPassword(any))
+          .thenThrow(Exception("email should not be empty"));
+
+      final result = await authRepositoryImpl.forgetPassword(ForgetPasswordRequestEntity(email: ""));
+
+      expect(result, isA<Failures<ForgetPasswordResponseEntity>>());
+      verify(authOnlineDataSource.forgetPassword(any)).called(1);
+    });
+  });
+  group("verifyResetCode function", () {
+    const otpCode = "123456";
+    final request = VerifyResetCodeRequestEntity(resetCode: otpCode);
+    final mockResponse = VerifyResetCodeResponseEntity();
+    final onlineDataResponse = VerifyResetCodeResponseModel();
+    final successResult = Success<VerifyResetCodeResponseEntity>(data: mockResponse);
+    final failureResult = Failures<VerifyResetCodeResponseEntity>(exception: Exception("API Error"));
+
+    test("should return Success when API call is successful", () async {
+      provideDummy<ApiResult<VerifyResetCodeResponseEntity>>(successResult);
+      when(authOnlineDataSource.verifyResetCode(any))
+          .thenAnswer((_) async => onlineDataResponse);
+
+      final result = await authRepositoryImpl.verifyResetCode(request);
+
+      expect(result, isA<Success<VerifyResetCodeResponseEntity>>());
+      verify(authOnlineDataSource.verifyResetCode(any)).called(1);
+    });
+
+    test("should return Failure when API call fails", () async {
+      provideDummy<ApiResult<VerifyResetCodeResponseEntity>>(failureResult);
+      when(authOnlineDataSource.verifyResetCode(any))
+          .thenThrow(Exception("API Error"));
+
+      final result = await authRepositoryImpl.verifyResetCode(request);
+
+      expect(result, isA<Failures<VerifyResetCodeResponseEntity>>());
+      verify(authOnlineDataSource.verifyResetCode(any)).called(1);
+    });
+    test("should return Failure when API call fails because opt code should be 6 numbers", () async {
+      provideDummy<ApiResult<VerifyResetCodeResponseEntity>>(failureResult);
+      when(authOnlineDataSource.verifyResetCode(any))
+          .thenThrow(Exception("Otp code should be 6 numbers"));
+
+      final result = await authRepositoryImpl.verifyResetCode(VerifyResetCodeRequestEntity(resetCode: "123"));
+
+      expect(result, isA<Failures<VerifyResetCodeResponseEntity>>());
+      verify(authOnlineDataSource.verifyResetCode(any)).called(1);
     });
   });
 

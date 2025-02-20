@@ -18,5 +18,10 @@
   "internalServerError": "Internal server error. Please try again later.",
   "enterYourEmail" : "Enter your email",
   "forgetPassword" : "Forget Password",
-  "sentOtp" : "Sent OTP"
+  "sentOtp" : "Sent OTP",
+  "otpCode" : "OTP Code",
+  "enterOtp" : "Enter Your OTP Check Your Email",
+  "confirm": "Confirm",
+  "resendCode": "Resend Code?",
+  "didntreciveCode": "Didn't Receive Verification Code?"
 }

@@ -61,7 +61,7 @@ class VerifyEmailView extends StatelessWidget {
                       _viewModel.doAction(VerifyEmailAction());
                     },
                     color: AppColors.mainColor,
-                    radius: 100),
+                    radius: 20),
               ],
             ),
           )

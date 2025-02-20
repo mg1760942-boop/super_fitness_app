@@ -11,8 +11,15 @@ import 'package:super_fitness_app/src/presentation/shared/base_scaffold.dart';
 import '../../../../core/common/common_imports.dart';
 import '../../managers/register/register_viewmodel.dart';
 
-class BaseRegisterScreen extends StatelessWidget {
-  final RegisterViewmodel _viewmodel = getIt<RegisterViewmodel>();
+class BaseRegisterScreen extends StatefulWidget {
+  const BaseRegisterScreen({super.key});
+
+  @override
+  State<BaseRegisterScreen> createState() => _BaseRegisterScreenState();
+}
+
+class _BaseRegisterScreenState extends State<BaseRegisterScreen> {
+  final RegisterViewModel _viewmodel = getIt<RegisterViewModel>();
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +30,13 @@ class BaseRegisterScreen extends StatelessWidget {
       body: SafeArea(
         child: BlocProvider(
           create: (context) => _viewmodel,
-          child: BlocBuilder<RegisterViewmodel, RegisterState>(
+          child: BlocBuilder<RegisterViewModel, RegisterState>(
             builder: (context, state) {
               // Determine if we need to show the back button.
               final showBackButton = _viewmodel.currentPage > 0;
               final total = _viewmodel.registerObjects.length;
               final current = _viewmodel.currentPage + 1; // 1-based display
-              final progress =
-                  _viewmodel.currentPage == 0 ? 0.0 : current / total;
-
+              final progress = _viewmodel.currentPage == 0 ? 0.0 : current / total;
               return Column(
                 children: [
                   Padding(

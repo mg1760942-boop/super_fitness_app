@@ -24,10 +24,10 @@ class _ConfirmOtpViewState extends State<ConfirmOtpView> {
   final List<TextEditingController> _controllers =
       List.generate(6, (_) => TextEditingController());
   final List<FocusNode> _focusNodes = List.generate(6, (_) => FocusNode());
+  int _resentOtpWaitingTimer = 10;
   String? otpCode;
   int _seconds = 10 * 60;
   Timer? _timer;
-
   String formatTime(int seconds) {
     int minutes = seconds ~/ 60;
     int remainingSeconds = seconds % 60;
@@ -133,7 +133,7 @@ class _ConfirmOtpViewState extends State<ConfirmOtpView> {
                       _clearOtp();
                       _viewModel.doAction(OtpResendAction());
                       setState(() {
-                        _seconds = 60;
+                        _seconds = _resentOtpWaitingTimer * 60;
                         startTimer();
                       });
                     },
@@ -145,7 +145,7 @@ class _ConfirmOtpViewState extends State<ConfirmOtpView> {
                           color: AppColors.mainColor,
                           decoration: _seconds != 0
                               ? TextDecoration.none
-                              : TextDecoration.underline),
+                              : TextDecoration.underline,decorationColor: AppColors.mainColor),
                     ))
               ],
             ),

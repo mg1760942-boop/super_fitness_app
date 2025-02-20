@@ -28,6 +28,7 @@ class ForgetPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget _currentView = VerifyEmailView();
     return BlocProvider(
       create: (_) => viewModel,
       child: LoaderOverlay(
@@ -50,16 +51,17 @@ class ForgetPasswordScreen extends StatelessWidget {
                 case null:
                   return VerifyEmailView();
                 case ForgetPasswordScreenViews.verifyEmailView:
+                  _currentView = VerifyEmailView();
                   return VerifyEmailView();
                 case ForgetPasswordScreenViews.confirmOtpView:
-                  context.loaderOverlay.hide();
+                  _currentView = ConfirmOtpView();
                   return ConfirmOtpView();
                 case ForgetPasswordScreenViews.resetPasswordView:
-                  context.loaderOverlay.hide();
+                  _currentView = ResetPasswordView();
                   return ResetPasswordView();
               }
             }
-            return VerifyEmailView();
+            return _currentView;
           }, listener: (context, state) {
             context.loaderOverlay.hide();
             if (state is ForgetPasswordScreenLoadingState) {

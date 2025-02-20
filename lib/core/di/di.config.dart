@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -29,12 +30,16 @@ import '../../src/data/repository/auth/auth_repository_impl.dart' as _i478;
 import '../../src/domain/repositories/auth/auth_repository.dart' as _i701;
 import '../../src/domain/usecases/auth/forget_password/forget_password_use_case.dart'
     as _i673;
+import '../../src/domain/usecases/auth/login/login_usecase.dart' as _i1005;
+import '../../src/domain/usecases/auth/register/register_use_case.dart'
+    as _i545;
 import '../../src/presentation/managers/forget_password/controller_manager.dart'
     as _i753;
 import '../../src/presentation/managers/forget_password/forget_password_screen_view_model.dart'
     as _i340;
 import '../../src/presentation/managers/forget_password/validation_manager.dart'
     as _i92;
+import '../../src/presentation/managers/login/login_viewmodel.dart' as _i475;
 import '../helpers/shared_pref/shared_pref_moduel.dart' as _i802;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -62,11 +67,23 @@ extension GetItInjectableX on _i174.GetIt {
         () => sharedPrefModule.secureStorage);
     gh.lazySingleton<_i361.Dio>(() => dioProvider.dioProvider());
     gh.lazySingleton<_i528.PrettyDioLogger>(() => dioProvider.providePretty());
+    gh.factory<_i506.AuthOfflineDataSource>(
+        () => _i122.AuthOfflineDataSourceImpl());
     gh.singleton<_i318.ApiServices>(() => _i318.ApiServices(gh<_i361.Dio>()));
     gh.factory<_i599.AuthOnlineDataSource>(
         () => _i299.AuthOnlineDataSourceImpl(gh<_i318.ApiServices>()));
+    gh.factory<_i701.AuthRepository>(() => _i478.AuthRepositoryImpl(
+          gh<_i599.AuthOnlineDataSource>(),
+          gh<_i506.AuthOfflineDataSource>(),
+        ));
+    gh.factory<_i1005.LoginUsecase>(
+        () => _i1005.LoginUsecase(gh<_i701.AuthRepository>()));
+    gh.factory<_i475.LoginViewmodel>(
+        () => _i475.LoginViewmodel(gh<_i1005.LoginUsecase>()));
     gh.factory<_i673.ForgetPasswordUseCase>(
         () => _i673.ForgetPasswordUseCase(gh<_i701.AuthRepository>()));
+    gh.factory<_i545.RegisterUseCase>(
+        () => _i545.RegisterUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i340.ForgetPasswordScreenViewModel>(
         () => _i340.ForgetPasswordScreenViewModel(
               gh<_i673.ForgetPasswordUseCase>(),

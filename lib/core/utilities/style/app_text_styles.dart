@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:super_fitness_app/core/utilities/style/app_colors.dart';
 import 'package:super_fitness_app/core/utilities/style/app_font_weights.dart';
 
@@ -44,5 +45,20 @@ class AppTextStyles{
     fontSize: 11.sp,
     color: AppColors.kGray,
     fontWeight: AppFontWeights.normal
+  );
+  static var font18w400 = GoogleFonts.balooThambi2(
+    fontWeight: FontWeight.w400,
+    fontSize: 18.sp,
+    color: AppColors.kWhiteBase,
+  );
+  static var font20w800 = GoogleFonts.balooThambi2(
+    fontWeight: FontWeight.w800,
+    fontSize: 20.sp,
+    color: AppColors.kWhiteBase,
+  );
+  static var font14w800 = GoogleFonts.balooThambi2(
+    fontWeight: FontWeight.w800,
+    fontSize: 14.sp,
+    color: AppColors.kWhiteBase,
   );
 }

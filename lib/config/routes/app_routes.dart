@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/config/routes/page_route_name.dart';
+import 'package:super_fitness_app/src/presentation/pages/forget_password/forget_password_screen.dart';
 import 'package:super_fitness_app/src/presentation/pages/onboarding/onboarding_screen.dart';
 
 import '../../src/presentation/pages/login/login_screen.dart';
@@ -17,6 +18,8 @@ class AppRoutes {
       case PageRoutesName.login:
         return _handelMaterialPageRoute(
             widget: const LoginScreen(), settings: settings);
+      case PageRoutesName.forgetPassword:
+        return _handelMaterialPageRoute(widget: ForgetPasswordScreen(), settings: settings);
       default:
         return _handelMaterialPageRoute(
             widget: const Scaffold(), settings: settings);

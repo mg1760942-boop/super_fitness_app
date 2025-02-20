@@ -17,7 +17,6 @@ class AppColors{
   static const Color kWight90 = Color(0xFF535353);
   static const Color kWight100 = Color(0xFF323232);
   static const Color error = Color(0xFFB3261E);
-  static const Color kBaseColor = Color(0xffD21E6A);
   static const Color kWhiteBase = Color(0xFFF9F9F9);
   static const Color kWhite10 = Color(0xFFfefefe);
   static const Color kWhite20 = Color(0xFFfdfdfd);
@@ -31,7 +30,7 @@ class AppColors{
   static const Color kWhite100 = Color(0xFF323232);
 
   // Base Colors
-  static const Color mainColor = Color(0xFFD21E6A);
+  static const Color mainColor = Color(0xFFFF4100);
 
   static const Color kGray = Color(0xFF535353);
   static const Color kError = Color(0xffCC1010);

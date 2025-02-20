@@ -15,5 +15,8 @@
   "unauthorized": "Unauthorized access. Please log in.",
   "conflict": "A conflict occurred. Please try again.",
   "notFount": "Resource not found.",
-  "internalServerError": "Internal server error. Please try again later."
+  "internalServerError": "Internal server error. Please try again later.",
+  "enterYourEmail" : "Enter your email",
+  "forgetPassword" : "Forget Password",
+  "sentOtp" : "Sent OTP"
 }

@@ -2,7 +2,7 @@ import 'package:super_fitness_app/src/presentation/managers/forget_password/forg
 
 sealed class ForgetPasswordScreenActions {}
 
-class ForgetPasswordAction extends ForgetPasswordScreenActions {}
+class VerifyEmailAction extends ForgetPasswordScreenActions {}
 class VerifyResetCodeAction extends ForgetPasswordScreenActions {}
 class ResetPasswordAction extends ForgetPasswordScreenActions {}
 class GetFieldControllerAction extends ForgetPasswordScreenActions{

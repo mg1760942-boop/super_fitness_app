@@ -12,6 +12,7 @@ import 'package:super_fitness_app/src/presentation/managers/forget_password/cont
 import 'package:super_fitness_app/src/presentation/managers/forget_password/forget_password_screen_actions.dart';
 import 'package:super_fitness_app/src/presentation/managers/forget_password/forget_password_screen_states.dart';
 import 'package:super_fitness_app/src/presentation/managers/forget_password/validation_manager.dart';
+import 'package:super_fitness_app/src/presentation/pages/forget_password/forget_password_screen.dart';
 
 @injectable
 class ForgetPasswordScreenViewModel extends Cubit<ForgetPasswordScreenStates> {
@@ -50,7 +51,7 @@ class ForgetPasswordScreenViewModel extends Cubit<ForgetPasswordScreenStates> {
 
     switch (result) {
       case Success<ForgetPasswordResponseEntity>():
-        emit(ForgetPasswordScreenSuccessState());
+        emit(ForgetPasswordScreenSuccessState(message: "Otp sent successfully",view: ForgetPasswordScreenViews.confirmOtpView));
         break;
       case Failures<ForgetPasswordResponseEntity>():
         emit(ForgetPasswordScreenErrorState(result.exception));
@@ -92,7 +93,7 @@ class ForgetPasswordScreenViewModel extends Cubit<ForgetPasswordScreenStates> {
 
   doAction(ForgetPasswordScreenActions action) {
     switch (action) {
-      case ForgetPasswordAction():
+      case VerifyEmailAction():
         _forgetPassword();
         break;
       case VerifyResetCodeAction():
@@ -102,11 +103,9 @@ class ForgetPasswordScreenViewModel extends Cubit<ForgetPasswordScreenStates> {
         _resetPassword();
         break;
       case GetFieldControllerAction():
-        _getController(action.field);
-        break;
+       return _getController(action.field);
       case GetFieldValidatorAction():
-        _getValidator(action.field);
-        break;
+        return _getValidator(action.field);
     }
   }
 }

@@ -19,12 +19,15 @@ void main() {
   var otpCode = "432146";
   var newPassword = "newPassword";
   group("This is forgetPassword function", () {
+    var mockedResult =
+        Future.value(Success(data: ForgetPasswordResponseEntity()));
     test(
         "When call forgetPassword should call _authRepository with correct parameters",
         () {
       when(authRepo.forgetPassword(ForgetPasswordRequestEntity(email: email)))
-          .thenAnswer((_) =>
-              Future.value(Success(data: ForgetPasswordResponseEntity())));
+          .thenAnswer((_) => mockedResult);
+
+      provideDummy(mockedResult);
       verify(
           authRepo.forgetPassword(ForgetPasswordRequestEntity(email: email)));
     });

@@ -57,22 +57,23 @@ class ForgetPasswordScreen extends StatelessWidget {
                 case ForgetPasswordScreenViews.resetPasswordView:
                   context.loaderOverlay.hide();
                   return ResetPasswordView();
-                case ForgetPasswordScreenViews.loginView:
-                  navKey.currentState!.pushNamed(PageRoutesName.login);
               }
             }
-            return ConfirmOtpView();
+            return VerifyEmailView();
           }, listener: (context, state) {
+            context.loaderOverlay.hide();
             if (state is ForgetPasswordScreenLoadingState) {
               context.loaderOverlay.show();
             }
             if (state is ForgetPasswordScreenSuccessState) {
-              context.loaderOverlay.hide();
               showSuccessToast(state.message??"Success", context);
             }
             if (state is ForgetPasswordScreenErrorState) {
-              context.loaderOverlay.hide();
               showErrorToast(state, context);
+            }
+            if(state is CompleteResetPasswordState){
+              showSuccessToast(state.message??"Success", context);
+              navKey.currentState!.pushNamed(PageRoutesName.login);
             }
           }),
         ),
@@ -127,5 +128,4 @@ enum ForgetPasswordScreenViews {
   verifyEmailView,
   confirmOtpView,
   resetPasswordView,
-  loginView
 }

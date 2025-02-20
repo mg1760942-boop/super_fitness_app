@@ -97,7 +97,7 @@ class ForgetPasswordScreenViewModel extends Cubit<ForgetPasswordScreenStates> {
     );
     switch (result) {
       case Success<ResetPasswordResponseEntity>():
-        emit(ForgetPasswordScreenSuccessState(message: "Password reset successfully",));
+        emit(CompleteResetPasswordState(message: "Password reset successfully"));
         break;
       case Failures<ResetPasswordResponseEntity>():
         emit(ForgetPasswordScreenErrorState(result.exception));

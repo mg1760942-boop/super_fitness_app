@@ -20,3 +20,8 @@ class ForgetPasswordScreenSuccessState extends ForgetPasswordScreenStates{
   final ForgetPasswordScreenViews? view;
   ForgetPasswordScreenSuccessState({this.message,this.view});
 }
+
+class CompleteResetPasswordState extends ForgetPasswordScreenStates{
+  final String? message;
+  CompleteResetPasswordState({this.message});
+}

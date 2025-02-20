@@ -43,21 +43,20 @@ class ForgetPasswordScreen extends StatelessWidget {
           backGroundPath: AppImages.backgroundScafSec,
           body: BlocConsumer<ForgetPasswordScreenViewModel,
               ForgetPasswordScreenStates>(builder: (context, state) {
-            // if (state is ForgetPasswordScreenSuccessState) {
-            //   switch (state.view) {
-            //     case null:
-            //       // TODO: Handle this case.
-            //       throw UnimplementedError();
-            //     case ForgetPasswordScreenViews.verifyEmailView:
-            //       return VerifyEmailView();
-            //     case ForgetPasswordScreenViews.confirmOtpView:
-            //       context.loaderOverlay.hide();
-            //       return ConfirmOtpView();
-            //     case ForgetPasswordScreenViews.resetPasswordView:
-            //       context.loaderOverlay.hide();
-            //       return ResetPasswordView();
-            //   }
-            // }
+            if (state is ForgetPasswordScreenSuccessState) {
+              switch (state.view) {
+                case null:
+                  return ResetPasswordView();
+                case ForgetPasswordScreenViews.verifyEmailView:
+                  return VerifyEmailView();
+                case ForgetPasswordScreenViews.confirmOtpView:
+                  context.loaderOverlay.hide();
+                  return ConfirmOtpView();
+                case ForgetPasswordScreenViews.resetPasswordView:
+                  context.loaderOverlay.hide();
+                  return ResetPasswordView();
+              }
+            }
             return ResetPasswordView();
           }, listener: (context, state) {
             if (state is ForgetPasswordScreenLoadingState) {

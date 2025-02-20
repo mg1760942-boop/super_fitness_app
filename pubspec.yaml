@@ -65,6 +65,9 @@ dependencies:
   intl: any
   vertical_weight_slider: ^2.6.0
   scrollable_positioned_list: ^0.3.8
+  wheel_chooser: ^1.1.2
+  wheel_slider: ^1.2.2
+  numberpicker: ^2.1.2
 
 dev_dependencies:
   flutter_test:

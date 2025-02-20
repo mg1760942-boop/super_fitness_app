@@ -12,6 +12,7 @@ import 'package:super_fitness_app/src/presentation/pages/login/widgets/or_row.da
 import 'package:super_fitness_app/src/presentation/shared/base_scaffold.dart';
 import 'package:super_fitness_app/src/presentation/shared/blured_container.dart';
 import 'package:super_fitness_app/src/presentation/shared/custom_auth_button.dart';
+import 'package:super_fitness_app/super_ditness_app.dart';
 
 import '../../../../core/common/common_imports.dart';
 import '../../../../core/di/di.dart';
@@ -183,7 +184,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               verticalSpace(8),
                               AuthDecissionRow(
                                   text: context.localization.register,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamedAndRemoveUntil(
+
+                                        context, PageRoutesName.register,(route) => false,);
+                                  },
                                   prefixText: context
                                       .localization.dontHaveAnAccountRegister),
                             ],

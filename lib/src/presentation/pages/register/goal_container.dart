@@ -10,8 +10,7 @@ import '../../shared/radio_tile_item.dart';
 class GoalContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var viewmodel = context.watch<RegisterViewmodel>();
-
+    var viewmodel = context.watch<RegisterViewModel>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

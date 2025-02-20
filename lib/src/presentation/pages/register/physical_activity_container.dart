@@ -8,9 +8,11 @@ import 'package:super_fitness_app/src/presentation/shared/custom_auth_button.dar
 import '../../shared/radio_tile_item.dart';
 
 class PhysicalActivityContainer extends StatelessWidget {
+  const PhysicalActivityContainer({super.key});
+
   @override
   Widget build(BuildContext context) {
-    var viewmodel = context.watch<RegisterViewmodel>();
+    var viewmodel = context.watch<RegisterViewModel>();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,7 +37,7 @@ class PhysicalActivityContainer extends StatelessWidget {
                       viewmodel.addPhysicalActivity(physicalActivity);
                     },
                     onChanged: (value) {
-                      viewmodel.addPhysicalActivity(value);
+                      viewmodel.addPhysicalActivity(physicalActivity);
                     },
                   );
                 },
@@ -45,8 +47,7 @@ class PhysicalActivityContainer extends StatelessWidget {
                   text: 'Next',
                   onPressed: () {
                     if (viewmodel.selectedGoal != null) {
-                      var nextPageIndex = viewmodel.currentPage + 1;
-                      viewmodel.changePage(nextPageIndex);
+                     viewmodel.register();
                     }
                   },
                   color: Color(0xFFFF4100),

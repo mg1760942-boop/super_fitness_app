@@ -9,35 +9,32 @@ class GenderSelectionBodyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        verticalSpace(100),
-        Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "TELL US ABOUT YOURSELF",
-                    style: AppFonts.font20KWightWeightW800Font,
-                  ),
-                  verticalSpace(2),
-                  Text(
-                    "We Need To Know Your Gender",
-                    style: AppFonts.font18KWightWeightW400Font,
-                  ),
-                ],
-              ),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "TELL US ABOUT YOURSELF",
+                  style: AppFonts.font20KWightWeightW800Font,
+                ),
+                verticalSpace(2),
+                Text(
+                  "We Need To Know Your Gender",
+                  style: AppFonts.font18KWightWeightW400Font,
+                ),
+              ],
             ),
-            SelectedGenderCardWidget()
-          ],
-        ),
-      ],
+          ),
+          SelectedGenderCardWidget(),
+        ],
+      ),
     );
   }
 }

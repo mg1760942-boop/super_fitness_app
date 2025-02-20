@@ -73,7 +73,7 @@ class ForgetPasswordScreenViewModel extends Cubit<ForgetPasswordScreenStates> {
             resetCode: _getController(ForgetPasswordScreenFields.code).text));
     switch (result) {
       case Success<VerifyResetCodeResponseEntity>():
-        emit(ForgetPasswordScreenSuccessState());
+        emit(ForgetPasswordScreenSuccessState(message: "Code verified successfully",view: ForgetPasswordScreenViews.resetPasswordView));
         break;
       case Failures<VerifyResetCodeResponseEntity>():
         emit(ForgetPasswordScreenErrorState(result.exception));
@@ -94,13 +94,14 @@ class ForgetPasswordScreenViewModel extends Cubit<ForgetPasswordScreenStates> {
     );
     switch (result) {
       case Success<ResetPasswordResponseEntity>():
-        emit(ForgetPasswordScreenSuccessState());
+        emit(ForgetPasswordScreenSuccessState(message: "Password reset successfully",));
         break;
       case Failures<ResetPasswordResponseEntity>():
         emit(ForgetPasswordScreenErrorState(result.exception));
         break;
     }
   }
+
 
   doAction(ForgetPasswordScreenActions action) {
     switch (action) {
@@ -117,6 +118,9 @@ class ForgetPasswordScreenViewModel extends Cubit<ForgetPasswordScreenStates> {
        return _getController(action.field);
       case GetFieldValidatorAction():
         return _getValidator(action.field);
+      case OtpResendAction():
+        _forgetPassword();
+        break;
     }
   }
 }

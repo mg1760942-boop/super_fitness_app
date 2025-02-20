@@ -3,6 +3,7 @@ import 'package:cherry_toast/resources/arrays.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:super_fitness_app/config/routes/page_route_name.dart';
 import 'package:super_fitness_app/core/utilities/style/app_colors.dart';
 import 'package:super_fitness_app/core/utilities/style/app_images.dart';
 import 'package:super_fitness_app/core/utilities/style/app_text_styles.dart';
@@ -13,6 +14,7 @@ import 'package:super_fitness_app/src/presentation/pages/forget_password/confirm
 import 'package:super_fitness_app/src/presentation/pages/forget_password/reset_password_view.dart';
 import 'package:super_fitness_app/src/presentation/pages/forget_password/verify_email_view.dart';
 import 'package:super_fitness_app/src/presentation/shared/base_scaffold.dart';
+import 'package:super_fitness_app/super_ditness_app.dart';
 
 import '../../../../core/common/common_imports.dart';
 import '../../../../core/di/di.dart';
@@ -46,7 +48,7 @@ class ForgetPasswordScreen extends StatelessWidget {
             if (state is ForgetPasswordScreenSuccessState) {
               switch (state.view) {
                 case null:
-                  return ResetPasswordView();
+                  return VerifyEmailView();
                 case ForgetPasswordScreenViews.verifyEmailView:
                   return VerifyEmailView();
                 case ForgetPasswordScreenViews.confirmOtpView:
@@ -55,9 +57,11 @@ class ForgetPasswordScreen extends StatelessWidget {
                 case ForgetPasswordScreenViews.resetPasswordView:
                   context.loaderOverlay.hide();
                   return ResetPasswordView();
+                case ForgetPasswordScreenViews.loginView:
+                  navKey.currentState!.pushNamed(PageRoutesName.login);
               }
             }
-            return ResetPasswordView();
+            return ConfirmOtpView();
           }, listener: (context, state) {
             if (state is ForgetPasswordScreenLoadingState) {
               context.loaderOverlay.show();
@@ -122,5 +126,6 @@ class ForgetPasswordScreen extends StatelessWidget {
 enum ForgetPasswordScreenViews {
   verifyEmailView,
   confirmOtpView,
-  resetPasswordView
+  resetPasswordView,
+  loginView
 }

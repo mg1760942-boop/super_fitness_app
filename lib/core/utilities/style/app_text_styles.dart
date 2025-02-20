@@ -70,4 +70,9 @@ class AppTextStyles{
     fontWeight: FontWeight.w700,
     fontSize: 16.sp,
   );
+  static var font20w500 = GoogleFonts.balooThambi2(
+    fontWeight: FontWeight.w500,
+    fontSize: 16.sp,
+    color: AppColors.mainColor
+  );
 }

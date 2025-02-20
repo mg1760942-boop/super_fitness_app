@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/core/common/apis/api_result.dart';
@@ -44,11 +46,16 @@ class ForgetPasswordScreenViewModel extends Cubit<ForgetPasswordScreenStates> {
   }
 
   _forgetPassword() async {
-    emit(ForgetPasswordScreenLoadingState());
+    if(_getValidator(ForgetPasswordScreenFields.email) != null){
+      emit(ForgetPasswordScreenErrorState(Exception(_getValidator(ForgetPasswordScreenFields.email))));
+      return;
+    }
+    emit(ForgetPasswordScreenLoadingState(message: "sending Otp"));
+    String email = _getController(ForgetPasswordScreenFields.email).text;
+    log("email: $email");
     var result = await _forgetPasswordUseCase.forgetPassword(
         ForgetPasswordRequestEntity(
-            email: _getController(ForgetPasswordScreenFields.email).text));
-
+            email: email));
     switch (result) {
       case Success<ForgetPasswordResponseEntity>():
         emit(ForgetPasswordScreenSuccessState(message: "Otp sent successfully",view: ForgetPasswordScreenViews.confirmOtpView));

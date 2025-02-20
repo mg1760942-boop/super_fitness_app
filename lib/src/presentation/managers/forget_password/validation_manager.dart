@@ -1,5 +1,6 @@
 
 import 'package:injectable/injectable.dart';
+import 'package:super_fitness_app/core/helpers/app_regexp.dart';
 
 import 'forget_password_screen_view_model.dart';
 
@@ -8,6 +9,9 @@ import 'forget_password_screen_view_model.dart';
 class ForgetPasswordScreenValidatorManager{
 
   String? _emailValidator(String? email){
+    if(email == null || email.isEmpty || !AppRegExp.isEmailValid(email)){
+      return "Invalid email";
+    }
     return null;
   }
   String? _fieldValidator(String? text) {

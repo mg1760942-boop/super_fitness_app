@@ -26,7 +26,8 @@ class _ApiServices implements ApiServices {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = <String, dynamic>{};
+    _data.addAll(forgetPasswordRequestModel.toJson());
     final _options = _setStreamType<ForgetPasswordResponseModel>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
@@ -55,7 +56,8 @@ class _ApiServices implements ApiServices {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = <String, dynamic>{};
+    _data.addAll(verifyResetCodeRequestModel.toJson());
     final _options = _setStreamType<VerifyResetCodeResponseModel>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
@@ -84,7 +86,8 @@ class _ApiServices implements ApiServices {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = <String, dynamic>{};
+    _data.addAll(resetPasswordRequestModel.toJson());
     final _options = _setStreamType<ResetPasswordResponseModel>(
       Options(method: 'PUT', headers: _headers, extra: _extra)
           .compose(

@@ -51,84 +51,104 @@ class MockAuthRepository extends _i1.Mock implements _i2.AuthRepository {
 
   @override
   _i3.Future<_i4.ApiResult<_i5.ForgetPasswordResponseEntity>> forgetPassword(
-    _i6.ForgetPasswordRequestEntity? request,
-  ) =>
+          _i6.ForgetPasswordRequestEntity? request) =>
       (super.noSuchMethod(
-            Invocation.method(#forgetPassword, [request]),
-            returnValue: _i3.Future<
-              _i4.ApiResult<_i5.ForgetPasswordResponseEntity>
-            >.value(
-              _i7.dummyValue<_i4.ApiResult<_i5.ForgetPasswordResponseEntity>>(
-                this,
-                Invocation.method(#forgetPassword, [request]),
-              ),
-            ),
-          )
-          as _i3.Future<_i4.ApiResult<_i5.ForgetPasswordResponseEntity>>);
+        Invocation.method(
+          #forgetPassword,
+          [request],
+        ),
+        returnValue:
+            _i3.Future<_i4.ApiResult<_i5.ForgetPasswordResponseEntity>>.value(
+                _i7.dummyValue<_i4.ApiResult<_i5.ForgetPasswordResponseEntity>>(
+          this,
+          Invocation.method(
+            #forgetPassword,
+            [request],
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<_i5.ForgetPasswordResponseEntity>>);
 
   @override
   _i3.Future<_i4.ApiResult<_i8.VerifyResetCodeResponseEntity>> verifyResetCode(
-    _i9.VerifyResetCodeRequestEntity? request,
-  ) =>
+          _i9.VerifyResetCodeRequestEntity? request) =>
       (super.noSuchMethod(
-            Invocation.method(#verifyResetCode, [request]),
-            returnValue: _i3.Future<
-              _i4.ApiResult<_i8.VerifyResetCodeResponseEntity>
-            >.value(
-              _i7.dummyValue<_i4.ApiResult<_i8.VerifyResetCodeResponseEntity>>(
-                this,
-                Invocation.method(#verifyResetCode, [request]),
-              ),
-            ),
-          )
-          as _i3.Future<_i4.ApiResult<_i8.VerifyResetCodeResponseEntity>>);
+        Invocation.method(
+          #verifyResetCode,
+          [request],
+        ),
+        returnValue: _i3
+            .Future<_i4.ApiResult<_i8.VerifyResetCodeResponseEntity>>.value(
+            _i7.dummyValue<_i4.ApiResult<_i8.VerifyResetCodeResponseEntity>>(
+          this,
+          Invocation.method(
+            #verifyResetCode,
+            [request],
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<_i8.VerifyResetCodeResponseEntity>>);
 
   @override
   _i3.Future<_i4.ApiResult<_i10.ResetPasswordResponseEntity>> resetPassword(
-    _i11.ResetPasswordRequestEntity? request,
+          _i11.ResetPasswordRequestEntity? request) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #resetPassword,
+          [request],
+        ),
+        returnValue:
+            _i3.Future<_i4.ApiResult<_i10.ResetPasswordResponseEntity>>.value(
+                _i7.dummyValue<_i4.ApiResult<_i10.ResetPasswordResponseEntity>>(
+          this,
+          Invocation.method(
+            #resetPassword,
+            [request],
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<_i10.ResetPasswordResponseEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<void>> login(
+    String? email,
+    String? password,
   ) =>
       (super.noSuchMethod(
-            Invocation.method(#resetPassword, [request]),
-            returnValue: _i3.Future<
-              _i4.ApiResult<_i10.ResetPasswordResponseEntity>
-            >.value(
-              _i7.dummyValue<_i4.ApiResult<_i10.ResetPasswordResponseEntity>>(
-                this,
-                Invocation.method(#resetPassword, [request]),
-              ),
-            ),
-          )
-          as _i3.Future<_i4.ApiResult<_i10.ResetPasswordResponseEntity>>);
+        Invocation.method(
+          #login,
+          [
+            email,
+            password,
+          ],
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<void>>.value(
+            _i7.dummyValue<_i4.ApiResult<void>>(
+          this,
+          Invocation.method(
+            #login,
+            [
+              email,
+              password,
+            ],
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<void>>);
 
   @override
-  _i3.Future<_i4.ApiResult<void>> login(String? email, String? password) =>
+  _i3.Future<_i4.ApiResult<_i12.AppUserEntity>> register(
+          {required _i13.RegisterRequestModel? registerRequest}) =>
       (super.noSuchMethod(
-            Invocation.method(#login, [email, password]),
-            returnValue: _i3.Future<_i4.ApiResult<void>>.value(
-              _i7.dummyValue<_i4.ApiResult<void>>(
-                this,
-                Invocation.method(#login, [email, password]),
-              ),
-            ),
-          )
-          as _i3.Future<_i4.ApiResult<void>>);
-
-  @override
-  _i3.Future<_i4.ApiResult<_i12.AppUserEntity>> register({
-    required _i13.RegisterRequestModel? registerRequest,
-  }) =>
-      (super.noSuchMethod(
-            Invocation.method(#register, [], {
-              #registerRequest: registerRequest,
-            }),
-            returnValue: _i3.Future<_i4.ApiResult<_i12.AppUserEntity>>.value(
-              _i7.dummyValue<_i4.ApiResult<_i12.AppUserEntity>>(
-                this,
-                Invocation.method(#register, [], {
-                  #registerRequest: registerRequest,
-                }),
-              ),
-            ),
-          )
-          as _i3.Future<_i4.ApiResult<_i12.AppUserEntity>>);
+        Invocation.method(
+          #register,
+          [],
+          {#registerRequest: registerRequest},
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<_i12.AppUserEntity>>.value(
+            _i7.dummyValue<_i4.ApiResult<_i12.AppUserEntity>>(
+          this,
+          Invocation.method(
+            #register,
+            [],
+            {#registerRequest: registerRequest},
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<_i12.AppUserEntity>>);
 }

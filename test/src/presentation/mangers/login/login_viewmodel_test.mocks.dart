@@ -33,13 +33,23 @@ import 'package:super_fitness_app/src/domain/usecases/auth/login/login_usecase.d
 
 class _FakeAuthRepository_0 extends _i1.SmartFake
     implements _i2.AuthRepository {
-  _FakeAuthRepository_0(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeAuthRepository_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 }
 
 class _FakeForm_1 extends _i1.SmartFake implements _i3.Form {
-  _FakeForm_1(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeForm_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 
   @override
   String toString({_i4.DiagnosticLevel? minLevel = _i4.DiagnosticLevel.info}) =>
@@ -47,13 +57,23 @@ class _FakeForm_1 extends _i1.SmartFake implements _i3.Form {
 }
 
 class _FakeBuildContext_2 extends _i1.SmartFake implements _i5.BuildContext {
-  _FakeBuildContext_2(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeBuildContext_2(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 }
 
 class _FakeWidget_3 extends _i1.SmartFake implements _i5.Widget {
-  _FakeWidget_3(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeWidget_3(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 
   @override
   String toString({_i4.DiagnosticLevel? minLevel = _i4.DiagnosticLevel.info}) =>
@@ -62,14 +82,20 @@ class _FakeWidget_3 extends _i1.SmartFake implements _i5.Widget {
 
 class _FakeDiagnosticsNode_4 extends _i1.SmartFake
     implements _i4.DiagnosticsNode {
-  _FakeDiagnosticsNode_4(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeDiagnosticsNode_4(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 
   @override
   String toString({
     _i4.TextTreeConfiguration? parentConfiguration,
     _i4.DiagnosticLevel? minLevel = _i4.DiagnosticLevel.info,
-  }) => super.toString();
+  }) =>
+      super.toString();
 }
 
 /// A class which mocks [LoginUsecase].
@@ -77,38 +103,54 @@ class _FakeDiagnosticsNode_4 extends _i1.SmartFake
 /// See the documentation for Mockito's code generation for more information.
 class MockLoginUsecase extends _i1.Mock implements _i6.LoginUsecase {
   @override
-  _i2.AuthRepository get repository =>
-      (super.noSuchMethod(
-            Invocation.getter(#repository),
-            returnValue: _FakeAuthRepository_0(
-              this,
-              Invocation.getter(#repository),
-            ),
-            returnValueForMissingStub: _FakeAuthRepository_0(
-              this,
-              Invocation.getter(#repository),
-            ),
-          )
-          as _i2.AuthRepository);
+  _i2.AuthRepository get repository => (super.noSuchMethod(
+        Invocation.getter(#repository),
+        returnValue: _FakeAuthRepository_0(
+          this,
+          Invocation.getter(#repository),
+        ),
+        returnValueForMissingStub: _FakeAuthRepository_0(
+          this,
+          Invocation.getter(#repository),
+        ),
+      ) as _i2.AuthRepository);
 
   @override
-  _i7.Future<_i8.ApiResult<void>> login(String? email, String? password) =>
+  _i7.Future<_i8.ApiResult<void>> login(
+    String? email,
+    String? password,
+  ) =>
       (super.noSuchMethod(
-            Invocation.method(#login, [email, password]),
-            returnValue: _i7.Future<_i8.ApiResult<void>>.value(
-              _i9.dummyValue<_i8.ApiResult<void>>(
-                this,
-                Invocation.method(#login, [email, password]),
-              ),
-            ),
-            returnValueForMissingStub: _i7.Future<_i8.ApiResult<void>>.value(
-              _i9.dummyValue<_i8.ApiResult<void>>(
-                this,
-                Invocation.method(#login, [email, password]),
-              ),
-            ),
-          )
-          as _i7.Future<_i8.ApiResult<void>>);
+        Invocation.method(
+          #login,
+          [
+            email,
+            password,
+          ],
+        ),
+        returnValue: _i7.Future<_i8.ApiResult<void>>.value(
+            _i9.dummyValue<_i8.ApiResult<void>>(
+          this,
+          Invocation.method(
+            #login,
+            [
+              email,
+              password,
+            ],
+          ),
+        )),
+        returnValueForMissingStub: _i7.Future<_i8.ApiResult<void>>.value(
+            _i9.dummyValue<_i8.ApiResult<void>>(
+          this,
+          Invocation.method(
+            #login,
+            [
+              email,
+              password,
+            ],
+          ),
+        )),
+      ) as _i7.Future<_i8.ApiResult<void>>);
 }
 
 /// A class which mocks [FormState].
@@ -116,135 +158,177 @@ class MockLoginUsecase extends _i1.Mock implements _i6.LoginUsecase {
 /// See the documentation for Mockito's code generation for more information.
 class MockFormState extends _i1.Mock implements _i3.FormState {
   @override
-  _i3.Form get widget =>
-      (super.noSuchMethod(
-            Invocation.getter(#widget),
-            returnValue: _FakeForm_1(this, Invocation.getter(#widget)),
-            returnValueForMissingStub: _FakeForm_1(
-              this,
-              Invocation.getter(#widget),
-            ),
-          )
-          as _i3.Form);
+  _i3.Form get widget => (super.noSuchMethod(
+        Invocation.getter(#widget),
+        returnValue: _FakeForm_1(
+          this,
+          Invocation.getter(#widget),
+        ),
+        returnValueForMissingStub: _FakeForm_1(
+          this,
+          Invocation.getter(#widget),
+        ),
+      ) as _i3.Form);
 
   @override
-  _i5.BuildContext get context =>
-      (super.noSuchMethod(
-            Invocation.getter(#context),
-            returnValue: _FakeBuildContext_2(this, Invocation.getter(#context)),
-            returnValueForMissingStub: _FakeBuildContext_2(
-              this,
-              Invocation.getter(#context),
-            ),
-          )
-          as _i5.BuildContext);
+  _i5.BuildContext get context => (super.noSuchMethod(
+        Invocation.getter(#context),
+        returnValue: _FakeBuildContext_2(
+          this,
+          Invocation.getter(#context),
+        ),
+        returnValueForMissingStub: _FakeBuildContext_2(
+          this,
+          Invocation.getter(#context),
+        ),
+      ) as _i5.BuildContext);
 
   @override
-  bool get mounted =>
-      (super.noSuchMethod(
-            Invocation.getter(#mounted),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool get mounted => (super.noSuchMethod(
+        Invocation.getter(#mounted),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
 
   @override
-  _i5.Widget build(_i5.BuildContext? context) =>
-      (super.noSuchMethod(
-            Invocation.method(#build, [context]),
-            returnValue: _FakeWidget_3(
-              this,
-              Invocation.method(#build, [context]),
-            ),
-            returnValueForMissingStub: _FakeWidget_3(
-              this,
-              Invocation.method(#build, [context]),
-            ),
-          )
-          as _i5.Widget);
+  _i5.Widget build(_i5.BuildContext? context) => (super.noSuchMethod(
+        Invocation.method(
+          #build,
+          [context],
+        ),
+        returnValue: _FakeWidget_3(
+          this,
+          Invocation.method(
+            #build,
+            [context],
+          ),
+        ),
+        returnValueForMissingStub: _FakeWidget_3(
+          this,
+          Invocation.method(
+            #build,
+            [context],
+          ),
+        ),
+      ) as _i5.Widget);
 
   @override
   void save() => super.noSuchMethod(
-    Invocation.method(#save, []),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(
+          #save,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void reset() => super.noSuchMethod(
-    Invocation.method(#reset, []),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(
+          #reset,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
-  bool validate() =>
-      (super.noSuchMethod(
-            Invocation.method(#validate, []),
-            returnValue: false,
-            returnValueForMissingStub: false,
-          )
-          as bool);
+  bool validate() => (super.noSuchMethod(
+        Invocation.method(
+          #validate,
+          [],
+        ),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
 
   @override
-  Set<_i3.FormFieldState<Object?>> validateGranularly() =>
-      (super.noSuchMethod(
-            Invocation.method(#validateGranularly, []),
-            returnValue: <_i3.FormFieldState<Object?>>{},
-            returnValueForMissingStub: <_i3.FormFieldState<Object?>>{},
-          )
-          as Set<_i3.FormFieldState<Object?>>);
+  Set<_i3.FormFieldState<Object?>> validateGranularly() => (super.noSuchMethod(
+        Invocation.method(
+          #validateGranularly,
+          [],
+        ),
+        returnValue: <_i3.FormFieldState<Object?>>{},
+        returnValueForMissingStub: <_i3.FormFieldState<Object?>>{},
+      ) as Set<_i3.FormFieldState<Object?>>);
 
   @override
   void initState() => super.noSuchMethod(
-    Invocation.method(#initState, []),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(
+          #initState,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void didUpdateWidget(_i3.Form? oldWidget) => super.noSuchMethod(
-    Invocation.method(#didUpdateWidget, [oldWidget]),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(
+          #didUpdateWidget,
+          [oldWidget],
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void reassemble() => super.noSuchMethod(
-    Invocation.method(#reassemble, []),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(
+          #reassemble,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void setState(_i10.VoidCallback? fn) => super.noSuchMethod(
-    Invocation.method(#setState, [fn]),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(
+          #setState,
+          [fn],
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void deactivate() => super.noSuchMethod(
-    Invocation.method(#deactivate, []),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(
+          #deactivate,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void activate() => super.noSuchMethod(
-    Invocation.method(#activate, []),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(
+          #activate,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void dispose() => super.noSuchMethod(
-    Invocation.method(#dispose, []),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(
+          #dispose,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void didChangeDependencies() => super.noSuchMethod(
-    Invocation.method(#didChangeDependencies, []),
-    returnValueForMissingStub: null,
-  );
+        Invocation.method(
+          #didChangeDependencies,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   void debugFillProperties(_i4.DiagnosticPropertiesBuilder? properties) =>
       super.noSuchMethod(
-        Invocation.method(#debugFillProperties, [properties]),
+        Invocation.method(
+          #debugFillProperties,
+          [properties],
+        ),
         returnValueForMissingStub: null,
       );
 
@@ -253,19 +337,26 @@ class MockFormState extends _i1.Mock implements _i3.FormState {
       super.toString();
 
   @override
-  String toStringShort() =>
-      (super.noSuchMethod(
-            Invocation.method(#toStringShort, []),
-            returnValue: _i9.dummyValue<String>(
-              this,
-              Invocation.method(#toStringShort, []),
-            ),
-            returnValueForMissingStub: _i9.dummyValue<String>(
-              this,
-              Invocation.method(#toStringShort, []),
-            ),
-          )
-          as String);
+  String toStringShort() => (super.noSuchMethod(
+        Invocation.method(
+          #toStringShort,
+          [],
+        ),
+        returnValue: _i9.dummyValue<String>(
+          this,
+          Invocation.method(
+            #toStringShort,
+            [],
+          ),
+        ),
+        returnValueForMissingStub: _i9.dummyValue<String>(
+          this,
+          Invocation.method(
+            #toStringShort,
+            [],
+          ),
+        ),
+      ) as String);
 
   @override
   _i4.DiagnosticsNode toDiagnosticsNode({
@@ -273,26 +364,37 @@ class MockFormState extends _i1.Mock implements _i3.FormState {
     _i4.DiagnosticsTreeStyle? style,
   }) =>
       (super.noSuchMethod(
-            Invocation.method(#toDiagnosticsNode, [], {
+        Invocation.method(
+          #toDiagnosticsNode,
+          [],
+          {
+            #name: name,
+            #style: style,
+          },
+        ),
+        returnValue: _FakeDiagnosticsNode_4(
+          this,
+          Invocation.method(
+            #toDiagnosticsNode,
+            [],
+            {
               #name: name,
               #style: style,
-            }),
-            returnValue: _FakeDiagnosticsNode_4(
-              this,
-              Invocation.method(#toDiagnosticsNode, [], {
-                #name: name,
-                #style: style,
-              }),
-            ),
-            returnValueForMissingStub: _FakeDiagnosticsNode_4(
-              this,
-              Invocation.method(#toDiagnosticsNode, [], {
-                #name: name,
-                #style: style,
-              }),
-            ),
-          )
-          as _i4.DiagnosticsNode);
+            },
+          ),
+        ),
+        returnValueForMissingStub: _FakeDiagnosticsNode_4(
+          this,
+          Invocation.method(
+            #toDiagnosticsNode,
+            [],
+            {
+              #name: name,
+              #style: style,
+            },
+          ),
+        ),
+      ) as _i4.DiagnosticsNode);
 }
 
 /// A class which mocks [GlobalKey].

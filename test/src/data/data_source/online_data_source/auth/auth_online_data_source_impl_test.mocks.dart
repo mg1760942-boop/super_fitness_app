@@ -46,8 +46,13 @@ import 'package:super_fitness_app/src/domain/entities/app_user_entity/app_user_e
 
 class _FakeForgetPasswordResponseModel_0 extends _i1.SmartFake
     implements _i2.ForgetPasswordResponseModel {
-  _FakeForgetPasswordResponseModel_0(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeForgetPasswordResponseModel_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 }
 
 class _FakeVerifyResetCodeResponseModel_1 extends _i1.SmartFake
@@ -55,29 +60,52 @@ class _FakeVerifyResetCodeResponseModel_1 extends _i1.SmartFake
   _FakeVerifyResetCodeResponseModel_1(
     Object parent,
     Invocation parentInvocation,
-  ) : super(parent, parentInvocation);
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 }
 
 class _FakeResetPasswordResponseModel_2 extends _i1.SmartFake
     implements _i4.ResetPasswordResponseModel {
-  _FakeResetPasswordResponseModel_2(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeResetPasswordResponseModel_2(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 }
 
 class _FakeLoginResponse_3 extends _i1.SmartFake implements _i5.LoginResponse {
-  _FakeLoginResponse_3(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeLoginResponse_3(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 }
 
 class _FakeRegisterResponseModel_4 extends _i1.SmartFake
     implements _i6.RegisterResponseModel {
-  _FakeRegisterResponseModel_4(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeRegisterResponseModel_4(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 }
 
 class _FakeAppUserEntity_5 extends _i1.SmartFake implements _i7.AppUserEntity {
-  _FakeAppUserEntity_5(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeAppUserEntity_5(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 }
 
 /// A class which mocks [ApiServices].
@@ -90,84 +118,93 @@ class MockApiServices extends _i1.Mock implements _i8.ApiServices {
 
   @override
   _i9.Future<_i2.ForgetPasswordResponseModel> forgetPassword(
-    _i10.ForgetPasswordRequestModel? forgetPasswordRequestModel,
-  ) =>
+          _i10.ForgetPasswordRequestModel? forgetPasswordRequestModel) =>
       (super.noSuchMethod(
-            Invocation.method(#forgetPassword, [forgetPasswordRequestModel]),
-            returnValue: _i9.Future<_i2.ForgetPasswordResponseModel>.value(
-              _FakeForgetPasswordResponseModel_0(
-                this,
-                Invocation.method(#forgetPassword, [
-                  forgetPasswordRequestModel,
-                ]),
-              ),
-            ),
-          )
-          as _i9.Future<_i2.ForgetPasswordResponseModel>);
+        Invocation.method(
+          #forgetPassword,
+          [forgetPasswordRequestModel],
+        ),
+        returnValue: _i9.Future<_i2.ForgetPasswordResponseModel>.value(
+            _FakeForgetPasswordResponseModel_0(
+          this,
+          Invocation.method(
+            #forgetPassword,
+            [forgetPasswordRequestModel],
+          ),
+        )),
+      ) as _i9.Future<_i2.ForgetPasswordResponseModel>);
 
   @override
   _i9.Future<_i3.VerifyResetCodeResponseModel> verifyResetCode(
-    _i11.VerifyResetCodeRequestModel? verifyResetCodeRequestModel,
-  ) =>
+          _i11.VerifyResetCodeRequestModel? verifyResetCodeRequestModel) =>
       (super.noSuchMethod(
-            Invocation.method(#verifyResetCode, [verifyResetCodeRequestModel]),
-            returnValue: _i9.Future<_i3.VerifyResetCodeResponseModel>.value(
-              _FakeVerifyResetCodeResponseModel_1(
-                this,
-                Invocation.method(#verifyResetCode, [
-                  verifyResetCodeRequestModel,
-                ]),
-              ),
-            ),
-          )
-          as _i9.Future<_i3.VerifyResetCodeResponseModel>);
+        Invocation.method(
+          #verifyResetCode,
+          [verifyResetCodeRequestModel],
+        ),
+        returnValue: _i9.Future<_i3.VerifyResetCodeResponseModel>.value(
+            _FakeVerifyResetCodeResponseModel_1(
+          this,
+          Invocation.method(
+            #verifyResetCode,
+            [verifyResetCodeRequestModel],
+          ),
+        )),
+      ) as _i9.Future<_i3.VerifyResetCodeResponseModel>);
 
   @override
   _i9.Future<_i4.ResetPasswordResponseModel> resetPassword(
-    _i12.ResetPasswordRequestModel? resetPasswordRequestModel,
-  ) =>
+          _i12.ResetPasswordRequestModel? resetPasswordRequestModel) =>
       (super.noSuchMethod(
-            Invocation.method(#resetPassword, [resetPasswordRequestModel]),
-            returnValue: _i9.Future<_i4.ResetPasswordResponseModel>.value(
-              _FakeResetPasswordResponseModel_2(
-                this,
-                Invocation.method(#resetPassword, [resetPasswordRequestModel]),
-              ),
-            ),
-          )
-          as _i9.Future<_i4.ResetPasswordResponseModel>);
+        Invocation.method(
+          #resetPassword,
+          [resetPasswordRequestModel],
+        ),
+        returnValue: _i9.Future<_i4.ResetPasswordResponseModel>.value(
+            _FakeResetPasswordResponseModel_2(
+          this,
+          Invocation.method(
+            #resetPassword,
+            [resetPasswordRequestModel],
+          ),
+        )),
+      ) as _i9.Future<_i4.ResetPasswordResponseModel>);
 
   @override
   _i9.Future<_i5.LoginResponse> login(_i13.LoginRequest? loginRequest) =>
       (super.noSuchMethod(
-            Invocation.method(#login, [loginRequest]),
-            returnValue: _i9.Future<_i5.LoginResponse>.value(
-              _FakeLoginResponse_3(
-                this,
-                Invocation.method(#login, [loginRequest]),
-              ),
-            ),
-          )
-          as _i9.Future<_i5.LoginResponse>);
+        Invocation.method(
+          #login,
+          [loginRequest],
+        ),
+        returnValue: _i9.Future<_i5.LoginResponse>.value(_FakeLoginResponse_3(
+          this,
+          Invocation.method(
+            #login,
+            [loginRequest],
+          ),
+        )),
+      ) as _i9.Future<_i5.LoginResponse>);
 
   @override
-  _i9.Future<_i6.RegisterResponseModel> register({
-    required _i14.RegisterRequestModel? registerRequestModel,
-  }) =>
+  _i9.Future<_i6.RegisterResponseModel> register(
+          {required _i14.RegisterRequestModel? registerRequestModel}) =>
       (super.noSuchMethod(
-            Invocation.method(#register, [], {
-              #registerRequestModel: registerRequestModel,
-            }),
-            returnValue: _i9.Future<_i6.RegisterResponseModel>.value(
-              _FakeRegisterResponseModel_4(
-                this,
-                Invocation.method(#register, [], {
-                  #registerRequestModel: registerRequestModel,
-                }),
-              ),
-            ),
-          )
-          as _i9.Future<_i6.RegisterResponseModel>);
+        Invocation.method(
+          #register,
+          [],
+          {#registerRequestModel: registerRequestModel},
+        ),
+        returnValue: _i9.Future<_i6.RegisterResponseModel>.value(
+            _FakeRegisterResponseModel_4(
+          this,
+          Invocation.method(
+            #register,
+            [],
+            {#registerRequestModel: registerRequestModel},
+          ),
+        )),
+      ) as _i9.Future<_i6.RegisterResponseModel>);
 }
 
 /// A class which mocks [AppUserEntity].
@@ -190,77 +227,111 @@ class MockRegisterRequestModel extends _i1.Mock
 
   @override
   set firstName(String? _firstName) => super.noSuchMethod(
-    Invocation.setter(#firstName, _firstName),
-    returnValueForMissingStub: null,
-  );
+        Invocation.setter(
+          #firstName,
+          _firstName,
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   set lastName(String? _lastName) => super.noSuchMethod(
-    Invocation.setter(#lastName, _lastName),
-    returnValueForMissingStub: null,
-  );
+        Invocation.setter(
+          #lastName,
+          _lastName,
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   set email(String? _email) => super.noSuchMethod(
-    Invocation.setter(#email, _email),
-    returnValueForMissingStub: null,
-  );
+        Invocation.setter(
+          #email,
+          _email,
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   set password(String? _password) => super.noSuchMethod(
-    Invocation.setter(#password, _password),
-    returnValueForMissingStub: null,
-  );
+        Invocation.setter(
+          #password,
+          _password,
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   set rePassword(String? _rePassword) => super.noSuchMethod(
-    Invocation.setter(#rePassword, _rePassword),
-    returnValueForMissingStub: null,
-  );
+        Invocation.setter(
+          #rePassword,
+          _rePassword,
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   set gender(String? _gender) => super.noSuchMethod(
-    Invocation.setter(#gender, _gender),
-    returnValueForMissingStub: null,
-  );
+        Invocation.setter(
+          #gender,
+          _gender,
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   set height(num? _height) => super.noSuchMethod(
-    Invocation.setter(#height, _height),
-    returnValueForMissingStub: null,
-  );
+        Invocation.setter(
+          #height,
+          _height,
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   set weight(num? _weight) => super.noSuchMethod(
-    Invocation.setter(#weight, _weight),
-    returnValueForMissingStub: null,
-  );
+        Invocation.setter(
+          #weight,
+          _weight,
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   set age(num? _age) => super.noSuchMethod(
-    Invocation.setter(#age, _age),
-    returnValueForMissingStub: null,
-  );
+        Invocation.setter(
+          #age,
+          _age,
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   set goal(String? _goal) => super.noSuchMethod(
-    Invocation.setter(#goal, _goal),
-    returnValueForMissingStub: null,
-  );
+        Invocation.setter(
+          #goal,
+          _goal,
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   set activityLevel(String? _activityLevel) => super.noSuchMethod(
-    Invocation.setter(#activityLevel, _activityLevel),
-    returnValueForMissingStub: null,
-  );
+        Invocation.setter(
+          #activityLevel,
+          _activityLevel,
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
-  Map<String, dynamic> toJson() =>
-      (super.noSuchMethod(
-            Invocation.method(#toJson, []),
-            returnValue: <String, dynamic>{},
-          )
-          as Map<String, dynamic>);
+  Map<String, dynamic> toJson() => (super.noSuchMethod(
+        Invocation.method(
+          #toJson,
+          [],
+        ),
+        returnValue: <String, dynamic>{},
+      ) as Map<String, dynamic>);
 }
 
 /// A class which mocks [RegisterResponseModel].
@@ -273,23 +344,28 @@ class MockRegisterResponseModel extends _i1.Mock
   }
 
   @override
-  Map<String, dynamic> toJson() =>
-      (super.noSuchMethod(
-            Invocation.method(#toJson, []),
-            returnValue: <String, dynamic>{},
-          )
-          as Map<String, dynamic>);
+  Map<String, dynamic> toJson() => (super.noSuchMethod(
+        Invocation.method(
+          #toJson,
+          [],
+        ),
+        returnValue: <String, dynamic>{},
+      ) as Map<String, dynamic>);
 
   @override
-  _i7.AppUserEntity toAppUserEntity() =>
-      (super.noSuchMethod(
-            Invocation.method(#toAppUserEntity, []),
-            returnValue: _FakeAppUserEntity_5(
-              this,
-              Invocation.method(#toAppUserEntity, []),
-            ),
-          )
-          as _i7.AppUserEntity);
+  _i7.AppUserEntity toAppUserEntity() => (super.noSuchMethod(
+        Invocation.method(
+          #toAppUserEntity,
+          [],
+        ),
+        returnValue: _FakeAppUserEntity_5(
+          this,
+          Invocation.method(
+            #toAppUserEntity,
+            [],
+          ),
+        ),
+      ) as _i7.AppUserEntity);
 }
 
 /// A class which mocks [LoginResponse].
@@ -301,12 +377,13 @@ class MockLoginResponse extends _i1.Mock implements _i5.LoginResponse {
   }
 
   @override
-  Map<String, dynamic> toJson() =>
-      (super.noSuchMethod(
-            Invocation.method(#toJson, []),
-            returnValue: <String, dynamic>{},
-          )
-          as Map<String, dynamic>);
+  Map<String, dynamic> toJson() => (super.noSuchMethod(
+        Invocation.method(
+          #toJson,
+          [],
+        ),
+        returnValue: <String, dynamic>{},
+      ) as Map<String, dynamic>);
 }
 
 /// A class which mocks [LoginRequest].
@@ -318,10 +395,11 @@ class MockLoginRequest extends _i1.Mock implements _i13.LoginRequest {
   }
 
   @override
-  Map<String, dynamic> toJson() =>
-      (super.noSuchMethod(
-            Invocation.method(#toJson, []),
-            returnValue: <String, dynamic>{},
-          )
-          as Map<String, dynamic>);
+  Map<String, dynamic> toJson() => (super.noSuchMethod(
+        Invocation.method(
+          #toJson,
+          [],
+        ),
+        returnValue: <String, dynamic>{},
+      ) as Map<String, dynamic>);
 }

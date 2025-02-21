@@ -47,7 +47,7 @@ class ForgetPasswordScreenViewModel extends Cubit<ForgetPasswordScreenStates> {
 
   _forgetPassword() async {
     if(_getValidator(ForgetPasswordScreenFields.email) != null){
-      emit(ForgetPasswordScreenErrorState(Exception(_getValidator(ForgetPasswordScreenFields.email))));
+      emit(ForgetPasswordScreenErrorState(Exception("Invalid email")));
       return;
     }
     emit(ForgetPasswordScreenLoadingState(message: "sending Otp"));

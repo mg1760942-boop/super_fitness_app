@@ -3,18 +3,23 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:super_fitness_app/core/common/apis/api_result.dart';
 import 'package:super_fitness_app/src/data/api/core/api_request_models/login/login_request.dart';
+import 'package:super_fitness_app/src/data/api/core/api_request_models/register/register_request_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/login/login_response.dart';
 import 'package:super_fitness_app/src/data/data_source/offline_data_source/auth/auth_offline_data_source/auth_offline_data_source.dart';
 import 'package:super_fitness_app/src/data/data_source/online_data_source/auth/auth_online_data_source.dart';
 import 'package:super_fitness_app/src/data/repository/auth/auth_repository_impl.dart';
+import 'package:super_fitness_app/src/domain/entities/app_user_entity/app_user_entity.dart';
 
 import 'auth_repository_impl_test.mocks.dart';
 
 @GenerateMocks([
   AuthOnlineDataSource,
   AuthOfflineDataSource,
+  AppUserEntity,
+  RegisterRequestModel,
   LoginResponse,
 ])
+
 void main() {
   late MockAuthOnlineDataSource authOnlineDataSource;
   late MockAuthOfflineDataSource authOfflineDataSource;
@@ -35,7 +40,8 @@ void main() {
   group("Auth Repository Impl - login", () {
     test("should return Success when login is successful", () async {
       final loginResponse = MockLoginResponse();
-      when(authOnlineDataSource.login(any))
+
+      when(authOnlineDataSource.login( any))
           .thenAnswer((_) async => loginResponse);
       when(loginResponse.token).thenReturn("token");
       when(authOfflineDataSource.saveToken(token: anyNamed("token")))
@@ -81,6 +87,7 @@ void main() {
     test("should call authOnlineDataSource.login with correct LoginRequest",
         () async {
       final loginResponse = MockLoginResponse();
+
       when(authOnlineDataSource.login(any))
           .thenAnswer((_) async => loginResponse);
       when(loginResponse.token).thenReturn("token");
@@ -96,4 +103,31 @@ void main() {
       expect(loginRequest.password, equals(password));
     });
   });
+
+
+  group("Test Method : register ", () {
+    test("should return appUserEntity when call  authOnlineDataSource.register and"
+        "  call authOfflineDataSource.saveToken is Success", ()async {
+      var appUserEntity=MockAppUserEntity();
+      var registerRequestModel=MockRegisterRequestModel();
+      var response=(appUserEntity,"token");
+      when(authOnlineDataSource.register(registerRequestModel)).
+      thenAnswer((realInvocation) async=>response);
+      when(authOfflineDataSource.saveToken(token: "token")).
+      thenAnswer((_) async => Success<void>());
+
+      var actual = await authRepositoryImpl.register(registerRequest:
+      registerRequestModel);
+      expect(actual, isA<Success<AppUserEntity>>());
+    });
+  },);
+  test("should return ApiError when call  authOnlineDataSource.register and call authOfflineDataSource.saveToken is Error ", () async{
+    var registerRequestModel=MockRegisterRequestModel();
+    when(authOnlineDataSource.register(registerRequestModel)).thenThrow(Exception());
+    when(authOfflineDataSource.saveToken(token: "token")).thenAnswer((_) async => Success<void>());
+
+    var actual = await authRepositoryImpl.register(registerRequest: registerRequestModel);
+    expect(actual, isA<Failures<AppUserEntity>>());
+  },);
+
 }

@@ -39,6 +39,8 @@ import '../../src/presentation/managers/forget_password/forget_password_screen_v
 import '../../src/presentation/managers/forget_password/validation_manager.dart'
     as _i92;
 import '../../src/presentation/managers/login/login_viewmodel.dart' as _i475;
+import '../../src/presentation/managers/register/register_viewmodel.dart'
+    as _i278;
 import '../helpers/shared_pref/shared_pref_moduel.dart' as _i802;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -83,6 +85,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i673.ForgetPasswordUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i545.RegisterUseCase>(
         () => _i545.RegisterUseCase(gh<_i701.AuthRepository>()));
+    gh.factory<_i278.RegisterViewModel>(
+        () => _i278.RegisterViewModel(gh<_i545.RegisterUseCase>()));
     gh.factory<_i340.ForgetPasswordScreenViewModel>(
         () => _i340.ForgetPasswordScreenViewModel(
               gh<_i673.ForgetPasswordUseCase>(),

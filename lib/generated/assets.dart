@@ -3,9 +3,19 @@ class Assets {
   Assets._();
 
   static const String animationsLoading = 'assets/animations/loading.json';
+  static const String assetsAnimationsLoading =
+      'assets/animations/loading.json';
+  static const String iconsAiAssist = 'assets/icons/ai_assist.svg';
+  static const String iconsBackIcon = 'assets/icons/back_icon.svg';
   static const String iconsEye = 'assets/icons/eye.svg';
+  static const String iconsFemale = 'assets/icons/female.svg';
+  static const String iconsHome = 'assets/icons/home.svg';
   static const String iconsLock = 'assets/icons/lock.svg';
   static const String iconsMail = 'assets/icons/mail.svg';
+  static const String iconsMale = 'assets/icons/male.svg';
+  static const String iconsProfile = 'assets/icons/profile.svg';
+  static const String iconsUserIcon = 'assets/icons/user_icon.svg';
+  static const String iconsWorkout = 'assets/icons/workout.svg';
   static const String imagesAndroidTwelveSplash =
       'assets/images/android_twelve_splash.png';
   static const String imagesAppIcon = 'assets/images/app_icon.png';

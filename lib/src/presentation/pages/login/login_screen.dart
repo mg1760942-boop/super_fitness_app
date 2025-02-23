@@ -12,6 +12,7 @@ import 'package:super_fitness_app/src/presentation/pages/login/widgets/or_row.da
 import 'package:super_fitness_app/src/presentation/shared/base_scaffold.dart';
 import 'package:super_fitness_app/src/presentation/shared/blured_container.dart';
 import 'package:super_fitness_app/src/presentation/shared/custom_auth_button.dart';
+import 'package:super_fitness_app/super_ditness_app.dart';
 
 import '../../../../core/common/common_imports.dart';
 import '../../../../core/di/di.dart';
@@ -154,18 +155,24 @@ class _LoginScreenState extends State<LoginScreen> {
                                 prefixIcon: AppIcons.passwordIcon,
                               ),
                               verticalSpace(8),
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Text(
-                                  context.localization.forgotPassword,
-                                  style: TextStyle(
-                                    color: Color(0xFFFF4100),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    decoration: TextDecoration.underline,
-                                    decorationColor: Color(
-                                        0xFFFF4100), // Explicitly set underline color
-                                    height: 1.40,
+                              InkWell(
+                                onTap: () {
+                                  navKey.currentState!
+                                      .pushNamed(PageRoutesName.forgetPassword);
+                                },
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                    context.localization.forgotPassword,
+                                    style: TextStyle(
+                                      color: Color(0xFFFF4100),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      decoration: TextDecoration.underline,
+                                      decorationColor: Color(
+                                          0xFFFF4100), // Explicitly set underline color
+                                      height: 1.40,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -184,7 +191,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               verticalSpace(8),
                               AuthDecissionRow(
                                   text: context.localization.register,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushNamedAndRemoveUntil(
+                                      context,
+                                      PageRoutesName.register,
+                                      (route) => false,
+                                    );
+                                  },
                                   prefixText: context
                                       .localization.dontHaveAnAccountRegister),
                             ],

@@ -80,4 +80,22 @@ class AppFonts {
       fontSize: 24.sp,
       color: AppColors.kBlackBase,
       fontWeight: FontWeight.w500);
+  static TextStyle font20KWightWeightW800Font=TextStyle(
+      fontSize: 20.sp,
+      color: AppColors.kWhiteBase,
+      fontWeight: FontWeight.w800);
+  static TextStyle font18KWightWeightW400Font=TextStyle(
+      fontSize: 18.sp,
+      color: AppColors.kWhiteBase,
+      fontWeight: FontWeight.w400);
+
+  static TextStyle font16KWightWeightW400Font=TextStyle(
+      fontSize: 16.sp,
+      color: AppColors.kWhiteBase,
+      fontWeight: FontWeight.w400);
+
+  static TextStyle font14KWightWeightW800Font=TextStyle(
+      fontSize: 14.sp,
+      color: AppColors.kWhiteBase,
+      fontWeight: FontWeight.w800);
 }

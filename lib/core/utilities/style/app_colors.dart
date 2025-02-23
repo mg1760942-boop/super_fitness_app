@@ -52,6 +52,7 @@ class AppColors{
   static const Color kBlack90 = Color(0xFF040507);
   static const Color kBlack100 = Color(0xFF020304);
 
+  static const Color primary = Color(0xFFFF4100);
   // Grayscale
 
   // Semantic Colors

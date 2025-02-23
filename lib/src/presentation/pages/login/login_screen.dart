@@ -103,7 +103,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   verticalSpace(8),
                   BluredContainer(
                       radius: BorderRadius.all(Radius.circular(50)),
-                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Form(
@@ -154,18 +155,24 @@ class _LoginScreenState extends State<LoginScreen> {
                                 prefixIcon: AppIcons.passwordIcon,
                               ),
                               verticalSpace(8),
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Text(
-                                  context.localization.forgotPassword,
-                                  style: TextStyle(
-                                    color: Color(0xFFFF4100),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    decoration: TextDecoration.underline,
-                                    decorationColor: Color(
-                                        0xFFFF4100), // Explicitly set underline color
-                                    height: 1.40,
+                              InkWell(
+                                onTap: () {
+                                  navKey.currentState!
+                                      .pushNamed(PageRoutesName.forgetPassword);
+                                },
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                    context.localization.forgotPassword,
+                                    style: TextStyle(
+                                      color: Color(0xFFFF4100),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      decoration: TextDecoration.underline,
+                                      decorationColor: Color(
+                                          0xFFFF4100), // Explicitly set underline color
+                                      height: 1.40,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -186,8 +193,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                   text: context.localization.register,
                                   onPressed: () {
                                     Navigator.pushNamedAndRemoveUntil(
-
-                                        context, PageRoutesName.register,(route) => false,);
+                                      context,
+                                      PageRoutesName.register,
+                                      (route) => false,
+                                    );
                                   },
                                   prefixText: context
                                       .localization.dontHaveAnAccountRegister),

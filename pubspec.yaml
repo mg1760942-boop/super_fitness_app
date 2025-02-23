@@ -63,10 +63,6 @@ dependencies:
   tuple: ^2.0.2
 
   intl: any
-  google_fonts: ^6.2.1
-  loader_overlay:
-  flutter_spinkit: ^5.2.1
-  cherry_toast: ^1.12.0
   vertical_weight_slider: ^2.6.0
   scrollable_positioned_list: ^0.3.8
   wheel_chooser: ^1.1.2
@@ -74,9 +70,8 @@ dependencies:
   numberpicker: ^2.1.2
 
   google_fonts: ^6.2.1
-  loader_overlay: ^5.0.0
   flutter_spinkit: ^5.2.1
-  cherry_toast: ^1.12.0
+  loader_overlay:
 dev_dependencies:
   flutter_test:
     sdk: flutter

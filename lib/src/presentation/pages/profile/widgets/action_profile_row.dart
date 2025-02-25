@@ -2,6 +2,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/common/common_imports.dart';
 import '../../../../../core/utilities/style/app_colors.dart';
+import '../../../../../core/utilities/style/app_text_styles.dart';
 import '../../../../../core/utilities/style/spacing.dart';
 
 class ActionProfileRow extends StatelessWidget {
@@ -36,13 +37,7 @@ class ActionProfileRow extends StatelessWidget {
             Text(
               title,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-                fontFamily: 'Baloo Thambi 2',
-                fontWeight: FontWeight.w600,
-                letterSpacing: 0.26,
-              ),
+              style: AppTextStyles.font14w600White,
             ),
             Spacer(),
             Icon(

@@ -3,6 +3,7 @@ import 'package:super_fitness_app/src/presentation/shared/base_scaffold.dart';
 
 import '../../../../core/common/common_imports.dart';
 import '../../../../core/utilities/style/app_images.dart';
+import '../../../../core/utilities/style/app_text_styles.dart';
 import '../../shared/blured_container.dart';
 
 class PrivacyScreen extends StatelessWidget {
@@ -24,14 +25,8 @@ class PrivacyScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: Text(
-                  context.localization.privacyPolicy,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 26,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                child: Text(context.localization.privacyPolicy,
+                    style: AppTextStyles.font26BoldWhite),
               ),
               const SizedBox(height: 30),
               BluredContainer(
@@ -43,11 +38,7 @@ class PrivacyScreen extends StatelessWidget {
                   children: [
                     Text(
                       context.localization.yourPrivacyMatters,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: AppTextStyles.font22BoldWhite,
                     ),
                     const SizedBox(height: 16),
                     ListTile(
@@ -55,7 +46,7 @@ class PrivacyScreen extends StatelessWidget {
                           Icon(Icons.privacy_tip_outlined, color: Colors.white),
                       title: Text(
                         context.localization.weAreCommitted,
-                        style: TextStyle(color: Colors.white70, fontSize: 16),
+                        style: AppTextStyles.font16RegularWhite,
                       ),
                     ),
                     const Divider(color: Colors.white24),
@@ -63,7 +54,7 @@ class PrivacyScreen extends StatelessWidget {
                       leading: Icon(Icons.policy_outlined, color: Colors.white),
                       title: Text(
                         context.localization.reviewOurPrivacy,
-                        style: TextStyle(color: Colors.white70, fontSize: 16),
+                        style: AppTextStyles.font16RegularWhite,
                       ),
                     ),
                     const Divider(color: Colors.white24),
@@ -72,7 +63,7 @@ class PrivacyScreen extends StatelessWidget {
                           Icon(Icons.security_outlined, color: Colors.white),
                       title: Text(
                         context.localization.yourDataSecurity,
-                        style: TextStyle(color: Colors.white70, fontSize: 16),
+                        style: AppTextStyles.font16RegularWhite,
                       ),
                     ),
                   ],

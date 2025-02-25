@@ -6,6 +6,7 @@ import 'package:super_fitness_app/super_ditness_app.dart';
 
 import '../../../../../core/common/common_imports.dart';
 import '../../../../../core/utilities/style/app_icons.dart';
+import '../../../../../core/utilities/style/app_text_styles.dart';
 import '../../../../../core/utilities/style/images/cached_network_image _widget.dart';
 import '../../../../../core/utilities/style/spacing.dart';
 import '../../../managers/localization/localization_viewmodel.dart';
@@ -28,12 +29,7 @@ class ProfileContent extends StatelessWidget {
         children: [
           Text(
             context.localization.profile,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
-              height: 1.20,
-            ),
+            style: AppTextStyles.font24w600White,
           ),
           verticalSpace(40),
           isLoading
@@ -71,13 +67,7 @@ class ProfileContent extends StatelessWidget {
                 )
               : Text(
                   '${viewModel.appUserEntity?.firstName ?? ''} ${viewModel.appUserEntity?.lastName ?? ''}',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontFamily: 'Baloo Thambi 2',
-                    fontWeight: FontWeight.w600,
-                    height: 1.20,
-                  ),
+                  style: AppTextStyles.font20w600White,
                 ),
           verticalSpace(48),
           BluredContainer(

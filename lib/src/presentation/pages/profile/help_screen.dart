@@ -3,6 +3,7 @@ import 'package:super_fitness_app/src/presentation/shared/base_scaffold.dart';
 
 import '../../../../core/common/common_imports.dart';
 import '../../../../core/utilities/style/app_images.dart';
+import '../../../../core/utilities/style/app_text_styles.dart';
 import '../../shared/blured_container.dart';
 
 class HelpScreen extends StatelessWidget {
@@ -24,14 +25,8 @@ class HelpScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: Text(
-                  context.localization.helpSupport,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 26,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                child: Text(context.localization.helpSupport,
+                    style: AppTextStyles.font26BoldWhite),
               ),
               const SizedBox(height: 30),
               BluredContainer(
@@ -41,20 +36,14 @@ class HelpScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min, // Ensure it wraps content
                   children: [
-                    Text(
-                      context.localization.howCanWeAssist,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    Text(context.localization.howCanWeAssist,
+                        style: AppTextStyles.font22BoldWhite),
                     const SizedBox(height: 16),
                     ListTile(
                       leading: Icon(Icons.mail_outline, color: Colors.white),
                       title: Text(
                         '${context.localization.emailWithColon}support@example.com',
-                        style: TextStyle(color: Colors.white70, fontSize: 16),
+                        style: AppTextStyles.font16RegularWhite,
                       ),
                     ),
                     const Divider(color: Colors.white24),
@@ -62,7 +51,7 @@ class HelpScreen extends StatelessWidget {
                       leading: Icon(Icons.phone_outlined, color: Colors.white),
                       title: Text(
                         '${context.localization.phoneWithColon}123-456-7890',
-                        style: TextStyle(color: Colors.white70, fontSize: 16),
+                        style: AppTextStyles.font16RegularWhite,
                       ),
                     ),
                     const Divider(color: Colors.white24),
@@ -71,7 +60,7 @@ class HelpScreen extends StatelessWidget {
                           Icon(Icons.access_time_outlined, color: Colors.white),
                       title: Text(
                         context.localization.availableToAssistYou,
-                        style: TextStyle(color: Colors.white70, fontSize: 16),
+                        style: AppTextStyles.font16RegularWhite,
                       ),
                     ),
                   ],

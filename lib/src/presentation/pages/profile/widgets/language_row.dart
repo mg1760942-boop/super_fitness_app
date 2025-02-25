@@ -5,6 +5,7 @@ import 'package:super_fitness_app/core/utilities/style/app_icons.dart';
 
 import '../../../../../core/common/common_imports.dart';
 import '../../../../../core/utilities/style/app_colors.dart';
+import '../../../../../core/utilities/style/app_text_styles.dart';
 import '../../../../../core/utilities/style/spacing.dart';
 
 class LanguageRow extends StatelessWidget {
@@ -40,13 +41,7 @@ class LanguageRow extends StatelessWidget {
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
-              style: const TextStyle(
-                fontSize: 14,
-                fontFamily: 'Baloo Thambi 2',
-                fontWeight: FontWeight.w600,
-                letterSpacing: 0.26,
-                color: Colors.white,
-              ),
+              style: AppTextStyles.font14w600White,
               children: [
                 TextSpan(text: '${context.localization.selectLanguage} ('),
                 TextSpan(

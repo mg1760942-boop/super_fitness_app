@@ -20,4 +20,5 @@ abstract interface class AuthOnlineDataSource {
   Future<LoginResponse> login(LoginRequest loginRequest);
   Future<(AppUserEntity, String)> register(
       RegisterRequestModel registerRequest);
+  Future<LoginResponse> getUserData();
 }

@@ -73,4 +73,12 @@ class AuthRepositoryImpl implements AuthRepository {
       await _authOfflineDataSource.saveToken(token: response.token!);
     });
   }
+
+  @override
+  Future<ApiResult<AppUserEntity?>> getUserData() async {
+    return await executeApi(apiCall: () async {
+      var response = await _authOnlineDataSource.getUserData();
+      return response.user?.toAppUserEntity();
+    });
+  }
 }

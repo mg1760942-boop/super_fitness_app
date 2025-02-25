@@ -37,6 +37,7 @@ class RegisterResponseModel {
       age: user?.age ?? 0,
       goal: user?.goal ?? "",
       weight: user?.weight ?? 0.0,
+      photo: user?.photo ?? "",
     );
   }
 }
@@ -102,6 +103,7 @@ class User {
       age: age,
       goal: goal,
       weight: weight,
+      photo: photo,
     );
   }
 }

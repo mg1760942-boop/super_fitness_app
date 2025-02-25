@@ -42,4 +42,7 @@ abstract interface class ApiServices {
   @POST(ApiEndPoints.register)
   Future<RegisterResponseModel> register(
       {@Body() required RegisterRequestModel registerRequestModel});
+
+  @GET(ApiEndPoints.getUserData)
+  Future<LoginResponse> getUserData();
 }

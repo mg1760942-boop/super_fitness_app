@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:super_fitness_app/src/domain/entities/app_user_entity/app_user_entity.dart';
 
 part 'login_response.g.dart';
 
@@ -83,5 +84,20 @@ class User {
 
   Map<String, dynamic> toJson() {
     return _$UserToJson(this);
+  }
+
+  AppUserEntity toAppUserEntity() {
+    return AppUserEntity(
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      gender: gender,
+      height: height,
+      weight: weight,
+      age: age,
+      goal: goal,
+      activityLevel: activityLevel,
+      photo: photo,
+    );
   }
 }

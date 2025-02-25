@@ -30,6 +30,7 @@ import '../../src/domain/repositories/auth/auth_repository.dart' as _i701;
 import '../../src/domain/usecases/auth/forget_password/forget_password_use_case.dart'
     as _i673;
 import '../../src/domain/usecases/auth/login/login_usecase.dart' as _i1005;
+import '../../src/domain/usecases/auth/profile/profile_usecase.dart' as _i881;
 import '../../src/domain/usecases/auth/register/register_use_case.dart'
     as _i545;
 import '../../src/presentation/managers/forget_password/controller_manager.dart'
@@ -39,8 +40,12 @@ import '../../src/presentation/managers/forget_password/forget_password_screen_v
 import '../../src/presentation/managers/forget_password/validation_manager.dart'
     as _i92;
 import '../../src/presentation/managers/login/login_viewmodel.dart' as _i475;
+import '../../src/presentation/managers/profile/profile_viewmodel.dart'
+    as _i829;
 import '../../src/presentation/managers/register/register_viewmodel.dart'
     as _i278;
+import '../../src/presentation/managers/section/section_Screen_viewmodel.dart'
+    as _i212;
 import '../helpers/shared_pref/shared_pref_moduel.dart' as _i802;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -60,6 +65,8 @@ extension GetItInjectableX on _i174.GetIt {
       () => sharedPrefModule.sharedPreferences,
       preResolve: true,
     );
+    gh.factory<_i212.SectionScreenViewmodel>(
+        () => _i212.SectionScreenViewmodel());
     gh.singleton<_i753.ForgetPasswordScreenControllerManger>(
         () => _i753.ForgetPasswordScreenControllerManger());
     gh.singleton<_i92.ForgetPasswordScreenValidatorManager>(
@@ -68,6 +75,7 @@ extension GetItInjectableX on _i174.GetIt {
         () => sharedPrefModule.secureStorage);
     gh.lazySingleton<_i361.Dio>(() => dioProvider.dioProvider());
     gh.lazySingleton<_i528.PrettyDioLogger>(() => dioProvider.providePretty());
+    gh.lazySingleton<_i801.AppInterceptors>(() => _i801.AppInterceptors());
     gh.factory<_i506.AuthOfflineDataSource>(
         () => _i122.AuthOfflineDataSourceImpl());
     gh.singleton<_i318.ApiServices>(() => _i318.ApiServices(gh<_i361.Dio>()));
@@ -79,6 +87,10 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i1005.LoginUsecase>(
         () => _i1005.LoginUsecase(gh<_i701.AuthRepository>()));
+    gh.factory<_i881.ProfileUsecase>(
+        () => _i881.ProfileUsecase(gh<_i701.AuthRepository>()));
+    gh.factory<_i829.ProfileViewmodel>(
+        () => _i829.ProfileViewmodel(gh<_i881.ProfileUsecase>()));
     gh.factory<_i475.LoginViewmodel>(
         () => _i475.LoginViewmodel(gh<_i1005.LoginUsecase>()));
     gh.factory<_i673.ForgetPasswordUseCase>(

@@ -7,13 +7,21 @@ class Assets {
       'assets/animations/loading.json';
   static const String iconsAiAssist = 'assets/icons/ai_assist.svg';
   static const String iconsBackIcon = 'assets/icons/back_icon.svg';
+  static const String iconsChangeLangIcon = 'assets/icons/change_lang_icon.svg';
+  static const String iconsChangePasswordIcon =
+      'assets/icons/change_password_icon.svg';
   static const String iconsEye = 'assets/icons/eye.svg';
   static const String iconsFemale = 'assets/icons/female.svg';
+  static const String iconsHelpIcon = 'assets/icons/help_icon.svg';
   static const String iconsHome = 'assets/icons/home.svg';
   static const String iconsLock = 'assets/icons/lock.svg';
+  static const String iconsLogoutIcon = 'assets/icons/logout_icon.svg';
   static const String iconsMail = 'assets/icons/mail.svg';
   static const String iconsMale = 'assets/icons/male.svg';
+  static const String iconsPrivacyIcon = 'assets/icons/privacy_icon.svg';
   static const String iconsProfile = 'assets/icons/profile.svg';
+  static const String iconsProfileIn = 'assets/icons/profile_in.svg';
+  static const String iconsSecurityIcon = 'assets/icons/security_icon.svg';
   static const String iconsUserIcon = 'assets/icons/user_icon.svg';
   static const String iconsWorkout = 'assets/icons/workout.svg';
   static const String imagesAndroidTwelveSplash =
@@ -23,6 +31,8 @@ class Assets {
       'assets/images/background_scaf.png';
   static const String imagesBackgroundScafSec =
       'assets/images/background_scaf_sec.png';
+  static const String imagesBaseBackground =
+      'assets/images/base_background.png';
   static const String imagesBellowTwelveSplash =
       'assets/images/bellow_twelve_splash.png';
   static const String imagesOnboardingFirst =

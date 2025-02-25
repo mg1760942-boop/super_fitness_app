@@ -8,6 +8,7 @@ class AppUserEntity {
   final num? age;
   final String? goal;
   final String? activityLevel;
+  final String? photo;
 
   AppUserEntity({
     required this.firstName,
@@ -19,5 +20,6 @@ class AppUserEntity {
     required this.age,
     required this.goal,
     required this.activityLevel,
+    required this.photo,
   });
 }

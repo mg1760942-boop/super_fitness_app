@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/src/data/api/api_services.dart';
 import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/forget_password_request_model.dart';
@@ -22,7 +20,8 @@ class AuthOnlineDataSourceImpl implements AuthOnlineDataSource {
   @override
   Future<(AppUserEntity, String)> register(
       RegisterRequestModel registerRequest) async {
-    var response = await apiServices.register(registerRequestModel: registerRequest);
+    var response =
+        await apiServices.register(registerRequestModel: registerRequest);
     var token = response.token ?? "";
     return (response.toAppUserEntity(), token);
   }
@@ -48,5 +47,10 @@ class AuthOnlineDataSourceImpl implements AuthOnlineDataSource {
   @override
   Future<LoginResponse> login(LoginRequest loginRequest) async {
     return await apiServices.login(loginRequest);
+  }
+
+  @override
+  Future<LoginResponse> getUserData() async {
+    return await apiServices.getUserData();
   }
 }

@@ -19,4 +19,5 @@ abstract interface class AuthRepository {
 
   Future<ApiResult<AppUserEntity>> register(
       {required RegisterRequestModel registerRequest});
+  Future<ApiResult<AppUserEntity?>> getUserData();
 }

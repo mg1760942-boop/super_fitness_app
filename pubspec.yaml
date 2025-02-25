@@ -61,6 +61,7 @@ dependencies:
   flutter_localization: ^0.3.0
   flutter_native_splash: ^2.4.4
   tuple: ^2.0.2
+  flutter_switch: ^0.3.2
 
   intl: any
   vertical_weight_slider: ^2.6.0
@@ -71,6 +72,8 @@ dependencies:
 
   google_fonts: ^6.2.1
   flutter_spinkit: ^5.2.1
+  shimmer: ^3.0.0
+
   loader_overlay:
 dev_dependencies:
   flutter_test:

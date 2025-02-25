@@ -1,7 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+
+import '../../../core/di/di.dart';
+import '../../../core/helpers/shared_pref/shared_pref_keys.dart';
+
 @module
 abstract class DioProvider {
   @lazySingleton
@@ -14,6 +19,7 @@ abstract class DioProvider {
       ),
     );
     dio.interceptors.add(providePretty());
+    dio.interceptors.add(AppInterceptors());
     return dio;
   }
 
@@ -29,5 +35,21 @@ abstract class DioProvider {
       maxWidth: 90,
       enabled: kDebugMode,
     );
+  }
+}
+
+@lazySingleton
+class AppInterceptors extends InterceptorsWrapper {
+  @override
+  void onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
+    String? token =
+    await getIt<FlutterSecureStorage>().read(key: SharedPrefKeys.token);
+
+    print("token: $token");
+    if (token != null) {
+      options.headers["Authorization"] = token;
+    }
+    super.onRequest(options, handler);
   }
 }

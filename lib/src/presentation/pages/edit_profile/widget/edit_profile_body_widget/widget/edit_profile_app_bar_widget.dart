@@ -1,8 +1,8 @@
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../core/common/common_imports.dart';
-import '../../../../../core/utilities/style/app_icons.dart';
-import '../../../../../core/utilities/style/app_text_styles.dart';
+import '../../../../../../../core/common/common_imports.dart';
+import '../../../../../../../core/utilities/style/app_icons.dart';
+import '../../../../../../../core/utilities/style/app_text_styles.dart';
 
 class EditProfileAppBarWidget extends StatelessWidget {
   const EditProfileAppBarWidget({super.key});

@@ -1,7 +1,9 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../../../../core/common/common_imports.dart';
 import '../../../../../../../core/utilities/style/images/cached_network_image _widget.dart';
+import '../../../../../managers/edit_profle/edit_profile_cubit.dart';
 
 
 class EditProfileImageWidget extends StatelessWidget {
@@ -9,7 +11,8 @@ class EditProfileImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  true
+    var editProfileViewModel=context.read<EditProfileCubit>();
+    return  false
         ? Shimmer.fromColors(
       baseColor: Colors.grey[700]!,
       highlightColor: Colors.grey[500]!,
@@ -23,7 +26,7 @@ class EditProfileImageWidget extends StatelessWidget {
       ),
     )
         : CachedNetworkImageWidget(
-      imageUrl: "",
+      imageUrl: editProfileViewModel.appUserEntity.photo.toString(),
       width: 102.5.w,
       height: 102.5.h,
       fit: BoxFit.cover,

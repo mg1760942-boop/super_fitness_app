@@ -1,14 +1,18 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:super_fitness_app/src/presentation/managers/edit_profle/edit_profle_action.dart';
 
 import '../../../../../../../core/common/common_imports.dart';
 import '../../../../../../../core/utilities/style/app_icons.dart';
 import '../../../../../../../core/utilities/style/app_text_styles.dart';
+import '../../../../../managers/edit_profle/edit_profile_cubit.dart';
 
 class EditProfileAppBarWidget extends StatelessWidget {
   const EditProfileAppBarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var editProfileViewModel=context.read<EditProfileCubit>();
     return         Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -29,8 +33,7 @@ class EditProfileAppBarWidget extends StatelessWidget {
                   width: 10,
                   height: 10,
                 ),
-                onPressed: () {
-                },
+                onPressed: () =>editProfileViewModel.doAction(GoNextSectionAppScreenAction())
               ),
             )
         ),

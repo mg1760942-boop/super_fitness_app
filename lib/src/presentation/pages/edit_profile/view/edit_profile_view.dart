@@ -1,34 +1,69 @@
-
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:super_fitness_app/core/di/di.dart';
 import '../../../../../core/common/common_imports.dart';
-
 import '../../../../../core/utilities/style/app_images.dart';
-
+import '../../../../domain/entities/app_user_entity/app_user_entity.dart';
+import '../../../managers/edit_profle/edit_profile_cubit.dart';
+import '../../../managers/edit_profle/edit_profle_action.dart';
 import '../../../shared/base_scaffold.dart';
+import '../widget/edit_profile_page_view_widget.dart';
+import '../widget/user_weight_selection_widget/user_weight_selection_widget.dart';
 
-import '../widget/edit_profile_body_widget/edit_profile_body_widget.dart';
-
-
-class EditProfileView extends StatelessWidget {
+class EditProfileView extends StatefulWidget {
   const EditProfileView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return  SafeArea(
-      child: BaseScaffold(
-        backGroundPath: AppImages.baseBackGround,
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 40.0.h,horizontal: 16.0.w),
-            child: Column(
-              children: [
+  State<EditProfileView> createState() => _EditProfileViewState();
+}
 
-              ],
-            )
-          ),
+class _EditProfileViewState extends State<EditProfileView> {
+  var editProfileViewModel = getIt.get<EditProfileCubit>();
+  @override
+  Widget build(BuildContext context) {
+    editProfileViewModel.appUserEntity =
+        ModalRoute.of(context)!.settings.arguments as AppUserEntity;
+    editProfileViewModel.doAction(InitialAppUserEntityAction());
+
+    return BlocProvider(
+      create: (context) => editProfileViewModel,
+      child: SafeArea(
+        child: BlocConsumer<EditProfileCubit, EditProfileState>(
+          listener: (context, state) => _handleBlocListenerWidget(state),
+          builder: (context, state) {
+            return BaseScaffold(
+              backGroundPath: AppImages.baseBackGround,
+              body: EditProfilePageViewWidget(),
+            );
+          },
         ),
-      
       ),
     );
+  }
+
+
+
+  void _handleBlocListenerWidget(EditProfileState state) {
+    if (state is GoNextToSectionAppScreen) {
+      _goNextToSectionAppScreen(context);
+    } else if (state is GoNextPageWeightState) {
+      _goNextPageController(context, 1);
+    } else if (state is GoNextPageGoalState) {
+      _goNextPageController(context, 2);
+    }else if (state is GoNextPagePhysicalActivityState) {
+      _goNextPageController(context, 3);
+    }
+    else if(state is GoNextPageEditProfileFormField){
+      _goNextPageController(context, 0);
+    }
+  }
+
+  void _goNextToSectionAppScreen(BuildContext context) {
+    if (Navigator.canPop(context)) {
+      Navigator.pop(context);
+    }
+  }
+
+  void _goNextPageController(BuildContext context, int index) {
+    editProfileViewModel.pageController.jumpToPage(index);
   }
 }

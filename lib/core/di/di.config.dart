@@ -33,6 +33,8 @@ import '../../src/domain/usecases/auth/login/login_usecase.dart' as _i1005;
 import '../../src/domain/usecases/auth/profile/profile_usecase.dart' as _i881;
 import '../../src/domain/usecases/auth/register/register_use_case.dart'
     as _i545;
+import '../../src/presentation/managers/edit_profle/edit_profile_cubit.dart'
+    as _i179;
 import '../../src/presentation/managers/forget_password/controller_manager.dart'
     as _i753;
 import '../../src/presentation/managers/forget_password/forget_password_screen_view_model.dart'
@@ -65,6 +67,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => sharedPrefModule.sharedPreferences,
       preResolve: true,
     );
+    gh.factory<_i179.EditProfileCubit>(() => _i179.EditProfileCubit());
     gh.factory<_i212.SectionScreenViewmodel>(
         () => _i212.SectionScreenViewmodel());
     gh.singleton<_i753.ForgetPasswordScreenControllerManger>(

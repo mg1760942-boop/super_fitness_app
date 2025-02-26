@@ -68,32 +68,32 @@ class _RegisterViewState extends State<RegisterView> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(top: 40, left: 16),
-                      child: Row(
+                      child:Row(
                         children: [
                           SizedBox(
                             width: 24,
                             height: 24,
                             child: showBackButton
                                 ? Container(
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xFFFF4100),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: IconButton(
-                                      padding: EdgeInsets.zero,
-                                      constraints: const BoxConstraints(),
-                                      icon: SvgPicture.asset(
-                                        AppIcons.backIcon,
-                                        color: Colors.white,
-                                        width: 10,
-                                        height: 10,
-                                      ),
-                                      onPressed: () {
-                                        _viewmodel.changePage(
-                                            _viewmodel.currentPage - 1);
-                                      },
-                                    ),
-                                  )
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFFF4100),
+                                shape: BoxShape.circle,
+                              ),
+                              child: IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints: const BoxConstraints(),
+                                icon: SvgPicture.asset(
+                                  AppIcons.backIcon,
+                                  color: Colors.white,
+                                  width: 10,
+                                  height: 10,
+                                ),
+                                onPressed: () {
+                                  _viewmodel.changePage(
+                                      _viewmodel.currentPage - 1);
+                                },
+                              ),
+                            )
                                 : const SizedBox.shrink(),
                           ),
                           Expanded(

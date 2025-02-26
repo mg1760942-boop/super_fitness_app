@@ -78,7 +78,7 @@ class ProfileContent extends StatelessWidget {
                 ActionProfileRow(
                   title: context.localization.editProfile,
                   icon: AppIcons.editProfileIcon,
-                  onTap: () {},
+                  onTap: ()=>_goNextToEditProfile(),
                 ),
                 verticalSpace(16),
                 ActionProfileRow(
@@ -139,5 +139,9 @@ class ProfileContent extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _goNextToEditProfile() {
+    navKey.currentState!.pushNamed(PageRoutesName.editProfile);
   }
 }

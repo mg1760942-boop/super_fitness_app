@@ -6,4 +6,8 @@ class PageRoutesName {
   static const String registerBase = 'registerBase';
   static const String register = 'register';
   static const String forgetPassword = "forgetPassword";
+  static const String sectionScreen = "sectionScreen";
+  static const String privacyScreen = "privacyScreen";
+  static const String securityScreen = "securityScreen";
+  static const String helpScreen = "helpScreen";
 }

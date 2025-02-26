@@ -30,4 +30,28 @@ class AuthOfflineDataSourceImpl implements AuthOfflineDataSource {
       throw Exception("Token Is Empty");
     }
   }
+
+  @override
+  Future<String> getLanguage() async {
+    try {
+      String? language =
+          await SharedPrefHelper.getString(SharedPrefKeys.language);
+      if (language != null) {
+        return language;
+      } else {
+        throw Exception("Language Is Empty");
+      }
+    } catch (e) {
+      throw Exception("Language Is Empty");
+    }
+  }
+
+  @override
+  Future<void> saveLanguage({String? language}) async {
+    if (language != null) {
+      return await SharedPrefHelper.setDate(SharedPrefKeys.language, language);
+    } else {
+      throw Exception("Language Is Empty");
+    }
+  }
 }

@@ -56,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       dialogType: DialogType.error);
                 case LoginSuccessState():
                   LoadingDialog.hide(context);
-                  Navigator.pushNamed(context, PageRoutesName.onboarding);
+                  Navigator.pushNamed(context, PageRoutesName.sectionScreen);
 
                 default:
               }

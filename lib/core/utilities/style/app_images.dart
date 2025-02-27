@@ -7,4 +7,5 @@ class AppImages {
   static const String onboarding1 = "assets/images/onboarding_first.png";
   static const String onboarding2 = "assets/images/onboarding_second.png";
   static const String onboarding3 = "assets/images/onboarding_third.png";
+  static const String smartCoachRobot = "assets/images/robot.svg";
 }

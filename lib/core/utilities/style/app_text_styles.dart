@@ -85,4 +85,9 @@ class AppTextStyles{
     fontSize: 16.sp,
     color: AppColors.mainColor
   );
+  static var font24w800 = GoogleFonts.balooThambi2(
+      fontWeight: FontWeight.w800,
+      fontSize: 24.sp,
+      color: AppColors.kWhiteBase
+  );
 }

@@ -71,6 +71,8 @@ extension GetItInjectableX on _i174.GetIt {
       () => sharedPrefModule.sharedPreferences,
       preResolve: true,
     );
+    gh.factory<_i160.SmartCoachScreenViewModel>(
+        () => _i160.SmartCoachScreenViewModel());
     gh.singleton<_i753.ForgetPasswordScreenControllerManger>(
         () => _i753.ForgetPasswordScreenControllerManger());
     gh.singleton<_i92.ForgetPasswordScreenValidatorManager>(
@@ -110,15 +112,6 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i475.LoginViewmodel>(
         () => _i475.LoginViewmodel(gh<_i1005.LoginUsecase>()));
-    gh.factoryParam<_i160.SmartCoachScreenViewModel, _i497.SmartCoach, dynamic>(
-        (
-      type,
-      _,
-    ) =>
-            _i160.SmartCoachScreenViewModel(
-              type,
-              gh<_i497.SmartCoachCreator>(),
-            ));
     gh.factory<_i673.ForgetPasswordUseCase>(
         () => _i673.ForgetPasswordUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i545.RegisterUseCase>(

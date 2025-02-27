@@ -25,25 +25,30 @@ class GetStartedView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _customAppBar(),
-            SvgPicture.asset(AppImages.smartCoachRobot),
-            BluredContainer(
-              margin: EdgeInsets.symmetric(horizontal: 32, vertical: 40),
-              child: Column(
-                children: [
-                  Text(
-                    "How Can I Assist You Today?",
-                    style: AppTextStyles.font24w800,
-                  ),
-                  verticalSpace(12),
-                  CustomAuthButton(
-                      text: "GetStarted",
-                      onPressed: () {
-                        viewModel.doAction(StartChatAction());
-                      },
-                      color: AppColors.mainColor,
-                      radius: 100),
-                ],
+            _customAppBar(context),
+            verticalSpace(40),
+            Image.asset(AppImages.smartCoachRobot),
+            verticalSpace(24),
+            Align(
+              child: BluredContainer(
+                radius: BorderRadius.circular(50),
+                margin: EdgeInsets.symmetric(horizontal: 32, vertical: 40),
+                child: Column(
+                  children: [
+                    Text(
+                      context.localization.howCatIAssistYou,
+                      style: AppTextStyles.font24w800,
+                    ),
+                    verticalSpace(12),
+                    CustomAuthButton(
+                        text: context.localization.getStared,
+                        onPressed: () {
+                          viewModel.doAction(StartChatAction());
+                        },
+                        color: AppColors.mainColor,
+                        radius: 100),
+                  ],
+                ),
               ),
             )
           ],
@@ -52,29 +57,39 @@ class GetStartedView extends StatelessWidget {
     );
   }
 
-  Widget _customAppBar() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: () {},
-        ),
-        horizontalSpace(56),
-        Column(
-          children: [
-            Text(
-              "Hi ahmed,",
-              style: AppTextStyles.font16w500,
-            ),
-            verticalSpace(4),
-            Text(
-              "I Am Your Smart Coach",
-              style: AppTextStyles.font18w700,
-            ),
-          ],
-        )
-      ],
+  Widget _customAppBar(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          InkWell(
+            onTap: () {},
+            child: Container(
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle, color: AppColors.mainColor),
+                child: Padding(
+                  padding: EdgeInsets.all(8),
+                  child: SvgPicture.asset(AppImages.arrowBack),
+                )),
+          ),
+          horizontalSpace(56),
+          Column(
+            children: [
+              verticalSpace(24),
+              Text(
+                " ${context.localization.hi} ahmed,",
+                style: AppTextStyles.font16w500,
+              ),
+              verticalSpace(4),
+              Text(
+                context.localization.iamSmartCoach,
+                style: AppTextStyles.font18w700,
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 }

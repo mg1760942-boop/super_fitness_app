@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/core/di/di.dart';
+import 'package:super_fitness_app/core/utilities/style/app_images.dart';
 import 'package:super_fitness_app/src/presentation/managers/smart_coach/smart_coach_screen_actions.dart';
 import 'package:super_fitness_app/src/presentation/managers/smart_coach/smart_coach_screen_states.dart';
 import 'package:super_fitness_app/src/presentation/managers/smart_coach/smart_coach_screen_view_model.dart';
@@ -20,7 +21,7 @@ class SmartCoachScreen extends StatelessWidget {
     return BlocProvider(
       create: (_) => viewModel,
       child: BaseScaffold(
-        backGroundPath: Assets.imagesBackgroundScafSec,
+        backGroundPath:AppImages.chatbg,
         body: BlocConsumer<SmartCoachScreenViewModel, SmartCoachScreenState>(
             builder: (context, state) {
               if (state is StartChatAction) {

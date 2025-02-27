@@ -27,5 +27,9 @@
   "confirmedPassword": "تأكيد كلمة المرور",
   "createNewPassword": "إنشاء كلمة مرور جديدة",
   "makeSureItis8Characters": "تأكد من أنها 8 أحرف أو أكثر",
-  "done": "تم"
+  "done": "تم",
+  "getStared": "ابدأ",
+  "howCatIAssistYou": "كيف يمكنني مساعدتك اليوم؟",
+  "iamSmartCoach": "أنا مدربك الذكي",
+  "hi": "مرحبا"
 }

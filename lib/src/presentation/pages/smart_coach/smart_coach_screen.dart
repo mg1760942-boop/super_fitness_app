@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/core/di/di.dart';
 import 'package:super_fitness_app/src/presentation/managers/smart_coach/smart_coach_screen_states.dart';
 import 'package:super_fitness_app/src/presentation/managers/smart_coach/smart_coach_screen_view_model.dart';
+import 'package:super_fitness_app/src/presentation/pages/smart_coach/get_started_view.dart';
 import 'package:super_fitness_app/src/presentation/shared/base_scaffold.dart';
 
 import '../../../../core/common/common_imports.dart';
@@ -20,7 +21,7 @@ class SmartCoachScreen extends StatelessWidget {
         backGroundPath: Assets.imagesBackgroundScafSec,
         body: BlocConsumer<SmartCoachScreenViewModel, SmartCoachScreenState>(
             builder: (context,state){
-               return SizedBox();
+               return GetStartedView();
             }, listener: (context,state){}),
       ),
     );

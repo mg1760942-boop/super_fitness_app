@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:super_fitness_app/config/routes/page_route_name.dart';
 import 'package:super_fitness_app/src/presentation/pages/forget_password/forget_password_screen.dart';
 import 'package:super_fitness_app/src/presentation/pages/onboarding/onboarding_screen.dart';
+import 'package:super_fitness_app/src/presentation/pages/smart_coach/smart_coach_screen.dart';
 
 import '../../src/presentation/pages/login/login_screen.dart';
 
@@ -20,6 +21,9 @@ class AppRoutes {
             widget: const LoginScreen(), settings: settings);
       case PageRoutesName.forgetPassword:
         return _handelMaterialPageRoute(widget: ForgetPasswordScreen(), settings: settings);
+      case PageRoutesName.smartCoach:
+        return _handelMaterialPageRoute(
+            widget: SmartCoachScreen(), settings: settings);
       default:
         return _handelMaterialPageRoute(
             widget: const Scaffold(), settings: settings);

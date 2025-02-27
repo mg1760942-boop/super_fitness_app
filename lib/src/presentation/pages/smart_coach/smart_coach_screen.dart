@@ -37,6 +37,12 @@ class SmartCoachScreen extends StatelessWidget {
                   ),
                   state);
             }
+            if(state is SmartCoachScreenInitial){
+              appBar = _customAppBar(
+                  context,
+                  _getStaredAppBar(context),
+                  state);
+            }
             return BaseScaffold(
               appBar: appBar,
               backGroundPath: AppImages.chatbg,

@@ -10,4 +10,5 @@ class AppImages {
   static const String smartCoachRobot = "assets/images/rop.png";
   static const String arrowBack = "assets/images/arrow_back.svg";
   static const String chatbg = "assets/images/Chatbg.png";
+  static const String cahtHistory = "assets/images/chatHistory.svg";
 }

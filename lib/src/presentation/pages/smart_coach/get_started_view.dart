@@ -19,77 +19,40 @@ class GetStartedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.read<SmartCoachScreenViewModel>();
-    return SafeArea(
-      child: SizedBox(
-        width: context.width,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            _customAppBar(context),
-            verticalSpace(40),
-            Image.asset(AppImages.smartCoachRobot),
-            verticalSpace(24),
-            Align(
-              child: BluredContainer(
-                radius: BorderRadius.circular(50),
-                margin: EdgeInsets.symmetric(horizontal: 32, vertical: 40),
-                child: Column(
-                  children: [
-                    Text(
-                      context.localization.howCatIAssistYou,
-                      style: AppTextStyles.font24w800,
-                    ),
-                    verticalSpace(12),
-                    CustomAuthButton(
-                        text: context.localization.getStared,
-                        onPressed: () {
-                          viewModel.doAction(StartChatAction());
-                        },
-                        color: AppColors.mainColor,
-                        radius: 100),
-                  ],
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _customAppBar(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+    return SizedBox(
+      width: context.width,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          InkWell(
-            onTap: () {},
-            child: Container(
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: AppColors.mainColor),
-                child: Padding(
-                  padding: EdgeInsets.all(8),
-                  child: SvgPicture.asset(AppImages.arrowBack),
-                )),
-          ),
-          horizontalSpace(56),
-          Column(
-            children: [
-              verticalSpace(24),
-              Text(
-                " ${context.localization.hi} ahmed,",
-                style: AppTextStyles.font16w500,
+          verticalSpace(40),
+          Image.asset(AppImages.smartCoachRobot),
+          verticalSpace(24),
+          Align(
+            child: BluredContainer(
+              radius: BorderRadius.circular(50),
+              margin: EdgeInsets.symmetric(horizontal: 32, vertical: 40),
+              child: Column(
+                children: [
+                  Text(
+                    context.localization.howCatIAssistYou,
+                    style: AppTextStyles.font24w800,
+                  ),
+                  verticalSpace(12),
+                  CustomAuthButton(
+                      text: context.localization.getStared,
+                      onPressed: () {
+                        viewModel.doAction(StartChatAction());
+                      },
+                      color: AppColors.mainColor,
+                      radius: 100),
+                ],
               ),
-              verticalSpace(4),
-              Text(
-                context.localization.iamSmartCoach,
-                style: AppTextStyles.font18w700,
-              ),
-            ],
+            ),
           )
         ],
       ),
     );
   }
+
+
 }

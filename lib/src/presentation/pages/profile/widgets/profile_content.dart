@@ -17,11 +17,10 @@ import 'language_row.dart';
 
 class ProfileContent extends StatelessWidget {
   final ProfileViewmodel viewModel;
-
-  const ProfileContent({Key? key, required this.viewModel}) : super(key: key);
-
+  const ProfileContent({super.key, required this.viewModel});
   @override
   Widget build(BuildContext context) {
+
     bool isLoading = viewModel.appUserEntity == null;
 
     return Center(
@@ -142,8 +141,8 @@ class ProfileContent extends StatelessWidget {
   }
 
   void _goNextToEditProfile() {
-    navKey.currentState!.pushNamed(PageRoutesName.editProfile,
-    arguments: viewModel.appUserEntity
+    navKey.currentState!.pushNamedAndRemoveUntil(PageRoutesName.editProfile,
+    arguments: viewModel.appUserEntity,(route) => false,
     );
   }
 }

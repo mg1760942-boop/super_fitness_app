@@ -1,6 +1,4 @@
-import 'package:numberpicker/numberpicker.dart';
 import 'package:wheel_slider/wheel_slider.dart';
-
 import '../../../core/common/common_imports.dart';
 import '../../../core/utilities/style/app_colors.dart';
 import '../../../core/utilities/style/app_fonts.dart';
@@ -98,13 +96,13 @@ class _HorizontalNumberPickerWidgetState extends State<HorizontalNumberPickerWid
           },
           itemSize: 100,
           isInfinite: true,
-          listHeight: 800, // زيادة ارتفاع القائمة لتتسع لـ 6 عناصر
-          listWidth: 400,  // زيادة العرض إن كنت تستخدم القائمة الأفقية
+          listHeight: 800,
+          listWidth: 400,
 
           animationDuration: Duration(milliseconds: 300),
           animationType: Curves.easeInOut,
           customPointer: Container(),
-          horizontal: true, // قائمة عمودية
+          horizontal: true,
           scrollPhysics: BouncingScrollPhysics(), // نوع التمرير
           showPointer: true,
           verticalListHeight: 300,

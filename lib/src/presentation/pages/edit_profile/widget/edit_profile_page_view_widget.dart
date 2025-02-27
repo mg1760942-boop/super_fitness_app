@@ -12,6 +12,7 @@ class EditProfilePageViewWidget extends StatelessWidget {
     return BlocBuilder<EditProfileCubit, EditProfileState>(
       builder: (context, state) {
         return PageView.builder(
+          physics: NeverScrollableScrollPhysics(),
           controller: editProfileViewModel.pageController,
           itemBuilder: (context, index) =>
           editProfileViewModel.editProfileBodyWidget[index],

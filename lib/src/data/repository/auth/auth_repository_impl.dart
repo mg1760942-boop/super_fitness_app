@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/core/common/apis/api_executer.dart';
 import 'package:super_fitness_app/core/common/apis/api_result.dart';
+import 'package:super_fitness_app/src/data/api/core/api_request_models/edit_profile_request/edit_profile_request.dart';
 import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/verify_reset_code_request_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_request_models/login/login_request.dart';
 import 'package:super_fitness_app/src/data/data_source/offline_data_source/auth/auth_offline_data_source/auth_offline_data_source.dart';
@@ -79,6 +82,23 @@ class AuthRepositoryImpl implements AuthRepository {
     return await executeApi(apiCall: () async {
       var response = await _authOnlineDataSource.getUserData();
       return response.user?.toAppUserEntity();
+    });
+  }
+
+  @override
+  Future<ApiResult<AppUserEntity>> editProfile({required EditProfileRequest editProfileRequest}) async{
+    return await executeApi(apiCall: () async {
+      var response = await _authOnlineDataSource.editProfile(editProfileRequest);
+      return response;
+    });
+  }
+
+  @override
+  Future<ApiResult<String>> uploadImage({required File image}) async{
+    return await executeApi(apiCall: () async {
+      var token = await _authOfflineDataSource.getToken();
+      var response = await _authOnlineDataSource.uploadImage(token, image);
+      return response.message.toString();
     });
   }
 }

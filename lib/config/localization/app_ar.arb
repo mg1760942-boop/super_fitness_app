@@ -57,5 +57,19 @@
     "howCanWeAssist": "كيف يمكننا مساعدتك؟",
     "emailWithColon": "البريد الإلكتروني: ",
     "phoneWithColon": "الاتصال: ",
-    "availableToAssistYou": "متاح 24/7 لمساعدتك."
+    "availableToAssistYou": "متاح 24/7 لمساعدتك.",
+  "personalizedPlan": "هذا يساعدنا في إنشاء خطتك الشخصية.",
+  "whatIsYourWeight": "ما هو وزنك؟",
+  "activityLevel": "مستوى النشاط؟",
+  "yourRegularPhysical": "نشاطك البدني المعتاد",
+  "whatIsYourGoal": "ما هو هدفك؟",
+  "yourActivityLevel": "مستوى نشاطك",
+  "yourGoal": "هدفك",
+  "yourWeight": "وزنك",
+  "tapToEdit": "اضغط للتعديل",
+  "yourGoalTab": "هدفك",
+  "yourWeightTab": "وزنك",
+  "youActivityLevel": "مستوى نشاطك البدني",
+  "thisHelpsUsCreate": "هذا يساعدنا في إنشاء خطتك الشخصية."
+
 }

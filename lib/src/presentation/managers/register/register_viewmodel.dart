@@ -80,9 +80,9 @@ class RegisterViewModel extends Cubit<RegisterState> {
   String ? selectedActivity;
 
   //// Register Form
-  TextEditingController firstNameController=TextEditingController(text: "adad");
-  TextEditingController lastNameController=TextEditingController(text: "ada");
-  TextEditingController emailController=TextEditingController(text: "omarmakram421@gmail.com");
+  TextEditingController firstNameController=TextEditingController(text: "");
+  TextEditingController lastNameController=TextEditingController(text: "");
+  TextEditingController emailController=TextEditingController(text: "");
   TextEditingController passwordController=TextEditingController(text: "Omar@123");
   var formKey=GlobalKey<FormState>();
   bool isCheckValidateRegisterForm(){

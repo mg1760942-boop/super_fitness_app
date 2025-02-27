@@ -14,3 +14,17 @@ class GoNextPageGoalState extends EditProfileState {}
 class GoNextPagePhysicalActivityState extends EditProfileState {}
 class ChangeSelectedWeightState extends EditProfileState {}
 class GoNextPageEditProfileFormField extends EditProfileState {}
+class EditProfileLoadingState extends EditProfileState {}
+class EditProfileSuccessState extends EditProfileState {}
+class EditProfileErrorState extends EditProfileState {
+  final Exception exception;
+  EditProfileErrorState({required this.exception});
+}
+
+
+class UpdateProfileLoading extends EditProfileState {}
+class UpdateProfileSuccess extends EditProfileState {}
+class UpdateProfileError extends EditProfileState {
+  final Exception exception;
+  UpdateProfileError({required this.exception});
+}

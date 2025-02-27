@@ -1,3 +1,7 @@
+import 'dart:io';
+
+import 'package:super_fitness_app/src/data/api/core/api_request_models/edit_profile_request/edit_profile_request.dart';
+
 sealed class EditProfileAction{}
 
 class GoNextSectionAppScreenAction extends EditProfileAction{}
@@ -31,3 +35,12 @@ class GoNextPagePhysicalActivityAction extends EditProfileAction{}
 class GoNextPageEditProfileFormFieldAction extends EditProfileAction{}
 class GoNextPageGoalAction extends EditProfileAction{}
 class GoNextPageWeightAction extends EditProfileAction{}
+
+
+class EditProfileButtonAction extends EditProfileAction{
+}
+
+class UpdateProfileButtonAction extends EditProfileAction{
+  final File image;
+  UpdateProfileButtonAction({required this.image});
+}

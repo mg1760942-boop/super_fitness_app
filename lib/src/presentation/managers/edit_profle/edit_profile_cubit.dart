@@ -1,19 +1,27 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
+import 'package:super_fitness_app/core/common/apis/api_result.dart';
 import 'package:super_fitness_app/src/domain/entities/app_user_entity/app_user_entity.dart';
+import 'package:super_fitness_app/src/domain/usecases/auth/edit_profile_use_case/edit_profile_use_case.dart';
 import 'package:super_fitness_app/src/presentation/managers/edit_profle/edit_profle_action.dart';
 import 'package:super_fitness_app/src/presentation/pages/edit_profile/widget/edit_profile_body_widget/edit_profile_body_widget.dart';
 import 'package:super_fitness_app/src/presentation/pages/edit_profile/widget/user_goal_selection_widget/user_goal_selection_widget.dart';
 
 import '../../../../core/common/common_imports.dart';
+import '../../../data/api/core/api_request_models/edit_profile_request/edit_profile_request.dart';
+import '../../../domain/usecases/auth/upload_profile_image_use_case/upload_profile_image_use_case.dart';
 import '../../pages/edit_profile/widget/user_physical_activity_selection_widget/user_physical_activity_selection_widget.dart';
 import '../../pages/edit_profile/widget/user_weight_selection_widget/user_weight_selection_widget.dart';
 
 part 'edit_profile_state.dart';
 @injectable
 class EditProfileCubit extends Cubit<EditProfileState> {
-  EditProfileCubit() : super(EditProfileInitial());
+  final EditProfileUseCase editProfileUseCase;
+  final UploadProfileImageUseCase uploadProfileImageUseCase;
+  EditProfileCubit(this.editProfileUseCase,this.uploadProfileImageUseCase) : super(EditProfileInitial());
 
    /// Initial Data
 
@@ -32,6 +40,14 @@ class EditProfileCubit extends Cubit<EditProfileState> {
     "level5":"True Beast",
 
   };
+  List<String> physicalActivityList = [
+    'Rookie',
+    'Beginner',
+    'Intermediate',
+    'Advance',
+    'True Beast'];
+  List<String>levels=["level1","level2","level3","level4","level5"];
+  String selectedLevel="level1";
    String selectedPhysicalActivity = " ";
    List<Widget>editProfileBodyWidget=[
     EditProfileBodyWidget(),
@@ -82,7 +98,10 @@ class EditProfileCubit extends Cubit<EditProfileState> {
         return _goNextPageGoalState();
       case GoNextPageWeightAction():
         return _goNextPageWeightState();
-
+      case EditProfileButtonAction():
+        return  _editProfile();
+      case UpdateProfileButtonAction():
+         return _updateProfile(action.image);
     }
   }
 
@@ -108,6 +127,8 @@ class EditProfileCubit extends Cubit<EditProfileState> {
      void _changeSelectedPhysicalActivity(String physicalActivity) {
       if(selectedPhysicalActivity!=physicalActivity){
        selectedPhysicalActivity=physicalActivity;
+       int index=physicalActivityList.indexWhere((element) => element==physicalActivity,);
+       selectedLevel=levels[index];
        _changeEnable(changeEnable: true);
        emit(ChangeSelectedPhysicalActivityState());
        return;
@@ -115,8 +136,10 @@ class EditProfileCubit extends Cubit<EditProfileState> {
 
    }
      void _initialAppUserEntity(){
-    selectedGoal = appUserEntity.goal.toString();selectedPhysicalActivity =
-        selectedPhysicalActivity= appUserEntity.activityLevel.toString();
+    selectedGoal =   appUserEntity.goal.toString();
+    selectedPhysicalActivity= appUserEntity.activityLevel.toString();
+    int index=levels.indexWhere((element) => element==appUserEntity.activityLevel,) ?? 0;
+    selectedPhysicalActivity=physicalActivityList[index] ?? "";
       selectWeight= appUserEntity.weight!.toInt();
      _initialPopularFields();
 
@@ -153,7 +176,6 @@ class EditProfileCubit extends Cubit<EditProfileState> {
 
   //// Go Next Page App
   void _goNextToSectionAppScreen(){
-    _resetFormField();
     emit(GoNextToSectionAppScreen());
 
   }
@@ -172,18 +194,45 @@ class EditProfileCubit extends Cubit<EditProfileState> {
 
 
  /// Call Api
-  Future<void>editProfile()async{
-    if(formKey.currentState!.validate()){
-
-    }else{
-
+  Future<void>_editProfile()async{
+    if(formKey.currentState!.validate() ){
+     emit(EditProfileLoadingState());
+     EditProfileRequest editProfileRequest=
+         EditProfileRequest(
+           firstName: firstNameController.text,
+           lastName: lastNameController.text,
+           email: emailController.text,
+           activityLevel: selectedLevel,
+           goal: selectedGoal,
+         weight: selectWeight);
+     var result = await editProfileUseCase.invoke(editProfileRequest: editProfileRequest);
+     switch (result) {
+       case Success<AppUserEntity>():
+       emit(EditProfileSuccessState());
+       case Failures<AppUserEntity>():
+         emit(EditProfileErrorState(exception: result.exception));
+     }
     }
   }
 
 
 
-
-
+  bool isShowSuccessImage=false;
+  File ?image;
+Future<void >_updateProfile(File image)async{
+  emit(UpdateProfileLoading());
+  var result = await uploadProfileImageUseCase.invoke(image);
+  switch (result) {
+    case Success<String>():
+      isShowSuccessImage=true;
+      emit(UpdateProfileSuccess());
+      break;
+    case Failures<String>():
+      isShowSuccessImage=false;
+      emit(UpdateProfileError(exception: result.exception));
+      break;
+  }
+}
 
 
 

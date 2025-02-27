@@ -17,6 +17,9 @@ class SmartCoachScreenViewModel extends Cubit<SmartCoachScreenState>{
       case StartChatAction():
         emit(ChatViewState());
         break;
+      case GetStartedAction():
+        emit(SmartCoachScreenInitial());
+        break;
     }
   }
 

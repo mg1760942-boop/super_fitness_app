@@ -13,7 +13,6 @@ import '../../../../core/common/common_imports.dart';
 import '../../../../core/utilities/style/app_colors.dart';
 import '../../../../core/utilities/style/app_text_styles.dart';
 import '../../../../core/utilities/style/spacing.dart';
-import '../../../../generated/assets.dart';
 import 'chat_view.dart';
 
 class SmartCoachScreen extends StatelessWidget {
@@ -23,36 +22,49 @@ class SmartCoachScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppBar appBar = _customAppBar(
+        context, _getStaredAppBar(context), SmartCoachScreenInitial());
     return BlocProvider(
       create: (_) => viewModel,
-      child: BaseScaffold(
-        appBar: _customAppBar(context),
-        backGroundPath: AppImages.chatbg,
-        body: BlocConsumer<SmartCoachScreenViewModel, SmartCoachScreenState>(
-            builder: (context, state) {
-              if (state is StartChatAction) {
-                return const ChatView();
-              }
-              if (state is GetStartedChatState) {
-                return GetStartedView();
-              }
-              return GetStartedView();
-            },
-            listener: (context, state) {}),
-      ),
+      child: BlocConsumer<SmartCoachScreenViewModel, SmartCoachScreenState>(
+          builder: (context, state) {
+            if (state is ChatViewState) {
+              appBar = _customAppBar(
+                  context,
+                  Text(
+                    context.localization.smartCoach,
+                    style: AppTextStyles.font24w800,
+                  ),
+                  state);
+            }
+            return BaseScaffold(
+              appBar: appBar,
+              backGroundPath: AppImages.chatbg,
+              body: switch (state) {
+                SmartCoachScreenInitial() => GetStartedView(),
+                SmartCoachScreenState() => ChatView(),
+              },
+            );
+          },
+          listener: (context, state) {}),
     );
   }
 
-  AppBar _customAppBar(BuildContext context) {
+  AppBar _customAppBar(
+      BuildContext context, Widget title, SmartCoachScreenState state) {
     return AppBar(
       backgroundColor: Colors.transparent,
       leading: Padding(
-        padding: const EdgeInsets.only(left: 16,right: 8),
+        padding: const EdgeInsets.only(left: 16, right: 8),
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            if (state is ChatViewState) {
+              viewModel.doAction(GetStartedAction());
+            }
+          },
           child: Container(
-            decoration:
-                BoxDecoration(shape: BoxShape.circle, color: AppColors.mainColor),
+            decoration: BoxDecoration(
+                shape: BoxShape.circle, color: AppColors.mainColor),
             child: Padding(
               padding: EdgeInsets.all(10),
               child: SvgPicture.asset(AppImages.arrowBack),
@@ -60,19 +72,7 @@ class SmartCoachScreen extends StatelessWidget {
           ),
         ),
       ),
-      title: Column(
-        children: [
-          Text(
-            " ${context.localization.hi} ahmed,",
-            style: AppTextStyles.font16w500,
-          ),
-          verticalSpace(4),
-          Text(
-            context.localization.iamSmartCoach,
-            style: AppTextStyles.font18w700,
-          ),
-        ],
-      ),
+      title: title,
       actions: [
         Padding(
           padding: const EdgeInsets.only(right: 16),
@@ -81,6 +81,22 @@ class SmartCoachScreen extends StatelessWidget {
             child: SvgPicture.asset(AppImages.cahtHistory),
           ),
         )
+      ],
+    );
+  }
+
+  Widget _getStaredAppBar(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          " ${context.localization.hi} ahmed,",
+          style: AppTextStyles.font16w500,
+        ),
+        verticalSpace(4),
+        Text(
+          context.localization.iamSmartCoach,
+          style: AppTextStyles.font18w700,
+        ),
       ],
     );
   }

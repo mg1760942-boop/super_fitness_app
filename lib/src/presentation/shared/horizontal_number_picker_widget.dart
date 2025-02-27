@@ -1,5 +1,4 @@
-import 'package:numberpicker/numberpicker.dart';
-
+import 'package:wheel_slider/wheel_slider.dart';
 import '../../../core/common/common_imports.dart';
 import '../../../core/utilities/style/app_colors.dart';
 import '../../../core/utilities/style/app_fonts.dart';
@@ -78,30 +77,105 @@ class _HorizontalNumberPickerWidgetState extends State<HorizontalNumberPickerWid
           ),
         ),
         verticalSpace(12),
-        NumberPicker(
-          value:widget.selectedIndex,
-          minValue: 1,
-          maxValue: widget.max,
-          step: 1,
 
-          itemCount: 6,
-          itemHeight: 55.h,
-          itemWidth: MediaQuery.of(context).size.width / 7,
-          axis: Axis.horizontal,
-          haptics: false,
-          selectedTextStyle: TextStyle(
-            fontSize: 44.sp,
-            fontWeight: FontWeight.w800,
-            color: AppColors.primary,
+        // WheelSlider.number(
+        //   totalCount: widget.max,
+        //   initValue: widget.selectedIndex,
+        //   unSelectedNumberStyle: TextStyle(
+        //     fontSize: 33.0.sp,
+        //     color: AppColors.kWhiteBase,
+        //     fontWeight: FontWeight.w800,
+        //   ),
+        //   selectedNumberStyle: TextStyle(
+        //     fontSize: 44.0.sp,
+        //     color: AppColors.mainColor,
+        //     fontWeight: FontWeight.w800,
+        //   ),
+        //   currentIndex: widget.selectedIndex,
+        //   onValueChanged:(p0) {
+        //
+        //   },
+        //   itemSize: 100,
+        //   isInfinite: true,
+        //   listHeight: 800,
+        //   listWidth: 400,
+        //
+        //   animationDuration: Duration(milliseconds: 300),
+        //   animationType: Curves.easeInOut,
+        //   customPointer: Container(),
+        //   horizontal: true,
+        //   scrollPhysics: BouncingScrollPhysics(), // نوع التمرير
+        //   showPointer: true,
+        //   verticalListHeight: 300,
+        //   horizontalListHeight: 100,
+        //   horizontalListWidth: 200,
+        //   verticalListWidth: 100,
+        //   hapticFeedbackType: HapticFeedbackType.selectionClick,
+        // ),
 
+
+        // NumberPicker(
+        //   value:widget.selectedIndex,
+        //   minValue: 1,
+        //   maxValue: widget.max,
+        //   step: 1,
+        //
+        //   itemCount: 6,
+        //   itemHeight: 55.h,
+        //   itemWidth: MediaQuery.of(context).size.width / 7,
+        //   axis: Axis.horizontal,
+        //   haptics: false,
+        //   selectedTextStyle: TextStyle(
+        //     fontSize: 44.sp,
+        //     fontWeight: FontWeight.w800,
+        //     color: AppColors.primary,
+        //
+        //   ),
+        //
+        //   textStyle: TextStyle(
+        //     fontSize: 33.sp,
+        //     fontWeight: FontWeight.w800,
+        //     color: const Color(0xFFD3D3D3),
+        //   ),
+        //   onChanged:widget.onChanged,
+        // ),
+
+        SizedBox(
+          height: 62.h,
+          width: double.infinity,
+          child: WheelSlider.number(
+            totalCount: 150,
+            initValue:widget.selectedIndex,
+            unSelectedNumberStyle: TextStyle(
+              fontSize: 33.0.sp,
+              color: AppColors.kWhiteBase,
+              fontWeight: FontWeight.w800,
+            ),
+            selectedNumberStyle: TextStyle(
+              fontSize: 44.0.sp,
+              color: AppColors.mainColor,
+              fontWeight: FontWeight.w800,
+            ),
+            currentIndex: widget.selectedIndex,
+            onValueChanged:(p0) =>  widget.onChanged(p0),
+            itemSize: 100,
+            isInfinite: true,
+            listHeight: 800,
+            listWidth: 400,
+            animationDuration: Duration(milliseconds: 300),
+            animationType: Curves.easeInOut,
+            customPointer: Container(),
+            horizontal: true,
+            scrollPhysics:
+            BouncingScrollPhysics(),
+            showPointer: true,
+            verticalListHeight: 300,
+            horizontalListHeight: 100,
+            horizontalListWidth: 200,
+            verticalListWidth: 100,
+            hapticFeedbackType:
+            HapticFeedbackType.selectionClick,
           ),
-
-          textStyle: TextStyle(
-            fontSize: 33.sp,
-            fontWeight: FontWeight.w800,
-            color: const Color(0xFFD3D3D3),
-          ),
-          onChanged:widget.onChanged,
         ),
         verticalSpace(6),
         const Icon(

@@ -12,23 +12,42 @@ import '../../../../core/common/common_imports.dart';
 import '../../../../core/utilities/style/app_colors.dart';
 import '../../../data/api/core/errors/error_handler.dart';
 
-class ProfileScreen extends StatelessWidget {
-  ProfileScreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  @override
+  void initState() {
+    profileViewModel.getUserData();
+    super.initState();
+  }
+
+  var profileViewModel = getIt.get<ProfileViewmodel>();
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<ProfileViewmodel>()..getUserData(),
+      create: (context) => profileViewModel,
       child: ProfileView(),
     );
   }
 }
 
-class ProfileView extends StatelessWidget {
+class ProfileView extends StatefulWidget {
+  const ProfileView({super.key});
+
+  @override
+  State<ProfileView> createState() => _ProfileViewState();
+}
+
+class _ProfileViewState extends State<ProfileView> {
+
   @override
   Widget build(BuildContext context) {
     final viewModel = context.read<ProfileViewmodel>();
-
     return LoaderOverlay(
       useDefaultLoading: false,
       overlayWidgetBuilder: (_) => Center(

@@ -4,10 +4,13 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
+import 'dart:io' as _i15;
 
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i7;
 import 'package:super_fitness_app/core/common/apis/api_result.dart' as _i4;
+import 'package:super_fitness_app/src/data/api/core/api_request_models/edit_profile_request/edit_profile_request.dart'
+    as _i14;
 import 'package:super_fitness_app/src/data/api/core/api_request_models/register/register_request_model.dart'
     as _i13;
 import 'package:super_fitness_app/src/domain/entities/app_user_entity/app_user_entity.dart'
@@ -167,4 +170,43 @@ class MockAuthRepository extends _i1.Mock implements _i2.AuthRepository {
           ),
         )),
       ) as _i3.Future<_i4.ApiResult<_i12.AppUserEntity?>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i12.AppUserEntity>> editProfile(
+          {required _i14.EditProfileRequest? editProfileRequest}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #editProfile,
+          [],
+          {#editProfileRequest: editProfileRequest},
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<_i12.AppUserEntity>>.value(
+            _i7.dummyValue<_i4.ApiResult<_i12.AppUserEntity>>(
+          this,
+          Invocation.method(
+            #editProfile,
+            [],
+            {#editProfileRequest: editProfileRequest},
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<_i12.AppUserEntity>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<String>> uploadImage({required _i15.File? image}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #uploadImage,
+          [],
+          {#image: image},
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<String>>.value(
+            _i7.dummyValue<_i4.ApiResult<String>>(
+          this,
+          Invocation.method(
+            #uploadImage,
+            [],
+            {#image: image},
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<String>>);
 }

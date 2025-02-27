@@ -57,5 +57,18 @@
   "howCanWeAssist": "How can we assist you?",
   "emailWithColon": "Email: ",
   "phoneWithColon": "Call: ",
-  "availableToAssistYou": "Available 24/7 to assist you."
+  "availableToAssistYou": "Available 24/7 to assist you.",
+  "personalizedPlan": "This helps us create your personalized plan.",
+  "whatIsYourWeight": "What is your weight?",
+  "activityLevel": "Activity Level?",
+  "yourRegularPhysical": "Your regular physical ",
+  "whatIsYourGoal": "What is your goal?",
+  "yourActivityLevel": "Your Activity ",
+  "yourGoalTab": "Your Goal ",
+    "yourWeightTab": "Your Weight ",
+  "youActivityLevel": "Your activity level ",
+  "yourGoal": "This Helps Us Create Your Personalized Plan",
+  "yourWeight": "what is your weight ? ",
+  "thisHelpsUsCreate": "This Helps Us Create Your Personalized Plan.",
+  "tapToEdit": "Tap to Edit"
 }

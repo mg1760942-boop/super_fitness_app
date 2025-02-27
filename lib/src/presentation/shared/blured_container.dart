@@ -18,7 +18,6 @@ class BluredContainer extends StatelessWidget {
           filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
           child: AnimatedContainer(
             padding: padding,
-            // Use a translucent color to see the blur effect
             color: const Color(0x19242424),
             duration: Duration(milliseconds: 3000),
             child: child,

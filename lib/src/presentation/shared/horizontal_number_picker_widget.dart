@@ -77,40 +77,43 @@ class _HorizontalNumberPickerWidgetState extends State<HorizontalNumberPickerWid
           ),
         ),
         verticalSpace(12),
-        WheelSlider.number(
-          totalCount: widget.max,
-          initValue: widget.selectedIndex,
-          unSelectedNumberStyle: TextStyle(
-            fontSize: 33.0.sp,
-            color: AppColors.kWhiteBase,
-            fontWeight: FontWeight.w800,
-          ),
-          selectedNumberStyle: TextStyle(
-            fontSize: 44.0.sp,
-            color: AppColors.mainColor,
-            fontWeight: FontWeight.w800,
-          ),
-          currentIndex: widget.selectedIndex,
-          onValueChanged:(p0) {
 
-          },
-          itemSize: 100,
-          isInfinite: true,
-          listHeight: 800,
-          listWidth: 400,
+        // WheelSlider.number(
+        //   totalCount: widget.max,
+        //   initValue: widget.selectedIndex,
+        //   unSelectedNumberStyle: TextStyle(
+        //     fontSize: 33.0.sp,
+        //     color: AppColors.kWhiteBase,
+        //     fontWeight: FontWeight.w800,
+        //   ),
+        //   selectedNumberStyle: TextStyle(
+        //     fontSize: 44.0.sp,
+        //     color: AppColors.mainColor,
+        //     fontWeight: FontWeight.w800,
+        //   ),
+        //   currentIndex: widget.selectedIndex,
+        //   onValueChanged:(p0) {
+        //
+        //   },
+        //   itemSize: 100,
+        //   isInfinite: true,
+        //   listHeight: 800,
+        //   listWidth: 400,
+        //
+        //   animationDuration: Duration(milliseconds: 300),
+        //   animationType: Curves.easeInOut,
+        //   customPointer: Container(),
+        //   horizontal: true,
+        //   scrollPhysics: BouncingScrollPhysics(), // نوع التمرير
+        //   showPointer: true,
+        //   verticalListHeight: 300,
+        //   horizontalListHeight: 100,
+        //   horizontalListWidth: 200,
+        //   verticalListWidth: 100,
+        //   hapticFeedbackType: HapticFeedbackType.selectionClick,
+        // ),
 
-          animationDuration: Duration(milliseconds: 300),
-          animationType: Curves.easeInOut,
-          customPointer: Container(),
-          horizontal: true,
-          scrollPhysics: BouncingScrollPhysics(), // نوع التمرير
-          showPointer: true,
-          verticalListHeight: 300,
-          horizontalListHeight: 100,
-          horizontalListWidth: 200,
-          verticalListWidth: 100,
-          hapticFeedbackType: HapticFeedbackType.selectionClick,
-        ),
+
         // NumberPicker(
         //   value:widget.selectedIndex,
         //   minValue: 1,
@@ -136,6 +139,44 @@ class _HorizontalNumberPickerWidgetState extends State<HorizontalNumberPickerWid
         //   ),
         //   onChanged:widget.onChanged,
         // ),
+
+        SizedBox(
+          height: 62.h,
+          width: double.infinity,
+          child: WheelSlider.number(
+            totalCount: 150,
+            initValue:widget.selectedIndex,
+            unSelectedNumberStyle: TextStyle(
+              fontSize: 33.0.sp,
+              color: AppColors.kWhiteBase,
+              fontWeight: FontWeight.w800,
+            ),
+            selectedNumberStyle: TextStyle(
+              fontSize: 44.0.sp,
+              color: AppColors.mainColor,
+              fontWeight: FontWeight.w800,
+            ),
+            currentIndex: widget.selectedIndex,
+            onValueChanged:(p0) =>  widget.onChanged(p0),
+            itemSize: 100,
+            isInfinite: true,
+            listHeight: 800,
+            listWidth: 400,
+            animationDuration: Duration(milliseconds: 300),
+            animationType: Curves.easeInOut,
+            customPointer: Container(),
+            horizontal: true,
+            scrollPhysics:
+            BouncingScrollPhysics(),
+            showPointer: true,
+            verticalListHeight: 300,
+            horizontalListHeight: 100,
+            horizontalListWidth: 200,
+            verticalListWidth: 100,
+            hapticFeedbackType:
+            HapticFeedbackType.selectionClick,
+          ),
+        ),
         verticalSpace(6),
         const Icon(
           Icons.arrow_drop_up,

@@ -51,7 +51,9 @@ class _RegisterViewState extends State<RegisterView> {
                       dialogType: DialogType.error);
                 case RegisterSuccessState():
                   LoadingDialog.hide(context);
-                  Navigator.pushNamed(context, PageRoutesName.onboarding);
+                  Navigator.pushNamedAndRemoveUntil(
+
+                      context, PageRoutesName.sectionScreen,(route) => false,);
 
                 default:
               }

@@ -21,7 +21,7 @@ class SmartCoachScreenViewModel extends Cubit<SmartCoachScreenState> {
   FocusNode focusNode = FocusNode();
   SmartCoachType type = SmartCoachType.gemini;
 
-  _sendMessage(String message)async{
+  _sendMessage(String message) async {
     if (message.isEmpty || message == null) {
       return;
     }
@@ -34,7 +34,6 @@ class SmartCoachScreenViewModel extends Cubit<SmartCoachScreenState> {
         // TODO: Handle this case.
         throw UnimplementedError();
     }
-
   }
 
   doAction(SmartCoachScreenActions action) {
@@ -46,7 +45,7 @@ class SmartCoachScreenViewModel extends Cubit<SmartCoachScreenState> {
         emit(SmartCoachScreenInitial());
         break;
       case SendMessageAction():
-        // _sendMessage(action.message!);
+        _sendMessage(action.message!);
         break;
     }
   }

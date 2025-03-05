@@ -1,9 +1,8 @@
-
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:injectable/injectable.dart';
+import 'package:super_fitness_app/core/common/apis/api_result.dart';
 import 'package:super_fitness_app/src/domain/usecases/smart_coach/send_message_use_case.dart';
 import 'package:super_fitness_app/src/presentation/managers/smart_coach/smart_coach_screen_actions.dart';
 import 'package:super_fitness_app/src/presentation/managers/smart_coach/smart_coach_screen_states.dart';
@@ -11,28 +10,34 @@ import 'package:super_fitness_app/src/presentation/managers/smart_coach/smart_co
 import '../../../domain/smart_coach/smart_coach_creator.dart';
 
 @injectable
-class SmartCoachScreenViewModel extends Cubit<SmartCoachScreenState>{
-  // final SendMessageUseCase _sendMessageUseCase;
-  // SmartCoachScreenViewModel(@factoryParam SmartCoach type, SmartCoachCreator creator)
-  //     : _sendMessageUseCase = SendMessageUseCase(SmartCoach.gemini, creator), super(SmartCoachScreenInitial());
+class SmartCoachScreenViewModel extends Cubit<SmartCoachScreenState> {
+  final SendMessageUseCase _sendMessageUseCase;
 
-  SmartCoachScreenViewModel() : super(SmartCoachScreenInitial());
+  SmartCoachScreenViewModel(this._sendMessageUseCase)
+      : super(SmartCoachScreenInitial());
   List<Content> history = [];
   ScrollController scrollController = ScrollController();
   TextEditingController controller = TextEditingController();
   FocusNode focusNode = FocusNode();
+  SmartCoachType type = SmartCoachType.gemini;
 
+  _sendMessage(String message)async{
+    if (message.isEmpty || message == null) {
+      return;
+    }
+    var result = await _sendMessageUseCase.smartCoach(type, message);
+    switch (result) {
+      case Success<void>():
+        // TODO: Handle this case.
+        throw UnimplementedError();
+      case Failures<void>():
+        // TODO: Handle this case.
+        throw UnimplementedError();
+    }
 
-  // _sendMessage(String message){
-  //   if(message.isEmpty || message == null){
-  //     return;
-  //   }
-  //   var result = _sendMessageUseCase.smartCoach(message);
-  //   switch (result) {
-  //
-  //   }
-  // }
-  doAction(SmartCoachScreenActions action){
+  }
+
+  doAction(SmartCoachScreenActions action) {
     switch (action) {
       case StartChatAction():
         emit(ChatViewState());
@@ -42,8 +47,7 @@ class SmartCoachScreenViewModel extends Cubit<SmartCoachScreenState>{
         break;
       case SendMessageAction():
         // _sendMessage(action.message!);
-       break;
+        break;
     }
   }
-
 }

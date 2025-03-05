@@ -9,9 +9,9 @@ import 'gemini.dart';
 @Injectable(as: SmartCoachCreator)
 class SmartCoachCreatorImpl implements SmartCoachCreator {
   @override
-  SmartCoachModel createSmartCoach(SmartCoach coach) {
+  SmartCoachModel createSmartCoach(SmartCoachType coach) {
     switch (coach) {
-      case SmartCoach.gemini:
+      case SmartCoachType.gemini:
         return Gemini();
     }
   }

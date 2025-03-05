@@ -10,12 +10,12 @@ class SmartCoachRepoImpl implements SmartCoachRepo {
   final SmartCoachCreator _coachCreator;
   late SmartCoachModel _smartCoachModel;
 
-  SmartCoachRepoImpl(this._coachCreator, @factoryParam SmartCoach coach) {
-    _smartCoachModel = _coachCreator.createSmartCoach(coach);
-  }
+  SmartCoachRepoImpl(this._coachCreator);
+
 
   @override
-  Future<ApiResult<void>> sendMessage(String message) async {
+  Future<ApiResult<void>> sendMessage(SmartCoachType type,String message) async {
+    _createSmartCoach(type);
     try {
       await executeApi<void>(apiCall: () async {
         await _smartCoachModel.sendMessage(message);
@@ -25,5 +25,9 @@ class SmartCoachRepoImpl implements SmartCoachRepo {
       return Failures<void>(
           exception: e is Exception ? e : Exception(e.toString()));
     }
+  }
+
+  void _createSmartCoach(SmartCoachType type) {
+    _smartCoachModel = _coachCreator.createSmartCoach(type);
   }
 }

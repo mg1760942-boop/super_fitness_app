@@ -2,7 +2,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/utilities/style/app_colors.dart';
+import 'package:super_fitness_app/core/utilities/style/app_text_styles.dart';
 import 'package:super_fitness_app/src/presentation/managers/smart_coach/smart_coach_screen_actions.dart';
+import 'package:super_fitness_app/src/presentation/managers/smart_coach/smart_coach_screen_states.dart';
 import 'package:super_fitness_app/src/presentation/managers/smart_coach/smart_coach_screen_view_model.dart';
 import 'package:super_fitness_app/src/presentation/shared/custom_auth_text_form_field.dart';
 
@@ -45,7 +47,7 @@ class _ChatViewState extends State<ChatView> {
                   .whereType<TextPart>()
                   .map<String>((e) => e.text)
                   .join('');
-              return Text(text);
+              return _messageCard(context, text);
             },
             separatorBuilder: (context, index) => verticalSpace(8),
             itemCount: viewModel.history.length),
@@ -66,6 +68,7 @@ class _ChatViewState extends State<ChatView> {
 
   Widget _sendMessageRowView(BuildContext context) {
     final viewModel = context.read<SmartCoachScreenViewModel>();
+    IconData iconData = Icons.send_rounded;
     return Row(
       children: [
         Expanded(
@@ -76,36 +79,66 @@ class _ChatViewState extends State<ChatView> {
               hintText: context.localization.howCatIAssistYou,
               keyboardType: TextInputType.text,
               controller: viewModel.controller,
-              validator: (value) {
-                viewModel
-                    .doAction(SendMessageAction(viewModel.controller.text));
-              },
+              validator: (value) {},
             ),
           ),
         ),
         horizontalSpace(8),
-        InkWell(
-          onTap: () {},
-          child: Container(
-            width: 40.w,
-            height: 40.h,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-                color: AppColors.mainColor,
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(1, 1),
-                    blurRadius: 3,
-                  )
-                ]),
-            child: Icon(
-              Icons.send_rounded,
-              color: AppColors.kWhiteBase,
-            ),
-          ),
+        BlocBuilder<SmartCoachScreenViewModel, SmartCoachScreenState>(
+          builder: (context, state) {
+            if (state is SendMessageState) {
+              iconData = Icons.downloading_outlined;
+            }
+            if (state is SmartCoachSuccessResponseState) {
+              iconData = Icons.send_rounded;
+            }
+            return InkWell(
+              onTap: () {
+                viewModel
+                    .doAction(SendMessageAction(viewModel.controller.text));
+                _scrollDown(viewModel);
+              },
+              child: Container(
+                width: 40.w,
+                height: 40.h,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: AppColors.mainColor,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(1, 1),
+                        blurRadius: 3,
+                      )
+                    ]),
+                child: Icon(
+                  iconData,
+                  color: AppColors.kWhiteBase,
+                ),
+              ),
+            );
+          },
         ),
       ],
+    );
+  }
+
+  Widget _messageCard(BuildContext context, String text) {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: Container(
+        width: context.width * 0.5,
+        decoration: BoxDecoration(
+          color: AppColors.mainColor,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        padding: EdgeInsets.all(8),
+        margin: EdgeInsets.symmetric(vertical: 4),
+        child: Text(
+          text,
+          style: AppTextStyles.font16w500,
+        ),
+      ),
     );
   }
 }

@@ -2,3 +2,6 @@ abstract class SmartCoachScreenState{}
 class SmartCoachScreenInitial extends SmartCoachScreenState{}
 class GetStartedChatState extends SmartCoachScreenState{}
 class ChatViewState extends SmartCoachScreenState{}
+class SendMessageState extends SmartCoachScreenState{}
+class SmartCoachSuccessResponseState extends SmartCoachScreenState{}
+class SmartCoachFailResponseState extends SmartCoachScreenState{}

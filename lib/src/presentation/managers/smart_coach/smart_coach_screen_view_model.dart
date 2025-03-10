@@ -25,14 +25,17 @@ class SmartCoachScreenViewModel extends Cubit<SmartCoachScreenState> {
     if (message.isEmpty || message == null) {
       return;
     }
+    history.add(Content.text(message));
+    emit(SendMessageState());
+    controller.clear();
     var result = await _sendMessageUseCase.smartCoach(type, message);
     switch (result) {
       case Success<void>():
-        // TODO: Handle this case.
-        throw UnimplementedError();
+        emit(SmartCoachSuccessResponseState());
+        break;
       case Failures<void>():
-        // TODO: Handle this case.
-        throw UnimplementedError();
+        emit(SmartCoachFailResponseState());
+        break;
     }
   }
 

@@ -71,8 +71,6 @@ extension GetItInjectableX on _i174.GetIt {
       () => sharedPrefModule.sharedPreferences,
       preResolve: true,
     );
-    gh.factory<_i160.SmartCoachScreenViewModel>(
-        () => _i160.SmartCoachScreenViewModel());
     gh.singleton<_i753.ForgetPasswordScreenControllerManger>(
         () => _i753.ForgetPasswordScreenControllerManger());
     gh.singleton<_i92.ForgetPasswordScreenValidatorManager>(
@@ -94,28 +92,18 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i1005.LoginUsecase>(
         () => _i1005.LoginUsecase(gh<_i701.AuthRepository>()));
-    gh.factoryParam<_i713.SendMessageUseCase, _i497.SmartCoach, dynamic>((
-      type,
-      _,
-    ) =>
-        _i713.SendMessageUseCase(
-          type,
-          gh<_i497.SmartCoachCreator>(),
-        ));
-    gh.factoryParam<_i867.SmartCoachRepo, _i497.SmartCoach, dynamic>((
-      coach,
-      _,
-    ) =>
-        _i259.SmartCoachRepoImpl(
-          gh<_i497.SmartCoachCreator>(),
-          coach,
-        ));
+    gh.factory<_i867.SmartCoachRepo>(
+        () => _i259.SmartCoachRepoImpl(gh<_i497.SmartCoachCreator>()));
     gh.factory<_i475.LoginViewmodel>(
         () => _i475.LoginViewmodel(gh<_i1005.LoginUsecase>()));
     gh.factory<_i673.ForgetPasswordUseCase>(
         () => _i673.ForgetPasswordUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i545.RegisterUseCase>(
         () => _i545.RegisterUseCase(gh<_i701.AuthRepository>()));
+    gh.factory<_i713.SendMessageUseCase>(
+        () => _i713.SendMessageUseCase(gh<_i867.SmartCoachRepo>()));
+    gh.factory<_i160.SmartCoachScreenViewModel>(
+        () => _i160.SmartCoachScreenViewModel(gh<_i713.SendMessageUseCase>()));
     gh.factory<_i340.ForgetPasswordScreenViewModel>(
         () => _i340.ForgetPasswordScreenViewModel(
               gh<_i673.ForgetPasswordUseCase>(),

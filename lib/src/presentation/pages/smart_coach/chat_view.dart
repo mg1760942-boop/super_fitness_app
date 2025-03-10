@@ -36,21 +36,23 @@ class _ChatViewState extends State<ChatView> {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.read<SmartCoachScreenViewModel>();
-    return Stack(
+    return Column(
       children: [
-        ListView.separated(
-            controller: viewModel.scrollController,
-            reverse: true,
-            itemBuilder: (context, index) {
-              var content = viewModel.history.reversed.toList()[index];
-              var text = content.parts
-                  .whereType<TextPart>()
-                  .map<String>((e) => e.text)
-                  .join('');
-              return _messageCard(context, text);
-            },
-            separatorBuilder: (context, index) => verticalSpace(8),
-            itemCount: viewModel.history.length),
+        Expanded(
+          child: ListView.separated(
+              controller: viewModel.scrollController,
+              reverse: true,
+              itemBuilder: (context, index) {
+                var content = viewModel.history.reversed.toList()[index];
+                var text = content.parts
+                    .whereType<TextPart>()
+                    .map<String>((e) => e.text)
+                    .join('');
+                return _messageCard(context, text);
+              },
+              separatorBuilder: (context, index) => verticalSpace(8),
+              itemCount: viewModel.history.length),
+        ),
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(

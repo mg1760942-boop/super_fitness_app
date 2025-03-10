@@ -25,7 +25,7 @@ class SmartCoachScreenViewModel extends Cubit<SmartCoachScreenState> {
     if (message.isEmpty || message == null) {
       return;
     }
-    history.add(Content.text(message));
+    history.add(Content("user",[TextPart(message)]));
     emit(SendMessageState());
     controller.clear();
     var result = await _sendMessageUseCase.smartCoach(type, message);

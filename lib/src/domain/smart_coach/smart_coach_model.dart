@@ -1,3 +1,3 @@
 abstract interface class SmartCoachModel{
-  Future<void> sendMessage(String message);
+  Future<dynamic> sendMessage(String message);
 }

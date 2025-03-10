@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/core/common/apis/api_executer.dart';
 import 'package:super_fitness_app/core/common/apis/api_result.dart';
@@ -14,17 +17,14 @@ class SmartCoachRepoImpl implements SmartCoachRepo {
 
 
   @override
-  Future<ApiResult<void>> sendMessage(SmartCoachType type,String message) async {
+  Future<ApiResult<dynamic>> sendMessage(SmartCoachType type,String message) async {
     _createSmartCoach(type);
-    try {
-      await executeApi<void>(apiCall: () async {
-        await _smartCoachModel.sendMessage(message);
-      });
-      return Success<void>();
-    } catch (e) {
-      return Failures<void>(
-          exception: e is Exception ? e : Exception(e.toString()));
-    }
+    return await executeApi<dynamic>(apiCall: () async {
+      Stream<GenerateContentResponse> responseStream = await _smartCoachModel.sendMessage(message);
+      return responseStream;
+    });
+
+
   }
 
   void _createSmartCoach(SmartCoachType type) {

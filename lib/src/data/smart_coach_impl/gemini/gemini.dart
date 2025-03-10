@@ -10,13 +10,14 @@ class Gemini implements SmartCoachModel {
 
   Gemini() {
     model = GenerativeModel(
-        model: "gemini_pro",
-        apiKey: ApiKey.googleApiKey,);
+      model: "gemini-2.0-flash",
+      apiKey: ApiKey.googleApiKey,
+    );
     chat = model?.startChat();
   }
 
   @override
-  Future<void> sendMessage(String message) async {
-    await chat?.sendMessage(Content.text(message));
+  Future<dynamic> sendMessage(String message) async {
+    return chat?.sendMessageStream(Content.text(message));
   }
 }

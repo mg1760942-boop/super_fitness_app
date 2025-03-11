@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:super_fitness_app/src/domain/entities/workouts/muscles_group_entity.dart';
 
 part 'muscles_group_response_model.g.dart';
 
@@ -21,6 +22,9 @@ class MusclesGroupResponseModel {
   Map<String, dynamic> toJson() {
     return _$MusclesGroupResponseModelToJson(this);
   }
+  List<MusclesGroupEntity> toDomain(){
+    return musclesGroup!.map((e)=>e.toDomain()).toList();
+  }
 }
 
 @JsonSerializable()
@@ -41,6 +45,12 @@ class MusclesGroup {
 
   Map<String, dynamic> toJson() {
     return _$MusclesGroupToJson(this);
+  }
+  MusclesGroupEntity toDomain() {
+    return MusclesGroupEntity(
+      id: Id,
+      name: name,
+    );
   }
 }
 

@@ -30,12 +30,12 @@ class SmartCoachScreenViewModel extends Cubit<SmartCoachScreenState> {
     controller.clear();
     var result = await _sendMessageUseCase.smartCoach(type, message);
     switch (result) {
-      case Success<void>():
+      case Success<String>():
+        history.add(Content("bot",[TextPart(result.data!)]));
         emit(SmartCoachSuccessResponseState());
         break;
-      case Failures<void>():
-        emit(SmartCoachFailResponseState());
-        break;
+      case Failures<String>():
+         break;
     }
   }
 

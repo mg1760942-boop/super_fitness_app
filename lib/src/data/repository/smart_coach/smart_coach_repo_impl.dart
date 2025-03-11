@@ -17,14 +17,20 @@ class SmartCoachRepoImpl implements SmartCoachRepo {
 
 
   @override
-  Future<ApiResult<dynamic>> sendMessage(SmartCoachType type,String message) async {
+  Future<ApiResult<String>> sendMessage(SmartCoachType type,String message) async {
     _createSmartCoach(type);
-    return await executeApi<dynamic>(apiCall: () async {
+    return await executeApi<String>(apiCall: () async {
       Stream<GenerateContentResponse> responseStream = await _smartCoachModel.sendMessage(message);
-      return responseStream;
+      return await _extractResponseText(responseStream);
     });
 
 
+  }
+
+  Future<String> _extractResponseText(Stream<GenerateContentResponse> responseStream) async {
+         Stream<String> responseText = responseStream.map((e)=>e.text??"");
+    List<String> response = await responseText.toList();
+    return response.join(" ");
   }
 
   void _createSmartCoach(SmartCoachType type) {

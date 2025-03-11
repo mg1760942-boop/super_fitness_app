@@ -8,7 +8,7 @@ class SendMessageUseCase{
   final SmartCoachRepo _smartCoachRepo;
   SendMessageUseCase(this._smartCoachRepo);
 
-  Future<ApiResult<dynamic>> smartCoach(SmartCoachType type, String message) async {
+  Future<ApiResult<String>> smartCoach(SmartCoachType type, String message) async {
     return await _smartCoachRepo.sendMessage(type,message);
   }
 }

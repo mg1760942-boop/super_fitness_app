@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
@@ -48,7 +49,7 @@ class _ChatViewState extends State<ChatView> {
                     .whereType<TextPart>()
                     .map<String>((e) => e.text)
                     .join('');
-                return _messageCard(context, text);
+                return _handelChatViewMessages(content.role.toString(), text);
               },
               separatorBuilder: (context, index) => verticalSpace(8),
               itemCount: viewModel.history.length),
@@ -89,7 +90,7 @@ class _ChatViewState extends State<ChatView> {
         BlocBuilder<SmartCoachScreenViewModel, SmartCoachScreenState>(
           builder: (context, state) {
             if (state is SendMessageState) {
-              iconData = Icons.downloading_outlined;
+              iconData = Icons.blur_circular;
             }
             if (state is SmartCoachSuccessResponseState) {
               iconData = Icons.send_rounded;
@@ -125,7 +126,10 @@ class _ChatViewState extends State<ChatView> {
     );
   }
 
-  Widget _messageCard(BuildContext context, String text) {
+  Widget _handelChatViewMessages(String role, String text){
+    return role == "bot" ? _messageSmartCoachCard(text) : _messageUserCard(text);
+  }
+  Widget _messageUserCard( String text) {
     return Align(
       alignment: Alignment.centerRight,
       child: Container(
@@ -139,6 +143,29 @@ class _ChatViewState extends State<ChatView> {
         child: Text(
           text,
           style: AppTextStyles.font16w500,
+        ),
+      ),
+    );
+  }
+  Widget _messageSmartCoachCard(String text) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Container(
+        width: context.width * 0.5,
+        decoration: BoxDecoration(
+          color: AppColors.kGray,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        padding: EdgeInsets.all(8),
+        margin: EdgeInsets.symmetric(vertical: 4),
+        child: AnimatedTextKit(
+          animatedTexts: [
+            TyperAnimatedText(
+              text,
+              textStyle: AppTextStyles.font16w500,
+              speed: Duration(milliseconds: 10),
+            ),
+          ],
         ),
       ),
     );

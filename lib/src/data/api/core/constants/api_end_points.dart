@@ -8,4 +8,5 @@ class ApiEndPoints {
   static const String getUserData = 'auth/profile-data';
   static const String editProfile = "auth/editProfile";
   static const String uploadImage = "auth/upload-photo";
+  static const String muscles = "muscles";
 }

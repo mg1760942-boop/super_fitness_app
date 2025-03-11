@@ -31,7 +31,11 @@ import '../../src/data/data_source/online_data_source/workouts/workouts_online_d
 import '../../src/data/data_source/online_data_source/workouts/workouts_online_data_source_impl.dart'
     as _i114;
 import '../../src/data/repository/auth/auth_repository_impl.dart' as _i478;
+import '../../src/data/repository/workouts/workouts_repository_impl.dart'
+    as _i239;
 import '../../src/domain/repositories/auth/auth_repository.dart' as _i701;
+import '../../src/domain/repositories/workouts/workouts_repository.dart'
+    as _i849;
 import '../../src/domain/usecases/auth/edit_profile_use_case/edit_profile_use_case.dart'
     as _i173;
 import '../../src/domain/usecases/auth/forget_password/forget_password_use_case.dart'
@@ -97,6 +101,8 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i318.ApiServices>(),
           gh<_i515.UploadApiManager>(),
         ));
+    gh.factory<_i849.WorkoutsRepository>(() =>
+        _i239.WorkoutsRepositoryImpl(gh<_i792.WorkoutsOnlineDataSource>()));
     gh.factory<_i701.AuthRepository>(() => _i478.AuthRepositoryImpl(
           gh<_i599.AuthOnlineDataSource>(),
           gh<_i506.AuthOfflineDataSource>(),

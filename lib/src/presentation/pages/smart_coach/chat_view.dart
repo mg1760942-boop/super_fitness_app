@@ -49,7 +49,8 @@ class _ChatViewState extends State<ChatView> {
                     .whereType<TextPart>()
                     .map<String>((e) => e.text)
                     .join('');
-                return _handelChatViewMessages(content.role.toString(), text);
+                return _handelChatViewMessages(
+                    content.role.toString(), text, index);
               },
               separatorBuilder: (context, index) => verticalSpace(8),
               itemCount: viewModel.history.length),
@@ -126,10 +127,13 @@ class _ChatViewState extends State<ChatView> {
     );
   }
 
-  Widget _handelChatViewMessages(String role, String text){
-    return role == "bot" ? _messageSmartCoachCard(text) : _messageUserCard(text);
+  Widget _handelChatViewMessages(String role, String text, int? index) {
+    return role == "bot"
+        ? _messageSmartCoachCard(text, index ?? 0)
+        : _messageUserCard(text);
   }
-  Widget _messageUserCard( String text) {
+
+  Widget _messageUserCard(String text) {
     return Align(
       alignment: Alignment.centerRight,
       child: Container(
@@ -147,7 +151,9 @@ class _ChatViewState extends State<ChatView> {
       ),
     );
   }
-  Widget _messageSmartCoachCard(String text) {
+
+  Widget _messageSmartCoachCard(String text, int index) {
+    final viewModel = context.read<SmartCoachScreenViewModel>();
     return Align(
       alignment: Alignment.centerLeft,
       child: Container(
@@ -158,15 +164,20 @@ class _ChatViewState extends State<ChatView> {
         ),
         padding: EdgeInsets.all(8),
         margin: EdgeInsets.symmetric(vertical: 4),
-        child: AnimatedTextKit(
-          animatedTexts: [
-            TyperAnimatedText(
-              text,
-              textStyle: AppTextStyles.font16w500,
-              speed: Duration(milliseconds: 10),
-            ),
-          ],
-        ),
+        child: index == 0
+            ? AnimatedTextKit(
+                animatedTexts: [
+                  TyperAnimatedText(
+                    text,
+                    textStyle: AppTextStyles.font16w500,
+                    speed: Duration(milliseconds: 10),
+                  ),
+                ],
+              )
+            : Text(
+                text,
+                style: AppTextStyles.font16w500,
+              ),
       ),
     );
   }

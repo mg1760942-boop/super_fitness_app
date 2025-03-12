@@ -1,8 +1,12 @@
+import 'dart:io';
+
+import 'package:super_fitness_app/src/data/api/core/api_request_models/edit_profile_request/edit_profile_request.dart';
 import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/forget_password_request_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/forget_password_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/reset_password_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/verify_reset_code_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/login/login_response.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/upload_image_response/upload_image_response.dart';
 
 import '../../../../domain/entities/app_user_entity/app_user_entity.dart';
 import '../../../api/core/api_request_models/forget_password/reset_password_request_model.dart';
@@ -21,4 +25,8 @@ abstract interface class AuthOnlineDataSource {
   Future<(AppUserEntity, String)> register(
       RegisterRequestModel registerRequest);
   Future<LoginResponse> getUserData();
+
+  Future<AppUserEntity> editProfile(EditProfileRequest editProfileRequest);
+
+  Future<UploadImageResponse> uploadImage(String token, File image);
 }

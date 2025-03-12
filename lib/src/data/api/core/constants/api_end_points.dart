@@ -9,4 +9,6 @@ class ApiEndPoints {
   static const String mealCategories = '1/categories.php';
   static const String mealsByCategory = '1/filter.php';
   static const String mealDetail = '1/lookup.php';
+  static const String editProfile = "auth/editProfile";
+  static const String uploadImage = "auth/upload-photo";
 }

@@ -17,6 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../src/data/api/api_services.dart' as _i318;
 import '../../src/data/api/network_factory.dart' as _i801;
+import '../../src/data/api/upload_api_manger/upload_api_manger.dart' as _i515;
 import '../../src/data/data_source/offline_data_source/auth/auth_offline_data_source/auth_offline_data_source.dart'
     as _i506;
 import '../../src/data/data_source/offline_data_source/auth/auth_offline_data_source/auth_offline_data_source_impl.dart'
@@ -27,12 +28,18 @@ import '../../src/data/data_source/online_data_source/auth/auth_online_data_sour
     as _i299;
 import '../../src/data/repository/auth/auth_repository_impl.dart' as _i478;
 import '../../src/domain/repositories/auth/auth_repository.dart' as _i701;
+import '../../src/domain/usecases/auth/edit_profile_use_case/edit_profile_use_case.dart'
+    as _i173;
 import '../../src/domain/usecases/auth/forget_password/forget_password_use_case.dart'
     as _i673;
 import '../../src/domain/usecases/auth/login/login_usecase.dart' as _i1005;
 import '../../src/domain/usecases/auth/profile/profile_usecase.dart' as _i881;
 import '../../src/domain/usecases/auth/register/register_use_case.dart'
     as _i545;
+import '../../src/domain/usecases/auth/upload_profile_image_use_case/upload_profile_image_use_case.dart'
+    as _i144;
+import '../../src/presentation/managers/edit_profle/edit_profile_cubit.dart'
+    as _i179;
 import '../../src/presentation/managers/forget_password/controller_manager.dart'
     as _i753;
 import '../../src/presentation/managers/forget_password/forget_password_screen_view_model.dart'
@@ -76,6 +83,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(() => dioProvider.dioProvider());
     gh.lazySingleton<_i528.PrettyDioLogger>(() => dioProvider.providePretty());
     gh.lazySingleton<_i801.AppInterceptors>(() => _i801.AppInterceptors());
+    gh.factory<_i515.UploadApiManager>(() => _i515.UploadApiManagerImpl());
     gh.factory<_i506.AuthOfflineDataSource>(
         () => _i122.AuthOfflineDataSourceImpl());
     gh.singleton<_i318.ApiServices>(() => _i318.ApiServices(gh<_i361.Dio>()));
@@ -97,8 +105,16 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i673.ForgetPasswordUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i545.RegisterUseCase>(
         () => _i545.RegisterUseCase(gh<_i701.AuthRepository>()));
+    gh.factory<_i173.EditProfileUseCase>(
+        () => _i173.EditProfileUseCase(gh<_i701.AuthRepository>()));
+    gh.factory<_i144.UploadProfileImageUseCase>(
+        () => _i144.UploadProfileImageUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i278.RegisterViewModel>(
         () => _i278.RegisterViewModel(gh<_i545.RegisterUseCase>()));
+    gh.factory<_i179.EditProfileCubit>(() => _i179.EditProfileCubit(
+          gh<_i173.EditProfileUseCase>(),
+          gh<_i144.UploadProfileImageUseCase>(),
+        ));
     gh.factory<_i340.ForgetPasswordScreenViewModel>(
         () => _i340.ForgetPasswordScreenViewModel(
               gh<_i673.ForgetPasswordUseCase>(),

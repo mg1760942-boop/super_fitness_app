@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import '../../../../core/common/apis/api_result.dart';
+import '../../../data/api/core/api_request_models/edit_profile_request/edit_profile_request.dart';
 import '../../../data/api/core/api_request_models/register/register_request_model.dart';
 import '../../entities/app_user_entity/app_user_entity.dart';
 import '../../entities/auth/forget_password/forget_password_request_entity.dart';
@@ -20,4 +23,7 @@ abstract interface class AuthRepository {
   Future<ApiResult<AppUserEntity>> register(
       {required RegisterRequestModel registerRequest});
   Future<ApiResult<AppUserEntity?>> getUserData();
+  Future<ApiResult<AppUserEntity>> editProfile(
+      {required EditProfileRequest editProfileRequest});
+  Future<ApiResult<String>> uploadImage({required File image});
 }

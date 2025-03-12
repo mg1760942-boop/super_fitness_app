@@ -4,6 +4,7 @@ import 'package:retrofit/retrofit.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/meals/meals_by_category_response.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/meals/meals_detail_response.dart';
 
+import 'core/api_request_models/edit_profile_request/edit_profile_request.dart';
 import 'core/api_request_models/forget_password/forget_password_request_model.dart';
 import 'core/api_request_models/forget_password/reset_password_request_model.dart';
 import 'core/api_request_models/forget_password/verify_reset_code_request_model.dart';
@@ -55,7 +56,9 @@ abstract interface class ApiServices {
   @GET(ApiEndPoints.mealsByCategory)
   Future<MealsByCategoryResponse> getMealsByCategory(
       @Query('c') String category);
-
+  @PUT(ApiEndPoints.editProfile)
+  Future<RegisterResponseModel> editProfile(
+      {@Body() required EditProfileRequest editProfileRequestModel});
   @GET(ApiEndPoints.mealDetail)
   Future<MealsDetailResponse> getMealDetail(@Query('i') String idMeal);
 }

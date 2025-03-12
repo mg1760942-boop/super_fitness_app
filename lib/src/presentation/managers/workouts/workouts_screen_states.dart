@@ -1,8 +1,8 @@
 class WorkoutsScreenStates {}
-class WorkoutScreenInitialState extends WorkoutsScreenStates{}
-class WorkoutScreenLoadingState extends WorkoutsScreenStates{}
-class WorkoutScreenSuccessState extends WorkoutsScreenStates{}
-class WorkoutScreenErrorState extends WorkoutsScreenStates{
+class WorkoutsScreenInitialState extends WorkoutsScreenStates{}
+class WorkoutsScreenLoadingState extends WorkoutsScreenStates{}
+class WorkoutsScreenSuccessState extends WorkoutsScreenStates{}
+class WorkoutsScreenErrorState extends WorkoutsScreenStates{
   Exception? exception;
-  WorkoutScreenErrorState({this.exception});
+  WorkoutsScreenErrorState({this.exception});
 }

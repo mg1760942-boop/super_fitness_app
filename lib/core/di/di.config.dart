@@ -46,6 +46,8 @@ import '../../src/domain/usecases/auth/register/register_use_case.dart'
     as _i545;
 import '../../src/domain/usecases/auth/upload_profile_image_use_case/upload_profile_image_use_case.dart'
     as _i144;
+import '../../src/domain/usecases/workouts/muscles_group_use_case.dart'
+    as _i534;
 import '../../src/presentation/managers/edit_profle/edit_profile_cubit.dart'
     as _i179;
 import '../../src/presentation/managers/forget_password/controller_manager.dart'
@@ -61,6 +63,8 @@ import '../../src/presentation/managers/register/register_viewmodel.dart'
     as _i278;
 import '../../src/presentation/managers/section/section_Screen_viewmodel.dart'
     as _i212;
+import '../../src/presentation/managers/workouts/workouts_screen_view_model.dart'
+    as _i681;
 import '../helpers/shared_pref/shared_pref_moduel.dart' as _i802;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -115,6 +119,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i829.ProfileViewmodel(gh<_i881.ProfileUsecase>()));
     gh.factory<_i475.LoginViewmodel>(
         () => _i475.LoginViewmodel(gh<_i1005.LoginUsecase>()));
+    gh.factory<_i534.MusclesGroupUseCase>(
+        () => _i534.MusclesGroupUseCase(gh<_i849.WorkoutsRepository>()));
     gh.factory<_i673.ForgetPasswordUseCase>(
         () => _i673.ForgetPasswordUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i144.UploadProfileImageUseCase>(
@@ -123,6 +129,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i173.EditProfileUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i545.RegisterUseCase>(
         () => _i545.RegisterUseCase(gh<_i701.AuthRepository>()));
+    gh.factory<_i681.WorkoutsScreenViewModel>(
+        () => _i681.WorkoutsScreenViewModel(gh<_i534.MusclesGroupUseCase>()));
     gh.factory<_i278.RegisterViewModel>(
         () => _i278.RegisterViewModel(gh<_i545.RegisterUseCase>()));
     gh.factory<_i179.EditProfileCubit>(() => _i179.EditProfileCubit(

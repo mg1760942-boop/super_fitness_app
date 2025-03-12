@@ -10,24 +10,24 @@ import 'package:super_fitness_app/src/presentation/managers/workouts/workouts_sc
 @injectable
 class WorkoutsScreenViewModel extends Cubit<WorkoutsScreenStates> {
   final MusclesGroupUseCase _musclesGroupUseCase;
-  WorkoutsScreenViewModel(this._musclesGroupUseCase):super(WorkoutScreenInitialState());
+  WorkoutsScreenViewModel(this._musclesGroupUseCase):super(WorkoutsScreenInitialState());
 
 
   getMusclesGroup() async {
-    emit(WorkoutScreenLoadingState());
+    emit(WorkoutsScreenLoadingState());
     var result = await _musclesGroupUseCase.getMusclesGroups();
     switch (result) {
       case Success<List<MusclesGroupEntity>>():
-        emit(WorkoutScreenSuccessState());
+        emit(WorkoutsScreenSuccessState());
         break;
       case Failures<List<MusclesGroupEntity>>():
-        emit(WorkoutScreenErrorState(exception: result.exception));
+        emit(WorkoutsScreenErrorState(exception: result.exception));
         break;
     }
   }
   doAction(WorkoutsScreenActions action){
     switch (action) {
-      case GetMusclesGroup():
+      case GetMusclesGroupAction():
         getMusclesGroup();
         break;
     }

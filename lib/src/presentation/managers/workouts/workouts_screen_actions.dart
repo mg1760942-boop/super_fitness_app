@@ -1,2 +1,2 @@
 sealed class WorkoutsScreenActions{}
-class GetMusclesGroup extends WorkoutsScreenActions{}
+class GetMusclesGroupAction extends WorkoutsScreenActions{}

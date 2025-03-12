@@ -50,15 +50,7 @@ abstract interface class ApiServices {
   @GET(ApiEndPoints.getUserData)
   Future<LoginResponse> getUserData();
 
-  @GET(ApiEndPoints.mealCategories)
-  Future<CategoriesResponse> getMealCategories();
-
-  @GET(ApiEndPoints.mealsByCategory)
-  Future<MealsByCategoryResponse> getMealsByCategory(
-      @Query('c') String category);
   @PUT(ApiEndPoints.editProfile)
   Future<RegisterResponseModel> editProfile(
       {@Body() required EditProfileRequest editProfileRequestModel});
-  @GET(ApiEndPoints.mealDetail)
-  Future<MealsDetailResponse> getMealDetail(@Query('i') String idMeal);
 }

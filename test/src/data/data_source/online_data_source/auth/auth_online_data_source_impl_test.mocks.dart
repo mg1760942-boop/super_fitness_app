@@ -3,20 +3,22 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i12;
+import 'dart:async' as _i9;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:super_fitness_app/src/data/api/api_services.dart' as _i11;
-import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/forget_password_request_model.dart'
-    as _i13;
-import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/reset_password_request_model.dart'
+import 'package:super_fitness_app/src/data/api/api_services.dart' as _i8;
+import 'package:super_fitness_app/src/data/api/core/api_request_models/edit_profile_request/edit_profile_request.dart'
     as _i15;
+import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/forget_password_request_model.dart'
+    as _i10;
+import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/reset_password_request_model.dart'
+    as _i12;
 import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/verify_reset_code_request_model.dart'
-    as _i14;
+    as _i11;
 import 'package:super_fitness_app/src/data/api/core/api_request_models/login/login_request.dart'
-    as _i16;
+    as _i13;
 import 'package:super_fitness_app/src/data/api/core/api_request_models/register/register_request_model.dart'
-    as _i17;
+    as _i14;
 import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/forget_password_response_model.dart'
     as _i2;
 import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/reset_password_response_model.dart'
@@ -25,12 +27,6 @@ import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_p
     as _i3;
 import 'package:super_fitness_app/src/data/api/core/api_response_models/login/login_response.dart'
     as _i5;
-import 'package:super_fitness_app/src/data/api/core/api_response_models/meals/categories_response.dart'
-    as _i7;
-import 'package:super_fitness_app/src/data/api/core/api_response_models/meals/meals_by_category_response.dart'
-    as _i8;
-import 'package:super_fitness_app/src/data/api/core/api_response_models/meals/meals_detail_response.dart'
-    as _i9;
 import 'package:super_fitness_app/src/data/api/core/api_response_models/register/register_response_model.dart'
     as _i6;
 import 'package:super_fitness_app/src/domain/entities/app_user_entity/app_user_entity.dart'
@@ -225,6 +221,26 @@ class MockApiServices extends _i1.Mock implements _i8.ApiServices {
           ),
         )),
       ) as _i9.Future<_i5.LoginResponse>);
+
+  @override
+  _i9.Future<_i6.RegisterResponseModel> editProfile(
+          {required _i15.EditProfileRequest? editProfileRequestModel}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #editProfile,
+          [],
+          {#editProfileRequestModel: editProfileRequestModel},
+        ),
+        returnValue: _i9.Future<_i6.RegisterResponseModel>.value(
+            _FakeRegisterResponseModel_4(
+          this,
+          Invocation.method(
+            #editProfile,
+            [],
+            {#editProfileRequestModel: editProfileRequestModel},
+          ),
+        )),
+      ) as _i9.Future<_i6.RegisterResponseModel>);
 }
 
 /// A class which mocks [AppUserEntity].

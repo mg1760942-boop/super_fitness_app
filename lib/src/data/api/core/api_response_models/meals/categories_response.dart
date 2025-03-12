@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:super_fitness_app/src/domain/entities/meals/meals_category_entity.dart';
 
 part 'categories_response.g.dart';
 
@@ -17,6 +18,12 @@ class CategoriesResponse {
 
   Map<String, dynamic> toJson() {
     return _$CategoriesResponseToJson(this);
+  }
+
+  MealsCategoryEntity toEntity() {
+    return MealsCategoryEntity(
+      categories: categories?.map((e) => e.toEntity()).toList(),
+    );
   }
 }
 
@@ -44,5 +51,14 @@ class Categories {
 
   Map<String, dynamic> toJson() {
     return _$CategoriesToJson(this);
+  }
+
+  CategoryEntity toEntity() {
+    return CategoryEntity(
+      idCategory: idCategory,
+      strCategory: strCategory,
+      strCategoryThumb: strCategoryThumb,
+      strCategoryDescription: strCategoryDescription,
+    );
   }
 }

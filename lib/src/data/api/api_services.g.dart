@@ -231,19 +231,21 @@ class _ApiServices implements ApiServices {
   }
 
   @override
-  Future<CategoriesResponse> getMealCategories() async {
+  Future<RegisterResponseModel> editProfile(
+      {required EditProfileRequest editProfileRequestModel}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<CategoriesResponse>(Options(
-      method: 'GET',
+    final _data = <String, dynamic>{};
+    _data.addAll(editProfileRequestModel.toJson());
+    final _options = _setStreamType<RegisterResponseModel>(Options(
+      method: 'PUT',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          '1/categories.php',
+          'auth/editProfile',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -253,75 +255,9 @@ class _ApiServices implements ApiServices {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late CategoriesResponse _value;
+    late RegisterResponseModel _value;
     try {
-      _value = CategoriesResponse.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<MealsByCategoryResponse> getMealsByCategory(String category) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'c': category};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<MealsByCategoryResponse>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '1/filter.php',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late MealsByCategoryResponse _value;
-    try {
-      _value = MealsByCategoryResponse.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
-  Future<MealsDetailResponse> getMealDetail(String idMeal) async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'i': idMeal};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<MealsDetailResponse>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '1/lookup.php',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late MealsDetailResponse _value;
-    try {
-      _value = MealsDetailResponse.fromJson(_result.data!);
+      _value = RegisterResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

@@ -253,32 +253,6 @@ class MockAuthOfflineDataSource extends _i1.Mock
           ),
         )),
       ) as _i8.Future<String>);
-
-  @override
-  _i8.Future<void> saveLanguage({String? language}) => (super.noSuchMethod(
-        Invocation.method(
-          #saveLanguage,
-          [],
-          {#language: language},
-        ),
-        returnValue: _i8.Future<void>.value(),
-        returnValueForMissingStub: _i8.Future<void>.value(),
-      ) as _i8.Future<void>);
-
-  @override
-  _i8.Future<String> getLanguage() => (super.noSuchMethod(
-        Invocation.method(
-          #getLanguage,
-          [],
-        ),
-        returnValue: _i8.Future<String>.value(_i14.dummyValue<String>(
-          this,
-          Invocation.method(
-            #getLanguage,
-            [],
-          ),
-        )),
-      ) as _i8.Future<String>);
 }
 
 /// A class which mocks [AppUserEntity].

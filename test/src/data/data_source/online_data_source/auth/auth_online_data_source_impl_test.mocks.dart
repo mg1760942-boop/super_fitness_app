@@ -34,7 +34,7 @@ import 'package:super_fitness_app/src/data/api/core/api_response_models/meals/me
 import 'package:super_fitness_app/src/data/api/core/api_response_models/register/register_response_model.dart'
     as _i6;
 import 'package:super_fitness_app/src/domain/entities/app_user_entity/app_user_entity.dart'
-    as _i10;
+    as _i7;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -103,41 +103,8 @@ class _FakeRegisterResponseModel_4 extends _i1.SmartFake
         );
 }
 
-class _FakeCategoriesResponse_5 extends _i1.SmartFake
-    implements _i7.CategoriesResponse {
-  _FakeCategoriesResponse_5(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
-class _FakeMealsByCategoryResponse_6 extends _i1.SmartFake
-    implements _i8.MealsByCategoryResponse {
-  _FakeMealsByCategoryResponse_6(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
-class _FakeMealsDetailResponse_7 extends _i1.SmartFake
-    implements _i9.MealsDetailResponse {
-  _FakeMealsDetailResponse_7(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
-class _FakeAppUserEntity_8 extends _i1.SmartFake implements _i10.AppUserEntity {
-  _FakeAppUserEntity_8(
+class _FakeAppUserEntity_5 extends _i1.SmartFake implements _i7.AppUserEntity {
+  _FakeAppUserEntity_5(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -149,20 +116,20 @@ class _FakeAppUserEntity_8 extends _i1.SmartFake implements _i10.AppUserEntity {
 /// A class which mocks [ApiServices].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockApiServices extends _i1.Mock implements _i11.ApiServices {
+class MockApiServices extends _i1.Mock implements _i8.ApiServices {
   MockApiServices() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i12.Future<_i2.ForgetPasswordResponseModel> forgetPassword(
-          _i13.ForgetPasswordRequestModel? forgetPasswordRequestModel) =>
+  _i9.Future<_i2.ForgetPasswordResponseModel> forgetPassword(
+          _i10.ForgetPasswordRequestModel? forgetPasswordRequestModel) =>
       (super.noSuchMethod(
         Invocation.method(
           #forgetPassword,
           [forgetPasswordRequestModel],
         ),
-        returnValue: _i12.Future<_i2.ForgetPasswordResponseModel>.value(
+        returnValue: _i9.Future<_i2.ForgetPasswordResponseModel>.value(
             _FakeForgetPasswordResponseModel_0(
           this,
           Invocation.method(
@@ -170,17 +137,17 @@ class MockApiServices extends _i1.Mock implements _i11.ApiServices {
             [forgetPasswordRequestModel],
           ),
         )),
-      ) as _i12.Future<_i2.ForgetPasswordResponseModel>);
+      ) as _i9.Future<_i2.ForgetPasswordResponseModel>);
 
   @override
-  _i12.Future<_i3.VerifyResetCodeResponseModel> verifyResetCode(
-          _i14.VerifyResetCodeRequestModel? verifyResetCodeRequestModel) =>
+  _i9.Future<_i3.VerifyResetCodeResponseModel> verifyResetCode(
+          _i11.VerifyResetCodeRequestModel? verifyResetCodeRequestModel) =>
       (super.noSuchMethod(
         Invocation.method(
           #verifyResetCode,
           [verifyResetCodeRequestModel],
         ),
-        returnValue: _i12.Future<_i3.VerifyResetCodeResponseModel>.value(
+        returnValue: _i9.Future<_i3.VerifyResetCodeResponseModel>.value(
             _FakeVerifyResetCodeResponseModel_1(
           this,
           Invocation.method(
@@ -188,17 +155,17 @@ class MockApiServices extends _i1.Mock implements _i11.ApiServices {
             [verifyResetCodeRequestModel],
           ),
         )),
-      ) as _i12.Future<_i3.VerifyResetCodeResponseModel>);
+      ) as _i9.Future<_i3.VerifyResetCodeResponseModel>);
 
   @override
-  _i12.Future<_i4.ResetPasswordResponseModel> resetPassword(
-          _i15.ResetPasswordRequestModel? resetPasswordRequestModel) =>
+  _i9.Future<_i4.ResetPasswordResponseModel> resetPassword(
+          _i12.ResetPasswordRequestModel? resetPasswordRequestModel) =>
       (super.noSuchMethod(
         Invocation.method(
           #resetPassword,
           [resetPasswordRequestModel],
         ),
-        returnValue: _i12.Future<_i4.ResetPasswordResponseModel>.value(
+        returnValue: _i9.Future<_i4.ResetPasswordResponseModel>.value(
             _FakeResetPasswordResponseModel_2(
           this,
           Invocation.method(
@@ -206,34 +173,34 @@ class MockApiServices extends _i1.Mock implements _i11.ApiServices {
             [resetPasswordRequestModel],
           ),
         )),
-      ) as _i12.Future<_i4.ResetPasswordResponseModel>);
+      ) as _i9.Future<_i4.ResetPasswordResponseModel>);
 
   @override
-  _i12.Future<_i5.LoginResponse> login(_i16.LoginRequest? loginRequest) =>
+  _i9.Future<_i5.LoginResponse> login(_i13.LoginRequest? loginRequest) =>
       (super.noSuchMethod(
         Invocation.method(
           #login,
           [loginRequest],
         ),
-        returnValue: _i12.Future<_i5.LoginResponse>.value(_FakeLoginResponse_3(
+        returnValue: _i9.Future<_i5.LoginResponse>.value(_FakeLoginResponse_3(
           this,
           Invocation.method(
             #login,
             [loginRequest],
           ),
         )),
-      ) as _i12.Future<_i5.LoginResponse>);
+      ) as _i9.Future<_i5.LoginResponse>);
 
   @override
-  _i12.Future<_i6.RegisterResponseModel> register(
-          {required _i17.RegisterRequestModel? registerRequestModel}) =>
+  _i9.Future<_i6.RegisterResponseModel> register(
+          {required _i14.RegisterRequestModel? registerRequestModel}) =>
       (super.noSuchMethod(
         Invocation.method(
           #register,
           [],
           {#registerRequestModel: registerRequestModel},
         ),
-        returnValue: _i12.Future<_i6.RegisterResponseModel>.value(
+        returnValue: _i9.Future<_i6.RegisterResponseModel>.value(
             _FakeRegisterResponseModel_4(
           this,
           Invocation.method(
@@ -242,80 +209,28 @@ class MockApiServices extends _i1.Mock implements _i11.ApiServices {
             {#registerRequestModel: registerRequestModel},
           ),
         )),
-      ) as _i12.Future<_i6.RegisterResponseModel>);
+      ) as _i9.Future<_i6.RegisterResponseModel>);
 
   @override
-  _i12.Future<_i5.LoginResponse> getUserData() => (super.noSuchMethod(
+  _i9.Future<_i5.LoginResponse> getUserData() => (super.noSuchMethod(
         Invocation.method(
           #getUserData,
           [],
         ),
-        returnValue: _i12.Future<_i5.LoginResponse>.value(_FakeLoginResponse_3(
+        returnValue: _i9.Future<_i5.LoginResponse>.value(_FakeLoginResponse_3(
           this,
           Invocation.method(
             #getUserData,
             [],
           ),
         )),
-      ) as _i12.Future<_i5.LoginResponse>);
-
-  @override
-  _i12.Future<_i7.CategoriesResponse> getMealCategories() =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getMealCategories,
-          [],
-        ),
-        returnValue:
-            _i12.Future<_i7.CategoriesResponse>.value(_FakeCategoriesResponse_5(
-          this,
-          Invocation.method(
-            #getMealCategories,
-            [],
-          ),
-        )),
-      ) as _i12.Future<_i7.CategoriesResponse>);
-
-  @override
-  _i12.Future<_i8.MealsByCategoryResponse> getMealsByCategory(
-          String? category) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getMealsByCategory,
-          [category],
-        ),
-        returnValue: _i12.Future<_i8.MealsByCategoryResponse>.value(
-            _FakeMealsByCategoryResponse_6(
-          this,
-          Invocation.method(
-            #getMealsByCategory,
-            [category],
-          ),
-        )),
-      ) as _i12.Future<_i8.MealsByCategoryResponse>);
-
-  @override
-  _i12.Future<_i9.MealsDetailResponse> getMealDetail(String? idMeal) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getMealDetail,
-          [idMeal],
-        ),
-        returnValue: _i12.Future<_i9.MealsDetailResponse>.value(
-            _FakeMealsDetailResponse_7(
-          this,
-          Invocation.method(
-            #getMealDetail,
-            [idMeal],
-          ),
-        )),
-      ) as _i12.Future<_i9.MealsDetailResponse>);
+      ) as _i9.Future<_i5.LoginResponse>);
 }
 
 /// A class which mocks [AppUserEntity].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAppUserEntity extends _i1.Mock implements _i10.AppUserEntity {
+class MockAppUserEntity extends _i1.Mock implements _i7.AppUserEntity {
   MockAppUserEntity() {
     _i1.throwOnMissingStub(this);
   }
@@ -325,7 +240,7 @@ class MockAppUserEntity extends _i1.Mock implements _i10.AppUserEntity {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockRegisterRequestModel extends _i1.Mock
-    implements _i17.RegisterRequestModel {
+    implements _i14.RegisterRequestModel {
   MockRegisterRequestModel() {
     _i1.throwOnMissingStub(this);
   }
@@ -458,19 +373,19 @@ class MockRegisterResponseModel extends _i1.Mock
       ) as Map<String, dynamic>);
 
   @override
-  _i10.AppUserEntity toAppUserEntity() => (super.noSuchMethod(
+  _i7.AppUserEntity toAppUserEntity() => (super.noSuchMethod(
         Invocation.method(
           #toAppUserEntity,
           [],
         ),
-        returnValue: _FakeAppUserEntity_8(
+        returnValue: _FakeAppUserEntity_5(
           this,
           Invocation.method(
             #toAppUserEntity,
             [],
           ),
         ),
-      ) as _i10.AppUserEntity);
+      ) as _i7.AppUserEntity);
 }
 
 /// A class which mocks [LoginResponse].
@@ -494,7 +409,7 @@ class MockLoginResponse extends _i1.Mock implements _i5.LoginResponse {
 /// A class which mocks [LoginRequest].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockLoginRequest extends _i1.Mock implements _i16.LoginRequest {
+class MockLoginRequest extends _i1.Mock implements _i13.LoginRequest {
   MockLoginRequest() {
     _i1.throwOnMissingStub(this);
   }

@@ -72,6 +72,13 @@ class AppTextStyles {
     fontWeight: AppFontWeights.normal,
   );
 
+
+  static TextStyle font12RegularWhite = GoogleFonts.balooThambi2(
+    fontSize: 12.sp,
+    color: AppColors.kWhiteBase,
+    fontWeight: AppFontWeights.normal,
+  );
+
   static TextStyle font11Regular = GoogleFonts.balooThambi2(
     fontSize: 11.sp,
     color: AppColors.kGray,

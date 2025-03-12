@@ -10,4 +10,6 @@ class PageRoutesName {
   static const String privacyScreen = "privacyScreen";
   static const String securityScreen = "securityScreen";
   static const String helpScreen = "helpScreen";
+  static const String editProfile = "editProfile";
+
 }

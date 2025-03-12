@@ -8,6 +8,7 @@ import 'package:super_fitness_app/src/presentation/pages/profile/security_screen
 import 'package:super_fitness_app/src/presentation/pages/register/view/register_view.dart';
 import 'package:super_fitness_app/src/presentation/pages/section/section_screen.dart';
 
+import '../../src/presentation/pages/edit_profile/view/edit_profile_view.dart';
 import '../../src/presentation/pages/login/login_screen.dart';
 import '../../src/presentation/pages/register/base_register_screen.dart';
 
@@ -47,6 +48,8 @@ class AppRoutes {
       case PageRoutesName.sectionScreen:
         return _handleMaterialPageRoute(
             widget: SectionScreen(), settings: settings);
+      case PageRoutesName.editProfile:
+        return _handleMaterialPageRoute(  settings: settings,widget: EditProfileView());
       default:
         return _handleMaterialPageRoute(
             widget: const Scaffold(body: Center(child: Text('Page Not Found'))),

@@ -87,8 +87,10 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i506.AuthOfflineDataSource>(
         () => _i122.AuthOfflineDataSourceImpl());
     gh.singleton<_i318.ApiServices>(() => _i318.ApiServices(gh<_i361.Dio>()));
-    gh.factory<_i599.AuthOnlineDataSource>(
-        () => _i299.AuthOnlineDataSourceImpl(gh<_i318.ApiServices>()));
+    gh.factory<_i599.AuthOnlineDataSource>(() => _i299.AuthOnlineDataSourceImpl(
+          gh<_i318.ApiServices>(),
+          gh<_i515.UploadApiManager>(),
+        ));
     gh.factory<_i701.AuthRepository>(() => _i478.AuthRepositoryImpl(
           gh<_i599.AuthOnlineDataSource>(),
           gh<_i506.AuthOfflineDataSource>(),
@@ -101,12 +103,12 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i829.ProfileViewmodel(gh<_i881.ProfileUsecase>()));
     gh.factory<_i475.LoginViewmodel>(
         () => _i475.LoginViewmodel(gh<_i1005.LoginUsecase>()));
+    gh.factory<_i173.EditProfileUseCase>(
+        () => _i173.EditProfileUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i673.ForgetPasswordUseCase>(
         () => _i673.ForgetPasswordUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i545.RegisterUseCase>(
         () => _i545.RegisterUseCase(gh<_i701.AuthRepository>()));
-    gh.factory<_i173.EditProfileUseCase>(
-        () => _i173.EditProfileUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i144.UploadProfileImageUseCase>(
         () => _i144.UploadProfileImageUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i278.RegisterViewModel>(

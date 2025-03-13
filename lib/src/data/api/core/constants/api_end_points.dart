@@ -9,4 +9,5 @@ class ApiEndPoints {
   static const String editProfile = "auth/editProfile";
   static const String uploadImage = "auth/upload-photo";
   static const String muscles = "muscles";
+  static const String exercises = "exercises";
 }

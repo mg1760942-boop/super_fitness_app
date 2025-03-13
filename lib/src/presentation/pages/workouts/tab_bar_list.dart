@@ -15,19 +15,28 @@ class TabBarList extends StatefulWidget {
 ScrollController _controller = ScrollController();
 
 void startScrollToIndex(int index) {
-  _controller.animateTo(
-      index * 60.0, duration: Duration(milliseconds: 500), curve: Curves.ease);
+  _controller.animateTo(index * 60.0,
+      duration: Duration(milliseconds: 500), curve: Curves.ease);
 }
 
 class _TabBarListState extends State<TabBarList> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    startScrollToIndex(context.read<WorkoutsScreenViewModel>().selectedTab);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final viewModel = context.read<WorkoutsScreenViewModel>();
-    startScrollToIndex(viewModel.selectedTab);
+
     return BlocListener<WorkoutsScreenViewModel, WorkoutsScreenStates>(
       listener: (context, state) {
         if (state is SelectedTabChangedState) {
-          setState(() {});
+          setState(() {
+            startScrollToIndex(viewModel.selectedTab);
+          });
         }
       },
       child: SizedBox(

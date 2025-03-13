@@ -20,7 +20,7 @@ class TabBarItem extends StatelessWidget {
       onTap: () {
         viewModel.doAction(ChangeSelectedTabAction(selectedTab: index));
       },
-      child: FadeInUp(
+      child: FadeInDown(
         child: Container(
           height: 20.h,
           margin: EdgeInsets.only(right: 8),

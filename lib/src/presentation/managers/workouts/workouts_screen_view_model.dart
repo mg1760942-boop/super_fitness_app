@@ -11,13 +11,15 @@ import 'package:super_fitness_app/src/presentation/managers/workouts/workouts_sc
 class WorkoutsScreenViewModel extends Cubit<WorkoutsScreenStates> {
   final MusclesGroupUseCase _musclesGroupUseCase;
   WorkoutsScreenViewModel(this._musclesGroupUseCase):super(WorkoutsScreenInitialState());
-
-
-  getMusclesGroup() async {
+  List<MusclesGroupEntity> musclesGroup = [];
+  int selectedTab = 0;
+  _getMusclesGroup() async {
     emit(WorkoutsScreenLoadingState());
     var result = await _musclesGroupUseCase.getMusclesGroups();
     switch (result) {
       case Success<List<MusclesGroupEntity>>():
+        musclesGroup = result.data??[];
+        musclesGroup.insert(0, MusclesGroupEntity(id: "",name: "Full Body"));
         emit(WorkoutsScreenSuccessState());
         break;
       case Failures<List<MusclesGroupEntity>>():
@@ -25,10 +27,18 @@ class WorkoutsScreenViewModel extends Cubit<WorkoutsScreenStates> {
         break;
     }
   }
+
+  _changeSelectedTab(int newTab){
+    selectedTab = newTab;
+    emit(SelectedTabChangedState());
+  }
   doAction(WorkoutsScreenActions action){
     switch (action) {
       case GetMusclesGroupAction():
-        getMusclesGroup();
+        _getMusclesGroup();
+        break;
+      case ChangeSelectedTabAction():
+        _changeSelectedTab(action.selectedTab??0);
         break;
     }
   }

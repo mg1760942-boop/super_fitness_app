@@ -10,4 +10,5 @@ class ApiEndPoints {
   static const String uploadImage = "auth/upload-photo";
   static const String muscles = "muscles";
   static const String exercises = "exercises";
+  static const String randomMuscles = "muscles/random";
 }

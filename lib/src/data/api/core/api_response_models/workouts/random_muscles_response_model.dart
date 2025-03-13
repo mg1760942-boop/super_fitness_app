@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:super_fitness_app/src/domain/entities/workouts/muscle_entity.dart';
 
 part 'random_muscles_response_model.g.dart';
 
@@ -11,7 +12,7 @@ class RandomMusclesResponseModel {
   @JsonKey(name: "muscles")
   final List<Muscles>? muscles;
 
-  RandomMusclesResponseModel ({
+  RandomMusclesResponseModel({
     this.message,
     this.totalMuscles,
     this.muscles,
@@ -24,6 +25,9 @@ class RandomMusclesResponseModel {
   Map<String, dynamic> toJson() {
     return _$RandomMusclesResponseModelToJson(this);
   }
+  List<MusclesEntity> toDomain(){
+    return muscles!.map((e)=> e.toDomain()).toList();
+  }
 }
 
 @JsonSerializable()
@@ -35,7 +39,7 @@ class Muscles {
   @JsonKey(name: "image")
   final String? image;
 
-  Muscles ({
+  Muscles({
     this.Id,
     this.name,
     this.image,
@@ -48,6 +52,8 @@ class Muscles {
   Map<String, dynamic> toJson() {
     return _$MusclesToJson(this);
   }
+
+  MusclesEntity toDomain() {
+    return MusclesEntity(id: Id, name: name, image: image);
+  }
 }
-
-

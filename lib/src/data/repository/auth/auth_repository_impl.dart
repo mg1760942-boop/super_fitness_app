@@ -86,15 +86,17 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<ApiResult<AppUserEntity>> editProfile({required EditProfileRequest editProfileRequest}) async{
+  Future<ApiResult<AppUserEntity>> editProfile(
+      {required EditProfileRequest editProfileRequest}) async {
     return await executeApi(apiCall: () async {
-      var response = await _authOnlineDataSource.editProfile(editProfileRequest);
+      var response =
+          await _authOnlineDataSource.editProfile(editProfileRequest);
       return response;
     });
   }
 
   @override
-  Future<ApiResult<String>> uploadImage({required File image}) async{
+  Future<ApiResult<String>> uploadImage({required File image}) async {
     return await executeApi(apiCall: () async {
       var token = await _authOfflineDataSource.getToken();
       var response = await _authOnlineDataSource.uploadImage(token, image);

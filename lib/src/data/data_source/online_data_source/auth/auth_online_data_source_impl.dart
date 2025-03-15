@@ -61,14 +61,17 @@ class AuthOnlineDataSourceImpl implements AuthOnlineDataSource {
   }
 
   @override
-  Future<AppUserEntity> editProfile(EditProfileRequest editProfileRequest)async {
-    var response = await apiServices.editProfile(editProfileRequestModel: editProfileRequest);
+  Future<AppUserEntity> editProfile(
+      EditProfileRequest editProfileRequest) async {
+    var response = await apiServices.editProfile(
+        editProfileRequestModel: editProfileRequest);
     return (response.toAppUserEntity());
   }
 
   @override
-  Future<UploadImageResponse> uploadImage(String token, File image) async{
-    var response = await uploadApiManager.uploadImage(image: image, token: token);
-    return  response;
+  Future<UploadImageResponse> uploadImage(String token, File image) async {
+    var response =
+        await uploadApiManager.uploadImage(image: image, token: token);
+    return response;
   }
 }

@@ -23,15 +23,7 @@ abstract interface class AuthRepository {
   Future<ApiResult<AppUserEntity>> register(
       {required RegisterRequestModel registerRequest});
   Future<ApiResult<AppUserEntity?>> getUserData();
-
-  Future<ApiResult<AppUserEntity>>editProfile(
-      {
-        required EditProfileRequest editProfileRequest,
-      }
-      );
-  Future<ApiResult<String>>uploadImage(
-      {
-    required File image,
-      }
-      );
+  Future<ApiResult<AppUserEntity>> editProfile(
+      {required EditProfileRequest editProfileRequest});
+  Future<ApiResult<String>> uploadImage({required File image});
 }

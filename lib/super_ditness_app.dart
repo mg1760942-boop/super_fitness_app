@@ -33,11 +33,12 @@ class SuperFitnessApp extends StatelessWidget {
                       GlobalCupertinoLocalizations.delegate,
                     ],
                     locale: Locale(
-                        BlocProvider.of<LocalizationViewmodel>(context).cachedLanguageCode),
+                        BlocProvider.of<LocalizationViewmodel>(context)
+                            .cachedLanguageCode),
                     supportedLocales: L10n.all,
                     debugShowCheckedModeBanner: false,
                     navigatorKey: navKey,
-                    initialRoute: PageRoutesName.register,
+                    initialRoute: PageRoutesName.recommendation,
                     onGenerateRoute: AppRoutes.onGenerateRoute,
                     themeMode: ThemeMode.dark,
                     theme: AppTheme.defaultTheme,

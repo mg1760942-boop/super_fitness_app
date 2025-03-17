@@ -1,83 +1,73 @@
-import 'package:flutter_svg/svg.dart';
-import 'package:super_fitness_app/core/utilities/style/app_fonts.dart';
-import 'package:super_fitness_app/core/utilities/style/app_images.dart';
-import 'package:super_fitness_app/core/utilities/style/images/cached_network_image%20_widget.dart';
-import 'package:super_fitness_app/core/utilities/style/spacing.dart';
-import 'package:super_fitness_app/src/domain/entities/home/category_model.dart';
-
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:super_fitness_app/core/extensions/extensions.dart';
+import 'package:super_fitness_app/src/presentation/managers/explore/explore_action.dart';
+import 'package:super_fitness_app/src/presentation/managers/explore/explore_cubit.dart';
+import 'package:super_fitness_app/src/presentation/managers/explore/explore_state.dart';
 import '../../../../../core/common/common_imports.dart';
-import '../../../../../core/utilities/style/app_colors.dart';
-import '../widget/category/category_widget.dart';
-import '../widget/popular/popular_button_widget.dart';
-import '../widget/popular/popular_list_widget.dart';
-import '../widget/popular/popular_widget.dart';
+import '../../../../../core/di/di.dart';
+import '../../../../../core/utilities/dialogs/awesome_dialoge.dart';
+import '../../../../data/api/core/errors/error_handler.dart';
+import '../widget/explore_body_widget.dart';
 
-class ExploreScreen extends StatelessWidget {
+
+class ExploreScreen extends StatefulWidget {
   const ExploreScreen({super.key});
 
   @override
+  State<ExploreScreen> createState() => _ExploreScreenState();
+}
+
+class _ExploreScreenState extends State<ExploreScreen> {
+
+  var exploreViewModel = getIt.get<ExploreCubit>();
+
+
+   @override
+  void initState() {
+     Future.wait([
+     exploreViewModel.doAction(GetProfileAction()),
+     exploreViewModel.doAction(GetRandomMusclesAction()),
+     exploreViewModel.doAction(GetUpcomingWorkTapAction()),
+     ]);
+
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 16.0,vertical: 52.h),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-        // Text("Hi Ahmed ",style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.w500,color: AppColors.kWhiteBase),),
-        //  //verticalSpace(5),
-        // Text(" Let’s start your day ",style: TextStyle(
-        //     fontSize: 18.sp,
-        //     fontWeight: FontWeight.w500,
-        //     color: AppColors.kWhiteBase),),
-    // ListTile(
-          //   contentPadding: EdgeInsets.zero,
-          //  title:
-          //  Text("Hi Ahmed ",style: TextStyle(fontSize: 20.sp,fontWeight: FontWeight.w800,color: AppColors.kWhiteBase),
-          //  //  style: AppFonts.font16KWightWeightW500Font,
-          //  ),
-          //  subtitle: Text(" Let’s start your day",style: AppFonts.font18KWightWeightW500Font,),
-          // )
-          verticalSpace(40),
-          CategoryWidget(),
-          verticalSpace(33),
-          Text("Recommendation To Day",style: AppFonts.font16KWightWeightW60Font,),
-          verticalSpace(8),
-          Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              CachedNetworkImageWidget(
-                  imageUrl: "https://www.themealdb.com/images/category/beef.png",
-                  width: 104.w,
-                  height: 104.h,
-              fit: BoxFit.cover,),
-              Container(
-                width: 104.w,
-                height: 30.h,
-                decoration: BoxDecoration(
-                  color: Colors.black26,
-                ),
-              )
-            ],
-          ),
-          verticalSpace(8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Upcoming Workouts",style: AppFonts.font16KWightWeightW60Font,),
-              Text("See All",style: AppFonts.font14KWightPrimaryW400Font,),
-            ],
-          ),
-          verticalSpace(24),
-           Text("Recommendation For You",style: AppFonts.font16KWightWeightW60Font,),
-           
-          verticalSpace(24),
-          PopularWidget(),
+    return BlocProvider(
+      create: (context) => exploreViewModel,
+      child: BlocBuilder<ExploreCubit, ExploreState>(
+        builder: (context, state) => _handleBlocBuilderState(state),
 
-
-
-
-        ],
       ),
     );
   }
+
+  Widget _handleBlocBuilderState(ExploreState state){
+    {
+      if(state is ExploreGetProfileLoadingState ||
+          state is ExploreGetMusclesRandomLoadingState ){
+        return const Center(child: CircularProgressIndicator());
+      }
+      else if (state is ExploreErrorState) {
+        var error = ErrorHandler.fromException(
+            state.exception, context.localization);
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          showAwesomeDialog(
+            context,
+            title: context.localization.error,
+            desc: error.errorMessage,
+            onOk: () {},
+            dialogType: DialogType.error,
+          );
+        });
+        return SizedBox.shrink();
+      }
+      else{
+        return ExploreBodyWidget();
+      }
+
+  }
 }
+  }

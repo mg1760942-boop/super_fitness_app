@@ -1,3 +1,5 @@
+import 'package:super_fitness_app/core/extensions/extensions.dart';
+
 import '../../../../../../core/common/common_imports.dart';
 import '../../../../../../core/utilities/style/app_fonts.dart';
 import '../../../../../../core/utilities/style/spacing.dart';
@@ -8,14 +10,17 @@ class CategoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Text("Categories",style:AppFonts.font16KWightWeightW600Font,),
-        verticalSpace(8),
-        CategoryListWidget(),
-      ],
+    return  Padding(
+      padding:  EdgeInsets.symmetric(horizontal: 16.w,),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Text(context.localizations.categories,style:AppFonts.font16KWightWeightW600Font,),
+          verticalSpace(7),
+          CategoryListWidget(),
+        ],
+      ),
     );
   }
 }

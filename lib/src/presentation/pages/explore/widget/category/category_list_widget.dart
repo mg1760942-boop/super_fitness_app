@@ -1,8 +1,5 @@
 import 'package:super_fitness_app/src/presentation/pages/explore/widget/category/item_category_widget.dart';
-
 import '../../../../../../core/common/common_imports.dart';
-import '../../../../../../core/utilities/style/app_colors.dart';
-import '../../../../../../core/utilities/style/spacing.dart';
 import '../../../../../domain/entities/home/category_model.dart';
 
 class CategoryListWidget extends StatelessWidget {
@@ -13,11 +10,20 @@ class CategoryListWidget extends StatelessWidget {
     return Container(
       height: 100.h,
       width: double.infinity,
-      alignment: Alignment.center,
-      padding: EdgeInsets.symmetric(horizontal: 8.w),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: const Color(0xFF2D2D2D),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+      decoration: ShapeDecoration(
+        color: Color(0xCC242424),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        shadows: [
+          BoxShadow(
+            color: Color(0x19000000),
+            blurRadius: 5,
+            offset: Offset(0, 2),
+            spreadRadius: 0,
+          )
+        ],
       ),
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
@@ -28,13 +34,13 @@ class CategoryListWidget extends StatelessWidget {
                 categoryModel: CategoryModel.categories[index], index: index);
           },
           separatorBuilder: (context, index) {
-            return Divider(
-              thickness: 1.w,
-              indent: 8.w,
-              endIndent: 8.w,
-              height: 8.h,
-              color: const Color(0xFF2D2D2D),
-            );
+            return    Container(
+            padding:  EdgeInsets.symmetric(horizontal: 1.w),
+            decoration: ShapeDecoration(
+            shape: RoundedRectangleBorder(
+            side: BorderSide(width: 1, color: Color(0xFF2C2C2C)),
+            ),
+              ));
           },
           itemCount: CategoryModel.categories.length),
     );

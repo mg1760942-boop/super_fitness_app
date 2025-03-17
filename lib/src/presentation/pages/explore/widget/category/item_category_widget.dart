@@ -11,21 +11,24 @@ class ItemCategoryWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Image.asset(
-          "assets/images/gym.png"
-          ,width: 56.w,height: 56.h,fit: BoxFit.cover,),
-        verticalSpace(8),
-        Text(CategoryModel.categories[index].name,
-          style: TextStyle(
-            fontSize: 12.sp,
-            fontWeight: FontWeight.w400,
-            color: AppColors.kWhiteBase,
-          ),),
-      ],
+    return Padding(
+      padding:  EdgeInsets.symmetric(horizontal: 3.0.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+              categoryModel.imge
+            ,width: 56.w,height: 56.h,fit: BoxFit.cover,),
+          verticalSpace(8),
+          Text(CategoryModel.categories[index].name,
+            style: TextStyle(
+              fontSize: 12.sp,
+              fontWeight: FontWeight.w400,
+              color: AppColors.kWhiteBase,
+            ),),
+        ],
+      ),
     );
   }
 }

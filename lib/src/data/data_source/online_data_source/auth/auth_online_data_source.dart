@@ -26,8 +26,7 @@ abstract interface class AuthOnlineDataSource {
       RegisterRequestModel registerRequest);
   Future<LoginResponse> getUserData();
 
-  Future<AppUserEntity> editProfile(
-      EditProfileRequest editProfileRequest);
+  Future<AppUserEntity> editProfile(EditProfileRequest editProfileRequest);
 
   Future<UploadImageResponse> uploadImage(String token, File image);
 }

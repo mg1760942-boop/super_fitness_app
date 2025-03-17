@@ -11,7 +11,7 @@ void main() async {
       WidgetsFlutterBinding.ensureInitialized();  FlutterNativeSplash.preserve(widgetsBinding: widgetsFlutterBinding,);
   await configureDependencies();
   FlutterNativeSplash.remove();
-  Bloc.observer = MyBlocObserver();
+ // Bloc.observer = MyBlocObserver();
   runApp(const SuperFitnessApp());
 
 }

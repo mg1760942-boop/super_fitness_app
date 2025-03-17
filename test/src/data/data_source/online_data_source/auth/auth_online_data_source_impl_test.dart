@@ -6,6 +6,7 @@ import 'package:super_fitness_app/src/data/api/core/api_request_models/login/log
 import 'package:super_fitness_app/src/data/api/core/api_request_models/register/register_request_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/login/login_response.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/register/register_response_model.dart';
+import 'package:super_fitness_app/src/data/api/upload_api_manger/upload_api_manger.dart';
 import 'package:super_fitness_app/src/data/data_source/online_data_source/auth/auth_online_data_source.dart';
 import 'package:super_fitness_app/src/data/data_source/online_data_source/auth/auth_online_data_source_impl.dart';
 import 'package:super_fitness_app/src/domain/entities/app_user_entity/app_user_entity.dart';
@@ -26,7 +27,7 @@ void main() {
 
   setUp(() {
     apiService = MockApiServices();
-    authOnlineDataSource = AuthOnlineDataSourceImpl(apiService);
+    authOnlineDataSource = AuthOnlineDataSourceImpl( apiService,UploadApiManagerImpl());
   });
   test(
       'should return <AppUserEntity,String> whe call apiServices.register is Success ',

@@ -44,9 +44,15 @@ class _EditProfileViewState extends State<EditProfileView> {
         child: BlocConsumer<EditProfileCubit, EditProfileState>(
           listener: (context, state) => _handleBlocListenerWidget(state),
           builder: (context, state) {
-            return BaseScaffold(
-              backGroundPath: AppImages.baseBackGround,
-              body: EditProfilePageViewWidget(),
+            return PopScope(
+              canPop: false,
+              onPopInvokedWithResult: (result, dats) {
+                _goNextToSectionAppScreen(context);
+              },
+              child: BaseScaffold(
+                backGroundPath: AppImages.baseBackGround,
+                body: EditProfilePageViewWidget(),
+              ),
             );
           },
         ),
@@ -69,6 +75,13 @@ class _EditProfileViewState extends State<EditProfileView> {
       LoadingDialog.show(context);
     } else if (state is EditProfileSuccessState) {
       LoadingDialog.hide(context);
+
+
+
+
+
+
+
       showAwesomeDialog(
         context,
         title: "Success",
@@ -105,8 +118,8 @@ class _EditProfileViewState extends State<EditProfileView> {
 
   }
 
-  void _goNextToSectionAppScreen(BuildContext context) {
-      Navigator.pushNamedAndRemoveUntil(context, PageRoutesName.sectionScreen, (route) => false);
+  void _goNextToSectionAppScreen(BuildContext context) async{
+    Navigator.pop(context,true);
   }
 
   void _goNextPageController(BuildContext context, int index) {

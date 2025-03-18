@@ -1,9 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/core/common/apis/api_result.dart';
+import 'package:super_fitness_app/src/domain/entities/workouts/exercises_entity.dart';
 import 'package:super_fitness_app/src/domain/entities/workouts/muscle_entity.dart';
 import 'package:super_fitness_app/src/domain/entities/workouts/muscles_group_entity.dart';
 import 'package:super_fitness_app/src/domain/usecases/workouts/full_body_muscles_use_case.dart';
+import 'package:super_fitness_app/src/domain/usecases/workouts/get_all_exercises_use_case.dart';
 import 'package:super_fitness_app/src/domain/usecases/workouts/muscles_group_use_case.dart';
 import 'package:super_fitness_app/src/presentation/managers/workouts/workouts_screen_actions.dart';
 import 'package:super_fitness_app/src/presentation/managers/workouts/workouts_screen_states.dart';
@@ -13,9 +15,10 @@ import 'package:super_fitness_app/src/presentation/managers/workouts/workouts_sc
 class WorkoutsScreenViewModel extends Cubit<WorkoutsScreenStates> {
   final MusclesGroupUseCase _musclesGroupUseCase;
   final FullBodyMusclesUseCase _bodyMusclesUseCase;
-  WorkoutsScreenViewModel(this._musclesGroupUseCase,this._bodyMusclesUseCase):super(WorkoutsScreenInitialState());
+  final GetAllExercisesUseCase _allExercisesUseCase;
+  WorkoutsScreenViewModel(this._musclesGroupUseCase,this._bodyMusclesUseCase,this._allExercisesUseCase):super(WorkoutsScreenInitialState());
   List<MusclesGroupEntity> musclesGroup = [];
-  List<MusclesEntity> currentListView = [];
+  List<ExerciseEntity> currentListView = [];
   int selectedTab = 0;
 
 
@@ -41,17 +44,16 @@ class WorkoutsScreenViewModel extends Cubit<WorkoutsScreenStates> {
   }
 
   _getFullBodyMuscles()async{
-    var result = await _bodyMusclesUseCase.getFullBodyMuscles();
+    var result = await _allExercisesUseCase.getAllExercises();
     switch (result) {
-      case Success<List<MusclesEntity>>():
+      case Success<List<ExerciseEntity>>():
         currentListView = result.data??[];
         emit(WorkoutsScreenSuccessState());
         break;
-      case Failures<List<MusclesEntity>>():
+      case Failures<List<ExerciseEntity>>():
         emit(WorkoutsScreenErrorState(exception: result.exception));
         break;
     }
-
   }
 
   _getMusclesData() async{

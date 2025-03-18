@@ -3,6 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/core/common/apis/api_executer.dart';
 import 'package:super_fitness_app/core/common/apis/api_result.dart';
 import 'package:super_fitness_app/src/data/data_source/online_data_source/workouts/workouts_online_data_source.dart';
+import 'package:super_fitness_app/src/domain/entities/workouts/exercises_entity.dart';
 import 'package:super_fitness_app/src/domain/entities/workouts/muscle_entity.dart';
 import 'package:super_fitness_app/src/domain/entities/workouts/muscles_group_entity.dart';
 import 'package:super_fitness_app/src/domain/repositories/workouts/workouts_repository.dart';
@@ -25,6 +26,22 @@ class WorkoutsRepositoryImpl implements WorkoutsRepository {
   Future<ApiResult<List<MusclesEntity>>> getFullBodyMuscles() async {
     return await executeApi<List<MusclesEntity>>(apiCall: () async {
       var response = await _workoutsOnlineDataSource.getRandomMuscles();
+      return response.toDomain();
+    });
+  }
+
+  @override
+  Future<ApiResult<List<ExerciseEntity>>> getExercisesByMuscleId(
+      String muscleId) async {
+    // TODO: implement getAllExercises
+    throw UnimplementedError(); // TODO: implement getAllExercises
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<ApiResult<List<ExerciseEntity>>> getAllExercises() async {
+    return await executeApi<List<ExerciseEntity>>(apiCall: () async {
+      var response = await _workoutsOnlineDataSource.getAllExercises();
       return response.toDomain();
     });
   }

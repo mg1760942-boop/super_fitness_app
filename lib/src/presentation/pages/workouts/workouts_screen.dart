@@ -18,6 +18,7 @@ class WorkoutsScreen extends StatelessWidget {
     return BlocProvider(
       create: (_){
         viewModel.doAction(GetMusclesGroupAction());
+        viewModel.doAction(GetMusclesDataAction());
         return viewModel;
       },
       child: Scaffold(
@@ -35,9 +36,15 @@ class WorkoutsScreen extends StatelessWidget {
         body: BlocConsumer<WorkoutsScreenViewModel, WorkoutsScreenStates>(
             builder: (context, state) {
               if(state is WorkoutsScreenLoadingState){
-                return Center(child: CircularProgressIndicator(),);
+                // loading simmer
               }
-              return WorkoutsScreenBody();
+              if(state is WorkoutsScreenSuccessState){
+                return WorkoutsScreenBody(musclesList: viewModel.currentListView,);
+              }
+              if(state is WorkoutsScreenErrorState){
+                  // Error Screen
+              }
+              return WorkoutsScreenBody(musclesList: viewModel.currentListView,);
             }, listener: (context, state) {}),
       ),
     );

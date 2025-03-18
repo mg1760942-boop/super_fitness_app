@@ -8,6 +8,8 @@ import 'dart:async' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i6;
 import 'package:super_fitness_app/core/common/apis/api_result.dart' as _i4;
+import 'package:super_fitness_app/src/domain/entities/workouts/exercises_entity.dart'
+    as _i8;
 import 'package:super_fitness_app/src/domain/entities/workouts/muscle_entity.dart'
     as _i7;
 import 'package:super_fitness_app/src/domain/entities/workouts/muscles_group_entity.dart'
@@ -71,4 +73,22 @@ class MockWorkoutsRepository extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i4.ApiResult<List<_i7.MusclesEntity>>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<List<_i8.ExerciseEntity>>> getExercisesByMuscleId(
+          String? muscleId) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getExercisesByMuscleId,
+          [muscleId],
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<List<_i8.ExerciseEntity>>>.value(
+            _i6.dummyValue<_i4.ApiResult<List<_i8.ExerciseEntity>>>(
+          this,
+          Invocation.method(
+            #getExercisesByMuscleId,
+            [muscleId],
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<List<_i8.ExerciseEntity>>>);
 }

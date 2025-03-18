@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:super_fitness_app/src/domain/entities/workouts/exercises_entity.dart';
 
 part 'all_exercises_response_model.g.dart';
 
@@ -29,6 +30,9 @@ class AllExercisesResponseModel {
 
   Map<String, dynamic> toJson() {
     return _$AllExercisesResponseModelToJson(this);
+  }
+  List<ExerciseEntity> toDomain(){
+    return exercises!.map((e)=>e.toDomain()).toList();
   }
 }
 
@@ -146,6 +150,22 @@ class Exercises {
 
   Map<String, dynamic> toJson() {
     return _$ExercisesToJson(this);
+  }
+
+  ExerciseEntity toDomain(){
+    return ExerciseEntity(
+      id: Id,
+      exercise: exercise,
+      shortYoutubeDemonstration: shortYoutubeDemonstration,
+      difficultyLevel: difficultyLevel,
+      targetMuscleGroup: targetMuscleGroup,
+      primeMoverMuscle: primeMoverMuscle,
+      primaryEquipment: primaryEquipment,
+      primaryItems: PrimaryItems,
+      secondaryItems: SecondaryItems,
+      shortYoutubeDemonstrationLink: shortYoutubeDemonstrationLink,
+      inDepthYoutubeExplanationLink: inDepthYoutubeExplanationLink,
+    );
   }
 }
 

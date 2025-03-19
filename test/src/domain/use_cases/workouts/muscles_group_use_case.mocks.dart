@@ -108,4 +108,22 @@ class MockWorkoutsRepository extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i4.ApiResult<List<_i8.ExerciseEntity>>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<List<_i8.ExerciseEntity>>> getExercisesByMuscleId(
+          String? muscleId) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getExercisesByMuscleId,
+          [muscleId],
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<List<_i8.ExerciseEntity>>>.value(
+            _i6.dummyValue<_i4.ApiResult<List<_i8.ExerciseEntity>>>(
+          this,
+          Invocation.method(
+            #getExercisesByMuscleId,
+            [muscleId],
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<List<_i8.ExerciseEntity>>>);
 }

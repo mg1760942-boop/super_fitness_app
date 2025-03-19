@@ -6,10 +6,10 @@ import 'package:super_fitness_app/src/domain/entities/workouts/exercises_entity.
 import 'package:super_fitness_app/src/domain/repositories/workouts/workouts_repository.dart';
 
 @injectable
-class GetExercisesByMuscleId {
+class GetExercisesByMuscleIdUseCase {
   final WorkoutsRepository _workoutsRepository;
 
-  GetExercisesByMuscleId(this._workoutsRepository);
+  GetExercisesByMuscleIdUseCase(this._workoutsRepository);
 
   Future<ApiResult<List<ExerciseEntity>>> getExercisesByMuscleId(String muscleId) async {
     return await _workoutsRepository.getExercisesByMuscleId(muscleId);

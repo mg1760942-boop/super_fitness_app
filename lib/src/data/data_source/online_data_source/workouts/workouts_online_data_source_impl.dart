@@ -26,4 +26,10 @@ class WorkoutsOnlineDataSourceImpl implements WorkoutsOnlineDataSource{
     return await _apiServices.getRandomMuscles();
   }
 
+  @override
+  Future<AllExercisesResponseModel> getExercisesByMuscleId(String muscleId)  async{
+    // TODO: implement getExercisesByMuscleId
+    throw UnimplementedError();
+  }
+
 }

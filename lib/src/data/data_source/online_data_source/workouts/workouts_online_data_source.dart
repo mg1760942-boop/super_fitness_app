@@ -7,4 +7,5 @@ abstract interface class WorkoutsOnlineDataSource {
   Future<MusclesGroupResponseModel> getMusclesGroup();
   Future<AllExercisesResponseModel> getAllExercises();
   Future<RandomMusclesResponseModel> getRandomMuscles();
+  Future<AllExercisesResponseModel> getExercisesByMuscleId(String muscleId);
 }

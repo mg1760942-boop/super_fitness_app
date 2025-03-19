@@ -33,9 +33,10 @@ class WorkoutsRepositoryImpl implements WorkoutsRepository {
   @override
   Future<ApiResult<List<ExerciseEntity>>> getExercisesByMuscleId(
       String muscleId) async {
-    // TODO: implement getAllExercises
-    throw UnimplementedError(); // TODO: implement getAllExercises
-    throw UnimplementedError();
+     return await executeApi<List<ExerciseEntity>>(apiCall: ()async{
+        var response = await _workoutsOnlineDataSource.getExercisesByMuscleId(muscleId);
+        return response.toDomain();
+     });
   }
 
   @override

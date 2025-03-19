@@ -110,20 +110,38 @@ class MockWorkoutsRepository extends _i1.Mock
       ) as _i3.Future<_i4.ApiResult<List<_i8.ExerciseEntity>>>);
 
   @override
-  _i3.Future<_i4.ApiResult<List<_i8.ExerciseEntity>>> getExercisesByMuscleId(
+  _i3.Future<_i4.ApiResult<List<_i7.MusclesEntity>>> getAllPrimeMoverByGroupId(
+          String? groupId) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getAllPrimeMoverByGroupId,
+          [groupId],
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<List<_i7.MusclesEntity>>>.value(
+            _i6.dummyValue<_i4.ApiResult<List<_i7.MusclesEntity>>>(
+          this,
+          Invocation.method(
+            #getAllPrimeMoverByGroupId,
+            [groupId],
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<List<_i7.MusclesEntity>>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<List<_i7.MusclesEntity>>> getMusclesByGroupId(
           String? muscleId) =>
       (super.noSuchMethod(
         Invocation.method(
-          #getExercisesByMuscleId,
+          #getMusclesByGroupId,
           [muscleId],
         ),
-        returnValue: _i3.Future<_i4.ApiResult<List<_i8.ExerciseEntity>>>.value(
-            _i6.dummyValue<_i4.ApiResult<List<_i8.ExerciseEntity>>>(
+        returnValue: _i3.Future<_i4.ApiResult<List<_i7.MusclesEntity>>>.value(
+            _i6.dummyValue<_i4.ApiResult<List<_i7.MusclesEntity>>>(
           this,
           Invocation.method(
-            #getExercisesByMuscleId,
+            #getMusclesByGroupId,
             [muscleId],
           ),
         )),
-      ) as _i3.Future<_i4.ApiResult<List<_i8.ExerciseEntity>>>);
+      ) as _i3.Future<_i4.ApiResult<List<_i7.MusclesEntity>>>);
 }

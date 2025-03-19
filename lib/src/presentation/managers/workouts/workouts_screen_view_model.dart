@@ -5,7 +5,9 @@ import 'package:super_fitness_app/src/domain/entities/workouts/muscle_entity.dar
 import 'package:super_fitness_app/src/domain/entities/workouts/muscles_group_entity.dart';
 import 'package:super_fitness_app/src/domain/usecases/workouts/full_body_muscles_use_case.dart';
 import 'package:super_fitness_app/src/domain/usecases/workouts/get_all_exercises_use_case.dart';
+import 'package:super_fitness_app/src/domain/usecases/workouts/get_all_prime_mover_by_muscle_group_id_use_case.dart';
 import 'package:super_fitness_app/src/domain/usecases/workouts/get_exercises_by_muscle_id_use_case.dart';
+import 'package:super_fitness_app/src/domain/usecases/workouts/get_muscles_by_muscle_group_id_use_case.dart';
 import 'package:super_fitness_app/src/domain/usecases/workouts/muscles_group_use_case.dart';
 import 'package:super_fitness_app/src/presentation/managers/workouts/workouts_screen_actions.dart';
 import 'package:super_fitness_app/src/presentation/managers/workouts/workouts_screen_states.dart';
@@ -16,9 +18,17 @@ class WorkoutsScreenViewModel extends Cubit<WorkoutsScreenStates> {
   final GetAllExercisesUseCase _allExercisesUseCase;
   final GetExercisesByMuscleIdUseCase _byMuscleIdUseCase;
   final FullBodyMusclesUseCase _fullBodyMusclesUseCase;
+  final GetAllPrimeMoverByMuscleGroupIdUseCase
+      _allPrimeMoverByMuscleGroupIdUseCase;
+  final GetMusclesByMuscleGroupIdUseCase _getMusclesByMuscleGroupIdUseCase;
 
-  WorkoutsScreenViewModel(this._musclesGroupUseCase, this._byMuscleIdUseCase,
-      this._allExercisesUseCase, this._fullBodyMusclesUseCase)
+  WorkoutsScreenViewModel(
+      this._musclesGroupUseCase,
+      this._byMuscleIdUseCase,
+      this._allExercisesUseCase,
+      this._fullBodyMusclesUseCase,
+      this._allPrimeMoverByMuscleGroupIdUseCase,
+      this._getMusclesByMuscleGroupIdUseCase)
       : super(WorkoutsScreenInitialState());
   List<MusclesGroupEntity> musclesGroup = [];
   List<MusclesEntity> currentListView = [];
@@ -58,25 +68,25 @@ class WorkoutsScreenViewModel extends Cubit<WorkoutsScreenStates> {
     }
   }
 
-  // _getExerciseByMuscleId(String id) async {
-  //   var result = await _byMuscleIdUseCase.getExercisesByMuscleId(id);
-  //   switch (result) {
-  //     case Success<List<ExerciseEntity>>():
-  //       currentListView = result.data??[];
-  //       emit(WorkoutsScreenSuccessState());
-  //       break;
-  //     case Failures<List<ExerciseEntity>>():
-  //       emit(WorkoutsScreenErrorState(exception: result.exception));
-  //       break;
-  //   }
-  // }
+  _getMusclesByMuscleGroupId(String id) async {
+      var result = await _getMusclesByMuscleGroupIdUseCase.getMusclesByMuscleGroupId(id);
+      switch (result) {
+        case Success<List<MusclesEntity>>():
+          currentListView = result.data??[];
+          emit(WorkoutsScreenSuccessState());
+          break;
+        case Failures<List<MusclesEntity>>():
+          emit(WorkoutsScreenErrorState(exception: result.exception));
+          break;
+      }
+  }
 
   _getExercisesData() async {
     emit(WorkoutsScreenLoadingState());
     if (selectedTab == 0) {
       await _getFullBodyMuscles();
     } else {
-      // await _getExerciseByMuscleId(musclesGroup[selectedTab].id ?? "");
+      await _getMusclesByMuscleGroupId(musclesGroup[selectedTab].id ?? "");
     }
   }
 

@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:super_fitness_app/src/domain/entities/workouts/muscle_entity.dart';
 
 part 'all_prime_mover_by_group_id_response_model.g.dart';
 
@@ -24,6 +25,9 @@ class AllPrimeMoverByGroupIdResposneModel {
   Map<String, dynamic> toJson() {
     return _$AllPrimeMoverByGroupIdResposneModelToJson(this);
   }
+  List<MusclesEntity> toDomain(){
+    return muscles?.map((e) => e.toDomain()).toList() ?? [];
+  }
 }
 
 @JsonSerializable()
@@ -47,6 +51,14 @@ class Muscles {
 
   Map<String, dynamic> toJson() {
     return _$MusclesToJson(this);
+  }
+
+  MusclesEntity toDomain(){
+    return MusclesEntity(
+      id: Id,
+      name: name,
+      image: image
+    );
   }
 }
 

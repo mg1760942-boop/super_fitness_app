@@ -33,16 +33,36 @@ class WorkoutsRepositoryImpl implements WorkoutsRepository {
   @override
   Future<ApiResult<List<ExerciseEntity>>> getExercisesByMuscleId(
       String muscleId) async {
-     return await executeApi<List<ExerciseEntity>>(apiCall: ()async{
-        var response = await _workoutsOnlineDataSource.getExercisesByMuscleId(muscleId);
-        return response.toDomain();
-     });
+    return await executeApi<List<ExerciseEntity>>(apiCall: () async {
+      var response =
+          await _workoutsOnlineDataSource.getExercisesByMuscleId(muscleId);
+      return response.toDomain();
+    });
   }
 
   @override
   Future<ApiResult<List<ExerciseEntity>>> getAllExercises() async {
     return await executeApi<List<ExerciseEntity>>(apiCall: () async {
       var response = await _workoutsOnlineDataSource.getAllExercises();
+      return response.toDomain();
+    });
+  }
+
+  @override
+  Future<ApiResult<List<MusclesEntity>>> getAllPrimeMoverByGroupId(
+      String groupId) async {
+    return await executeApi<List<MusclesEntity>>(apiCall: () async {
+      var response =
+          await _workoutsOnlineDataSource.getAllPrimeMoverByGroupId(groupId);
+      return response.toDomain();
+    });
+  }
+
+  @override
+  Future<ApiResult<List<MusclesEntity>>> getMusclesByGroupId(
+      String muscleId) async {
+    return await executeApi<List<MusclesEntity>>(apiCall: () async {
+      var response = await _workoutsOnlineDataSource.getMusclesById(muscleId);
       return response.toDomain();
     });
   }

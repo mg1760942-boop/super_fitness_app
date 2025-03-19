@@ -8,4 +8,6 @@ abstract interface class WorkoutsRepository {
   Future<ApiResult<List<MusclesEntity>>> getFullBodyMuscles();
   Future<ApiResult<List<ExerciseEntity>>> getExercisesByMuscleId(String muscleId);
   Future<ApiResult<List<ExerciseEntity>>> getAllExercises();
+  Future<ApiResult<List<MusclesEntity>>> getAllPrimeMoverByGroupId(String groupId);
+  Future<ApiResult<List<MusclesEntity>>> getMusclesByGroupId(String muscleId);
 }

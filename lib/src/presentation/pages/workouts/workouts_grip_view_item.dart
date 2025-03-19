@@ -10,7 +10,7 @@ import '../../../../core/common/common_imports.dart';
 import '../../../../core/utilities/style/app_colors.dart';
 
 class WorkoutsGripViewItem extends StatelessWidget {
-  final ExerciseEntity musclesEntity;
+  final MusclesEntity musclesEntity;
 
   const WorkoutsGripViewItem({super.key, required this.musclesEntity});
 
@@ -36,7 +36,7 @@ class WorkoutsGripViewItem extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             children: [
               CachedNetworkImage(
-                imageUrl: "https://img.youtube.com/vi/${musclesEntity.shortYoutubeDemonstrationLink?.split('/').last}/0.jpg",
+                imageUrl: musclesEntity.image??"",
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,
@@ -46,7 +46,7 @@ class WorkoutsGripViewItem extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 8.h),
                 color: Colors.black.withOpacity(0.5),
                 child: Text(
-                  musclesEntity.targetMuscleGroup??"",
+                  musclesEntity.name??"",
                   textAlign: TextAlign.center,
                   style: AppTextStyles.font16w700.copyWith(
                     color: AppColors.kWhiteBase,

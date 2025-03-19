@@ -1,5 +1,6 @@
 class ApiEndPoints {
   ApiEndPoints._();
+
   static const String forgetPassword = "auth/forgotPassword";
   static const String verifyReset = "auth/verifyResetCode";
   static const String resetPassword = "auth/resetPassword";
@@ -10,5 +11,7 @@ class ApiEndPoints {
   static const String uploadImage = "auth/upload-photo";
   static const String muscles = "muscles";
   static const String exercises = "exercises";
+  static const String musclesGroup = "musclesGroup";
   static const String randomMuscles = "muscles/random";
+  static const String byMuscleGroup= "by-muscle-group";
 }

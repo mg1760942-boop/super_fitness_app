@@ -3,22 +3,22 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i12;
+import 'dart:async' as _i14;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:super_fitness_app/src/data/api/api_services.dart' as _i11;
+import 'package:super_fitness_app/src/data/api/api_services.dart' as _i13;
 import 'package:super_fitness_app/src/data/api/core/api_request_models/edit_profile_request/edit_profile_request.dart'
-    as _i18;
+    as _i20;
 import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/forget_password_request_model.dart'
-    as _i13;
-import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/reset_password_request_model.dart'
     as _i15;
-import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/verify_reset_code_request_model.dart'
-    as _i14;
-import 'package:super_fitness_app/src/data/api/core/api_request_models/login/login_request.dart'
-    as _i16;
-import 'package:super_fitness_app/src/data/api/core/api_request_models/register/register_request_model.dart'
+import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/reset_password_request_model.dart'
     as _i17;
+import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/verify_reset_code_request_model.dart'
+    as _i16;
+import 'package:super_fitness_app/src/data/api/core/api_request_models/login/login_request.dart'
+    as _i18;
+import 'package:super_fitness_app/src/data/api/core/api_request_models/register/register_request_model.dart'
+    as _i19;
 import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/forget_password_response_model.dart'
     as _i2;
 import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/reset_password_response_model.dart'
@@ -31,12 +31,16 @@ import 'package:super_fitness_app/src/data/api/core/api_response_models/register
     as _i6;
 import 'package:super_fitness_app/src/data/api/core/api_response_models/workouts/all_exercises_response_model.dart'
     as _i8;
+import 'package:super_fitness_app/src/data/api/core/api_response_models/workouts/all_prime_mover_by_group_id_response_model.dart'
+    as _i11;
+import 'package:super_fitness_app/src/data/api/core/api_response_models/workouts/muscles_by_id_response_model.dart'
+    as _i10;
 import 'package:super_fitness_app/src/data/api/core/api_response_models/workouts/muscles_group_response_model.dart'
     as _i7;
 import 'package:super_fitness_app/src/data/api/core/api_response_models/workouts/random_muscles_response_model.dart'
     as _i9;
 import 'package:super_fitness_app/src/domain/entities/app_user_entity/app_user_entity.dart'
-    as _i10;
+    as _i12;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -138,8 +142,31 @@ class _FakeRandomMusclesResponseModel_7 extends _i1.SmartFake
         );
 }
 
-class _FakeAppUserEntity_8 extends _i1.SmartFake implements _i10.AppUserEntity {
-  _FakeAppUserEntity_8(
+class _FakeMusclesByIdResponseModel_8 extends _i1.SmartFake
+    implements _i10.MusclesByIdResponseModel {
+  _FakeMusclesByIdResponseModel_8(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeAllPrimeMoverByGroupIdResposneModel_9 extends _i1.SmartFake
+    implements _i11.AllPrimeMoverByGroupIdResposneModel {
+  _FakeAllPrimeMoverByGroupIdResposneModel_9(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeAppUserEntity_10 extends _i1.SmartFake
+    implements _i12.AppUserEntity {
+  _FakeAppUserEntity_10(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -151,20 +178,20 @@ class _FakeAppUserEntity_8 extends _i1.SmartFake implements _i10.AppUserEntity {
 /// A class which mocks [ApiServices].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockApiServices extends _i1.Mock implements _i11.ApiServices {
+class MockApiServices extends _i1.Mock implements _i13.ApiServices {
   MockApiServices() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i12.Future<_i2.ForgetPasswordResponseModel> forgetPassword(
-          _i13.ForgetPasswordRequestModel? forgetPasswordRequestModel) =>
+  _i14.Future<_i2.ForgetPasswordResponseModel> forgetPassword(
+          _i15.ForgetPasswordRequestModel? forgetPasswordRequestModel) =>
       (super.noSuchMethod(
         Invocation.method(
           #forgetPassword,
           [forgetPasswordRequestModel],
         ),
-        returnValue: _i12.Future<_i2.ForgetPasswordResponseModel>.value(
+        returnValue: _i14.Future<_i2.ForgetPasswordResponseModel>.value(
             _FakeForgetPasswordResponseModel_0(
           this,
           Invocation.method(
@@ -172,17 +199,17 @@ class MockApiServices extends _i1.Mock implements _i11.ApiServices {
             [forgetPasswordRequestModel],
           ),
         )),
-      ) as _i12.Future<_i2.ForgetPasswordResponseModel>);
+      ) as _i14.Future<_i2.ForgetPasswordResponseModel>);
 
   @override
-  _i12.Future<_i3.VerifyResetCodeResponseModel> verifyResetCode(
-          _i14.VerifyResetCodeRequestModel? verifyResetCodeRequestModel) =>
+  _i14.Future<_i3.VerifyResetCodeResponseModel> verifyResetCode(
+          _i16.VerifyResetCodeRequestModel? verifyResetCodeRequestModel) =>
       (super.noSuchMethod(
         Invocation.method(
           #verifyResetCode,
           [verifyResetCodeRequestModel],
         ),
-        returnValue: _i12.Future<_i3.VerifyResetCodeResponseModel>.value(
+        returnValue: _i14.Future<_i3.VerifyResetCodeResponseModel>.value(
             _FakeVerifyResetCodeResponseModel_1(
           this,
           Invocation.method(
@@ -190,17 +217,17 @@ class MockApiServices extends _i1.Mock implements _i11.ApiServices {
             [verifyResetCodeRequestModel],
           ),
         )),
-      ) as _i12.Future<_i3.VerifyResetCodeResponseModel>);
+      ) as _i14.Future<_i3.VerifyResetCodeResponseModel>);
 
   @override
-  _i12.Future<_i4.ResetPasswordResponseModel> resetPassword(
-          _i15.ResetPasswordRequestModel? resetPasswordRequestModel) =>
+  _i14.Future<_i4.ResetPasswordResponseModel> resetPassword(
+          _i17.ResetPasswordRequestModel? resetPasswordRequestModel) =>
       (super.noSuchMethod(
         Invocation.method(
           #resetPassword,
           [resetPasswordRequestModel],
         ),
-        returnValue: _i12.Future<_i4.ResetPasswordResponseModel>.value(
+        returnValue: _i14.Future<_i4.ResetPasswordResponseModel>.value(
             _FakeResetPasswordResponseModel_2(
           this,
           Invocation.method(
@@ -208,34 +235,34 @@ class MockApiServices extends _i1.Mock implements _i11.ApiServices {
             [resetPasswordRequestModel],
           ),
         )),
-      ) as _i12.Future<_i4.ResetPasswordResponseModel>);
+      ) as _i14.Future<_i4.ResetPasswordResponseModel>);
 
   @override
-  _i12.Future<_i5.LoginResponse> login(_i16.LoginRequest? loginRequest) =>
+  _i14.Future<_i5.LoginResponse> login(_i18.LoginRequest? loginRequest) =>
       (super.noSuchMethod(
         Invocation.method(
           #login,
           [loginRequest],
         ),
-        returnValue: _i12.Future<_i5.LoginResponse>.value(_FakeLoginResponse_3(
+        returnValue: _i14.Future<_i5.LoginResponse>.value(_FakeLoginResponse_3(
           this,
           Invocation.method(
             #login,
             [loginRequest],
           ),
         )),
-      ) as _i12.Future<_i5.LoginResponse>);
+      ) as _i14.Future<_i5.LoginResponse>);
 
   @override
-  _i12.Future<_i6.RegisterResponseModel> register(
-          {required _i17.RegisterRequestModel? registerRequestModel}) =>
+  _i14.Future<_i6.RegisterResponseModel> register(
+          {required _i19.RegisterRequestModel? registerRequestModel}) =>
       (super.noSuchMethod(
         Invocation.method(
           #register,
           [],
           {#registerRequestModel: registerRequestModel},
         ),
-        returnValue: _i12.Future<_i6.RegisterResponseModel>.value(
+        returnValue: _i14.Future<_i6.RegisterResponseModel>.value(
             _FakeRegisterResponseModel_4(
           this,
           Invocation.method(
@@ -244,33 +271,33 @@ class MockApiServices extends _i1.Mock implements _i11.ApiServices {
             {#registerRequestModel: registerRequestModel},
           ),
         )),
-      ) as _i12.Future<_i6.RegisterResponseModel>);
+      ) as _i14.Future<_i6.RegisterResponseModel>);
 
   @override
-  _i12.Future<_i5.LoginResponse> getUserData() => (super.noSuchMethod(
+  _i14.Future<_i5.LoginResponse> getUserData() => (super.noSuchMethod(
         Invocation.method(
           #getUserData,
           [],
         ),
-        returnValue: _i12.Future<_i5.LoginResponse>.value(_FakeLoginResponse_3(
+        returnValue: _i14.Future<_i5.LoginResponse>.value(_FakeLoginResponse_3(
           this,
           Invocation.method(
             #getUserData,
             [],
           ),
         )),
-      ) as _i12.Future<_i5.LoginResponse>);
+      ) as _i14.Future<_i5.LoginResponse>);
 
   @override
-  _i12.Future<_i6.RegisterResponseModel> editProfile(
-          {required _i18.EditProfileRequest? editProfileRequestModel}) =>
+  _i14.Future<_i6.RegisterResponseModel> editProfile(
+          {required _i20.EditProfileRequest? editProfileRequestModel}) =>
       (super.noSuchMethod(
         Invocation.method(
           #editProfile,
           [],
           {#editProfileRequestModel: editProfileRequestModel},
         ),
-        returnValue: _i12.Future<_i6.RegisterResponseModel>.value(
+        returnValue: _i14.Future<_i6.RegisterResponseModel>.value(
             _FakeRegisterResponseModel_4(
           this,
           Invocation.method(
@@ -279,16 +306,16 @@ class MockApiServices extends _i1.Mock implements _i11.ApiServices {
             {#editProfileRequestModel: editProfileRequestModel},
           ),
         )),
-      ) as _i12.Future<_i6.RegisterResponseModel>);
+      ) as _i14.Future<_i6.RegisterResponseModel>);
 
   @override
-  _i12.Future<_i7.MusclesGroupResponseModel> getMusclesGroup() =>
+  _i14.Future<_i7.MusclesGroupResponseModel> getMusclesGroup() =>
       (super.noSuchMethod(
         Invocation.method(
           #getMusclesGroup,
           [],
         ),
-        returnValue: _i12.Future<_i7.MusclesGroupResponseModel>.value(
+        returnValue: _i14.Future<_i7.MusclesGroupResponseModel>.value(
             _FakeMusclesGroupResponseModel_5(
           this,
           Invocation.method(
@@ -296,16 +323,16 @@ class MockApiServices extends _i1.Mock implements _i11.ApiServices {
             [],
           ),
         )),
-      ) as _i12.Future<_i7.MusclesGroupResponseModel>);
+      ) as _i14.Future<_i7.MusclesGroupResponseModel>);
 
   @override
-  _i12.Future<_i8.AllExercisesResponseModel> getAllExercises() =>
+  _i14.Future<_i8.AllExercisesResponseModel> getAllExercises() =>
       (super.noSuchMethod(
         Invocation.method(
           #getAllExercises,
           [],
         ),
-        returnValue: _i12.Future<_i8.AllExercisesResponseModel>.value(
+        returnValue: _i14.Future<_i8.AllExercisesResponseModel>.value(
             _FakeAllExercisesResponseModel_6(
           this,
           Invocation.method(
@@ -313,16 +340,16 @@ class MockApiServices extends _i1.Mock implements _i11.ApiServices {
             [],
           ),
         )),
-      ) as _i12.Future<_i8.AllExercisesResponseModel>);
+      ) as _i14.Future<_i8.AllExercisesResponseModel>);
 
   @override
-  _i12.Future<_i9.RandomMusclesResponseModel> getRandomMuscles() =>
+  _i14.Future<_i9.RandomMusclesResponseModel> getRandomMuscles() =>
       (super.noSuchMethod(
         Invocation.method(
           #getRandomMuscles,
           [],
         ),
-        returnValue: _i12.Future<_i9.RandomMusclesResponseModel>.value(
+        returnValue: _i14.Future<_i9.RandomMusclesResponseModel>.value(
             _FakeRandomMusclesResponseModel_7(
           this,
           Invocation.method(
@@ -330,13 +357,48 @@ class MockApiServices extends _i1.Mock implements _i11.ApiServices {
             [],
           ),
         )),
-      ) as _i12.Future<_i9.RandomMusclesResponseModel>);
+      ) as _i14.Future<_i9.RandomMusclesResponseModel>);
+
+  @override
+  _i14.Future<_i10.MusclesByIdResponseModel> getMusclesByGroupId(String? id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getMusclesByGroupId,
+          [id],
+        ),
+        returnValue: _i14.Future<_i10.MusclesByIdResponseModel>.value(
+            _FakeMusclesByIdResponseModel_8(
+          this,
+          Invocation.method(
+            #getMusclesByGroupId,
+            [id],
+          ),
+        )),
+      ) as _i14.Future<_i10.MusclesByIdResponseModel>);
+
+  @override
+  _i14.Future<_i11.AllPrimeMoverByGroupIdResposneModel>
+      getAllPrimeMoverByGroupId(String? muscleGroupId) => (super.noSuchMethod(
+            Invocation.method(
+              #getAllPrimeMoverByGroupId,
+              [muscleGroupId],
+            ),
+            returnValue:
+                _i14.Future<_i11.AllPrimeMoverByGroupIdResposneModel>.value(
+                    _FakeAllPrimeMoverByGroupIdResposneModel_9(
+              this,
+              Invocation.method(
+                #getAllPrimeMoverByGroupId,
+                [muscleGroupId],
+              ),
+            )),
+          ) as _i14.Future<_i11.AllPrimeMoverByGroupIdResposneModel>);
 }
 
 /// A class which mocks [AppUserEntity].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAppUserEntity extends _i1.Mock implements _i10.AppUserEntity {
+class MockAppUserEntity extends _i1.Mock implements _i12.AppUserEntity {
   MockAppUserEntity() {
     _i1.throwOnMissingStub(this);
   }
@@ -346,7 +408,7 @@ class MockAppUserEntity extends _i1.Mock implements _i10.AppUserEntity {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockRegisterRequestModel extends _i1.Mock
-    implements _i17.RegisterRequestModel {
+    implements _i19.RegisterRequestModel {
   MockRegisterRequestModel() {
     _i1.throwOnMissingStub(this);
   }
@@ -479,19 +541,19 @@ class MockRegisterResponseModel extends _i1.Mock
       ) as Map<String, dynamic>);
 
   @override
-  _i10.AppUserEntity toAppUserEntity() => (super.noSuchMethod(
+  _i12.AppUserEntity toAppUserEntity() => (super.noSuchMethod(
         Invocation.method(
           #toAppUserEntity,
           [],
         ),
-        returnValue: _FakeAppUserEntity_8(
+        returnValue: _FakeAppUserEntity_10(
           this,
           Invocation.method(
             #toAppUserEntity,
             [],
           ),
         ),
-      ) as _i10.AppUserEntity);
+      ) as _i12.AppUserEntity);
 }
 
 /// A class which mocks [LoginResponse].
@@ -515,7 +577,7 @@ class MockLoginResponse extends _i1.Mock implements _i5.LoginResponse {
 /// A class which mocks [LoginRequest].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockLoginRequest extends _i1.Mock implements _i16.LoginRequest {
+class MockLoginRequest extends _i1.Mock implements _i18.LoginRequest {
   MockLoginRequest() {
     _i1.throwOnMissingStub(this);
   }

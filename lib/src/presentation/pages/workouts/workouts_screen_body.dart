@@ -8,7 +8,7 @@ import 'package:super_fitness_app/src/presentation/pages/workouts/workouts_grip_
 import '../../../../core/common/common_imports.dart';
 
 class WorkoutsScreenBody extends StatelessWidget {
-  final List<ExerciseEntity> musclesList;
+  final List<MusclesEntity> musclesList;
   const WorkoutsScreenBody({super.key,required this.musclesList});
 
   @override

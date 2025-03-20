@@ -70,6 +70,11 @@
   "yourGoalTab": "هدفك",
   "yourWeightTab": "وزنك",
   "youActivityLevel": "مستوى نشاطك البدني",
-  "thisHelpsUsCreate": "هذا يساعدنا في إنشاء خطتك الشخصية."
+  "thisHelpsUsCreate": "هذا يساعدنا في إنشاء خطتك الشخصية." ,
+  "categories": "الفئات",
+  "recommendationForYou": "توصيات لك",
+  "seeAll": "عرض الكل",
+  "recommendationOfTheDay": "توصية اليوم",
+  "upcomingWorkouts": "التمارين القادمة"
 
 }

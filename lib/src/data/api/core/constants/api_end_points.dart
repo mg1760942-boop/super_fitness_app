@@ -11,4 +11,5 @@ class ApiEndPoints {
   static const String mealDetail = 'lookup.php';
   static const String editProfile = "auth/editProfile";
   static const String uploadImage = "auth/upload-photo";
+  static const String musclesRandom = "muscles/random";
 }

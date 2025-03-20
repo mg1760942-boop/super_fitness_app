@@ -73,9 +73,11 @@ class _ProfileViewState extends State<ProfileView> {
         },
         builder: (context, state) {
           return SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 40, left: 16, right: 16),
-              child: ProfileContent(viewModel: viewModel),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 40, left: 16, right: 16),
+                child: ProfileContent(viewModel: viewModel),
+              ),
             ),
           );
         },

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/logout/logout_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/meals/meals_by_category_response.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/meals/meals_detail_response.dart';
 
@@ -53,4 +54,9 @@ abstract interface class ApiServices {
   @PUT(ApiEndPoints.editProfile)
   Future<RegisterResponseModel> editProfile(
       {@Body() required EditProfileRequest editProfileRequestModel});
+
+
+  @GET(ApiEndPoints.login)
+  Future<LogoutResponseModel> logout();
+
 }

@@ -49,7 +49,6 @@ dependencies:
   hive: ^2.2.3
   bloc: ^8.1.4
   lottie: ^3.2.0
-  flutter_svg:
   url_launcher:
   json_serializable:
   image_picker:
@@ -76,6 +75,8 @@ dependencies:
   shimmer: ^3.0.0
 
   loader_overlay:
+  flutter_svg: ^2.0.17
+  skeletonizer: ^1.4.3
 dev_dependencies:
   flutter_test:
     sdk: flutter

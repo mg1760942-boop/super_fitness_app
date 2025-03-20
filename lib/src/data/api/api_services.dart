@@ -10,6 +10,7 @@ import 'core/api_request_models/forget_password/reset_password_request_model.dar
 import 'core/api_request_models/forget_password/verify_reset_code_request_model.dart';
 import 'core/api_request_models/login/login_request.dart';
 import 'core/api_request_models/register/register_request_model.dart';
+import 'core/api_response_models/explore/recommendation_response_model/recommendation_response_model.dart';
 import 'core/api_response_models/forget_password/forget_password_response_model.dart';
 import 'core/api_response_models/forget_password/reset_password_response_model.dart';
 import 'core/api_response_models/forget_password/verify_reset_code_response_model.dart';
@@ -53,4 +54,9 @@ abstract interface class ApiServices {
   @PUT(ApiEndPoints.editProfile)
   Future<RegisterResponseModel> editProfile(
       {@Body() required EditProfileRequest editProfileRequestModel});
+
+
+  @GET(ApiEndPoints.musclesRandom)
+  Future<RecommendationResponseModel> getMusclesRandom();
+
 }

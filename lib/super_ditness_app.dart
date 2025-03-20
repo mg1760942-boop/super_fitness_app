@@ -37,7 +37,7 @@ class SuperFitnessApp extends StatelessWidget {
                     supportedLocales: L10n.all,
                     debugShowCheckedModeBanner: false,
                     navigatorKey: navKey,
-                    initialRoute: PageRoutesName.recommendation,
+                    initialRoute: PageRoutesName.login,
                     onGenerateRoute: AppRoutes.onGenerateRoute,
                     themeMode: ThemeMode.dark,
                     theme: AppTheme.defaultTheme,

@@ -87,7 +87,6 @@ extension GetItInjectableX on _i174.GetIt {
       () => sharedPrefModule.sharedPreferences,
       preResolve: true,
     );
-    gh.factory<_i1039.LogoutUseCase>(() => _i1039.LogoutUseCase());
     gh.factory<_i212.SectionScreenViewmodel>(
         () => _i212.SectionScreenViewmodel());
     gh.singleton<_i753.ForgetPasswordScreenControllerManger>(
@@ -127,14 +126,14 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i761.MealCategoryUsecase(gh<_i1009.MealsRepository>()));
     gh.factory<_i855.MealByCategoryUsecase>(
         () => _i855.MealByCategoryUsecase(gh<_i1009.MealsRepository>()));
-    gh.factory<_i829.ProfileViewmodel>(
-        () => _i829.ProfileViewmodel(gh<_i881.ProfileUsecase>()));
     gh.factory<_i475.LoginViewmodel>(
         () => _i475.LoginViewmodel(gh<_i1005.LoginUsecase>()));
     gh.factory<_i673.ForgetPasswordUseCase>(
         () => _i673.ForgetPasswordUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i144.UploadProfileImageUseCase>(
         () => _i144.UploadProfileImageUseCase(gh<_i701.AuthRepository>()));
+    gh.factory<_i1039.LogoutUseCase>(
+        () => _i1039.LogoutUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i173.EditProfileUseCase>(
         () => _i173.EditProfileUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i545.RegisterUseCase>(
@@ -144,6 +143,10 @@ extension GetItInjectableX on _i174.GetIt {
               gh<_i761.MealCategoryUsecase>(),
               gh<_i855.MealByCategoryUsecase>(),
             ));
+    gh.factory<_i829.ProfileViewmodel>(() => _i829.ProfileViewmodel(
+          gh<_i881.ProfileUsecase>(),
+          gh<_i1039.LogoutUseCase>(),
+        ));
     gh.factory<_i278.RegisterViewModel>(
         () => _i278.RegisterViewModel(gh<_i545.RegisterUseCase>()));
     gh.factory<_i179.EditProfileCubit>(() => _i179.EditProfileCubit(

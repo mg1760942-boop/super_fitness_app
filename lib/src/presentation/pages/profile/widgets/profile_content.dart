@@ -141,7 +141,7 @@ class ProfileContent extends StatelessWidget {
     );
   }
 
-  void _goNextToEditProfile()async {
+  void _goNextToEditProfile(ProfileViewmodel viewModel)async {
   var responseNav=  await  navKey.currentState!.pushNamed(PageRoutesName.editProfile,
     arguments: viewModel.appUserEntity,
     ) as bool ? ;

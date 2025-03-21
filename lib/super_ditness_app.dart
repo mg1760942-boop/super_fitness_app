@@ -6,8 +6,8 @@ import 'package:super_fitness_app/config/localization/l10n.dart';
 import 'package:super_fitness_app/src/presentation/managers/localization/localization_viewmodel.dart';
 import 'config/routes/app_routes.dart';
 import 'config/routes/page_route_name.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'config/theme/app_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 final GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
 

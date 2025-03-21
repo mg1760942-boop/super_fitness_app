@@ -6,11 +6,9 @@ import 'package:super_fitness_app/config/routes/page_route_name.dart';
 import 'package:super_fitness_app/core/di/di.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/utilities/dialogs/awesome_dialoge.dart';
-import 'package:super_fitness_app/core/utilities/style/app_text_styles.dart';
-import 'package:super_fitness_app/core/utilities/style/spacing.dart';
 import 'package:super_fitness_app/src/presentation/managers/profile/profile_viewmodel.dart';
+import 'package:super_fitness_app/src/presentation/pages/profile/widgets/logout_dialog.dart';
 import 'package:super_fitness_app/src/presentation/pages/profile/widgets/profile_content.dart';
-import 'package:super_fitness_app/src/presentation/shared/custom_auth_button.dart';
 
 import '../../../../core/common/common_imports.dart';
 import '../../../../core/utilities/style/app_colors.dart';
@@ -51,7 +49,6 @@ class ProfileView extends StatefulWidget {
 class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.read<ProfileViewmodel>();
     return LoaderOverlay(
       useDefaultLoading: false,
       overlayWidgetBuilder: (_) => Center(
@@ -73,10 +70,10 @@ class _ProfileViewState extends State<ProfileView> {
               dialogType: DialogType.error,
             );
           } else if (state is ShowLogoutDialogState) {
-            _logout_dialog(context, viewModel);
-          }
-          else if(state is LogoutSuccessState){
-            Navigator.pushNamedAndRemoveUntil(context, PageRoutesName.login, (route) => false);
+            _logoutDialog(context);
+          } else if (state is LogoutSuccessState) {
+            Navigator.pushNamedAndRemoveUntil(
+                context, PageRoutesName.login, (route) => false);
           }
         },
         builder: (context, state) {
@@ -89,44 +86,11 @@ class _ProfileViewState extends State<ProfileView> {
     );
   }
 
-  void _logout_dialog(BuildContext context, ProfileViewmodel viewModel) {
+  void _logoutDialog(BuildContext context) {
     showDialog(
       barrierDismissible: false,
       context: context,
-      builder: (context) => Dialog(
-        backgroundColor: Colors.grey[900]!,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Container(
-          padding: EdgeInsets.all(20),
-          width: 300.w,
-          height: 180.h,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Are You Sure To Close The Application?", style: AppTextStyles.font20w600White,textAlign: TextAlign.center,),
-              verticalSpace(20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                   Expanded(
-                     child: CustomAuthButton(text: "NO",textStyle: AppTextStyles.font14w800, onPressed: (){
-                       Navigator.pop(context);
-                     }, color: AppColors.kBlackBase, radius: 200,borderColor: AppColors.mainColor,),
-                   ),
-                  horizontalSpace(20),
-                  Expanded(
-                    child: CustomAuthButton(text: "YES",textStyle: AppTextStyles.font14w800, onPressed: (){
-                       viewModel.logout();
-                    }, color: AppColors.mainColor, radius: 200),
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
+      builder: (context) => LogoutDialog(),
     );
   }
 }

@@ -70,5 +70,8 @@
   "yourGoal": "This Helps Us Create Your Personalized Plan",
   "yourWeight": "what is your weight ? ",
   "thisHelpsUsCreate": "This Helps Us Create Your Personalized Plan.",
-  "tapToEdit": "Tap to Edit"
+  "tapToEdit": "Tap to Edit",
+  "logoutMessage": "Are You Sure To Close The Application?",
+  "yes": "Yes",
+  "no": "No"
 }

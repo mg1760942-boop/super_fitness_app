@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:super_fitness_app/config/routes/page_route_name.dart';
+import 'package:super_fitness_app/src/presentation/pages/exercise/exercise_screen.dart';
 import 'package:super_fitness_app/src/presentation/pages/forget_password/forget_password_screen.dart';
 import 'package:super_fitness_app/src/presentation/pages/meals/recommendation_screen.dart';
 import 'package:super_fitness_app/src/presentation/pages/onboarding/onboarding_screen.dart';
@@ -55,6 +56,8 @@ class AppRoutes {
       case PageRoutesName.editProfile:
         return _handleMaterialPageRoute(
             settings: settings, widget: EditProfileView());
+      case PageRoutesName.exercise:
+        return _handleMaterialPageRoute(widget: ExerciseScreen(), settings: settings);
       default:
         return _handleMaterialPageRoute(
             widget: const Scaffold(body: Center(child: Text('Page Not Found'))),

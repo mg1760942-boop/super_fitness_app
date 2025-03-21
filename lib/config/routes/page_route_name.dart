@@ -12,4 +12,5 @@ class PageRoutesName {
   static const String helpScreen = "helpScreen";
   static const String editProfile = "editProfile";
   static const String recommendation = "recommendation";
+  static const String exercise = "exercise";
 }

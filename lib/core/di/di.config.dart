@@ -39,6 +39,8 @@ import '../../src/domain/usecases/auth/edit_profile_use_case/edit_profile_use_ca
 import '../../src/domain/usecases/auth/forget_password/forget_password_use_case.dart'
     as _i673;
 import '../../src/domain/usecases/auth/login/login_usecase.dart' as _i1005;
+import '../../src/domain/usecases/auth/meals/get_random_entity_use_case.dart'
+    as _i697;
 import '../../src/domain/usecases/auth/meals/meal_by_category_usecase.dart'
     as _i855;
 import '../../src/domain/usecases/auth/meals/meal_category_usecase.dart'
@@ -51,6 +53,9 @@ import '../../src/domain/usecases/auth/upload_profile_image_use_case/upload_prof
     as _i144;
 import '../../src/presentation/managers/edit_profle/edit_profile_cubit.dart'
     as _i179;
+import '../../src/presentation/managers/exercise/exercise_screen_view_model.dart'
+    as _i354;
+import '../../src/presentation/managers/explore/explore_cubit.dart' as _i23;
 import '../../src/presentation/managers/forget_password/controller_manager.dart'
     as _i753;
 import '../../src/presentation/managers/forget_password/forget_password_screen_view_model.dart'
@@ -87,6 +92,8 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i212.SectionScreenViewmodel>(
         () => _i212.SectionScreenViewmodel());
+    gh.factory<_i354.ExerciseScreenViewModel>(
+        () => _i354.ExerciseScreenViewModel());
     gh.singleton<_i753.ForgetPasswordScreenControllerManger>(
         () => _i753.ForgetPasswordScreenControllerManger());
     gh.singleton<_i92.ForgetPasswordScreenValidatorManager>(
@@ -94,48 +101,58 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i558.FlutterSecureStorage>(
         () => sharedPrefModule.secureStorage);
     gh.lazySingleton<_i361.Dio>(() => dioProvider.dioProvider());
-    gh.lazySingleton<_i528.PrettyDioLogger>(() => dioProvider.providePretty());
     gh.lazySingleton<_i801.AppInterceptors>(() => _i801.AppInterceptors());
     gh.factory<_i515.UploadApiManager>(() => _i515.UploadApiManagerImpl());
     gh.factory<_i506.AuthOfflineDataSource>(
         () => _i122.AuthOfflineDataSourceImpl());
-    gh.singleton<_i318.ApiServices>(() => _i318.ApiServices(gh<_i361.Dio>()));
     gh.singleton<_i611.SecondApiService>(
         () => _i611.SecondApiService(gh<_i361.Dio>()));
+    gh.singleton<_i318.ApiServices>(() => _i318.ApiServices(gh<_i361.Dio>()));
+    gh.factory<_i869.MealsOnlineDataSource>(
+        () => _i703.MealsOnlineDatasourceImpl(
+              gh<_i611.SecondApiService>(),
+              gh<_i318.ApiServices>(),
+            ));
     gh.factory<_i599.AuthOnlineDataSource>(() => _i299.AuthOnlineDataSourceImpl(
           gh<_i318.ApiServices>(),
           gh<_i515.UploadApiManager>(),
         ));
-    gh.factory<_i869.MealsOnlineDataSource>(
-        () => _i703.MealsOnlineDatasourceImpl(gh<_i611.SecondApiService>()));
     gh.factory<_i1009.MealsRepository>(
         () => _i82.MealsRepositoryImpl(gh<_i869.MealsOnlineDataSource>()));
     gh.factory<_i701.AuthRepository>(() => _i478.AuthRepositoryImpl(
           gh<_i599.AuthOnlineDataSource>(),
           gh<_i506.AuthOfflineDataSource>(),
         ));
-    gh.factory<_i1005.LoginUsecase>(
-        () => _i1005.LoginUsecase(gh<_i701.AuthRepository>()));
     gh.factory<_i881.ProfileUsecase>(
         () => _i881.ProfileUsecase(gh<_i701.AuthRepository>()));
+    gh.factory<_i1005.LoginUsecase>(
+        () => _i1005.LoginUsecase(gh<_i701.AuthRepository>()));
+    gh.factory<_i809.MealDetailUsecase>(
+        () => _i809.MealDetailUsecase(gh<_i1009.MealsRepository>()));
+    gh.factory<_i697.GetRandomEntityUseCase>(
+        () => _i697.GetRandomEntityUseCase(gh<_i1009.MealsRepository>()));
     gh.factory<_i761.MealCategoryUsecase>(
         () => _i761.MealCategoryUsecase(gh<_i1009.MealsRepository>()));
     gh.factory<_i855.MealByCategoryUsecase>(
         () => _i855.MealByCategoryUsecase(gh<_i1009.MealsRepository>()));
-    gh.factory<_i809.MealDetailUsecase>(
-        () => _i809.MealDetailUsecase(gh<_i1009.MealsRepository>()));
     gh.factory<_i829.ProfileViewmodel>(
         () => _i829.ProfileViewmodel(gh<_i881.ProfileUsecase>()));
     gh.factory<_i475.LoginViewmodel>(
         () => _i475.LoginViewmodel(gh<_i1005.LoginUsecase>()));
+    gh.factory<_i23.ExploreCubit>(() => _i23.ExploreCubit(
+          gh<_i881.ProfileUsecase>(),
+          gh<_i697.GetRandomEntityUseCase>(),
+          gh<_i761.MealCategoryUsecase>(),
+          gh<_i855.MealByCategoryUsecase>(),
+        ));
     gh.factory<_i673.ForgetPasswordUseCase>(
         () => _i673.ForgetPasswordUseCase(gh<_i701.AuthRepository>()));
-    gh.factory<_i545.RegisterUseCase>(
-        () => _i545.RegisterUseCase(gh<_i701.AuthRepository>()));
-    gh.factory<_i173.EditProfileUseCase>(
-        () => _i173.EditProfileUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i144.UploadProfileImageUseCase>(
         () => _i144.UploadProfileImageUseCase(gh<_i701.AuthRepository>()));
+    gh.factory<_i173.EditProfileUseCase>(
+        () => _i173.EditProfileUseCase(gh<_i701.AuthRepository>()));
+    gh.factory<_i545.RegisterUseCase>(
+        () => _i545.RegisterUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i415.FoodRecommendationViewmodel>(
         () => _i415.FoodRecommendationViewmodel(
               gh<_i761.MealCategoryUsecase>(),

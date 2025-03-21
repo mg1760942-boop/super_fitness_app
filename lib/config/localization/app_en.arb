@@ -70,5 +70,10 @@
   "yourGoal": "This Helps Us Create Your Personalized Plan",
   "yourWeight": "what is your weight ? ",
   "thisHelpsUsCreate": "This Helps Us Create Your Personalized Plan.",
-  "tapToEdit": "Tap to Edit"
+  "tapToEdit": "Tap to Edit",
+  "categories": "Categories",
+  "recommendationForYou": "Recommendation For You",
+  "seeAll": "See All",
+  "recommendationOfTheDay": "Recommendation of the Day",
+  "upcomingWorkouts": "Upcoming Workouts"
 }

@@ -85,10 +85,7 @@ class _RecommendationScreenState extends State<RecommendationScreen> {
                     ),
                     verticalSpace(24),
                     FilterListRow(
-                      categories: viewmodel.categories
-                              ?.map((e) => e.strCategory ?? '')
-                              .toList() ??
-                          [],
+                      categories: viewmodel.categories?.map((e) => e.strCategory ?? '').toList() ?? [],
                       selectedCategory: viewmodel.currentCategory,
                       onCategorySelected: (category) {
                         setState(() {

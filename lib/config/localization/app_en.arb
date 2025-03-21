@@ -73,5 +73,10 @@
   "tapToEdit": "Tap to Edit",
   "logoutMessage": "Are You Sure To Close The Application?",
   "yes": "Yes",
-  "no": "No"
+  "no": "No",
+  "categories": "Categories",
+  "recommendationForYou": "Recommendation For You",
+  "seeAll": "See All",
+  "recommendationOfTheDay": "Recommendation of the Day",
+  "upcomingWorkouts": "Upcoming Workouts"
 }

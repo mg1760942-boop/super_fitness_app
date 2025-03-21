@@ -266,19 +266,19 @@ class _ApiServices implements ApiServices {
   }
 
   @override
-  Future<LogoutResponseModel> logout() async {
+  Future<RecommendationResponseModel> getMusclesRandom() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<LogoutResponseModel>(Options(
+    final _options = _setStreamType<RecommendationResponseModel>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          'auth/logout',
+          'muscles/random',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -288,9 +288,9 @@ class _ApiServices implements ApiServices {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late LogoutResponseModel _value;
+    late RecommendationResponseModel _value;
     try {
-      _value = LogoutResponseModel.fromJson(_result.data!);
+      _value = RecommendationResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

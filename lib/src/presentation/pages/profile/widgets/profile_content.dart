@@ -141,9 +141,12 @@ class ProfileContent extends StatelessWidget {
     );
   }
 
-  void _goNextToEditProfile(ProfileViewmodel viewModel) {
-    navKey.currentState!.pushNamedAndRemoveUntil(PageRoutesName.editProfile,
-    arguments: viewModel.appUserEntity,(route) => false,
-    );
+  void _goNextToEditProfile()async {
+  var responseNav=  await  navKey.currentState!.pushNamed(PageRoutesName.editProfile,
+    arguments: viewModel.appUserEntity,
+    ) as bool ? ;
+    if(responseNav!=null){
+      viewModel.getUserData();
+    }
   }
 }

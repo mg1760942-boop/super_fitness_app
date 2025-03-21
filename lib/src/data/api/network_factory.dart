@@ -5,6 +5,8 @@ import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import '../../../core/di/di.dart';
+import '../../../core/helpers/shared_pref/shared_pref_helper.dart';
+import '../../../core/helpers/shared_pref/shared_pref_helper.dart';
 import '../../../core/helpers/shared_pref/shared_pref_keys.dart';
 
 @module
@@ -46,8 +48,11 @@ class AppInterceptors extends InterceptorsWrapper {
     String? token =
     await getIt<FlutterSecureStorage>().read(key: SharedPrefKeys.token);
 
+    String? local =
+    await   SharedPrefHelper.getString(SharedPrefKeys.language) ?? "en";
     if (token != null) {
       options.headers["Authorization"] = token;
+      options.headers["accept-language"] = local;
     }
     super.onRequest(options, handler);
   }

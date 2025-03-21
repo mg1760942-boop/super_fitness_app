@@ -62,149 +62,151 @@ class _LoginScreenState extends State<LoginScreen> {
               }
             },
             builder: (context, state) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: Container(
-                        width: 70,
-                        height: 48,
-                        child: Image.asset(AppImages.appLogo)),
-                  ),
-                  SizedBox(height: height * 0.15),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          context.localization.heyThere,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontFamily: 'Baloo Thambi 2',
-                            fontWeight: FontWeight.w400,
-                            height: 1.40,
-                          ),
-                        ),
-                        Text(
-                          context.localization.welcomeBack,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontFamily: 'Baloo Thambi 2',
-                            fontWeight: FontWeight.w800,
-                            height: 1.40,
-                          ),
-                        ),
-                      ],
+              return SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Container(
+                          width: 70,
+                          height: 48,
+                          child: Image.asset(AppImages.appLogo)),
                     ),
-                  ),
-                  verticalSpace(8),
-                  BluredContainer(
-                      radius: BorderRadius.all(Radius.circular(50)),
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Form(
-                          key: loginViewmodel.formKey,
-                          onChanged: () {
-                            loginViewmodel.validateFields();
-                          },
-                          child: Column(
-                            children: [
-                              Text(context.localization.login,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontFamily: 'Baloo Thambi 2',
-                                    fontWeight: FontWeight.w800,
-                                    height: 1.40,
-                                  )),
-                              verticalSpace(16),
-
-                              CustomTextFormField(
-                                labelText: context.localization.email,
-                                hintText: context.localization.email,
-                                keyboardType: TextInputType.emailAddress,
-                                controller: loginViewmodel.emailController,
-                                validator: (value) {
-                                  return Validations.validateEmail(value);
-                                },
-                                prefixIcon: AppIcons.emailIcon,
-                              ),
-
-                              // Outline border with rounded corners
-
-                              verticalSpace(16),
-                              CustomTextFormField(
-                                isPasswordVisible: passwordVisible,
-                                showPassword: () {
-                                  setState(() {
-                                    passwordVisible = !passwordVisible;
-                                  });
-                                },
-                                hintText: context.localization.password,
-                                keyboardType: TextInputType.visiblePassword,
-                                controller: loginViewmodel.passwordController,
-                                labelText: context.localization.password,
-                                validator: (val) {
-                                  return Validations.validatePassword(val);
-                                },
-                                prefixIcon: AppIcons.passwordIcon,
-                              ),
-                              verticalSpace(8),
-                              InkWell(
-                                onTap: () {
-                                  navKey.currentState!
-                                      .pushNamed(PageRoutesName.forgetPassword);
-                                },
-                                child: Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Text(
-                                    context.localization.forgotPassword,
+                    SizedBox(height: height * 0.15),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            context.localization.heyThere,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontFamily: 'Baloo Thambi 2',
+                              fontWeight: FontWeight.w400,
+                              height: 1.40,
+                            ),
+                          ),
+                          Text(
+                            context.localization.welcomeBack,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontFamily: 'Baloo Thambi 2',
+                              fontWeight: FontWeight.w800,
+                              height: 1.40,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    verticalSpace(8),
+                    BluredContainer(
+                        radius: BorderRadius.all(Radius.circular(50)),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Form(
+                            key: loginViewmodel.formKey,
+                            onChanged: () {
+                              loginViewmodel.validateFields();
+                            },
+                            child: Column(
+                              children: [
+                                Text(context.localization.login,
                                     style: TextStyle(
-                                      color: Color(0xFFFF4100),
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      decoration: TextDecoration.underline,
-                                      decorationColor: Color(
-                                          0xFFFF4100), // Explicitly set underline color
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontFamily: 'Baloo Thambi 2',
+                                      fontWeight: FontWeight.w800,
                                       height: 1.40,
+                                    )),
+                                verticalSpace(16),
+                
+                                CustomTextFormField(
+                                  labelText: context.localization.email,
+                                  hintText: context.localization.email,
+                                  keyboardType: TextInputType.emailAddress,
+                                  controller: loginViewmodel.emailController,
+                                  validator: (value) {
+                                    return Validations.validateEmail(value);
+                                  },
+                                  prefixIcon: AppIcons.emailIcon,
+                                ),
+                
+                                // Outline border with rounded corners
+                
+                                verticalSpace(16),
+                                CustomTextFormField(
+                                  isPasswordVisible: passwordVisible,
+                                  showPassword: () {
+                                    setState(() {
+                                      passwordVisible = !passwordVisible;
+                                    });
+                                  },
+                                  hintText: context.localization.password,
+                                  keyboardType: TextInputType.visiblePassword,
+                                  controller: loginViewmodel.passwordController,
+                                  labelText: context.localization.password,
+                                  validator: (val) {
+                                    return Validations.validatePassword(val);
+                                  },
+                                  prefixIcon: AppIcons.passwordIcon,
+                                ),
+                                verticalSpace(8),
+                                InkWell(
+                                  onTap: () {
+                                    navKey.currentState!
+                                        .pushNamed(PageRoutesName.forgetPassword);
+                                  },
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Text(
+                                      context.localization.forgotPassword,
+                                      style: TextStyle(
+                                        color: Color(0xFFFF4100),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                        decoration: TextDecoration.underline,
+                                        decorationColor: Color(
+                                            0xFFFF4100), // Explicitly set underline color
+                                        height: 1.40,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              verticalSpace(24),
-                              OrRowWidget(),
-                              verticalSpace(24),
-                              CustomAuthButton(
-                                text: context.localization.login,
-                                onPressed: () {
-                                  loginViewmodel.login();
-                                },
-                                color: Color(0xFFFF4100),
-                                textColor: Colors.white,
-                                radius: 20,
-                              ),
-                              verticalSpace(8),
-                              AuthDecissionRow(
-                                  text: context.localization.register,
+                                verticalSpace(24),
+                                OrRowWidget(),
+                                verticalSpace(24),
+                                CustomAuthButton(
+                                  text: context.localization.login,
                                   onPressed: () {
-                                    Navigator.pushNamedAndRemoveUntil(
-                                      context,
-                                      PageRoutesName.register,
-                                      (route) => false,
-                                    );
+                                    loginViewmodel.login();
                                   },
-                                  prefixText: context
-                                      .localization.dontHaveAnAccountRegister),
-                            ],
+                                  color: Color(0xFFFF4100),
+                                  textColor: Colors.white,
+                                  radius: 20,
+                                ),
+                                verticalSpace(8),
+                                AuthDecissionRow(
+                                    text: context.localization.register,
+                                    onPressed: () {
+                                      Navigator.pushNamedAndRemoveUntil(
+                                        context,
+                                        PageRoutesName.register,
+                                        (route) => false,
+                                      );
+                                    },
+                                    prefixText: context
+                                        .localization.dontHaveAnAccountRegister),
+                              ],
+                            ),
                           ),
-                        ),
-                      )),
-                ],
+                        )),
+                  ],
+                ),
               );
             },
           ),

@@ -18,7 +18,6 @@ class ExerciseScreenBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           HeaderSection(),
-          ExerciseDetails(),
           DifficultySelection(),
           ExerciseList()
         ],

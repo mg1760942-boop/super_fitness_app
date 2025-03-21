@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:super_fitness_app/generated/assets.dart';
 import 'package:super_fitness_app/src/presentation/managers/exercise/exercise_screen_states.dart';
+import 'package:super_fitness_app/src/presentation/shared/base_scaffold.dart';
 
 import '../../../../core/common/common_imports.dart';
 import '../../../../core/di/di.dart';
@@ -17,8 +19,8 @@ class ExerciseScreen extends StatelessWidget {
       create: (_) => viewModel,
       child: BlocConsumer<ExerciseScreenViewModel, ExerciseScreenStates>(
         builder: (context, state) {
-          return Scaffold(
-            body: ExerciseScreenBody(),
+          return BaseScaffold(
+            body: ExerciseScreenBody(), backGroundPath: Assets.imagesBackgroundScaf,
           );
         },
         listener: (context, state) {

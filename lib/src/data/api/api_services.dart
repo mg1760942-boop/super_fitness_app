@@ -56,7 +56,7 @@ abstract interface class ApiServices {
       {@Body() required EditProfileRequest editProfileRequestModel});
 
 
-  @GET(ApiEndPoints.login)
+  @GET(ApiEndPoints.logout)
   Future<LogoutResponseModel> logout();
 
 }

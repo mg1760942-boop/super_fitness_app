@@ -46,7 +46,6 @@ class AppInterceptors extends InterceptorsWrapper {
     String? token =
     await getIt<FlutterSecureStorage>().read(key: SharedPrefKeys.token);
 
-    print("token: $token");
     if (token != null) {
       options.headers["Authorization"] = token;
     }

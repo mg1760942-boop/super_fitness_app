@@ -40,7 +40,7 @@ class HeaderSection extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: 2,
+          bottom: 0,
           child: SizedBox(width: context.width, child: ExerciseDetails()),
         )
       ],

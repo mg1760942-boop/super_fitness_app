@@ -73,7 +73,7 @@ class ExerciseDetails extends StatelessWidget {
 
   Widget _exerciseDetailsBox(String text, Color color) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
           border: Border.all(color: AppColors.kWhiteBase, width: 0.5.w)),

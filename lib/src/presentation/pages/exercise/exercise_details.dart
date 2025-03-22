@@ -19,7 +19,7 @@ class ExerciseDetails extends StatelessWidget {
           end: Alignment.bottomCenter,
           colors: [
             AppColors.kBlackBase.withOpacity(0.1),
-            AppColors.kBlackBase.withOpacity(0.5),
+            AppColors.kBlackBase.withOpacity(0.6),
             AppColors.kBlackBase.withOpacity(0.9),
           ]
         ),

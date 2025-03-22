@@ -12,7 +12,7 @@ class DifficultySelection extends StatelessWidget {
     return Container(
       height: 48.h,
       decoration: BoxDecoration(
-        color: AppColors.kBlackBase.withOpacity(0.8),
+        color: AppColors.kBlackBase.withOpacity(0.9),
         borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20))
       ),
       child: Padding(
@@ -35,7 +35,7 @@ class DifficultySelection extends StatelessWidget {
       decoration: BoxDecoration(
         color: isSelected? AppColors.mainColor: AppColors.kBlackBase,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: isSelected? AppColors.mainColor:AppColors.kBlackBase, width: 1),
+        border: Border.all(color: isSelected? AppColors.mainColor:AppColors.kBlackBase.withOpacity(0.9), width: 1),
       ),
       child: Text(
         text,

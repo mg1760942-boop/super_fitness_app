@@ -11,6 +11,7 @@ import 'package:super_fitness_app/src/presentation/pages/section/section_screen.
 
 import '../../src/presentation/pages/edit_profile/view/edit_profile_view.dart';
 import '../../src/presentation/pages/login/login_screen.dart';
+import '../../src/presentation/pages/meals/meal_detail_screen.dart';
 import '../../src/presentation/pages/register/base_register_screen.dart';
 
 class AppRoutes {
@@ -28,6 +29,9 @@ class AppRoutes {
       case PageRoutesName.login:
         return _handleMaterialPageRoute(
             widget: const LoginScreen(), settings: settings);
+      case PageRoutesName.mealDetail:
+        return _handleMaterialPageRoute(
+            widget: MealDetailScreen(), settings: settings);
       case PageRoutesName.register:
         return _handleMaterialPageRoute(
             widget: const RegisterView(), settings: settings);

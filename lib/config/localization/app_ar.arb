@@ -75,6 +75,10 @@
   "recommendationForYou": "توصيات لك",
   "seeAll": "عرض الكل",
   "recommendationOfTheDay": "توصية اليوم",
-  "upcomingWorkouts": "التمارين القادمة"
+  "upcomingWorkouts": "التمارين القادمة",
+  "ingredients": "المكونات",
+  "foodRecommendation": "توصية الطعام",
+    "recommendation": "توصية"
+
 
 }

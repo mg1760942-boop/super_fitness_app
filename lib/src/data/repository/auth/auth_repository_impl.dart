@@ -12,7 +12,9 @@ import 'package:super_fitness_app/src/domain/entities/auth/forget_password/reset
 import 'package:super_fitness_app/src/domain/entities/auth/forget_password/reset_password_response_entity.dart';
 import 'package:super_fitness_app/src/domain/entities/auth/forget_password/verify_reset_code_request_entity.dart';
 import 'package:super_fitness_app/src/domain/entities/auth/forget_password/verify_reset_code_response_entity.dart';
+import 'package:super_fitness_app/src/domain/entities/auth/logout_entity.dart';
 import 'package:super_fitness_app/src/domain/repositories/auth/auth_repository.dart';
+import 'package:super_fitness_app/src/domain/usecases/auth/logout/logout_use_case.dart';
 
 import '../../../domain/entities/app_user_entity/app_user_entity.dart';
 import '../../../domain/entities/auth/forget_password/forget_password_request_entity.dart';
@@ -86,19 +88,29 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<ApiResult<AppUserEntity>> editProfile({required EditProfileRequest editProfileRequest}) async{
+  Future<ApiResult<AppUserEntity>> editProfile(
+      {required EditProfileRequest editProfileRequest}) async {
     return await executeApi(apiCall: () async {
-      var response = await _authOnlineDataSource.editProfile(editProfileRequest);
+      var response =
+          await _authOnlineDataSource.editProfile(editProfileRequest);
       return response;
     });
   }
 
   @override
-  Future<ApiResult<String>> uploadImage({required File image}) async{
+  Future<ApiResult<String>> uploadImage({required File image}) async {
     return await executeApi(apiCall: () async {
       var token = await _authOfflineDataSource.getToken();
       var response = await _authOnlineDataSource.uploadImage(token, image);
       return response.message.toString();
+    });
+  }
+
+  @override
+  Future<ApiResult<LogoutEntity>> logout() async{
+    return executeApi<LogoutEntity>(apiCall: ()async{
+       var response = await _authOnlineDataSource.logout();
+       return response.toDomain();
     });
   }
 }

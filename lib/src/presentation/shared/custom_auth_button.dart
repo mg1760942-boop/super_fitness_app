@@ -9,8 +9,8 @@ class CustomAuthButton extends StatelessWidget {
     this.textColor = Colors.white,
     this.validate = true,
     required this.radius,
-    this.textStyle
-  });
+    this.textStyle,
+    this.borderColor});
 
   final String? text;
   final void Function()? onPressed;
@@ -19,6 +19,7 @@ class CustomAuthButton extends StatelessWidget {
   final bool validate;
   final double radius;
  final TextStyle? textStyle;
+ final Color? borderColor;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -29,6 +30,7 @@ class CustomAuthButton extends StatelessWidget {
               validate ? color : Colors.grey.shade400, // Disabled color
           minimumSize: const Size(double.infinity, 45),
           shape: RoundedRectangleBorder(
+            side: BorderSide(color: borderColor ?? Colors.transparent),
             borderRadius: BorderRadius.circular(radius),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

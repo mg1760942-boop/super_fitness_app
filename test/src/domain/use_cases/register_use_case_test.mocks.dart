@@ -27,6 +27,8 @@ import 'package:super_fitness_app/src/domain/entities/auth/forget_password/verif
     as _i9;
 import 'package:super_fitness_app/src/domain/entities/auth/forget_password/verify_reset_code_response_entity.dart'
     as _i8;
+import 'package:super_fitness_app/src/domain/entities/auth/logout_entity.dart'
+    as _i16;
 import 'package:super_fitness_app/src/domain/repositories/auth/auth_repository.dart'
     as _i2;
 
@@ -209,6 +211,22 @@ class MockAuthRepository extends _i1.Mock implements _i2.AuthRepository {
           ),
         )),
       ) as _i3.Future<_i4.ApiResult<String>>);
+
+  @override
+  _i3.Future<_i4.ApiResult<_i16.LogoutEntity>> logout() => (super.noSuchMethod(
+        Invocation.method(
+          #logout,
+          [],
+        ),
+        returnValue: _i3.Future<_i4.ApiResult<_i16.LogoutEntity>>.value(
+            _i7.dummyValue<_i4.ApiResult<_i16.LogoutEntity>>(
+          this,
+          Invocation.method(
+            #logout,
+            [],
+          ),
+        )),
+      ) as _i3.Future<_i4.ApiResult<_i16.LogoutEntity>>);
 }
 
 /// A class which mocks [AppUserEntity].

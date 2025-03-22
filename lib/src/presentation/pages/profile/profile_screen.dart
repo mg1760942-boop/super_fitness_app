@@ -2,10 +2,12 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:super_fitness_app/config/routes/page_route_name.dart';
 import 'package:super_fitness_app/core/di/di.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/utilities/dialogs/awesome_dialoge.dart';
 import 'package:super_fitness_app/src/presentation/managers/profile/profile_viewmodel.dart';
+import 'package:super_fitness_app/src/presentation/pages/profile/widgets/logout_dialog.dart';
 import 'package:super_fitness_app/src/presentation/pages/profile/widgets/profile_content.dart';
 
 import '../../../../core/common/common_imports.dart';
@@ -27,6 +29,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   var profileViewModel = getIt.get<ProfileViewmodel>();
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -44,10 +47,8 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileViewState extends State<ProfileView> {
-
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.read<ProfileViewmodel>();
     return LoaderOverlay(
       useDefaultLoading: false,
       overlayWidgetBuilder: (_) => Center(
@@ -56,7 +57,6 @@ class _ProfileViewState extends State<ProfileView> {
       child: BlocConsumer<ProfileViewmodel, ProfileState>(
         listener: (context, state) {
           context.loaderOverlay.hide();
-
           if (state is ProfileLoading) {
             context.loaderOverlay.show();
           } else if (state is ProfileError) {
@@ -69,17 +69,28 @@ class _ProfileViewState extends State<ProfileView> {
               onOk: () {},
               dialogType: DialogType.error,
             );
+          } else if (state is ShowLogoutDialogState) {
+            _logoutDialog(context);
+          } else if (state is LogoutSuccessState) {
+            Navigator.pushNamedAndRemoveUntil(
+                context, PageRoutesName.login, (route) => false);
           }
         },
         builder: (context, state) {
-          return SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 40, left: 16, right: 16),
-              child: ProfileContent(viewModel: viewModel),
-            ),
+          return Padding(
+            padding: const EdgeInsets.only(top: 40, left: 16, right: 16),
+            child: ProfileContent(),
           );
         },
       ),
+    );
+  }
+
+  void _logoutDialog(BuildContext context) {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) => LogoutDialog(),
     );
   }
 }

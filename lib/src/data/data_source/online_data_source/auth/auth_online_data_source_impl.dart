@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/src/data/api/api_services.dart';
 import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/forget_password_request_model.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/logout/logout_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/upload_image_response/upload_image_response.dart';
 import 'package:super_fitness_app/src/data/api/upload_api_manger/upload_api_manger.dart';
 
@@ -61,14 +62,22 @@ class AuthOnlineDataSourceImpl implements AuthOnlineDataSource {
   }
 
   @override
-  Future<AppUserEntity> editProfile(EditProfileRequest editProfileRequest)async {
-    var response = await apiServices.editProfile(editProfileRequestModel: editProfileRequest);
+  Future<AppUserEntity> editProfile(
+      EditProfileRequest editProfileRequest) async {
+    var response = await apiServices.editProfile(
+        editProfileRequestModel: editProfileRequest);
     return (response.toAppUserEntity());
   }
 
   @override
-  Future<UploadImageResponse> uploadImage(String token, File image) async{
-    var response = await uploadApiManager.uploadImage(image: image, token: token);
-    return  response;
+  Future<UploadImageResponse> uploadImage(String token, File image) async {
+    var response =
+        await uploadApiManager.uploadImage(image: image, token: token);
+    return response;
+  }
+
+  @override
+  Future<LogoutResponseModel> logout() async {
+    return await apiServices.logout();
   }
 }

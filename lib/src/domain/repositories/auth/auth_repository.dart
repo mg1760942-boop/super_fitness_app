@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:super_fitness_app/src/domain/entities/auth/logout_entity.dart';
+
 import '../../../../core/common/apis/api_result.dart';
 import '../../../data/api/core/api_request_models/edit_profile_request/edit_profile_request.dart';
 import '../../../data/api/core/api_request_models/register/register_request_model.dart';
@@ -23,15 +25,10 @@ abstract interface class AuthRepository {
   Future<ApiResult<AppUserEntity>> register(
       {required RegisterRequestModel registerRequest});
   Future<ApiResult<AppUserEntity?>> getUserData();
+  Future<ApiResult<AppUserEntity>> editProfile(
+      {required EditProfileRequest editProfileRequest});
+  Future<ApiResult<String>> uploadImage({required File image});
 
-  Future<ApiResult<AppUserEntity>>editProfile(
-      {
-        required EditProfileRequest editProfileRequest,
-      }
-      );
-  Future<ApiResult<String>>uploadImage(
-      {
-    required File image,
-      }
-      );
+  Future<ApiResult<LogoutEntity>> logout();
 }
+

@@ -7,6 +7,9 @@ class ApiEndPoints {
   static const String login = "auth/signin";
   static const String register = 'auth/signup';
   static const String getUserData = 'auth/profile-data';
+  static const String mealCategories = 'categories.php';
+  static const String mealsByCategory = 'filter.php';
+  static const String mealDetail = 'lookup.php';
   static const String editProfile = "auth/editProfile";
   static const String uploadImage = "auth/upload-photo";
   static const String muscles = "muscles";
@@ -14,4 +17,6 @@ class ApiEndPoints {
   static const String musclesGroup = "musclesGroup";
   static const String randomMuscles = "muscles/random";
   static const String byMuscleGroup= "by-muscle-group";
+  static const String musclesRandom = "muscles/random";
+  static const String logout = "auth/logout";
 }

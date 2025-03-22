@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/src/presentation/managers/section/section_screen_states.dart';
-import 'package:super_fitness_app/src/presentation/pages/explore/explore_screen.dart';
+import 'package:super_fitness_app/src/presentation/pages/explore/view/explore_screen.dart';
 import 'package:super_fitness_app/src/presentation/pages/profile/profile_screen.dart';
 import 'package:super_fitness_app/src/presentation/pages/smart_coach/smart_coach_screen.dart';
 import 'package:super_fitness_app/src/presentation/pages/workouts/workouts_screen.dart';

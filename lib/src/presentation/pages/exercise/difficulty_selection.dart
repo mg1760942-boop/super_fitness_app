@@ -12,9 +12,10 @@ class DifficultySelection extends StatelessWidget {
     return Container(
       height: 48.h,
       decoration: BoxDecoration(
-        color: AppColors.kBlackBase.withOpacity(0.9),
-        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20))
-      ),
+          color: AppColors.kBlackBase.withOpacity(0.9),
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20))),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Row(
@@ -29,13 +30,17 @@ class DifficultySelection extends StatelessWidget {
     );
   }
 
-  Widget _difficultButtonItem(String text, bool isSelected){
+  Widget _difficultButtonItem(String text, bool isSelected) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
-        color: isSelected? AppColors.mainColor: AppColors.kBlackBase,
+        color: isSelected ? AppColors.mainColor : AppColors.kBlackBase,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: isSelected? AppColors.mainColor:AppColors.kBlackBase.withOpacity(0.9), width: 1),
+        border: Border.all(
+            color: isSelected
+                ? AppColors.mainColor
+                : AppColors.kBlackBase.withOpacity(0.9),
+            width: 1),
       ),
       child: Text(
         text,

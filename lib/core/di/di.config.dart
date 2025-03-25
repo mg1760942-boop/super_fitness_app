@@ -12,6 +12,7 @@ import 'package:dio/dio.dart' as _i361;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
+import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../src/data/api/api_services.dart' as _i318;
@@ -30,6 +31,10 @@ import '../../src/data/data_source/online_data_source/meals/meals_online_datasou
     as _i869;
 import '../../src/data/data_source/online_data_source/meals/meals_online_datasource_impl.dart'
     as _i703;
+import '../../src/data/data_source/online_data_source/workouts/workouts_online_data_source.dart'
+    as _i792;
+import '../../src/data/data_source/online_data_source/workouts/workouts_online_data_source_impl.dart'
+    as _i114;
 import '../../src/data/repository/auth/auth_repository_impl.dart' as _i478;
 import '../../src/data/repository/meals/meals_repository_impl.dart' as _i82;
 import '../../src/domain/repositories/auth/auth_repository.dart' as _i701;
@@ -53,8 +58,6 @@ import '../../src/domain/usecases/auth/upload_profile_image_use_case/upload_prof
     as _i144;
 import '../../src/presentation/managers/edit_profle/edit_profile_cubit.dart'
     as _i179;
-import '../../src/presentation/managers/exercise/exercise_screen_view_model.dart'
-    as _i354;
 import '../../src/presentation/managers/explore/explore_cubit.dart' as _i23;
 import '../../src/presentation/managers/forget_password/controller_manager.dart'
     as _i753;
@@ -92,8 +95,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i212.SectionScreenViewmodel>(
         () => _i212.SectionScreenViewmodel());
-    gh.factory<_i354.ExerciseScreenViewModel>(
-        () => _i354.ExerciseScreenViewModel());
     gh.singleton<_i753.ForgetPasswordScreenControllerManger>(
         () => _i753.ForgetPasswordScreenControllerManger());
     gh.singleton<_i92.ForgetPasswordScreenValidatorManager>(
@@ -105,9 +106,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i515.UploadApiManager>(() => _i515.UploadApiManagerImpl());
     gh.factory<_i506.AuthOfflineDataSource>(
         () => _i122.AuthOfflineDataSourceImpl());
+    gh.singleton<_i318.ApiServices>(() => _i318.ApiServices(gh<_i361.Dio>()));
     gh.singleton<_i611.SecondApiService>(
         () => _i611.SecondApiService(gh<_i361.Dio>()));
-    gh.singleton<_i318.ApiServices>(() => _i318.ApiServices(gh<_i361.Dio>()));
     gh.factory<_i869.MealsOnlineDataSource>(
         () => _i703.MealsOnlineDatasourceImpl(
               gh<_i611.SecondApiService>(),
@@ -123,18 +124,18 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i599.AuthOnlineDataSource>(),
           gh<_i506.AuthOfflineDataSource>(),
         ));
-    gh.factory<_i881.ProfileUsecase>(
-        () => _i881.ProfileUsecase(gh<_i701.AuthRepository>()));
     gh.factory<_i1005.LoginUsecase>(
         () => _i1005.LoginUsecase(gh<_i701.AuthRepository>()));
+    gh.factory<_i881.ProfileUsecase>(
+        () => _i881.ProfileUsecase(gh<_i701.AuthRepository>()));
+    gh.factory<_i855.MealByCategoryUsecase>(
+        () => _i855.MealByCategoryUsecase(gh<_i1009.MealsRepository>()));
+    gh.factory<_i761.MealCategoryUsecase>(
+        () => _i761.MealCategoryUsecase(gh<_i1009.MealsRepository>()));
     gh.factory<_i809.MealDetailUsecase>(
         () => _i809.MealDetailUsecase(gh<_i1009.MealsRepository>()));
     gh.factory<_i697.GetRandomEntityUseCase>(
         () => _i697.GetRandomEntityUseCase(gh<_i1009.MealsRepository>()));
-    gh.factory<_i761.MealCategoryUsecase>(
-        () => _i761.MealCategoryUsecase(gh<_i1009.MealsRepository>()));
-    gh.factory<_i855.MealByCategoryUsecase>(
-        () => _i855.MealByCategoryUsecase(gh<_i1009.MealsRepository>()));
     gh.factory<_i829.ProfileViewmodel>(
         () => _i829.ProfileViewmodel(gh<_i881.ProfileUsecase>()));
     gh.factory<_i475.LoginViewmodel>(
@@ -145,14 +146,14 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i761.MealCategoryUsecase>(),
           gh<_i855.MealByCategoryUsecase>(),
         ));
-    gh.factory<_i673.ForgetPasswordUseCase>(
-        () => _i673.ForgetPasswordUseCase(gh<_i701.AuthRepository>()));
-    gh.factory<_i144.UploadProfileImageUseCase>(
-        () => _i144.UploadProfileImageUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i173.EditProfileUseCase>(
         () => _i173.EditProfileUseCase(gh<_i701.AuthRepository>()));
+    gh.factory<_i673.ForgetPasswordUseCase>(
+        () => _i673.ForgetPasswordUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i545.RegisterUseCase>(
         () => _i545.RegisterUseCase(gh<_i701.AuthRepository>()));
+    gh.factory<_i144.UploadProfileImageUseCase>(
+        () => _i144.UploadProfileImageUseCase(gh<_i701.AuthRepository>()));
     gh.factory<_i415.FoodRecommendationViewmodel>(
         () => _i415.FoodRecommendationViewmodel(
               gh<_i761.MealCategoryUsecase>(),

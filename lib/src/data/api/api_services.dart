@@ -1,6 +1,14 @@
+import 'dart:async';
+
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/workouts/all_exercises_response_model.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/workouts/all_prime_mover_by_group_id_response_model.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/workouts/muscles_by_id_response_model.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/workouts/muscles_group_response_model.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/workouts/random_muscles_response_model.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/logout/logout_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/meals/meals_by_category_response.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/meals/meals_detail_response.dart';
 
@@ -56,7 +64,29 @@ abstract interface class ApiServices {
       {@Body() required EditProfileRequest editProfileRequestModel});
 
 
+  @GET(ApiEndPoints.muscles)
+  Future<MusclesGroupResponseModel> getMusclesGroup();
+
+  @GET(ApiEndPoints.exercises)
+  Future<AllExercisesResponseModel> getAllExercises();
+
+  @GET(ApiEndPoints.randomMuscles)
+  Future<RandomMusclesResponseModel> getRandomMuscles();
+
+  @GET("${ApiEndPoints.musclesGroup}/{id}")
+  Future<MusclesByIdResponseModel> getMusclesByGroupId(@Path("id") String id);
+
+
+  @GET("${ApiEndPoints.musclesGroup}/${ApiEndPoints.byMuscleGroup}")
+  Future<AllPrimeMoverByGroupIdResposneModel> getAllPrimeMoverByGroupId(@Query("muscleGroupId") String muscleGroupId);
+
+
   @GET(ApiEndPoints.musclesRandom)
   Future<RecommendationResponseModel> getMusclesRandom();
+
+
+
+  @GET(ApiEndPoints.logout)
+  Future<LogoutResponseModel> logout();
 
 }

@@ -149,4 +149,10 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
     color: AppColors.kWhiteBase,
   );
+  static TextStyle font12W700 = GoogleFonts.balooThambi2(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w700,
+    color: AppColors.kWhiteBase,
+  );
 }
+

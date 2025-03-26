@@ -20,18 +20,19 @@ class ExerciseScreen extends StatelessWidget {
       child: BlocConsumer<ExerciseScreenViewModel, ExerciseScreenStates>(
         builder: (context, state) {
           return BaseScaffold(
-            body: ExerciseScreenBody(), backGroundPath: Assets.imagesBackgroundScaf,
+            body: SafeArea(top: false, child: ExerciseScreenBody()),
+            backGroundPath: Assets.imagesBackgroundScaf,
           );
         },
         listener: (context, state) {
-          _handelListenerState(context,state);
+          _handelListenerState(context, state);
         },
       ),
     );
   }
 
-  _handelListenerState(context,state){
-    if(state is NavigateToBackState){
+  _handelListenerState(context, state) {
+    if (state is NavigateToBackState) {
       Navigator.of(context).pop();
     }
   }

@@ -14,7 +14,7 @@ class DifficultySelection extends StatelessWidget {
       decoration: BoxDecoration(
           color: AppColors.kBlackBase.withOpacity(0.9),
           borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20),
+              bottomLeft: Radius.circular(30),
               bottomRight: Radius.circular(20))),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),

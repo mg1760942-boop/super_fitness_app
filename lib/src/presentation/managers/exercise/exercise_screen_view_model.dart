@@ -13,7 +13,7 @@ class ExerciseScreenViewModel extends Cubit<ExerciseScreenStates>{
 
 
 
-  doAction(ExerciseScreenActions action){
+  doAction(ExerciseScreenActions action) {
     switch (action) {
       case NavigateToBackAction():
         emit(NavigateToBackState());

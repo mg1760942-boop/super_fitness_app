@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/exercise/difficulty_levels_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/workouts/all_exercises_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/workouts/all_prime_mover_by_group_id_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/workouts/muscles_by_id_response_model.dart';
@@ -88,5 +89,8 @@ abstract interface class ApiServices {
 
   @GET(ApiEndPoints.logout)
   Future<LogoutResponseModel> logout();
+
+  @GET(ApiEndPoints.levels)
+  Future<DifficultyLevelsReponseModel> getAllLDifficultyLevels();
 
 }

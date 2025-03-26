@@ -19,4 +19,5 @@ class ApiEndPoints {
   static const String byMuscleGroup= "by-muscle-group";
   static const String musclesRandom = "muscles/random";
   static const String logout = "auth/logout";
+  static const String levels = "levels";
 }

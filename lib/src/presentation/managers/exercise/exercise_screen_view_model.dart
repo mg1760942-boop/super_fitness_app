@@ -18,6 +18,9 @@ class ExerciseScreenViewModel extends Cubit<ExerciseScreenStates>{
       case NavigateToBackAction():
         emit(NavigateToBackState());
         break;
+      case GetExerciseListAction():
+        // TODO: Handle this case.
+        throw UnimplementedError();
     }
   }
 

@@ -20,7 +20,7 @@ class ExerciseScreen extends StatelessWidget {
       child: BlocConsumer<ExerciseScreenViewModel, ExerciseScreenStates>(
         builder: (context, state) {
           return BaseScaffold(
-            body: SafeArea(top: false, child: ExerciseScreenBody()),
+            body: ExerciseScreenBody(),
             backGroundPath: Assets.imagesBackgroundScaf,
           );
         },

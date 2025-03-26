@@ -18,6 +18,7 @@ class ExerciseList extends StatelessWidget {
           color: AppColors.kBlackBase.withOpacity(0.8),
         ),
         child: ListView.builder(
+          padding: EdgeInsets.zero,
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
           itemCount: 4,

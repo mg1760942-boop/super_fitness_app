@@ -20,38 +20,39 @@ class ExerciseScreenBody extends StatelessWidget {
       slivers: [
         SliverAppBar(
           backgroundColor: AppColors.kBlackBase.withOpacity(.8),
-          expandedHeight: 300.0.h,
+          expandedHeight: 244.0.h,
           floating: false,
           pinned: true,
           leading: null,
           flexibleSpace: LayoutBuilder(
             builder: (context, constraints) {
-              bool isCollapsed = constraints.biggest.height <=150;
+              bool isCollapsed = constraints.biggest.height <= 150;
               return Stack(
                 children: [
                   FlexibleSpaceBar(
                     background: Column(
                       children: [
                         HeaderSection(),
-                        DifficultySelection()
                       ],
                     ),
                   ),
-                  if (isCollapsed) FlexibleSpaceBar(
-                    title: Text(
-                      "Exercise",
-                      style: AppTextStyles.font16w700
-                          .copyWith(color: AppColors.kWhiteBase),
+                  if (isCollapsed)
+                    FlexibleSpaceBar(
+                      title: Text(
+                        "Exercise",
+                        style: AppTextStyles.font16w700
+                            .copyWith(color: AppColors.kWhiteBase),
+                      ),
                     ),
-                  ),
                 ],
               );
             },
           ),
         ),
         SliverToBoxAdapter(
-          child: ExerciseList(),
-        )
+          child: DifficultySelection(),
+        ),
+        SliverToBoxAdapter(child: ExerciseList())
       ],
     );
   }

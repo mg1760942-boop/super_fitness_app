@@ -10,48 +10,46 @@ class ExerciseItemListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: SizedBox(
-                    width: 100.w,
-                    height: 100.h,
-                    child: Image.asset(AppImages.backgroundScafSec, fit: BoxFit.cover)
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8,top: 4),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: SizedBox(
+                  width: 100.w,
+                  height: 100.h,
+                  child: Image.asset(AppImages.backgroundScafSec, fit: BoxFit.cover)
+                ),
+              ),
+              _exerciseContent(),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(200),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.mainColor,
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 2),
+                  child: Icon(
+                    Icons.play_arrow_sharp,
+                    color: Colors.black,
+                    size: 30,
                   ),
                 ),
-                _exerciseContent(),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.mainColor,
-                    ),
-                    padding: EdgeInsets.symmetric(horizontal: 2),
-                    child: Icon(
-                      Icons.play_arrow_sharp,
-                      color: Colors.black,
-                      size: 30,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-          Container(
-            height: 0.5.h,
-            decoration: BoxDecoration(
-              color: AppColors.kGray
-            ),
-          )
-        ],
-      ),
+        ),
+        Container(
+          height: 0.5.h,
+          decoration: BoxDecoration(
+            color: AppColors.kGray
+          ),
+        )
+      ],
     );
   }
   

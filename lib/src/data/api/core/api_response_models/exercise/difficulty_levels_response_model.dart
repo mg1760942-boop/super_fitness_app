@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:super_fitness_app/src/domain/entities/exercise/difficulty_level_entity.dart';
 
 part 'difficulty_levels_response_model.g.dart';
 
@@ -21,6 +22,10 @@ class DifficultyLevelsReponseModel {
   Map<String, dynamic> toJson() {
     return _$DifficultyLevelsReponseModelToJson(this);
   }
+
+  List<DifficultyLevelEntity> toDomain(){
+    return levels!.map((e)=>e.toDomain()).toList();
+  }
 }
 
 @JsonSerializable()
@@ -41,6 +46,13 @@ class Levels {
 
   Map<String, dynamic> toJson() {
     return _$LevelsToJson(this);
+  }
+
+  DifficultyLevelEntity toDomain(){
+    return DifficultyLevelEntity(
+      id: Id,
+      name: name
+    );
   }
 }
 

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/utilities/style/app_colors.dart';
@@ -21,7 +22,6 @@ class _DifficultySelectionState extends State<DifficultySelection> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     difficultyLevels = context
         .read<ExerciseScreenViewModel>()
@@ -35,6 +35,7 @@ class _DifficultySelectionState extends State<DifficultySelection> {
   Widget build(BuildContext context) {
     final viewModel = context.read<ExerciseScreenViewModel>();
     return Container(
+      padding: EdgeInsets.symmetric(vertical: 8),
       height: 48.h,
       decoration: BoxDecoration(
           color: AppColors.kBlackBase.withOpacity(0.9),
@@ -44,10 +45,12 @@ class _DifficultySelectionState extends State<DifficultySelection> {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView.builder(
+           shrinkWrap: true,
             scrollDirection: Axis.horizontal,
             itemCount: difficultyLevels.length,
             itemBuilder: (context, index) {
-              return _difficultButtonItem(difficultyLevels[index], index,context);
+              return _difficultButtonItem(
+                  difficultyLevels[index], index, context);
             }),
       ),
     );
@@ -56,31 +59,37 @@ class _DifficultySelectionState extends State<DifficultySelection> {
   Widget _difficultButtonItem(
       DifficultyLevelEntity difficulty, int index, BuildContext context) {
     final viewModel = context.read<ExerciseScreenViewModel>();
-    return InkWell(
-      onTap: () {
-        setState(() {
-          selectedDiff = index;
-          viewModel
-              .doAction(UpdateSelectedDifficultyAction(selectedDiff: index));
-        });
-      },
-      child: AnimatedContainer(
-        duration: Duration(milliseconds: 400),
-        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-        decoration: BoxDecoration(
-          color: selectedDiff == index
-              ? AppColors.mainColor
-              : AppColors.kBlackBase,
-          borderRadius: BorderRadius.circular(100),
-          border: Border.all(
-              color: selectedDiff == index
-                  ? AppColors.mainColor
-                  : AppColors.kBlackBase.withOpacity(0.9),
-              width: 1),
-        ),
-        child: Text(
-          difficulty.name ?? "Level",
-          style: AppTextStyles.font12w700.copyWith(color: AppColors.kWhiteBase),
+    bool isSelected = selectedDiff == index;
+    return FadeInUp(
+      duration: Duration(milliseconds: 300 + index * 100),
+      child: InkWell(
+        onTap: () {
+          setState(() {
+            selectedDiff = index;
+            viewModel
+                .doAction(UpdateSelectedDifficultyAction(selectedDiff: index));
+          });
+        },
+        child: AnimatedContainer(
+          margin: EdgeInsets.only(right: 48.w),
+          duration: Duration(milliseconds: 300),
+          padding: EdgeInsets.symmetric(
+              horizontal: 8, vertical: isSelected ? 4 : 1),
+          decoration: BoxDecoration(
+            color: isSelected ? AppColors.mainColor : AppColors.kBlackBase,
+            borderRadius: BorderRadius.circular(100),
+            border: Border.all(
+                color: isSelected
+                    ? AppColors.mainColor
+                    : AppColors.kBlackBase.withOpacity(0.9),
+                width: 1),
+          ),
+          child: Text(
+            difficulty.name ?? "Level",
+            style: isSelected
+                ? AppTextStyles.font14w800
+                : AppTextStyles.font12w700.copyWith(color: AppColors.kWhiteBase),
+          ),
         ),
       ),
     );

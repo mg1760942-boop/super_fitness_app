@@ -32,7 +32,6 @@ class ExerciseItemListView extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: AppColors.mainColor,
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 2),
                   child: Icon(
                     Icons.play_arrow_sharp,
                     color: Colors.black,

@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:super_fitness_app/generated/assets.dart';
+import 'package:super_fitness_app/src/presentation/managers/exercise/exercise_screen_actions.dart';
 import 'package:super_fitness_app/src/presentation/managers/exercise/exercise_screen_states.dart';
 import 'package:super_fitness_app/src/presentation/shared/base_scaffold.dart';
 
@@ -16,9 +17,18 @@ class ExerciseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => viewModel,
+      create: (_) {
+        viewModel.doAction(GetDifficultyLevelsApiAction());
+        return viewModel;
+      },
       child: BlocConsumer<ExerciseScreenViewModel, ExerciseScreenStates>(
         builder: (context, state) {
+          if(state is ExerciseListLoadingState){
+            return Center(child: CircularProgressIndicator(),);
+          }
+          if(state is ExerciseListErrorState){
+            return Center(child: Text("Error"),);
+          }
           return BaseScaffold(
             body: ExerciseScreenBody(),
             backGroundPath: Assets.imagesBackgroundScaf,

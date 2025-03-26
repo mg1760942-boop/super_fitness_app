@@ -27,6 +27,10 @@ import '../../src/data/data_source/online_data_source/auth/auth_online_data_sour
     as _i599;
 import '../../src/data/data_source/online_data_source/auth/auth_online_data_source_impl.dart'
     as _i299;
+import '../../src/data/data_source/online_data_source/exercise/exercise_online_data_source.dart'
+    as _i277;
+import '../../src/data/data_source/online_data_source/exercise/exercise_online_data_source_impl.dart'
+    as _i940;
 import '../../src/data/data_source/online_data_source/meals/meals_online_datasource.dart'
     as _i869;
 import '../../src/data/data_source/online_data_source/meals/meals_online_datasource_impl.dart'
@@ -36,10 +40,12 @@ import '../../src/data/data_source/online_data_source/workouts/workouts_online_d
 import '../../src/data/data_source/online_data_source/workouts/workouts_online_data_source_impl.dart'
     as _i114;
 import '../../src/data/repository/auth/auth_repository_impl.dart' as _i478;
+import '../../src/data/repository/exercise/exercise_repo_impl.dart' as _i1017;
 import '../../src/data/repository/meals/meals_repository_impl.dart' as _i82;
 import '../../src/data/repository/workouts/workouts_repository_impl.dart'
     as _i239;
 import '../../src/domain/repositories/auth/auth_repository.dart' as _i701;
+import '../../src/domain/repositories/exercise/exercise_repo.dart' as _i984;
 import '../../src/domain/repositories/meals/meals_repository.dart' as _i1009;
 import '../../src/domain/repositories/workouts/workouts_repository.dart'
     as _i849;
@@ -61,6 +67,7 @@ import '../../src/domain/usecases/auth/register/register_use_case.dart'
     as _i545;
 import '../../src/domain/usecases/auth/upload_profile_image_use_case/upload_profile_image_use_case.dart'
     as _i144;
+import '../../src/domain/usecases/exercise/exercise_use_cases.dart' as _i598;
 import '../../src/domain/usecases/workouts/full_body_muscles_use_case.dart'
     as _i553;
 import '../../src/domain/usecases/workouts/get_all_exercises_use_case.dart'
@@ -116,8 +123,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i212.SectionScreenViewmodel>(
         () => _i212.SectionScreenViewmodel());
-    gh.factory<_i354.ExerciseScreenViewModel>(
-        () => _i354.ExerciseScreenViewModel());
     gh.singleton<_i753.ForgetPasswordScreenControllerManger>(
         () => _i753.ForgetPasswordScreenControllerManger());
     gh.singleton<_i92.ForgetPasswordScreenValidatorManager>(
@@ -146,6 +151,8 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i849.WorkoutsRepository>(() =>
         _i239.WorkoutsRepositoryImpl(gh<_i792.WorkoutsOnlineDataSource>()));
+    gh.factory<_i277.ExerciseOnlineDataSource>(
+        () => _i940.ExerciseOnlineDataSourceImpl(gh<_i318.ApiServices>()));
     gh.factory<_i1009.MealsRepository>(
         () => _i82.MealsRepositoryImpl(gh<_i869.MealsOnlineDataSource>()));
     gh.factory<_i701.AuthRepository>(() => _i478.AuthRepositoryImpl(
@@ -156,6 +163,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i881.ProfileUsecase(gh<_i701.AuthRepository>()));
     gh.factory<_i1005.LoginUsecase>(
         () => _i1005.LoginUsecase(gh<_i701.AuthRepository>()));
+    gh.factory<_i984.ExerciseRepo>(
+        () => _i1017.ExerciseRepoImpl(gh<_i277.ExerciseOnlineDataSource>()));
     gh.factory<_i809.MealDetailUsecase>(
         () => _i809.MealDetailUsecase(gh<_i1009.MealsRepository>()));
     gh.factory<_i697.GetRandomEntityUseCase>(
@@ -172,6 +181,8 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i761.MealCategoryUsecase>(),
           gh<_i855.MealByCategoryUsecase>(),
         ));
+    gh.factory<_i598.ExerciseUseCases>(
+        () => _i598.ExerciseUseCases(gh<_i984.ExerciseRepo>()));
     gh.factory<_i791.GetExercisesByMuscleIdUseCase>(() =>
         _i791.GetExercisesByMuscleIdUseCase(gh<_i849.WorkoutsRepository>()));
     gh.factory<_i495.GetAllPrimeMoverByMuscleGroupIdUseCase>(() =>
@@ -215,6 +226,8 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i278.RegisterViewModel>(
         () => _i278.RegisterViewModel(gh<_i545.RegisterUseCase>()));
+    gh.factory<_i354.ExerciseScreenViewModel>(
+        () => _i354.ExerciseScreenViewModel(gh<_i598.ExerciseUseCases>()));
     gh.factory<_i179.EditProfileCubit>(() => _i179.EditProfileCubit(
           gh<_i173.EditProfileUseCase>(),
           gh<_i144.UploadProfileImageUseCase>(),

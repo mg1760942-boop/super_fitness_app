@@ -1,82 +1,133 @@
-# Super Fitness
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Super Fitness</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f7f7f7;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #0e4d92;
+    }
+    code {
+      background-color: #eee;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    hr {
+      margin: 40px 0;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    table {
+      width: 100%;
+      text-align: center;
+      border-spacing: 20px;
+    }
+    a {
+      color: #0e4d92;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
 
-Welcome to **Super Fitness**, a Flutter application designed to help users achieve their fitness goals through personalized workouts, smart coaching, and nutrition recommendations.
+<h1>Super Fitness</h1>
+<p>Welcome to <strong>Super Fitness</strong>, a Flutter application designed to help users achieve their fitness goals through personalized workouts, smart coaching, and nutrition recommendations.</p>
 
----
+<hr>
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Architecture & Technology](#architecture--technology)
-- [Project Structure](#project-structure)
-- [Screenshots](#screenshots)
-- [Contributors](#contributors)
-- [Task Management](#task-management)
-- [Setup Instructions](#setup-instructions)
-- [How to Contribute](#how-to-contribute)
-- [License](#license)
+<h2>Table of Contents</h2>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#features">Features</a></li>
+  <li><a href="#architecture">Architecture & Technology</a></li>
+  <li><a href="#structure">Project Structure</a></li>
+  <li><a href="#screenshots">Screenshots</a></li>
+  <li><a href="#contributors">Contributors</a></li>
+  <li><a href="#setup">Setup Instructions</a></li>
+  <li><a href="#contribute">How to Contribute</a></li>
+  <li><a href="#license">License</a></li>
+</ul>
 
----
+<hr>
 
-## Introduction
+<h2 id="introduction">Introduction</h2>
+<p><strong>Super Fitness</strong> is a cross-platform mobile app built with Flutter that offers:</p>
+<ul>
+  <li>Personalized workout routines</li>
+  <li>Smart AI coaching</li>
+  <li>Nutrition recommendations</li>
+</ul>
 
-**Super Fitness** is a cross-platform mobile application built with Flutter. Our mission is to empower users with an all-in-one fitness solution that combines:
-- Personalized workout routines
-- Smart AI coaching
-- Nutrition/food recommendations
+<hr>
 
-With an intuitive UI and carefully designed user flow, **Super Fitness** makes it easy for users to track their progress, set goals, and stay motivated.
+<h2 id="features">Features</h2>
 
----
+<h3>1. Authentication and User Info Gathering</h3>
+<ul>
+  <li><strong>Sign Up / Sign In</strong>: Secure user authentication</li>
+  <li><strong>User Details</strong>: Collects age, weight, height, gender, goals, and activity level</li>
+  <li><strong>Profile Completion</strong>: Guides users for accurate data entry</li>
+</ul>
 
-## Features
+<h3>2. Smart Coach (AI Assistance)</h3>
+<ul>
+  <li><strong>AI Chat</strong>: Smart coach interaction</li>
+  <li><strong>Chat History</strong>: Saves and displays previous conversations</li>
+  <li><strong>Personalized Tips</strong>: Guidance based on user profile</li>
+</ul>
 
-### 1. Authentication and User Info Gathering
-- **Sign Up / Sign In**: Secure user authentication.
-- **User Details**: Collects essential user information (age, weight, height, gender, fitness goal, physical activity level).
-- **Profile Completion**: Guides users to provide accurate data for more personalized recommendations.
+<h3>3. Home Screen</h3>
+<ul>
+  <li><strong>Food Suggestions</strong>: Based on goals and preferences</li>
+  <li><strong>Workout Categories</strong>: Gym, Yoga, Trainer, etc.</li>
+  <li><strong>Trending Workouts</strong></li>
+</ul>
 
-### 2. Smart Coach (AI Assistance)
-- **AI Chat Assistance**: Interact with an AI-based smart coach.
-- **Chat History**: Stores and displays conversation history for easy reference.
-- **Personalized Guidance**: Receives workout, nutrition, and motivational tips based on your profile.
+<h3>4. Workouts Screen</h3>
+<ul>
+  <li><strong>Workout List & Details</strong>: Duration, Equipment, Video Links</li>
+</ul>
 
-### 3. Home Screen
-- **Food Recommendations**: Suggests healthy meals and snacks based on user goals and preferences.
-- **Categories**: Showcases workout categories (e.g., Gym, Fitness, Yoga, Aerobics, Trainer) with illustrative icons.
-- **Popular Training**: Highlights trending or popular workout programs.
+<h3>5. Profile Screen</h3>
+<ul>
+  <li><strong>Overview</strong>: User stats</li>
+  <li><strong>Edit Info</strong>: Update preferences</li>
+  <li><strong>Progress Tracking</strong>: (Coming soon)</li>
+</ul>
 
-### 4. Workouts Screen
-- **Workout List**: Displays various workouts.
-- **Workout Details**: Each workout page includes:
-    - Description
-    - Duration
-    - Equipment Needed
-    - YouTube video links for guidance
+<hr>
 
-### 5. Profile Screen
-- **Profile Overview**: Displays user data such as age, weight, height, etc.
-- **Edit Information**: Allows users to update their details and preferences.
-- **Progress Tracking**: (Future enhancement) Track workout completion and body measurements.
+<h2 id="architecture">Architecture & Technology</h2>
+<ul>
+  <li><strong>Clean Architecture</strong></li>
+  <li><strong>Cubit</strong> for State Management</li>
+  <li><strong>Injectable</strong> for Dependency Injection</li>
+  <li><strong>Repository Pattern</strong></li>
+  <li><strong>Retrofit</strong> for API</li>
+  <li><strong>Localization</strong> with .arb files</li>
+</ul>
 
----
+<hr>
 
-## Architecture & Technology
+<h2 id="structure">Project Structure</h2>
 
-- **Clean Architecture**: Separates the app into distinct layers for presentation, domain, and data.
-- **State Management**: Utilizes **Cubit** (from the Bloc library) for predictable state management.
-- **Dependency Injection**: Implemented using [Injectable](https://pub.dev/packages/injectable).
-- **Repository Pattern**: Abstracts data operations for local and remote sources.
-- **API Calls**: Uses [Retrofit](https://pub.dev/packages/retrofit) for network requests.
-- **Localization**: Supports multiple languages with easy expansion using `.arb` files.
-
----
-
-## Project Structure
-
-Below is the current file structure for **Super Fitness**:
-
-```text
+<pre>
 src/
 ├── data/
 │   ├── api/
@@ -91,7 +142,6 @@ src/
 │   │   ├── api_services.g.dart
 │   │   └── network_factory.dart
 │   ├── data_source/
-│   └── ...
 ├── domain/
 │   ├── entities/
 │   ├── repositories/
@@ -102,126 +152,98 @@ src/
 │   └── shared/
 ├── main.dart
 └── super_fitness_app.dart
-```
----
+</pre>
 
-### Explanation
-- **data**: Holds all data-related logic, including:
-    - **api**: Contains API service classes, request/response models, constants, and error handling.
-    - **data_source**: Interfaces or classes for data retrieval (e.g., local DB or network).
-- **domain**: Contains core business logic:
-    - **entities**: Represents the fundamental data structures (plain Dart objects).
-    - **repositories**: Abstract classes that define data operations.
-    - **usecases**: Contain the application-specific business rules.
-- **presentation**: Manages the user interface and state:
-    - **managers**: Contains Cubits/Blocs or other state management classes.
-    - **pages**: UI screens for the app (Home, Workouts, Profile, etc.).
-    - **shared**: Shared widgets, themes, or utility classes used across multiple pages.
-- **main.dart**: Entry point for the Flutter application.
-- **super_ditness_app.dart**: The root widget that configures your app’s theme, routes, localization, etc.
+<hr>
 
-## Screenshots
+<h2 id="screenshots">Screenshots</h2>
+<p><strong>Home Screen</strong></p>
+<img src="screenshots/home_screen.png" alt="Home Screen">
+<p><strong>Workouts Screen</strong></p>
+<img src="screenshots/workouts_screen.png" alt="Workouts Screen">
+<p><strong>Profile Screen</strong></p>
+<img src="screenshots/profile_screen.png" alt="Profile Screen">
+<p><strong>Smart Coach Chat</strong></p>
+<img src="screenshots/smart_coach_chat.png" alt="Smart Coach Chat">
 
-Below are some placeholder screenshots. Replace these with actual images of your app.
+<hr>
 
-### Home Screen
-![Home Screen](screenshots/home_screen.png)
-*The Home Screen features food recommendations, workout categories, and popular training programs.*
+<h2 id="setup">Setup Instructions</h2>
+<ol>
+  <li>Clone the repo:
+    <pre><code>git clone https://github.com/your-username/super_fitness.git</code></pre>
+  </li>
+  <li>Navigate into project:
+    <pre><code>cd super_fitness</code></pre>
+  </li>
+  <li>Install packages:
+    <pre><code>flutter pub get</code></pre>
+  </li>
+  <li>Generate DI files:
+    <pre><code>flutter pub run build_runner build --delete-conflicting-outputs</code></pre>
+  </li>
+  <li>Run the app:
+    <pre><code>flutter run</code></pre>
+  </li>
+</ol>
 
-### Workouts Screen
-![Workouts Screen](screenshots/workouts_screen.png)
-*The Workouts Screen lists available workouts and detailed pages with YouTube video integrations.*
+<hr>
 
-### Profile Screen
-![Profile Screen](screenshots/profile_screen.png)
-*The Profile Screen allows users to view and edit their personal information.*
+<h2 id="contribute">How to Contribute</h2>
+<p>Follow these steps:</p>
+<ol>
+  <li>Fork the repository</li>
+  <li>Create a feature branch:
+    <pre><code>git checkout -b feature/your-feature</code></pre>
+  </li>
+  <li>Commit your changes:
+    <pre><code>git commit -m "Your message"</code></pre>
+  </li>
+  <li>Push:
+    <pre><code>git push origin feature/your-feature</code></pre>
+  </li>
+  <li>Create a Pull Request</li>
+  <li>Follow coding standards and comment your code</li>
+  <li>Test your changes thoroughly</li>
+</ol>
 
-### Smart Coach Chat
-![Smart Coach Chat](screenshots/smart_coach_chat.png)
-*Interact with the AI-based Smart Coach through an intuitive chat interface.*
+<hr>
 
-## Setup Instructions
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for details.</p>
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/super_fitness.git
-    ```
-2. **Navigate to the project directory**:
-   ```bash
-   cd super_fitness
-   ```
-3. **Install dependencies**:
-   ```bash
-    flutter pub get
-    ```
-4. **Generate files using Injectable (for dependency injection)**:
-    ```bash
-    flutter pub run build_runner build --delete-conflicting-outputs
-    ```
-5. **Run the app**:
-    ```bash
-    flutter run
-    ```
-   
+<hr>
 
-## How to Contribute
-We welcome contributions! If you would like to contribute to **Super Fitness**, please follow these steps:
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Make your changes and commit them:
-   ```bash
-    git commit -m "Add your commit message"
-    ```
-4. Push to your branch:
-    ```bash
-    git push origin feature/your-feature-name
-    ```
-5. Create a pull request to the main repository.
-6. Ensure your code adheres to the project's coding standards and passes all tests.
-7. Update the documentation if necessary.
-8. Add tests for new features or bug fixes.
-9. Ensure your code is well-commented and follows the project's style guide.
-10. Test your changes thoroughly before submitting the pull request.
-11. Be respectful and open to feedback from the maintainers and other contributors.
-12. Be patient! It may take some time for your pull request to be reviewed and merged.
-13. If your pull request is accepted, celebrate your contribution to the project! 🎉
-14. If your pull request is not accepted, don't be discouraged. Use the feedback to improve your code and try again.
-
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-Feel free to modify and distribute this project as per the terms of the license.
-```
-## 👥 Contributors
-
+<h2 id="contributors">👥 Contributors</h2>
 
 <table>
   <tr>
-    <td align="center">
+    <td>
       <a href="https://github.com/ahmed-sala">
-        <img src="https://avatars.githubusercontent.com/ahmed-sala" alt="Ahmed Salah" width="150" />
-        <br /><sub><b>Ahmed Salah</b></sub>
+        <img src="https://avatars.githubusercontent.com/ahmed-sala" width="150" alt="Ahmed Salah">
+        <br><strong>Ahmed Salah</strong><br>
+        Team Leader & Flutter Developer<br>
+        Commits: 45 | Pushes: 30
       </a>
-      <br />Team Leader & Flutter Developer  
-      Commits: 45 | Pushes: 30
     </td>
-    <td align="center">
+    <td>
       <a href="https://github.com/OmarHamedMakram123">
-        <img src="https://avatars.githubusercontent.com/OmarHamedMakram123" alt="Omar Makram" width="150" />
-        <br /><sub><b>Omar Makram</b></sub>
+        <img src="https://avatars.githubusercontent.com/OmarHamedMakram123" width="150" alt="Omar Makram">
+        <br><strong>Omar Makram</strong><br>
+        Flutter Developer & UI Designer<br>
+        Commits: 38 | Pushes: 25
       </a>
-      <br />Flutter Developer & UI Designer  
-      Commits: 38 | Pushes: 25
     </td>
-    <td align="center">
+    <td>
       <a href="https://github.com/ali72-20">
-        <img src="https://avatars.githubusercontent.com/ali72-20" alt="Ali Safwat" width="150" />
-        <br /><sub><b>Ali Safwat</b></sub>
+        <img src="https://avatars.githubusercontent.com/ali72-20" width="150" alt="Ali Safwat">
+        <br><strong>Ali Safwat</strong><br>
+        Backend Integration & State Mgmt<br>
+        Commits: 41 | Pushes: 27
       </a>
-      <br />Backend Integration & State Mgmt  
-      Commits: 41 | Pushes: 27
     </td>
   </tr>
 </table>
+
+</body>
+</html>

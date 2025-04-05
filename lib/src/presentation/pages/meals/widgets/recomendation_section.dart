@@ -8,9 +8,9 @@ class RecommendationSection extends StatelessWidget {
   final List<dynamic> randomMeals;
 
   const RecommendationSection({
-    Key? key,
+    super.key,
     required this.randomMeals,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

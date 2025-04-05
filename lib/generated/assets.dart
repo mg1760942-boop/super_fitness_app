@@ -24,6 +24,7 @@ class Assets {
   static const String iconsSecurityIcon = 'assets/icons/security_icon.svg';
   static const String iconsUserIcon = 'assets/icons/user_icon.svg';
   static const String iconsWorkout = 'assets/icons/workout.svg';
+  static const String imagesAgranegee = 'assets/images/agranegee.png';
   static const String imagesAndroidTwelveSplash =
       'assets/images/android_twelve_splash.png';
   static const String imagesAppIcon = 'assets/images/app_icon.png';
@@ -35,10 +36,14 @@ class Assets {
       'assets/images/base_background.png';
   static const String imagesBellowTwelveSplash =
       'assets/images/bellow_twelve_splash.png';
+  static const String imagesFintness = 'assets/images/fintness.png';
+  static const String imagesGym = 'assets/images/gym.png';
   static const String imagesOnboardingFirst =
       'assets/images/onboarding_first.png';
   static const String imagesOnboardingSecond =
       'assets/images/onboarding_second.png';
   static const String imagesOnboardingThird =
       'assets/images/onboarding_third.png';
+  static const String imagesTineaer = 'assets/images/tineaer.png';
+  static const String imagesYogo = 'assets/images/yogo.png';
 }

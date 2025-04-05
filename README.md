@@ -4,7 +4,6 @@
   <link rel="stylesheet" href="styles.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
 </head>
 <body>
 <h2 id="screenshots">Screenshots</h2>
@@ -134,8 +133,6 @@ src/
 └── super_fitness_app.dart
 </pre>
 
-
-
 <h2 id="setup">Setup Instructions</h2>
 <ol>
   <li>Clone the repo:
@@ -212,8 +209,7 @@ src/
   </tr>
 </table>
 
-<!-- Other content... -->
-
+<!-- Only ONE script block below -->
 <script>
   const owner = 'OmarHamedMakram123';
   const repo = 'super_fitness_app';

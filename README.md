@@ -216,8 +216,8 @@ src/
 
 <script>
   // Update these variables with your repository details
-  const owner = 'your-username';
-  const repo = 'super_fitness';
+  const owner = 'OmarHamedMakram123';
+  const repo = 'super_fitness_app';
 
   // Map GitHub usernames to the corresponding span element IDs
   const contributorsMap = {

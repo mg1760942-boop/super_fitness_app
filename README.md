@@ -130,7 +130,7 @@ src/
     <p><strong>Workouts Screen</strong></p>
   </div>
   <div class="screenshot-item">
-    <img src="screenshots/profile_screen.png" alt="Profile Screen">
+    <img src="screenshots/profile_screen_new.png" alt="Profile Screen">
     <p><strong>Profile Screen</strong></p>
   </div>
   <div class="screenshot-item">

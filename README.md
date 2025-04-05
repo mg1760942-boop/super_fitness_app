@@ -105,6 +105,9 @@ src/
 │   │   ├── api_services.g.dart
 │   │   └── network_factory.dart
 │   ├── data_source/
+│   │   ├── local/
+│   │   ├── online/
+│   ├── repositories_impl/
 ├── domain/
 │   ├── entities/
 │   ├── repositories/

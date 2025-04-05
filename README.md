@@ -183,15 +183,14 @@ src/
 <hr>
 
 <h2 id="contributors">👥 Contributors</h2>
-
-<table>
+<table id="contributors-table">
   <tr>
     <td>
       <a href="https://github.com/ahmed-sala">
         <img src="https://avatars.githubusercontent.com/ahmed-sala" width="150" alt="Ahmed Salah">
         <br><strong>Ahmed Salah</strong><br>
         Flutter Developer<br>
-        Commits: 45 | Pushes: 30
+        Commits: <span id="commits-ahmed">Loading...</span>
       </a>
     </td>
     <td>
@@ -199,7 +198,7 @@ src/
         <img src="https://avatars.githubusercontent.com/OmarHamedMakram123" width="150" alt="Omar Makram">
         <br><strong>Omar Makram</strong><br>
         Flutter Developer<br>
-        Commits: 38 | Pushes: 25
+        Commits: <span id="commits-omar">Loading...</span>
       </a>
     </td>
     <td>
@@ -207,11 +206,49 @@ src/
         <img src="https://avatars.githubusercontent.com/ali72-20" width="150" alt="Ali Safwat">
         <br><strong>Ali Safwat</strong><br>
         Flutter Developer<br>
-        Commits: 41 | Pushes: 27
+        Commits: <span id="commits-ali">Loading...</span>
       </a>
     </td>
   </tr>
 </table>
+
+<!-- Other content... -->
+
+<script>
+  // Update these variables with your repository details
+  const owner = 'your-username';
+  const repo = 'super_fitness';
+
+  // Map GitHub usernames to the corresponding span element IDs
+  const contributorsMap = {
+    'ahmed-sala': 'commits-ahmed',
+    'OmarHamedMakram123': 'commits-omar',
+    'ali72-20': 'commits-ali'
+  };
+
+  // Fetch contributor statistics from GitHub API
+  fetch(`https://api.github.com/repos/${owner}/${repo}/stats/contributors`)
+    .then(response => response.json())
+    .then(data => {
+      // Check if data is valid and is an array
+      if (Array.isArray(data)) {
+        data.forEach(contributor => {
+          const username = contributor.author.login;
+          const commitCount = contributor.total;
+          // If the contributor is in our map, update the DOM
+          if (contributorsMap[username]) {
+            document.getElementById(contributorsMap[username]).textContent = commitCount;
+          }
+        });
+      } else {
+        console.error('Unexpected data format:', data);
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching contributor data:', error);
+      // Optionally display an error message in your UI
+    });
+</script>
 
 </body>
 </html>

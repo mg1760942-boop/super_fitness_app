@@ -4,45 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Super Fitness</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f7f7f7;
-      color: #333;
-      line-height: 1.6;
-    }
-    h1, h2, h3 {
-      color: #0e4d92;
-    }
-    code {
-      background-color: #eee;
-      padding: 2px 5px;
-      border-radius: 3px;
-    }
-    pre {
-      background: #eee;
-      padding: 10px;
-      border-radius: 5px;
-      overflow-x: auto;
-    }
-    hr {
-      margin: 40px 0;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    table {
-      width: 100%;
-      text-align: center;
-      border-spacing: 20px;
-    }
-    a {
-      color: #0e4d92;
-      text-decoration: none;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
 
@@ -157,16 +120,28 @@ src/
 <hr>
 
 <h2 id="screenshots">Screenshots</h2>
-<p><strong>Home Screen</strong></p>
-<img src="screenshots/home_screen.png" alt="Home Screen">
-<p><strong>Workouts Screen</strong></p>
-<img src="screenshots/workouts_screen.png" alt="Workouts Screen">
-<p><strong>Profile Screen</strong></p>
-<img src="screenshots/profile_screen.png" alt="Profile Screen">
-<p><strong>Smart Coach Chat</strong></p>
-<img src="screenshots/smart_coach_chat.png" alt="Smart Coach Chat">
-
-<hr>
+<div class="screenshot-grid">
+  <div>
+    <p><strong>Home Screen</strong></p>
+    <img src="screenshots/home_screen.png" alt="Home Screen">
+  </div>
+  <div>
+    <p><strong>Workouts Screen</strong></p>
+    <img src="screenshots/workouts_screen.png" alt="Workouts Screen">
+  </div>
+  <div>
+    <p><strong>Profile Screen</strong></p>
+    <img src="screenshots/profile_screen.png" alt="Profile Screen">
+  </div>
+  <div>
+    <p><strong>Smart Coach Chat</strong></p>
+    <img src="screenshots/smart_coach_chat.png" alt="Smart Coach Chat">
+  </div>
+  <div>
+    <p><strong>Food Recommendation Screen</strong></p>
+    <img src="screenshots/food_recommendation_screen.png" alt="Food Recommendation Screen">
+  </div>
+</div>
 
 <h2 id="setup">Setup Instructions</h2>
 <ol>

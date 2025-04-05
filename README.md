@@ -121,25 +121,25 @@ src/
 
 <h2 id="screenshots">Screenshots</h2>
 <div class="screenshot-grid">
-  <div>
-    <p><strong>Home Screen</strong></p>
+  <div class="screenshot-item">
     <img src="screenshots/home_screen.png" alt="Home Screen">
+    <p><strong>Home Screen</strong></p>
   </div>
-  <div>
-    <p><strong>Workouts Screen</strong></p>
+  <div class="screenshot-item">
     <img src="screenshots/workouts_screen.png" alt="Workouts Screen">
+    <p><strong>Workouts Screen</strong></p>
   </div>
-  <div>
-    <p><strong>Profile Screen</strong></p>
+  <div class="screenshot-item">
     <img src="screenshots/profile_screen.png" alt="Profile Screen">
+    <p><strong>Profile Screen</strong></p>
   </div>
-  <div>
-    <p><strong>Smart Coach Chat</strong></p>
+  <div class="screenshot-item">
     <img src="screenshots/smart_coach_chat.png" alt="Smart Coach Chat">
+    <p><strong>Smart Coach Chat</strong></p>
   </div>
-  <div>
-    <p><strong>Food Recommendation Screen</strong></p>
+  <div class="screenshot-item">
     <img src="screenshots/food_recommendation_screen.png" alt="Food Recommendation Screen">
+    <p><strong>Food Recommendation Screen</strong></p>
   </div>
 </div>
 
@@ -199,7 +199,7 @@ src/
       <a href="https://github.com/ahmed-sala">
         <img src="https://avatars.githubusercontent.com/ahmed-sala" width="150" alt="Ahmed Salah">
         <br><strong>Ahmed Salah</strong><br>
-        Team Leader & Flutter Developer<br>
+        Flutter Developer<br>
         Commits: 45 | Pushes: 30
       </a>
     </td>
@@ -207,7 +207,7 @@ src/
       <a href="https://github.com/OmarHamedMakram123">
         <img src="https://avatars.githubusercontent.com/OmarHamedMakram123" width="150" alt="Omar Makram">
         <br><strong>Omar Makram</strong><br>
-        Flutter Developer & UI Designer<br>
+        Flutter Developer<br>
         Commits: 38 | Pushes: 25
       </a>
     </td>
@@ -215,7 +215,7 @@ src/
       <a href="https://github.com/ali72-20">
         <img src="https://avatars.githubusercontent.com/ali72-20" width="150" alt="Ali Safwat">
         <br><strong>Ali Safwat</strong><br>
-        Backend Integration & State Mgmt<br>
+        Flutter Developer<br>
         Commits: 41 | Pushes: 27
       </a>
     </td>

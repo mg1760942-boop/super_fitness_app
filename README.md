@@ -8,6 +8,21 @@
 
 </head>
 <body>
+<h2 id="screenshots">Screenshots</h2>
+<div class="screenshot-grid">
+  <div class="screenshot-item">
+    <img src="screenshots/home_screen.png" alt="Home Screen">
+    <p><strong>Home Screen</strong></p>
+  </div>
+  <div class="screenshot-item">
+    <img src="screenshots/workouts_screen.png" alt="Workouts Screen">
+    <p><strong>Workouts Screen</strong></p>
+  </div>
+  <div class="screenshot-item">
+    <img src="screenshots/profile_screen_new.png" alt="Profile Screen">
+    <p><strong>Profile Screen</strong></p>
+  </div>
+</div>
 
 <h1>Super Fitness</h1>
 <p>Welcome to <strong>Super Fitness</strong>, a Flutter application designed to help users achieve their fitness goals through personalized workouts, smart coaching, and nutrition recommendations.</p>
@@ -120,33 +135,7 @@ src/
 └── super_fitness_app.dart
 </pre>
 
-<hr>
 
-<h2 id="screenshots">Screenshots</h2>
-<div class="screenshot-grid">
-  <div class="screenshot-item">
-    <img src="screenshots/home_screen.png" alt="Home Screen">
-    <p><strong>Home Screen</strong></p>
-  </div>
-  <div class="screenshot-item">
-    <img src="screenshots/workouts_screen.png" alt="Workouts Screen">
-    <p><strong>Workouts Screen</strong></p>
-  </div>
-  <div class="screenshot-item">
-    <img src="screenshots/profile_screen_new.png" alt="Profile Screen">
-    <p><strong>Profile Screen</strong></p>
-  </div>
-  <div class="screenshot-item">
-    <img src="screenshots/smart_coach_chat.png" alt="Smart Coach Chat">
-    <p><strong>Smart Coach Chat</strong></p>
-  </div>
-  <div class="screenshot-item">
-    <img src="screenshots/food_recommendation_screen.png" alt="Food Recommendation Screen">
-    <p><strong>Food Recommendation Screen</strong></p>
-  </div>
-</div>
-
-<hr>
 
 <h2 id="setup">Setup Instructions</h2>
 <ol>

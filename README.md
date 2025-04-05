@@ -143,6 +143,8 @@ src/
   </div>
 </div>
 
+<hr>
+
 <h2 id="setup">Setup Instructions</h2>
 <ol>
   <li>Clone the repo:

@@ -76,31 +76,34 @@ With an intuitive UI and carefully designed user flow, **Super Fitness** makes i
 
 Below is the current file structure for **Super Fitness**:
 
+```text
 src/
 ├── data/
-│    ├── api/
-│    │    ├── core/
-│    │    │    ├── api_request_models/
-│    │    │    ├── api_response_models/
-│    │    │    ├── constants/
-│    │    │    └── errors/
-│    │    ├── second_base_url/
-│    │    ├── upload_api_manger/
-│    │    ├── api_services.dart
-│    │    ├── api_services.g.dart
-│    │    └── network_factory.dart
-│    ├── data_source/
-│    └── ... (other data related files)
+│   ├── api/
+│   │   ├── core/
+│   │   │   ├── api_request_models/
+│   │   │   ├── api_response_models/
+│   │   │   ├── constants/
+│   │   │   └── errors/
+│   │   ├── second_base_url/
+│   │   ├── upload_api_manger/
+│   │   ├── api_services.dart
+│   │   ├── api_services.g.dart
+│   │   └── network_factory.dart
+│   ├── data_source/
+│   └── ...
 ├── domain/
-│    ├── entities/
-│    ├── repositories/
-│    └── usecases/
+│   ├── entities/
+│   ├── repositories/
+│   └── usecases/
 ├── presentation/
-│    ├── managers/      // Cubit/Bloc and state management classes
-│    ├── pages/         // Screens (Home, Workouts, Profile, etc.)
-│    └── shared/        // Shared widgets, themes, and utilities
+│   ├── managers/
+│   ├── pages/
+│   └── shared/
 ├── main.dart
-└── super_ditness_app.dart
+└── super_fitness_app.dart
+```
+---
 
 ### Explanation
 - **data**: Holds all data-related logic, including:
@@ -193,11 +196,12 @@ Feel free to modify and distribute this project as per the terms of the license.
 ```
 ## 👥 Contributors
 
+
 <table>
   <tr>
     <td align="center">
       <a href="https://github.com/ahmed-sala">
-        <img src="https://github-readme-stats.vercel.app/api?username=ahmed-sala&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default" alt="Ahmed Salah" width="150" />
+        <img src="https://avatars.githubusercontent.com/ahmed-sala" alt="Ahmed Salah" width="150" />
         <br /><sub><b>Ahmed Salah</b></sub>
       </a>
       <br />Team Leader & Flutter Developer  
@@ -205,7 +209,7 @@ Feel free to modify and distribute this project as per the terms of the license.
     </td>
     <td align="center">
       <a href="https://github.com/OmarHamedMakram123">
-        <img src="https://github-readme-stats.vercel.app/api?username=OmarHamedMakram123&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default" alt="Omar Makram" width="150" />
+        <img src="https://avatars.githubusercontent.com/OmarHamedMakram123" alt="Omar Makram" width="150" />
         <br /><sub><b>Omar Makram</b></sub>
       </a>
       <br />Flutter Developer & UI Designer  
@@ -213,7 +217,7 @@ Feel free to modify and distribute this project as per the terms of the license.
     </td>
     <td align="center">
       <a href="https://github.com/ali72-20">
-        <img src="https://github-readme-stats.vercel.app/api?username=ali72-20&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default" alt="Ali Safwat" width="150" />
+        <img src="https://avatars.githubusercontent.com/ali72-20" alt="Ali Safwat" width="150" />
         <br /><sub><b>Ali Safwat</b></sub>
       </a>
       <br />Backend Integration & State Mgmt  
@@ -221,4 +225,3 @@ Feel free to modify and distribute this project as per the terms of the license.
     </td>
   </tr>
 </table>
-

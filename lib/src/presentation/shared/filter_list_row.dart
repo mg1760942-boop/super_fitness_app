@@ -2,7 +2,7 @@ import '../../../core/common/common_imports.dart';
 
 class FilterListRow extends StatelessWidget {
   final List<String> categories;
-  final String selectedCategory;
+  final String? selectedCategory;
   final Function(String) onCategorySelected;
 
   const FilterListRow({

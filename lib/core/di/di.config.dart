@@ -85,6 +85,8 @@ import '../../src/presentation/managers/forget_password/validation_manager.dart'
 import '../../src/presentation/managers/login/login_viewmodel.dart' as _i475;
 import '../../src/presentation/managers/meals/foodRecomendation/food_recommendation_viewmodel.dart'
     as _i415;
+import '../../src/presentation/managers/meals/meal_detail/meal_detail_cubit.dart'
+    as _i1042;
 import '../../src/presentation/managers/profile/profile_viewmodel.dart'
     as _i829;
 import '../../src/presentation/managers/register/register_viewmodel.dart'
@@ -160,6 +162,11 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i761.MealCategoryUsecase(gh<_i1009.MealsRepository>()));
     gh.factory<_i809.MealDetailUsecase>(
         () => _i809.MealDetailUsecase(gh<_i1009.MealsRepository>()));
+
+    gh.factory<_i829.ProfileViewmodel>(
+        () => _i829.ProfileViewmodel(gh<_i881.ProfileUsecase>()));
+
+
     gh.factory<_i475.LoginViewmodel>(
         () => _i475.LoginViewmodel(gh<_i1005.LoginUsecase>()));
     gh.factory<_i23.ExploreCubit>(() => _i23.ExploreCubit(
@@ -196,6 +203,10 @@ extension GetItInjectableX on _i174.GetIt {
               gh<_i761.MealCategoryUsecase>(),
               gh<_i855.MealByCategoryUsecase>(),
             ));
+
+    gh.factory<_i1042.MealDetailCubit>(
+        () => _i1042.MealDetailCubit(gh<_i809.MealDetailUsecase>()));
+
     gh.factory<_i681.WorkoutsScreenViewModel>(
         () => _i681.WorkoutsScreenViewModel(
               gh<_i534.MusclesGroupUseCase>(),
@@ -209,6 +220,7 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i881.ProfileUsecase>(),
           gh<_i1039.LogoutUseCase>(),
         ));
+
     gh.factory<_i278.RegisterViewModel>(
         () => _i278.RegisterViewModel(gh<_i545.RegisterUseCase>()));
     gh.factory<_i179.EditProfileCubit>(() => _i179.EditProfileCubit(

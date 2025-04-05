@@ -78,5 +78,8 @@
   "recommendationForYou": "Recommendation For You",
   "seeAll": "See All",
   "recommendationOfTheDay": "Recommendation of the Day",
-  "upcomingWorkouts": "Upcoming Workouts"
+  "upcomingWorkouts": "Upcoming Workouts",
+  "ingredients": "Ingredients",
+  "foodRecommendation": "Food Recommendation",
+  "recommendation": "Recommendation"
 }

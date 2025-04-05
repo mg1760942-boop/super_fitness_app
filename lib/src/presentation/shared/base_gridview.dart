@@ -7,12 +7,13 @@ class BaseGridview<T> extends StatelessWidget {
     required this.items,
     required this.titleBuilder,
     required this.imageUrlBuilder,
+    required this.onTap,
   });
 
   final List<T>? items;
   final String Function(T?) titleBuilder;
   final String Function(T?) imageUrlBuilder;
-
+  final Function(int index) onTap;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -28,45 +29,50 @@ class BaseGridview<T> extends StatelessWidget {
           final title = titleBuilder(item);
           final imageUrl = imageUrlBuilder(item);
 
-          return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Stack(
-              children: [
-                // Background Image
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: CachedNetworkImageWidget(
-                    imageUrl: imageUrl,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                    height: double.infinity,
-                  ),
-                ),
-                // Opacity Layer
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
+          return InkWell(
+            onTap: () {
+              onTap(index);
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Stack(
+                children: [
+                  // Background Image
+                  ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-                // Text on top
-                Positioned(
-                  bottom: 10,
-                  left: 10,
-                  right: 10,
-                  child: Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                    child: CachedNetworkImageWidget(
+                      imageUrl: imageUrl,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: double.infinity,
                     ),
                   ),
-                ),
-              ],
+                  // Opacity Layer
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  // Text on top
+                  Positioned(
+                    bottom: 10,
+                    left: 10,
+                    right: 10,
+                    child: Text(
+                      title,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         },

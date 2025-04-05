@@ -1,7 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
+import 'package:super_fitness_app/config/routes/page_route_name.dart';
 import 'package:super_fitness_app/core/di/di.dart';
+import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/utilities/style/app_images.dart';
 import 'package:super_fitness_app/core/utilities/style/spacing.dart';
 import 'package:super_fitness_app/src/domain/entities/meals/meals_by_category_entity.dart';
@@ -15,7 +17,7 @@ import '../../../../core/utilities/style/app_icons.dart';
 import '../../shared/filter_list_row.dart';
 
 class RecommendationScreen extends StatefulWidget {
-  RecommendationScreen({super.key});
+  const RecommendationScreen({super.key});
 
   @override
   State<RecommendationScreen> createState() => _RecommendationScreenState();
@@ -23,16 +25,22 @@ class RecommendationScreen extends StatefulWidget {
 
 class _RecommendationScreenState extends State<RecommendationScreen> {
   FoodRecommendationViewmodel viewmodel = getIt<FoodRecommendationViewmodel>();
+
   @override
   void initState() {
-    viewmodel.getCategories();
-    viewmodel.getMealsByCategory();
-    // TODO: implement initState
-    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final args = ModalRoute.of(context)?.settings.arguments as String?;
+      if (args != null) {
+        viewmodel.currentCategory = args;
+        viewmodel.getCategories();
+        viewmodel.getMealsByCategory();
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    var args = ModalRoute.of(context)?.settings.arguments as String?;
     return BaseScaffold(
       backGroundPath: AppImages.baseBackGround,
       body: BlocProvider(
@@ -72,7 +80,7 @@ class _RecommendationScreenState extends State<RecommendationScreen> {
                         Expanded(
                           child: Center(
                             child: Text(
-                              "Food Recommendation",
+                              context.localization.foodRecommendation,
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
@@ -85,7 +93,10 @@ class _RecommendationScreenState extends State<RecommendationScreen> {
                     ),
                     verticalSpace(24),
                     FilterListRow(
-                      categories: viewmodel.categories?.map((e) => e.strCategory ?? '').toList() ?? [],
+                      categories: viewmodel.categories
+                              ?.map((e) => e.strCategory ?? '')
+                              .toList() ??
+                          [],
                       selectedCategory: viewmodel.currentCategory,
                       onCategorySelected: (category) {
                         setState(() {
@@ -99,6 +110,16 @@ class _RecommendationScreenState extends State<RecommendationScreen> {
                       Lottie.asset(AppImages.loading),
                     if (state is MealsByCategorySuccess)
                       BaseGridview<MealsEntity>(
+                        onTap: (int index) {
+                          Map<String?, dynamic> args = {
+                            'id': viewmodel
+                                .mealsByCategoryEntity!.meals![index].idMeal,
+                            'list': viewmodel.mealsByCategoryEntity
+                          };
+                          navKey.currentState!.pushNamed(
+                              PageRoutesName.mealDetail,
+                              arguments: args);
+                        },
                         items: viewmodel.mealsByCategoryEntity!.meals,
                         titleBuilder: (meal) =>
                             meal?.strMeal ??

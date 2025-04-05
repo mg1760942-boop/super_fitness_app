@@ -17,7 +17,7 @@ class FoodRecommendationViewmodel extends Cubit<FoodRecommendationState> {
   FoodRecommendationViewmodel(
       this.mealCategoryUsecase, this.mealByCategoryUsecase)
       : super(FoodRecommendationInitial());
-  String currentCategory = "Beef";
+  String? currentCategory;
   List<CategoryEntity>? categories;
   MealsByCategoryEntity? mealsByCategoryEntity = MealsByCategoryEntity();
   Future<void> getCategories() async {
@@ -40,7 +40,7 @@ class FoodRecommendationViewmodel extends Cubit<FoodRecommendationState> {
     try {
       emit(MealsByCategoryLoading());
       final result =
-          await mealByCategoryUsecase.getMealsByCategory(currentCategory);
+          await mealByCategoryUsecase.getMealsByCategory(currentCategory!);
       switch (result) {
         case Success<MealsByCategoryEntity>():
           mealsByCategoryEntity = result.data!;

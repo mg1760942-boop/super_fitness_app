@@ -14,6 +14,7 @@ import '../../../managers/profile/profile_viewmodel.dart';
 import '../../../shared/blured_container.dart';
 import 'action_profile_row.dart';
 import 'language_row.dart';
+import 'logout_dialog.dart';
 
 class ProfileContent extends StatelessWidget {
   const ProfileContent({super.key});
@@ -76,7 +77,7 @@ class ProfileContent extends StatelessWidget {
                 ActionProfileRow(
                   title: context.localization.editProfile,
                   icon: AppIcons.editProfileIcon,
-                  onTap: ()=>_goNextToEditProfile(viewModel),
+                  onTap: () => _goNextToEditProfile(viewModel),
                 ),
                 verticalSpace(16),
                 ActionProfileRow(
@@ -130,7 +131,10 @@ class ProfileContent extends StatelessWidget {
                   title: context.localization.logout,
                   icon: AppIcons.logoutIcon,
                   onTap: () {
-                    viewModel.needToLogout();
+                    showDialog(
+                      context: context,
+                      builder: (context) => LogoutDialog(viewModel: viewModel),
+                    );
                   },
                 ),
               ],
@@ -141,11 +145,12 @@ class ProfileContent extends StatelessWidget {
     );
   }
 
-  void _goNextToEditProfile(ProfileViewmodel viewModel)async {
-  var responseNav=  await  navKey.currentState!.pushNamed(PageRoutesName.editProfile,
-    arguments: viewModel.appUserEntity,
-    ) as bool ? ;
-    if(responseNav!=null){
+  void _goNextToEditProfile(ProfileViewmodel viewModel) async {
+    var responseNav = await navKey.currentState!.pushNamed(
+      PageRoutesName.editProfile,
+      arguments: viewModel.appUserEntity,
+    ) as bool?;
+    if (responseNav != null) {
       viewModel.getUserData();
     }
   }

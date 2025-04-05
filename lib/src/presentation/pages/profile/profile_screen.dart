@@ -7,7 +7,6 @@ import 'package:super_fitness_app/core/di/di.dart';
 import 'package:super_fitness_app/core/extensions/extensions.dart';
 import 'package:super_fitness_app/core/utilities/dialogs/awesome_dialoge.dart';
 import 'package:super_fitness_app/src/presentation/managers/profile/profile_viewmodel.dart';
-import 'package:super_fitness_app/src/presentation/pages/profile/widgets/logout_dialog.dart';
 import 'package:super_fitness_app/src/presentation/pages/profile/widgets/profile_content.dart';
 
 import '../../../../core/common/common_imports.dart';
@@ -69,8 +68,6 @@ class _ProfileViewState extends State<ProfileView> {
               onOk: () {},
               dialogType: DialogType.error,
             );
-          } else if (state is ShowLogoutDialogState) {
-            _logoutDialog(context);
           } else if (state is LogoutSuccessState) {
             Navigator.pushNamedAndRemoveUntil(
                 context, PageRoutesName.login, (route) => false);
@@ -83,14 +80,6 @@ class _ProfileViewState extends State<ProfileView> {
           );
         },
       ),
-    );
-  }
-
-  void _logoutDialog(BuildContext context) {
-    showDialog(
-      barrierDismissible: false,
-      context: context,
-      builder: (context) => LogoutDialog(),
     );
   }
 }

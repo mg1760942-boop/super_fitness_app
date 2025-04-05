@@ -4,6 +4,8 @@
   <link rel="stylesheet" href="styles.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Super Fitness</title>
+
 </head>
 <body>
 <h2 id="screenshots">Screenshots</h2>
@@ -133,6 +135,8 @@ src/
 └── super_fitness_app.dart
 </pre>
 
+
+
 <h2 id="setup">Setup Instructions</h2>
 <ol>
   <li>Clone the repo:
@@ -180,14 +184,14 @@ src/
 <hr>
 
 <h2 id="contributors">👥 Contributors</h2>
-<table id="contributors-table">
+
+<table>
   <tr>
     <td>
       <a href="https://github.com/ahmed-sala">
         <img src="https://avatars.githubusercontent.com/ahmed-sala" width="150" alt="Ahmed Salah">
         <br><strong>Ahmed Salah</strong><br>
         Flutter Developer<br>
-        Commits: <span id="commits-ahmed">Loading...</span>
       </a>
     </td>
     <td>
@@ -195,7 +199,6 @@ src/
         <img src="https://avatars.githubusercontent.com/OmarHamedMakram123" width="150" alt="Omar Makram">
         <br><strong>Omar Makram</strong><br>
         Flutter Developer<br>
-        Commits: <span id="commits-omar">Loading...</span>
       </a>
     </td>
     <td>
@@ -203,53 +206,10 @@ src/
         <img src="https://avatars.githubusercontent.com/ali72-20" width="150" alt="Ali Safwat">
         <br><strong>Ali Safwat</strong><br>
         Flutter Developer<br>
-        Commits: <span id="commits-ali">Loading...</span>
       </a>
     </td>
   </tr>
 </table>
-
-<!-- Only ONE script block below -->
-<script>
-    const owner = 'OmarHamedMakram123';
-    const repo = 'super_fitness_app';
-    const contributorsMap = {
-      'ahmed-sala': 'commits-ahmed',
-      'OmarHamedMakram123': 'commits-omar',
-      'ali72-20': 'commits-ali'
-    };
-
-    function fetchContributorStats() {
-      fetch(`https://api.github.com/repos/${owner}/${repo}/stats/contributors`)
-        .then(response => {
-          if (response.status === 202) {
-            console.log('GitHub is still generating stats. Retrying in 3 seconds...');
-            setTimeout(fetchContributorStats, 3000);
-            return;
-          }
-          return response.json();
-        })
-        .then(data => {
-          if (!data) return;
-          if (Array.isArray(data)) {
-            data.forEach(contributor => {
-              const username = contributor.author.login;
-              const commitCount = contributor.total;
-              if (contributorsMap[username]) {
-                document.getElementById(contributorsMap[username]).textContent = commitCount;
-              }
-            });
-          } else {
-            console.error('Unexpected data format:', data);
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching contributor data:', error);
-        });
-    }
-
-    fetchContributorStats();
-  </script>
 
 </body>
 </html>

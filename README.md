@@ -211,46 +211,45 @@ src/
 
 <!-- Only ONE script block below -->
 <script>
-  const owner = 'OmarHamedMakram123';
-  const repo = 'super_fitness_app';
+    const owner = 'OmarHamedMakram123';
+    const repo = 'super_fitness_app';
+    const contributorsMap = {
+      'ahmed-sala': 'commits-ahmed',
+      'OmarHamedMakram123': 'commits-omar',
+      'ali72-20': 'commits-ali'
+    };
 
-  const contributorsMap = {
-    'ahmed-sala': 'commits-ahmed',
-    'OmarHamedMakram123': 'commits-omar',
-    'ali72-20': 'commits-ali'
-  };
+    function fetchContributorStats() {
+      fetch(`https://api.github.com/repos/${owner}/${repo}/stats/contributors`)
+        .then(response => {
+          if (response.status === 202) {
+            console.log('GitHub is still generating stats. Retrying in 3 seconds...');
+            setTimeout(fetchContributorStats, 3000);
+            return;
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (!data) return;
+          if (Array.isArray(data)) {
+            data.forEach(contributor => {
+              const username = contributor.author.login;
+              const commitCount = contributor.total;
+              if (contributorsMap[username]) {
+                document.getElementById(contributorsMap[username]).textContent = commitCount;
+              }
+            });
+          } else {
+            console.error('Unexpected data format:', data);
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching contributor data:', error);
+        });
+    }
 
-  function fetchContributorStats() {
-    fetch(`https://api.github.com/repos/${owner}/${repo}/stats/contributors`)
-      .then(response => {
-        if (response.status === 202) {
-          console.log('GitHub is still generating stats. Retrying in 3 seconds...');
-          setTimeout(fetchContributorStats, 3000);
-          return;
-        }
-        return response.json();
-      })
-      .then(data => {
-        if (!data) return;
-        if (Array.isArray(data)) {
-          data.forEach(contributor => {
-            const username = contributor.author.login;
-            const commitCount = contributor.total;
-            if (contributorsMap[username]) {
-              document.getElementById(contributorsMap[username]).textContent = commitCount;
-            }
-          });
-        } else {
-          console.error('Unexpected data format:', data);
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching contributor data:', error);
-      });
-  }
-
-  fetchContributorStats();
-</script>
+    fetchContributorStats();
+  </script>
 
 </body>
 </html>

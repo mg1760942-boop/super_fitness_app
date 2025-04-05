@@ -1,72 +1,8 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 40px;
-  background-color: #f7f7f7;
-  color: #333;
-  line-height: 1.6;
-}
-
-h1, h2, h3 {
-  color: #0e4d92;
-}
-
-code {
-  background-color: #eee;
-  padding: 2px 5px;
-  border-radius: 3px;
-}
-
-pre {
-  background: #eee;
-  padding: 10px;
-  border-radius: 5px;
-  overflow-x: auto;
-}
-
-hr {
-  margin: 40px 0;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-table {
-  width: 100%;
-  text-align: center;
-  border-spacing: 20px;
-}
-
-a {
-  color: #0e4d92;
-  text-decoration: none;
-}
-
-.screenshot-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-top: 20px;
-}
-
-.screenshot-grid div {
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.screenshot-grid img {
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-}
-
-.screenshot-grid img:hover {
-  transform: scale(1.03);
-}
+/* Ensure the container for each screenshot item uses flex layout */
 .screenshot-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -74,11 +10,19 @@ a {
   text-align: center;
 }
 
+/* Update the image styling: force it at the top and set a custom size */
 .screenshot-item img {
+  width: 300px;      /* Change this value to adjust the image size */
+  max-width: 100%;
+  height: auto;
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* The image is already placed before the caption in HTML.
+     If you ever need to re-order elements, you could use:
+     order: -1; */
 }
 
+/* Optional: if you want a hover effect that scales up the image */
 .screenshot-item img:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);

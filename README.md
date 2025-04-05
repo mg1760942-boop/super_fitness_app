@@ -125,10 +125,7 @@ src/
     <img src="screenshots/home_screen.png" alt="Home Screen">
     <p><strong>Home Screen</strong></p>
   </div>
-  <div class="screenshot-item">
-    <img src="screenshots/workouts_screen.png" alt="Workouts Screen">
-    <p><strong>Workouts Screen</strong></p>
-  </div>
+ 
   <div class="screenshot-item">
     <img src="screenshots/profile_screen.png" alt="Profile Screen">
     <p><strong>Profile Screen</strong></p>

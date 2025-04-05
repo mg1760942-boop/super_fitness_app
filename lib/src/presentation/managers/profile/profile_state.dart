@@ -22,3 +22,12 @@ final class ProfileError extends ProfileState {
 final class SwitchLanguageState extends ProfileState {
   SwitchLanguageState();
 }
+
+
+final class LogoutSuccessState extends ProfileState{}
+final class LogoutErrorState extends ProfileState{
+  final Exception? exception;
+  LogoutErrorState(this.exception);
+}
+
+final class ShowLogoutDialogState extends ProfileState{}

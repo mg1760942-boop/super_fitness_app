@@ -6,6 +6,7 @@ import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_p
 import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/reset_password_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/forget_password/verify_reset_code_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/login/login_response.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/logout/logout_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/upload_image_response/upload_image_response.dart';
 
 import '../../../../domain/entities/app_user_entity/app_user_entity.dart';
@@ -29,4 +30,5 @@ abstract interface class AuthOnlineDataSource {
   Future<AppUserEntity> editProfile(EditProfileRequest editProfileRequest);
 
   Future<UploadImageResponse> uploadImage(String token, File image);
+  Future<LogoutResponseModel> logout();
 }

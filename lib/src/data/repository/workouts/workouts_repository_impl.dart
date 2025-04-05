@@ -1,0 +1,69 @@
+import 'package:flutter/cupertino.dart';
+import 'package:injectable/injectable.dart';
+import 'package:super_fitness_app/core/common/apis/api_executer.dart';
+import 'package:super_fitness_app/core/common/apis/api_result.dart';
+import 'package:super_fitness_app/src/data/data_source/online_data_source/workouts/workouts_online_data_source.dart';
+import 'package:super_fitness_app/src/domain/entities/workouts/exercises_entity.dart';
+import 'package:super_fitness_app/src/domain/entities/workouts/muscle_entity.dart';
+import 'package:super_fitness_app/src/domain/entities/workouts/muscles_group_entity.dart';
+import 'package:super_fitness_app/src/domain/repositories/workouts/workouts_repository.dart';
+
+@Injectable(as: WorkoutsRepository)
+class WorkoutsRepositoryImpl implements WorkoutsRepository {
+  final WorkoutsOnlineDataSource _workoutsOnlineDataSource;
+
+  WorkoutsRepositoryImpl(this._workoutsOnlineDataSource);
+
+  @override
+  Future<ApiResult<List<MusclesGroupEntity>>> getMusclesGroup() async {
+    return await executeApi<List<MusclesGroupEntity>>(apiCall: () async {
+      var response = await _workoutsOnlineDataSource.getMusclesGroup();
+      return response.toDomain();
+    });
+  }
+
+  @override
+  Future<ApiResult<List<MusclesEntity>>> getFullBodyMuscles() async {
+    return await executeApi<List<MusclesEntity>>(apiCall: () async {
+      var response = await _workoutsOnlineDataSource.getRandomMuscles();
+      return response.toDomain();
+    });
+  }
+
+  @override
+  Future<ApiResult<List<ExerciseEntity>>> getExercisesByMuscleId(
+      String muscleId) async {
+    return await executeApi<List<ExerciseEntity>>(apiCall: () async {
+      var response =
+          await _workoutsOnlineDataSource.getExercisesByMuscleId(muscleId);
+      return response.toDomain();
+    });
+  }
+
+  @override
+  Future<ApiResult<List<ExerciseEntity>>> getAllExercises() async {
+    return await executeApi<List<ExerciseEntity>>(apiCall: () async {
+      var response = await _workoutsOnlineDataSource.getAllExercises();
+      return response.toDomain();
+    });
+  }
+
+  @override
+  Future<ApiResult<List<MusclesEntity>>> getAllPrimeMoverByGroupId(
+      String groupId) async {
+    return await executeApi<List<MusclesEntity>>(apiCall: () async {
+      var response =
+          await _workoutsOnlineDataSource.getAllPrimeMoverByGroupId(groupId);
+      return response.toDomain();
+    });
+  }
+
+  @override
+  Future<ApiResult<List<MusclesEntity>>> getMusclesByGroupId(
+      String muscleId) async {
+    return await executeApi<List<MusclesEntity>>(apiCall: () async {
+      var response = await _workoutsOnlineDataSource.getMusclesById(muscleId);
+      return response.toDomain();
+    });
+  }
+}

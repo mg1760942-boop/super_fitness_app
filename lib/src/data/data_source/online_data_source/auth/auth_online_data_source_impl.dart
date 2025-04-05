@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:injectable/injectable.dart';
 import 'package:super_fitness_app/src/data/api/api_services.dart';
 import 'package:super_fitness_app/src/data/api/core/api_request_models/forget_password/forget_password_request_model.dart';
+import 'package:super_fitness_app/src/data/api/core/api_response_models/logout/logout_response_model.dart';
 import 'package:super_fitness_app/src/data/api/core/api_response_models/upload_image_response/upload_image_response.dart';
 import 'package:super_fitness_app/src/data/api/upload_api_manger/upload_api_manger.dart';
 
@@ -73,5 +74,10 @@ class AuthOnlineDataSourceImpl implements AuthOnlineDataSource {
     var response =
         await uploadApiManager.uploadImage(image: image, token: token);
     return response;
+  }
+
+  @override
+  Future<LogoutResponseModel> logout() async {
+    return await apiServices.logout();
   }
 }

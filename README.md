@@ -160,3 +160,44 @@ Below are some placeholder screenshots. Replace these with actual images of your
     flutter run
     ```
    
+
+## How to Contribute
+We welcome contributions! If you would like to contribute to **Super Fitness**, please follow these steps:
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Make your changes and commit them:
+   ```bash
+    git commit -m "Add your commit message"
+    ```
+4. Push to your branch:
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+5. Create a pull request to the main repository.
+6. Ensure your code adheres to the project's coding standards and passes all tests.
+7. Update the documentation if necessary.
+8. Add tests for new features or bug fixes.
+9. Ensure your code is well-commented and follows the project's style guide.
+10. Test your changes thoroughly before submitting the pull request.
+11. Be respectful and open to feedback from the maintainers and other contributors.
+12. Be patient! It may take some time for your pull request to be reviewed and merged.
+13. If your pull request is accepted, celebrate your contribution to the project! 🎉
+14. If your pull request is not accepted, don't be discouraged. Use the feedback to improve your code and try again.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+Feel free to modify and distribute this project as per the terms of the license.
+```
+## 👥 Contributors
+
+|              | Name & GitHub Profile | Role                          | Commits | Pushes |
+|--------------|------------------------|-------------------------------|---------|--------|
+| ![Ahmed Salah](https://github-readme-stats.vercel.app/api?username=ahmed-sala&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default) | [**Ahmed Salah**](https://github.com/ahmed-sala) | Team Leader & Flutter Developer  | 45      | 30     |
+| ![Omar Makram](https://github-readme-stats.vercel.app/api?username=OmarHamedMakram123&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default) | [**Omar Makram**](https://github.com/OmarHamedMakram123) | Flutter Developer & UI Designer | 38      | 25     |
+| ![Ali Safwat](https://github-readme-stats.vercel.app/api?username=ali72-20&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default) | [**Ali Safwat**](https://github.com/ali72-20)   | Backend Integration & State Mgmt | 41      | 27     |
+
+
+   

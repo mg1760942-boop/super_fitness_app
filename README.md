@@ -193,32 +193,32 @@ Feel free to modify and distribute this project as per the terms of the license.
 ```
 ## 👥 Contributors
 
----
-
-### **[Ahmed Salah](https://github.com/ahmed-sala)**
-[![Ahmed Salah](https://github-readme-stats.vercel.app/api?username=ahmed-sala&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default)](https://github.com/ahmed-sala)
-
-- **Role:** Team Leader & Flutter Developer  
-- **Commits:** 45  
-- **Pushes:** 30  
-
----
-
-### **[Omar Makram](https://github.com/OmarHamedMakram123)**
-[![Omar Makram](https://github-readme-stats.vercel.app/api?username=OmarHamedMakram123&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default)](https://github.com/OmarHamedMakram123)
-
-- **Role:** Flutter Developer & UI Designer  
-- **Commits:** 38  
-- **Pushes:** 25  
-
----
-
-### **[Ali Safwat](https://github.com/ali72-20)**
-[![Ali Safwat](https://github-readme-stats.vercel.app/api?username=ali72-20&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default)](https://github.com/ali72-20)
-
-- **Role:** Backend Integration & State Mgmt  
-- **Commits:** 41  
-- **Pushes:** 27  
-
----
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/ahmed-sala">
+        <img src="https://github-readme-stats.vercel.app/api?username=ahmed-sala&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default" alt="Ahmed Salah" width="150" />
+        <br /><sub><b>Ahmed Salah</b></sub>
+      </a>
+      <br />Team Leader & Flutter Developer  
+      Commits: 45 | Pushes: 30
+    </td>
+    <td align="center">
+      <a href="https://github.com/OmarHamedMakram123">
+        <img src="https://github-readme-stats.vercel.app/api?username=OmarHamedMakram123&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default" alt="Omar Makram" width="150" />
+        <br /><sub><b>Omar Makram</b></sub>
+      </a>
+      <br />Flutter Developer & UI Designer  
+      Commits: 38 | Pushes: 25
+    </td>
+    <td align="center">
+      <a href="https://github.com/ali72-20">
+        <img src="https://github-readme-stats.vercel.app/api?username=ali72-20&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default" alt="Ali Safwat" width="150" />
+        <br /><sub><b>Ali Safwat</b></sub>
+      </a>
+      <br />Backend Integration & State Mgmt  
+      Commits: 41 | Pushes: 27
+    </td>
+  </tr>
+</table>
 

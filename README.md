@@ -193,11 +193,32 @@ Feel free to modify and distribute this project as per the terms of the license.
 ```
 ## 👥 Contributors
 
-|              | Name & GitHub Profile | Role                          | Commits | Pushes |
-|--------------|------------------------|-------------------------------|---------|--------|
-| ![Ahmed Salah](https://github-readme-stats.vercel.app/api?username=ahmed-sala&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default) | [**Ahmed Salah**](https://github.com/ahmed-sala) | Team Leader & Flutter Developer  | 45      | 30     |
-| ![Omar Makram](https://github-readme-stats.vercel.app/api?username=OmarHamedMakram123&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default) | [**Omar Makram**](https://github.com/OmarHamedMakram123) | Flutter Developer & UI Designer | 38      | 25     |
-| ![Ali Safwat](https://github-readme-stats.vercel.app/api?username=ali72-20&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default) | [**Ali Safwat**](https://github.com/ali72-20)   | Backend Integration & State Mgmt | 41      | 27     |
+---
 
+### **[Ahmed Salah](https://github.com/ahmed-sala)**
+[![Ahmed Salah](https://github-readme-stats.vercel.app/api?username=ahmed-sala&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default)](https://github.com/ahmed-sala)
 
-   
+- **Role:** Team Leader & Flutter Developer  
+- **Commits:** 45  
+- **Pushes:** 30  
+
+---
+
+### **[Omar Makram](https://github.com/OmarHamedMakram123)**
+[![Omar Makram](https://github-readme-stats.vercel.app/api?username=OmarHamedMakram123&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default)](https://github.com/OmarHamedMakram123)
+
+- **Role:** Flutter Developer & UI Designer  
+- **Commits:** 38  
+- **Pushes:** 25  
+
+---
+
+### **[Ali Safwat](https://github.com/ali72-20)**
+[![Ali Safwat](https://github-readme-stats.vercel.app/api?username=ali72-20&show_icons=true&hide_title=true&hide=contribs&count_private=true&theme=default)](https://github.com/ali72-20)
+
+- **Role:** Backend Integration & State Mgmt  
+- **Commits:** 41  
+- **Pushes:** 27  
+
+---
+
